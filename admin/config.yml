@@ -7,9 +7,6 @@ public_folder: "/resimler"
 
 locale: "tr"
 
-editor:
-  preview: true
-
 collections:
 
   # ---- SOSYOLOJİ ----
@@ -69,7 +66,7 @@ collections:
           - {label: "Açık Gri", value: "#f5f7fa"}
           - {label: "Çok Açık Mavi", value: "#f0f4f8"}
         default: "#ffffff"
-      - {label: "İçerik", name: "body", widget: "html"}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
 
 
   # ---- FELSEFE ----
@@ -112,7 +109,7 @@ collections:
           - {label: "Orta (Varsayılan)", value: "18px"}
           - {label: "Büyük", value: "20px"}
         default: "18px"
-      - {label: "İçerik", name: "body", widget: "html"}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
 
 
   # ---- EDEBİYAT ----
@@ -128,7 +125,7 @@ collections:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "html"}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
 
 
   # ---- TARİH ----
@@ -144,7 +141,7 @@ collections:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "html"}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
 
 
   # ---- PSİKOLOJİ ----
@@ -160,7 +157,7 @@ collections:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "html"}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
 
 
   # ---- SANAT ----
@@ -176,7 +173,7 @@ collections:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "html"}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
 
 
   # ---- DİN ----
@@ -192,7 +189,7 @@ collections:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "html"}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
 
 
   # ---- BİLİM ----
@@ -208,7 +205,7 @@ collections:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "html"}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
 
 
   # ---- MİTOLOJİ ----
@@ -224,7 +221,7 @@ collections:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "html"}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
 
 
   # ---- NOTLAR ----
@@ -239,4 +236,4 @@ collections:
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
-      - {label: "İçerik", name: "body", widget: "html"}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
