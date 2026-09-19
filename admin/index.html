@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Yönetim Paneli | Furkan Sağdıç</title>
+
+    <link rel="stylesheet" href="../style.css">
+
+    <style>
+
+        .admin-kutu {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: var(--bg);
+            border: 1px solid var(--cizgi);
+            border-radius: 12px;
+        }
+
+        .admin-kutu h1 {
+            font-size: 28px;
+            color: var(--baslik);
+            margin: 0 0 10px;
+        }
+
+        .admin-kutu .aciklama {
+            color: var(--metin-soluk);
+            font-size: 14px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .form-grup {
+            margin-bottom: 22px;
+        }
+
+        .form-grup label {
+            display: block;
+            font-weight: 600;
+            color: var(--baslik);
+            margin-bottom: 8px;
+            font-size: 14px;
+        }
+
+        .form-grup input[type="text"],
+        .form-grup select,
+        .form-grup textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 1px solid var(--cizgi);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 15px;
+            background: var(--bg);
+            color: var(--metin);
+            transition: border-color 0.15s;
+        }
+
+        .form-grup input[type="text"]:focus,
+        .form-grup select:focus,
+        .form-grup textarea:focus {
+            outline: none;
+            border-color: var(--vurgu);
+        }
+
+        .form-grup textarea {
+            min-height: 350px;
+            resize: vertical;
+            line-height: 1.7;
+            font-family: "SF Mono", Consolas, monospace;
+            font-size: 14px;
+        }
+
+        .form-grup input[type="file"] {
+            font-size: 14px;
+            padding: 8px 0;
+        }
+
+        .ipucu {
+            font-size: 13px;
+            color: var(--metin-soluk);
+            margin-top: 6px;
+            line-height: 1.6;
+        }
+
+        .ipucu code {
+            background: var(--kod-arka);
+            color: var(--kod-metin);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+
+        .butonlar {
+            display: flex;
+            gap: 12px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .buton {
+            padding: 14px 28px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: inherit;
+            transition: all 0.15s;
+        }
+
+        .buton-birincil {
+            background: var(--baslik);
+            color: white;
+        }
+
+        .buton-birincil:hover {
+            background: var(--baslik-acik);
+        }
+
+        .buton-ikincil {
+            background: var(--bg-yumusak);
+            color: var(--metin);
+            border: 1px solid var(--cizgi);
+        }
+
+        .buton-ikincil:hover {
+            background: var(--alinti-arka);
+        }
+
+        .durum {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .durum.basari {
+            background: #e6f4ea;
+            color: #1e5e2e;
+            border: 1px solid #a8d5b5;
+            display: block;
+        }
+
+        .durum.hata {
+            background: #fce8e8;
+            color: #7a1f1f;
+            border: 1px solid #e8a8a8;
+            display: block;
+        }
+
+        .durum code {
+            background: rgba(0,0,0,0.08);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+
+        .kategori-satiri {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 700px) {
+            .admin-kutu {
+                padding: 25px;
+                margin: 20px;
+            }
+            .kategori-satiri {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+<header class="ust-bar">
+    <div class="ust-bar-ic">
+        <a href="../index.html" class="site-baslik">Furkan Sağdıç</a>
+        <div class="ust-bar-sag">
+            <a href="../index.html" style="color: var(--vurgu); font-size: 14px; text-decoration: none; font-weight: 600;">← Siteye dön</a>
+        </div>
+    </div>
+</header>
+
+
+<main>
+
+    <div class="admin-kutu">
+
+        <h1>Yönetim Paneli</h1>
+
+        <p class="aciklama">
+            Formu doldurun ve "Yazıyı Oluştur" butonuna basın.
+            Bilgisayarınıza bir ZIP dosyası inecek. Bu ZIP'i açıp
+            içindeki klasörü GitHub'da ilgili yere yükleyeceksiniz.
+        </p>
+
+
+        <div class="form-grup">
+            <label for="baslik">Yazı Başlığı</label>
+            <input type="text" id="baslik" placeholder="Örnek: Varlık Nedir?">
+        </div>
+
+
+        <div class="kategori-satiri">
+
+            <div class="form-grup">
+                <label for="kategori">Ana Kategori</label>
+                <select id="kategori">
+                    <option value="">Seçiniz...</option>
+                    <option value="felsefe">Felsefe</option>
+                    <option value="edebiyat">Edebiyat</option>
+                    <option value="sosyoloji">Sosyoloji</option>
+                    <option value="tarih">Tarih</option>
+                    <option value="psikoloji">Psikoloji</option>
+                    <option value="sanat">Sanat</option>
+                    <option value="din">Din</option>
+                    <option value="bilim">Bilim</option>
+                    <option value="mitoloji">Mitoloji</option>
+                    <option value="notlar">Notlar</option>
+                </select>
+            </div>
+
+            <div class="form-grup">
+                <label for="altKategori">Alt Kategori</label>
+                <input type="text" id="altKategori" placeholder="Örnek: ontoloji">
+                <div class="ipucu">
+                    Küçük harf ve tire kullanın. Örnek: <code>bilim-felsefesi</code>
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="form-grup">
+            <label for="ozet">Özet (kısa açıklama)</label>
+            <input type="text" id="ozet" placeholder="Ana sayfada görünecek kısa açıklama">
+        </div>
+
+
+        <div class="form-grup">
+            <label for="tarih">Tarih</label>
+            <input type="text" id="tarih" placeholder="19 Eylül 2026">
+        </div>
+
+
+        <div class="form-grup">
+            <label for="icerik">Yazı İçeriği</label>
+            <textarea id="icerik" placeholder="Word'den kopyaladığınız metni buraya yapıştırın.
+
+Başlık için: ## Başlık
+Alt başlık için: ### Alt başlık
+Alıntı için: > Alıntı metni
+Kalın için: **kelime**
+İtalik için: *kelime*
+
+Paragrafları boş satırla ayırın."></textarea>
+            <div class="ipucu">
+                <strong>İşaretleme:</strong>
+                <code>## Başlık</code> → büyük başlık ·
+                <code>### Alt başlık</code> → küçük başlık ·
+                <code>&gt; Alıntı</code> → alıntı ·
+                <code>**kalın**</code> → <strong>kalın</strong> ·
+                <code>*italik*</code> → <em>italik</em>
+            </div>
+        </div>
+
+
+        <div class="form-grup">
+            <label for="kapak">Kapak Resmi (isteğe bağlı)</label>
+            <input type="file" id="kapak" accept="image/*">
+        </div>
+
+
+        <div class="form-grup">
+            <label for="resimler">Yazı İçi Resimler (isteğe bağlı, birden fazla seçebilirsiniz)</label>
+            <input type="file" id="resimler" accept="image/*" multiple>
+            <div class="ipucu">
+                Metnin içinde resim göstermek istediğiniz yere
+                <code>[resim-1]</code>, <code>[resim-2]</code>
+                gibi etiketler koyun.
+            </div>
+        </div>
+
+
+        <div class="butonlar">
+            <button class="buton buton-birincil" id="olustur">Yazıyı Oluştur</button>
+            <button class="buton buton-ikincil" id="temizle">Formu Temizle</button>
+        </div>
+
+
+        <div class="durum" id="durum"></div>
+
+    </div>
+
+</main>
+
+
+<footer class="alt-bilgi">
+    <div class="alt-bilgi-ic">
+        <p>© 2026 Furkan Sağdıç</p>
+    </div>
+</footer>
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<script>
+
+(function () {
+
+    "use strict";
+
+    /* ---- Bugünün tarihi ---- */
+    function bugununTarihi() {
+        var aylar = ["Ocak","Şubat","Mart","Nisan","Mayıs","Haziran",
+                     "Temmuz","Ağustos","Eylül","Ekim","Kasım","Aralık"];
+        var d = new Date();
+        return d.getDate() + " " + aylar[d.getMonth()] + " " + d.getFullYear();
+    }
+
+    document.getElementById("tarih").value = bugununTarihi();
+
+
+    /* ---- Başlığı URL dostu yap ---- */
+    function slugla(metin) {
+        var tr = {"ç":"c","ğ":"g","ı":"i","ö":"o","ş":"s","ü":"u",
+                  "Ç":"c","Ğ":"g","İ":"i","Ö":"o","Ş":"s","Ü":"u"};
+        return metin
+            .split("")
+            .map(function (k) { return tr[k] || k; })
+            .join("")
+            .toLowerCase()
+            .replace(/[^a-z0-9\s-]/g, "")
+            .trim()
+            .replace(/\s+/g, "-")
+            .replace(/-+/g, "-");
+    }
+
+
+    /* ---- Metni HTML'e çevir ---- */
+    function metniHTMLe(metin) {
+        var satirlar = metin.split("\n");
+        var html = "";
+        var paragraf = [];
+
+        function paragrafiKapat() {
+            if (paragraf.length > 0) {
+                var icerik = paragraf.join(" ");
+                icerik = icerik
+                    .replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+                    .replace(/\*(.+?)\*/g, "<em>$1</em>");
+                html += "            <p>" + icerik + "</p>\n\n";
+                paragraf = [];
+            }
+        }
+
+        for (var i = 0; i < satirlar.length; i++) {
+            var satir = satirlar[i].trim();
+
+            if (satir === "") {
+                paragrafiKapat();
+                continue;
+            }
+
+            if (satir.indexOf("## ") === 0) {
+                paragrafiKapat();
+                html += "            <h2>" + satir.substring(3) + "</h2>\n\n";
+                continue;
+            }
+
+            if (satir.indexOf("### ") === 0) {
+                paragrafiKapat();
+                html += "            <h3>" + satir.substring(4) + "</h3>\n\n";
+                continue;
+            }
+
+            if (satir.indexOf("> ") === 0) {
+                paragrafiKapat();
+                var alinti = satir.substring(2);
+                alinti = alinti.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>")
+                               .replace(/\*(.+?)\*/g, "<em>$1</em>");
+                html += "            <blockquote>\n                <p>" + alinti + "</p>\n            </blockquote>\n\n";
+                continue;
+            }
+
+            if (/^\[resim-\d+\]$/.test(satir)) {
+                paragrafiKapat();
+                var numara = satir.match(/\d+/)[0];
+                html += "            <figure class=\"yazi-resim\">\n";
+                html += "                <img src=\"resim-" + numara + ".jpg\" alt=\"Resim " + numara + "\">\n";
+                html += "            </figure>\n\n";
+                continue;
+            }
+
+            paragraf.push(satir);
+        }
+
+        paragrafiKapat();
+        return html;
+    }
+
+
+    /* ---- Ana fonksiyon ---- */
+    function yaziyiOlustur() {
+
+        var baslik = document.getElementById("baslik").value.trim();
+        var kategori = document.getElementById("kategori").value;
+        var altKategori = document.getElementById("altKategori").value.trim();
+        var ozet = document.getElementById("ozet").value.trim();
+        var tarih = document.getElementById("tarih").value.trim();
+        var icerik = document.getElementById("icerik").value;
+        var kapakDosya = document.getElementById("kapak").files[0];
+        var resimDosyalar = document.getElementById("resimler").files;
+
+        var durum = document.getElementById("durum");
+
+        if (!baslik || !kategori || !altKategori || !icerik) {
+            durum.className = "durum hata";
+            durum.textContent = "Lütfen başlık, kategori, alt kategori ve içerik alanlarını doldurun.";
+            return;
+        }
+
+        var slug = slugla(baslik);
+        var kategoriAdi = kategori.charAt(0).toUpperCase() + kategori.slice(1);
+        var icerikHTML = metniHTMLe(icerik);
+
+        var kapakHTML = "";
+        if (kapakDosya) {
+            kapakHTML = "        <figure class=\"kapak-resim\">\n" +
+                        "            <img src=\"kapak.jpg\" alt=\"" + baslik + "\">\n" +
+                        "        </figure>\n\n";
+        }
+
+        var sayfaHTML = '<!DOCTYPE html>\n' +
+'<html lang="tr">\n\n' +
+'<head>\n\n' +
+'    <meta charset="UTF-8">\n\n' +
+'    <meta name="viewport" content="width=device-width, initial-scale=1.0">\n\n' +
+'    <title>' + baslik + ' | Furkan Sağdıç</title>\n\n' +
+'    <meta name="description" content="' + ozet + '">\n\n' +
+'    <link rel="stylesheet" href="../../../style.css">\n\n' +
+'</head>\n\n\n' +
+'<body>\n\n' +
+'<header class="ust-bar">\n\n' +
+'    <div class="ust-bar-ic">\n\n' +
+'        <a href="../../../index.html" class="site-baslik">Furkan Sağdıç</a>\n\n' +
+'        <div class="ust-bar-sag">\n\n' +
+'            <div class="yazi-boyutu">\n\n' +
+'                <button id="kucult" title="Yazıyı küçült">A−</button>\n\n' +
+'                <button id="sifirla" title="Normal boyut">A</button>\n\n' +
+'                <button id="buyut" title="Yazıyı büyüt">A+</button>\n\n' +
+'            </div>\n\n' +
+'            <button id="menu-buton" class="menu-buton" title="Menü">☰</button>\n\n' +
+'        </div>\n\n' +
+'    </div>\n\n' +
+'</header>\n\n\n' +
+'<nav id="ana-menu" class="ana-menu">\n\n' +
+'    <div class="ana-menu-ic">\n\n' +
+'        <a href="../../../index.html">Ana Sayfa</a>\n\n' +
+'        <a href="../../../felsefe/index.html">Felsefe</a>\n\n' +
+'        <a href="../../../edebiyat/index.html">Edebiyat</a>\n\n' +
+'        <a href="../../../sosyoloji/index.html">Sosyoloji</a>\n\n' +
+'        <a href="../../../tarih/index.html">Tarih</a>\n\n' +
+'        <a href="../../../psikoloji/index.html">Psikoloji</a>\n\n' +
+'        <a href="../../../sanat/index.html">Sanat</a>\n\n' +
+'        <a href="../../../din/index.html">Din</a>\n\n' +
+'        <a href="../../../bilim/index.html">Bilim</a>\n\n' +
+'        <a href="../../../mitoloji/index.html">Mitoloji</a>\n\n' +
+'        <a href="../../../notlar/index.html">Notlar</a>\n\n' +
+'        <a href="../../../hakkimda/index.html">Hakkımda</a>\n\n' +
+'    </div>\n\n' +
+'</nav>\n\n\n' +
+'<main>\n\n\n' +
+'    <div class="yazi-sayfa">\n\n' +
+'        <div class="kategori-etiket">\n            ' + kategoriAdi + ' · ' + altKategori + '\n        </div>\n\n' +
+'        <h1 class="yazi-baslik">\n            ' + baslik + '\n        </h1>\n\n' +
+'        <div class="yazi-meta">\n            ' + tarih + ' · Furkan Sağdıç\n        </div>\n\n' +
+kapakHTML +
+'        <article class="yazi-icerik">\n\n\n' +
+icerikHTML +
+'\n        </article>\n\n\n' +
+'    </div>\n\n\n' +
+'    <div class="geri-don">\n\n' +
+'        <a href="../index.html">\n            ← ' + altKategori + ' yazılarına dön\n        </a>\n\n' +
+'    </div>\n\n\n' +
+'</main>\n\n\n' +
+'<footer class="alt-bilgi">\n\n' +
+'    <div class="alt-bilgi-ic">\n\n' +
+'        <p>© 2026 Furkan Sağdıç</p>\n\n' +
+'    </div>\n\n' +
+'</footer>\n\n\n' +
+'<script src="../../../script.js"><\/script>\n\n' +
+'</body>\n\n' +
+'</html>';
+
+
+        /* ZIP oluştur */
+        var zip = new JSZip();
+        var klasorAdi = kategori + "/" + altKategori + "/" + slug + "/";
+        zip.file(klasorAdi + "index.html", sayfaHTML);
+
+        if (kapakDosya) {
+            zip.file(klasorAdi + "kapak.jpg", kapakDosya);
+        }
+
+        for (var i = 0; i < resimDosyalar.length; i++) {
+            var uzanti = resimDosyalar[i].name.split(".").pop();
+            zip.file(klasorAdi + "resim-" + (i + 1) + "." + uzanti, resimDosyalar[i]);
+        }
+
+        zip.generateAsync({ type: "blob" }).then(function (blob) {
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement("a");
+            a.href = url;
+            a.download = slug + ".zip";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+
+            durum.className = "durum basari";
+            durum.innerHTML =
+                "<strong>✓ Yazı oluşturuldu!</strong><br><br>" +
+                "İndirilen ZIP dosyasını açın. İçindeki <code>" + slug + "</code> klasörünü " +
+                "GitHub'da <code>" + kategori + "/" + altKategori + "/</code> klasörüne yükleyin.<br><br>" +
+                "<strong>Yazı yolu:</strong> " + kategori + "/" + altKategori + "/" + slug + "/";
+        });
+
+    }
+
+
+    document.getElementById("olustur").addEventListener("click", yaziyiOlustur);
+
+    document.getElementById("temizle").addEventListener("click", function () {
+        document.getElementById("baslik").value = "";
+        document.getElementById("kategori").value = "";
+        document.getElementById("altKategori").value = "";
+        document.getElementById("ozet").value = "";
+        document.getElementById("tarih").value = bugununTarihi();
+        document.getElementById("icerik").value = "";
+        document.getElementById("kapak").value = "";
+        document.getElementById("resimler").value = "";
+        document.getElementById("durum").className = "durum";
+        document.getElementById("durum").textContent = "";
+    });
+
+})();
+
+</script>
+
+</body>
+
+</html>
