@@ -5,14 +5,11 @@ backend:
 media_folder: "resimler"
 public_folder: "/resimler"
 
-# Site dilleri ve yerelleştirme
 locale: "tr"
 
-# Editör önizlemesi
 editor:
   preview: true
 
-# Koleksiyonlar (kategoriler)
 collections:
 
   # ---- SOSYOLOJİ ----
@@ -22,7 +19,8 @@ collections:
     folder: "sosyoloji/yazilar"
     create: true
     slug: "{{slug}}"
-    preview_path: "sosyoloji/yazilar/{{slug}}"
+    extension: "html"
+    path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
@@ -37,7 +35,6 @@ collections:
           - {label: "Lacivert", value: "#1e3a5f"}
           - {label: "Bordo", value: "#7a2e2e"}
           - {label: "Kahverengi", value: "#5c4033"}
-          - {label: "Koyu Yeşil", value: "#2f4f2f"}
         default: "#292723"
       - label: "Başlık Rengi"
         name: "baslik_rengi"
@@ -46,8 +43,6 @@ collections:
           - {label: "Lacivert (Varsayılan)", value: "#1e3a5f"}
           - {label: "Bordo", value: "#7a2e2e"}
           - {label: "Siyah", value: "#1a1a1a"}
-          - {label: "Koyu Yeşil", value: "#2f4f2f"}
-          - {label: "Mor", value: "#5b3a7a"}
         default: "#1e3a5f"
       - label: "Yazı Boyutu"
         name: "yazi_boyutu"
@@ -56,7 +51,6 @@ collections:
           - {label: "Küçük", value: "16px"}
           - {label: "Orta (Varsayılan)", value: "18px"}
           - {label: "Büyük", value: "20px"}
-          - {label: "Çok Büyük", value: "22px"}
         default: "18px"
       - label: "Başlık Boyutu"
         name: "baslik_boyutu"
@@ -75,7 +69,7 @@ collections:
           - {label: "Açık Gri", value: "#f5f7fa"}
           - {label: "Çok Açık Mavi", value: "#f0f4f8"}
         default: "#ffffff"
-      - {label: "İçerik", name: "body", widget: "markdown"}
+      - {label: "İçerik", name: "body", widget: "html"}
 
 
   # ---- FELSEFE ----
@@ -85,6 +79,8 @@ collections:
     folder: "felsefe/yazilar"
     create: true
     slug: "{{slug}}"
+    extension: "html"
+    path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
@@ -116,7 +112,7 @@ collections:
           - {label: "Orta (Varsayılan)", value: "18px"}
           - {label: "Büyük", value: "20px"}
         default: "18px"
-      - {label: "İçerik", name: "body", widget: "markdown"}
+      - {label: "İçerik", name: "body", widget: "html"}
 
 
   # ---- EDEBİYAT ----
@@ -126,19 +122,13 @@ collections:
     folder: "edebiyat/yazilar"
     create: true
     slug: "{{slug}}"
+    extension: "html"
+    path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - label: "Yazı Rengi"
-        name: "yazi_rengi"
-        widget: "select"
-        options:
-          - {label: "Siyah (Varsayılan)", value: "#292723"}
-          - {label: "Bordo", value: "#7a2e2e"}
-          - {label: "Lacivert", value: "#1e3a5f"}
-        default: "#292723"
-      - {label: "İçerik", name: "body", widget: "markdown"}
+      - {label: "İçerik", name: "body", widget: "html"}
 
 
   # ---- TARİH ----
@@ -148,11 +138,13 @@ collections:
     folder: "tarih/yazilar"
     create: true
     slug: "{{slug}}"
+    extension: "html"
+    path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "markdown"}
+      - {label: "İçerik", name: "body", widget: "html"}
 
 
   # ---- PSİKOLOJİ ----
@@ -162,11 +154,13 @@ collections:
     folder: "psikoloji/yazilar"
     create: true
     slug: "{{slug}}"
+    extension: "html"
+    path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "markdown"}
+      - {label: "İçerik", name: "body", widget: "html"}
 
 
   # ---- SANAT ----
@@ -176,11 +170,13 @@ collections:
     folder: "sanat/yazilar"
     create: true
     slug: "{{slug}}"
+    extension: "html"
+    path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "markdown"}
+      - {label: "İçerik", name: "body", widget: "html"}
 
 
   # ---- DİN ----
@@ -190,11 +186,13 @@ collections:
     folder: "din/yazilar"
     create: true
     slug: "{{slug}}"
+    extension: "html"
+    path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "markdown"}
+      - {label: "İçerik", name: "body", widget: "html"}
 
 
   # ---- BİLİM ----
@@ -204,11 +202,13 @@ collections:
     folder: "bilim/yazilar"
     create: true
     slug: "{{slug}}"
+    extension: "html"
+    path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "markdown"}
+      - {label: "İçerik", name: "body", widget: "html"}
 
 
   # ---- MİTOLOJİ ----
@@ -218,11 +218,13 @@ collections:
     folder: "mitoloji/yazilar"
     create: true
     slug: "{{slug}}"
+    extension: "html"
+    path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
-      - {label: "İçerik", name: "body", widget: "markdown"}
+      - {label: "İçerik", name: "body", widget: "html"}
 
 
   # ---- NOTLAR ----
@@ -232,7 +234,9 @@ collections:
     folder: "notlar/yazilar"
     create: true
     slug: "{{slug}}"
+    extension: "html"
+    path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
-      - {label: "İçerik", name: "body", widget: "markdown"}
+      - {label: "İçerik", name: "body", widget: "html"}
