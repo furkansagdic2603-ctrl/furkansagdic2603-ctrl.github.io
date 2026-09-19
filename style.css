@@ -888,3 +888,176 @@ body {
     text-decoration: underline;
 
 }
+/* =========================================================
+   KATEGORİ AĞACI (Alt kategoriler için)
+   ========================================================= */
+
+.kategori-agaci {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 0;
+
+    border-left: 3px solid var(--cizgi);
+
+    padding-left: 0;
+
+    margin-left: 10px;
+
+}
+
+.kategori-dal {
+
+    position: relative;
+
+    padding: 18px 20px 18px 30px;
+
+    border-bottom: 1px solid var(--cizgi);
+
+    transition: background 0.15s;
+
+}
+
+.kategori-dal:last-child {
+    border-bottom: none;
+}
+
+.kategori-dal:hover {
+
+    background: var(--bg-yumusak);
+
+}
+
+.kategori-dal::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: -3px;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 3px;
+
+    background: transparent;
+
+    transition: background 0.15s;
+
+}
+
+.kategori-dal:hover::before {
+
+    background: var(--vurgu);
+
+}
+
+.kategori-numara {
+
+    display: inline-block;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: var(--vurgu);
+
+    background: var(--alinti-arka);
+
+    padding: 2px 10px;
+
+    border-radius: 4px;
+
+    margin-bottom: 8px;
+
+    letter-spacing: 0.5px;
+
+    font-family: "SF Mono", Consolas, monospace;
+
+}
+
+.kategori-ad {
+
+    display: block;
+
+    font-size: 19px;
+
+    font-weight: 600;
+
+    color: var(--baslik);
+
+    text-decoration: none;
+
+    margin-bottom: 5px;
+
+    transition: color 0.15s;
+
+}
+
+.kategori-ad:hover {
+
+    color: var(--baslik-acik);
+
+    text-decoration: underline;
+
+}
+
+.kategori-aciklama {
+
+    font-size: 14px;
+
+    color: var(--metin-soluk);
+
+    line-height: 1.5;
+
+}
+
+
+/* ---- Girintili alt-alt kategoriler ---- */
+
+.kategori-dal.alt-1 {
+    margin-left: 0;
+}
+
+.kategori-dal.alt-2 {
+    margin-left: 25px;
+}
+
+.kategori-dal.alt-3 {
+    margin-left: 50px;
+}
+
+.kategori-dal.alt-4 {
+    margin-left: 75px;
+}
+
+
+/* ---- Mobil uyum ---- */
+
+@media (max-width: 700px) {
+
+    .kategori-dal {
+
+        padding: 15px 15px 15px 20px;
+
+    }
+
+    .kategori-ad {
+
+        font-size: 17px;
+
+    }
+
+    .kategori-dal.alt-2,
+    .kategori-dal.alt-3,
+    .kategori-dal.alt-4 {
+
+        margin-left: 0;
+
+    }
+
+}
