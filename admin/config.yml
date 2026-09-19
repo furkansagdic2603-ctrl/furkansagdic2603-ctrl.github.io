@@ -5,13 +5,10 @@ backend:
 media_folder: "resimler"
 public_folder: "/resimler"
 
-locale: "tr"
-
 collections:
 
   - name: "sosyoloji"
     label: "Sosyoloji"
-    label_singular: "Sosyoloji Yazısı"
     folder: "sosyoloji/yazilar"
     create: true
     slug: "{{slug}}"
@@ -19,13 +16,10 @@ collections:
     path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
-      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
-      - {label: "Özet", name: "ozet", widget: "string", required: false}
-      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html"}
 
   - name: "tarih"
     label: "Tarih"
-    label_singular: "Tarih Yazısı"
     folder: "tarih/yazilar"
     create: true
     slug: "{{slug}}"
@@ -33,13 +27,10 @@ collections:
     path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
-      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
-      - {label: "Özet", name: "ozet", widget: "string", required: false}
-      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html"}
 
   - name: "felsefe"
     label: "Felsefe"
-    label_singular: "Felsefe Yazısı"
     folder: "felsefe/yazilar"
     create: true
     slug: "{{slug}}"
@@ -47,6 +38,4 @@ collections:
     path: "{{slug}}/index"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
-      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
-      - {label: "Özet", name: "ozet", widget: "string", required: false}
-      - {label: "İçerik", name: "body", widget: "code", default_language: "html", allow_language_selection: false}
+      - {label: "İçerik", name: "body", widget: "code", default_language: "html"}
