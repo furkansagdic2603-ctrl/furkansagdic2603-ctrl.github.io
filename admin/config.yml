@@ -5,13 +5,234 @@ backend:
 media_folder: "resimler"
 public_folder: "/resimler"
 
+# Site dilleri ve yerelleştirme
+locale: "tr"
+
+# Editör önizlemesi
+editor:
+  preview: true
+
+# Koleksiyonlar (kategoriler)
 collections:
-  - name: "yazilar"
-    label: "Yazılar"
-    folder: "sosyoloji"
+
+  # ---- SOSYOLOJİ ----
+  - name: "sosyoloji"
+    label: "Sosyoloji"
+    label_singular: "Sosyoloji Yazısı"
+    folder: "sosyoloji/yazilar"
+    create: true
+    slug: "{{slug}}"
+    preview_path: "sosyoloji/yazilar/{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+      - {label: "Alt Kategori", name: "altkategori", widget: "string", required: false, hint: "Örneğin: gundelik-hayat"}
+      - {label: "Özet", name: "ozet", widget: "text", required: false}
+      - label: "Yazı Rengi"
+        name: "yazi_rengi"
+        widget: "select"
+        options:
+          - {label: "Siyah (Varsayılan)", value: "#292723"}
+          - {label: "Koyu Gri", value: "#4a4a4a"}
+          - {label: "Lacivert", value: "#1e3a5f"}
+          - {label: "Bordo", value: "#7a2e2e"}
+          - {label: "Kahverengi", value: "#5c4033"}
+          - {label: "Koyu Yeşil", value: "#2f4f2f"}
+        default: "#292723"
+      - label: "Başlık Rengi"
+        name: "baslik_rengi"
+        widget: "select"
+        options:
+          - {label: "Lacivert (Varsayılan)", value: "#1e3a5f"}
+          - {label: "Bordo", value: "#7a2e2e"}
+          - {label: "Siyah", value: "#1a1a1a"}
+          - {label: "Koyu Yeşil", value: "#2f4f2f"}
+          - {label: "Mor", value: "#5b3a7a"}
+        default: "#1e3a5f"
+      - label: "Yazı Boyutu"
+        name: "yazi_boyutu"
+        widget: "select"
+        options:
+          - {label: "Küçük", value: "16px"}
+          - {label: "Orta (Varsayılan)", value: "18px"}
+          - {label: "Büyük", value: "20px"}
+          - {label: "Çok Büyük", value: "22px"}
+        default: "18px"
+      - label: "Başlık Boyutu"
+        name: "baslik_boyutu"
+        widget: "select"
+        options:
+          - {label: "Küçük", value: "28px"}
+          - {label: "Orta (Varsayılan)", value: "38px"}
+          - {label: "Büyük", value: "46px"}
+        default: "38px"
+      - label: "Arka Plan Rengi"
+        name: "arka_plan"
+        widget: "select"
+        options:
+          - {label: "Beyaz (Varsayılan)", value: "#ffffff"}
+          - {label: "Krem", value: "#f7f4ee"}
+          - {label: "Açık Gri", value: "#f5f7fa"}
+          - {label: "Çok Açık Mavi", value: "#f0f4f8"}
+        default: "#ffffff"
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+
+  # ---- FELSEFE ----
+  - name: "felsefe"
+    label: "Felsefe"
+    label_singular: "Felsefe Yazısı"
+    folder: "felsefe/yazilar"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Başlık", name: "title", widget: "string"}
-      - {label: "Yayın Tarihi", name: "date", widget: "datetime"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+      - {label: "Alt Kategori", name: "altkategori", widget: "string", required: false}
+      - {label: "Özet", name: "ozet", widget: "text", required: false}
+      - label: "Yazı Rengi"
+        name: "yazi_rengi"
+        widget: "select"
+        options:
+          - {label: "Siyah (Varsayılan)", value: "#292723"}
+          - {label: "Koyu Gri", value: "#4a4a4a"}
+          - {label: "Lacivert", value: "#1e3a5f"}
+          - {label: "Bordo", value: "#7a2e2e"}
+          - {label: "Kahverengi", value: "#5c4033"}
+        default: "#292723"
+      - label: "Başlık Rengi"
+        name: "baslik_rengi"
+        widget: "select"
+        options:
+          - {label: "Lacivert (Varsayılan)", value: "#1e3a5f"}
+          - {label: "Bordo", value: "#7a2e2e"}
+          - {label: "Siyah", value: "#1a1a1a"}
+        default: "#1e3a5f"
+      - label: "Yazı Boyutu"
+        name: "yazi_boyutu"
+        widget: "select"
+        options:
+          - {label: "Küçük", value: "16px"}
+          - {label: "Orta (Varsayılan)", value: "18px"}
+          - {label: "Büyük", value: "20px"}
+        default: "18px"
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+
+  # ---- EDEBİYAT ----
+  - name: "edebiyat"
+    label: "Edebiyat"
+    label_singular: "Edebiyat Yazısı"
+    folder: "edebiyat/yazilar"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+      - {label: "Özet", name: "ozet", widget: "text", required: false}
+      - label: "Yazı Rengi"
+        name: "yazi_rengi"
+        widget: "select"
+        options:
+          - {label: "Siyah (Varsayılan)", value: "#292723"}
+          - {label: "Bordo", value: "#7a2e2e"}
+          - {label: "Lacivert", value: "#1e3a5f"}
+        default: "#292723"
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+
+  # ---- TARİH ----
+  - name: "tarih"
+    label: "Tarih"
+    label_singular: "Tarih Yazısı"
+    folder: "tarih/yazilar"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+      - {label: "Özet", name: "ozet", widget: "text", required: false}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+
+  # ---- PSİKOLOJİ ----
+  - name: "psikoloji"
+    label: "Psikoloji"
+    label_singular: "Psikoloji Yazısı"
+    folder: "psikoloji/yazilar"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+      - {label: "Özet", name: "ozet", widget: "text", required: false}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+
+  # ---- SANAT ----
+  - name: "sanat"
+    label: "Sanat"
+    label_singular: "Sanat Yazısı"
+    folder: "sanat/yazilar"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+      - {label: "Özet", name: "ozet", widget: "text", required: false}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+
+  # ---- DİN ----
+  - name: "din"
+    label: "Din"
+    label_singular: "Din Yazısı"
+    folder: "din/yazilar"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+      - {label: "Özet", name: "ozet", widget: "text", required: false}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+
+  # ---- BİLİM ----
+  - name: "bilim"
+    label: "Bilim"
+    label_singular: "Bilim Yazısı"
+    folder: "bilim/yazilar"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+      - {label: "Özet", name: "ozet", widget: "text", required: false}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+
+  # ---- MİTOLOJİ ----
+  - name: "mitoloji"
+    label: "Mitoloji"
+    label_singular: "Mitoloji Yazısı"
+    folder: "mitoloji/yazilar"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
+      - {label: "Özet", name: "ozet", widget: "text", required: false}
+      - {label: "İçerik", name: "body", widget: "markdown"}
+
+
+  # ---- NOTLAR ----
+  - name: "notlar"
+    label: "Notlar"
+    label_singular: "Not"
+    folder: "notlar/yazilar"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "İçerik", name: "body", widget: "markdown"}
