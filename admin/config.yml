@@ -19,7 +19,7 @@ collections:
     extension: "html"
     path: "{{slug}}/index"
     fields:
-      - {label: "Başlık", name: "title", widget: "string"}
+      - {label: "Başlık", name: "title", widget: "text"}
       - {label: "Yayın Tarihi", name: "date", widget: "datetime", format: "DD MMMM YYYY", date_format: "DD MMMM YYYY", time_format: false}
       - {label: "Alt Kategori", name: "altkategori", widget: "string", required: false, hint: "Örneğin: gundelik-hayat"}
       - {label: "Özet", name: "ozet", widget: "text", required: false}
