@@ -1,0 +1,473 @@
+/* =========================================================
+   FURKAN SAĞDIÇ — MODERN AKADEMİK TASARIM
+   ========================================================= */
+
+:root {
+
+    --bg: #ffffff;
+    --bg-yumusak: #f5f7fa;
+    --bg-kart: #ffffff;
+
+    --metin: #1a1a1a;
+    --metin-acik: #4a4a4a;
+    --metin-soluk: #7a7a7a;
+
+    --baslik: #1e3a5f;
+    --baslik-acik: #2b6cb0;
+
+    --vurgu: #4a6fa5;
+    --vurgu-koyu: #2c4a70;
+
+    --cizgi: #d1d9e6;
+    --cizgi-koyu: #b0bdd0;
+
+    --alinti-arka: #f0f4f8;
+    --alinti-cizgi: #4a6fa5;
+
+    --kod-arka: #f5f7fa;
+    --kod-metin: #c7254e;
+
+    --yazi-olcek: 1;
+
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+
+    margin: 0;
+    background: var(--bg);
+    color: var(--metin);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    font-size: calc(17px * var(--yazi-olcek));
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+    transition: font-size 0.2s ease;
+
+}
+
+
+/* ---- Üst Bar ---- */
+
+.ust-bar {
+    background: var(--bg);
+    border-bottom: 1px solid var(--cizgi);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.ust-bar-ic {
+    max-width: 1200px;
+    margin: auto;
+    padding: 18px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-baslik {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--baslik);
+    text-decoration: none;
+    letter-spacing: 0.3px;
+}
+
+.site-baslik:hover {
+    color: var(--baslik-acik);
+}
+
+.ust-bar-sag {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+
+/* ---- Yazı Boyutu Butonları ---- */
+
+.yazi-boyutu {
+    display: flex;
+    gap: 4px;
+    background: var(--bg-yumusak);
+    padding: 4px;
+    border-radius: 8px;
+    border: 1px solid var(--cizgi);
+}
+
+.yazi-boyutu button {
+    background: transparent;
+    border: none;
+    color: var(--metin-acik);
+    font-size: 14px;
+    font-weight: 600;
+    width: 34px;
+    height: 30px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: inherit;
+    transition: all 0.15s;
+}
+
+.yazi-boyutu button:hover {
+    background: var(--bg);
+    color: var(--baslik);
+}
+
+.yazi-boyutu button:active {
+    transform: scale(0.95);
+}
+
+
+/* ---- Mobil Menü Butonu ---- */
+
+.menu-buton {
+    display: none;
+    background: transparent;
+    border: 1px solid var(--cizgi);
+    color: var(--baslik);
+    font-size: 20px;
+    padding: 4px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+
+/* ---- Ana Menü ---- */
+
+.ana-menu {
+    background: var(--baslik);
+    border-bottom: 1px solid var(--cizgi);
+}
+
+.ana-menu-ic {
+    max-width: 1200px;
+    margin: auto;
+    padding: 0 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+}
+
+.ana-menu a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 16px 18px;
+    font-size: 15px;
+    font-weight: 500;
+    transition: background 0.15s;
+    display: inline-block;
+}
+
+.ana-menu a:hover {
+    background: var(--baslik-acik);
+}
+
+.ana-menu a.aktif {
+    background: var(--baslik-acik);
+    font-weight: 600;
+}
+
+
+/* ---- İçerik ---- */
+
+.icerik {
+    max-width: 1200px;
+    margin: auto;
+    padding: 70px 30px;
+}
+
+
+/* ---- Giriş Bölümü ---- */
+
+.giris {
+    max-width: 780px;
+    margin-bottom: 90px;
+}
+
+.giris h1 {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--baslik);
+    margin: 0 0 25px;
+    letter-spacing: -0.5px;
+}
+
+.giris p {
+    font-size: 19px;
+    color: var(--metin-acik);
+    margin: 0;
+}
+
+
+/* ---- Bölüm Başlığı ---- */
+
+.bolum {
+    margin-bottom: 60px;
+}
+
+.bolum-baslik {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--baslik);
+    padding-bottom: 14px;
+    border-bottom: 2px solid var(--baslik);
+    margin-bottom: 35px;
+    display: inline-block;
+}
+
+
+/* ---- Yazı Listesi ---- */
+
+.yazi-listesi {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.yazi-kart {
+    background: var(--bg-kart);
+    border: 1px solid var(--cizgi);
+    border-radius: 10px;
+    padding: 28px;
+    transition: all 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.yazi-kart:hover {
+    border-color: var(--vurgu);
+    box-shadow: 0 8px 24px rgba(30, 58, 95, 0.08);
+    transform: translateY(-2px);
+}
+
+.kategori-etiket {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--vurgu);
+    margin-bottom: 14px;
+}
+
+.yazi-kart h3 {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1.35;
+    margin: 0 0 14px;
+}
+
+.yazi-kart h3 a {
+    color: var(--baslik);
+    text-decoration: none;
+}
+
+.yazi-kart h3 a:hover {
+    color: var(--baslik-acik);
+    text-decoration: underline;
+}
+
+.yazi-kart p {
+    color: var(--metin-acik);
+    font-size: 15px;
+    margin: 0 0 20px;
+    flex-grow: 1;
+}
+
+.devam {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--vurgu);
+    margin-top: auto;
+}
+
+
+/* ---- Alt Bilgi ---- */
+
+.alt-bilgi {
+    background: var(--bg-yumusak);
+    border-top: 1px solid var(--cizgi);
+    margin-top: 80px;
+    padding: 40px 30px;
+}
+
+.alt-bilgi-ic {
+    max-width: 1200px;
+    margin: auto;
+    text-align: center;
+}
+
+.alt-bilgi p {
+    margin: 5px 0;
+    color: var(--metin-acik);
+    font-size: 14px;
+}
+
+.alt-bilgi-aciklama {
+    color: var(--metin-soluk) !important;
+    font-size: 13px !important;
+}
+
+
+/* =========================================================
+   MOBİL UYUM
+   ========================================================= */
+
+@media (max-width: 900px) {
+
+    .yazi-listesi {
+        grid-template-columns: 1fr;
+    }
+
+    .giris h1 {
+        font-size: 32px;
+    }
+
+    .icerik {
+        padding: 50px 20px;
+    }
+
+    .ust-bar-ic {
+        padding: 15px 20px;
+    }
+
+    .ana-menu-ic {
+        padding: 0 20px;
+    }
+
+    .menu-buton {
+        display: block;
+    }
+
+    .ana-menu {
+        display: none;
+    }
+
+    .ana-menu.acik {
+        display: block;
+    }
+
+    .ana-menu-ic {
+        flex-direction: column;
+    }
+
+    .ana-menu a {
+        padding: 12px 20px;
+        border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+}
+
+
+/* =========================================================
+   YAZI SAYFASI STİLLERİ
+   ========================================================= */
+
+.yazi-sayfa {
+    max-width: 760px;
+    margin: auto;
+    padding: 60px 30px;
+}
+
+.yazi-baslik {
+    font-size: 38px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: var(--baslik);
+    margin: 0 0 20px;
+    letter-spacing: -0.5px;
+}
+
+.yazi-meta {
+    font-size: 14px;
+    color: var(--metin-soluk);
+    padding-bottom: 25px;
+    border-bottom: 1px solid var(--cizgi);
+    margin-bottom: 40px;
+}
+
+.yazi-icerik {
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--metin);
+}
+
+.yazi-icerik p {
+    margin: 0 0 26px;
+}
+
+.yazi-icerik h2 {
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--baslik);
+    margin: 50px 0 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--cizgi);
+}
+
+.yazi-icerik h3 {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--baslik-acik);
+    margin: 35px 0 15px;
+}
+
+.yazi-icerik blockquote {
+    margin: 35px 0;
+    padding: 20px 25px;
+    background: var(--alinti-arka);
+    border-left: 4px solid var(--alinti-cizgi);
+    border-radius: 0 8px 8px 0;
+    font-style: italic;
+    color: var(--metin-acik);
+}
+
+.yazi-icerik em {
+    font-style: italic;
+}
+
+.yazi-icerik strong {
+    font-weight: 700;
+    color: var(--baslik);
+}
+
+.yazi-icerik a {
+    color: var(--vurgu);
+    text-decoration: none;
+    border-bottom: 1px solid var(--vurgu);
+}
+
+.yazi-icerik img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px 0;
+    display: block;
+}
+
+.geri-don {
+    max-width: 760px;
+    margin: 60px auto 0;
+    padding: 25px 30px 0;
+    border-top: 1px solid var(--cizgi);
+    font-size: 15px;
+}
+
+.geri-don a {
+    color: var(--vurgu);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.geri-don a:hover {
+    text-decoration: underline;
+}
