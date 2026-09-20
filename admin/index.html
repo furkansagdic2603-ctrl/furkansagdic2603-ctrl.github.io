@@ -56,6 +56,7 @@
         }
 
         .form-alan input[type="text"],
+        .form-alan select,
         .form-alan textarea {
             width: 100%; padding: 10px 12px;
             border: 1px solid #d1d9e6; border-radius: 6px;
@@ -216,6 +217,23 @@
     <!-- ============ FORM ============ -->
 
     <div class="form-alan">
+
+        <label for="kategori">Kategori</label>
+        <select id="kategori">
+            <option value="felsefe">Felsefe</option>
+            <option value="edebiyat">Edebiyat</option>
+            <option value="sosyoloji">Sosyoloji</option>
+            <option value="tarih">Tarih</option>
+            <option value="psikoloji">Psikoloji</option>
+            <option value="sanat">Sanat</option>
+            <option value="din">Din</option>
+            <option value="bilim">Bilim</option>
+            <option value="mitoloji">Mitoloji</option>
+            <option value="notlar">Notlar</option>
+        </select>
+
+        <label for="altkategori">Alt Kategori (isteğe bağlı)</label>
+        <input type="text" id="altkategori" placeholder="Örnek: estetik (boş bırakılırsa doğrudan kategoriye eklenir)">
 
         <label for="baslik">Yazı Başlığı</label>
         <input type="text" id="baslik" placeholder="Yazının başlığını girin...">
@@ -380,6 +398,8 @@ function yayinla() {
     var slug = document.getElementById('slug').value.trim();
     var ozet = document.getElementById('ozet').value.trim();
     var icerik = document.getElementById('editor').innerHTML;
+    var kategori = document.getElementById('kategori').value;
+    var altkategori = document.getElementById('altkategori').value.trim();
 
     if (!baslik) {
         alert('Yazı başlığını girin.');
@@ -392,7 +412,10 @@ function yayinla() {
     var aylar = ['Ocak','Şubat','Mart','Nisan','Mayıs','Haziran','Temmuz','Ağustos','Eylül','Ekim','Kasım','Aralık'];
     var tarihStr = tarih.getDate() + ' ' + aylar[tarih.getMonth()] + ' ' + tarih.getFullYear();
 
-    var yol = '../../../';
+    var kategoriAdi = kategori.charAt(0).toUpperCase() + kategori.slice(1);
+    var etiket = kategoriAdi + (altkategori ? ' · ' + altkategori : '');
+
+    var yol = altkategori ? '../../../' : '../../';
 
     var html = '<!DOCTYPE html>\n' +
 '<html lang="tr">\n\n' +
@@ -435,7 +458,7 @@ function yayinla() {
 '</nav>\n\n\n' +
 '<main>\n\n' +
 '    <div class="yazi-sayfa">\n\n' +
-'        <div class="kategori-etiket">Felsefe</div>\n\n' +
+'        <div class="kategori-etiket">' + etiket + '</div>\n\n' +
 '        <h1 class="yazi-baslik">' + baslik + '</h1>\n\n' +
 '        <div class="yazi-meta">' + tarihStr + ' · Furkan Sağdıç</div>\n\n' +
 '        <article class="yazi-icerik">\n\n' +
@@ -443,7 +466,7 @@ icerik + '\n\n' +
 '        </article>\n\n' +
 '    </div>\n\n' +
 '    <div class="geri-don">\n\n' +
-'        <a href="../index.html">← Felsefe yazılarına dön</a>\n\n' +
+'        <a href="../index.html">← ' + kategoriAdi + ' yazılarına dön</a>\n\n' +
 '    </div>\n\n' +
 '</main>\n\n\n' +
 '<footer class="alt-bilgi">\n\n' +
@@ -465,17 +488,20 @@ icerik + '\n\n' +
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
 
+    var githubKlasor = kategori + '/' + (altkategori ? altkategori + '/' : '');
+    var yaziAdresi = 'https://furkansagdic2603-ctrl.github.io/' + kategori + '/' + (altkategori ? altkategori + '/' : '') + slug + '/';
+
     var durum = document.getElementById('durum');
     durum.className = 'durum basari';
     durum.innerHTML = '<strong>✓ Dosya indirildi: index.html</strong><br><br>' +
         '<strong>Şimdi GitHub\'da şu adrese gidin:</strong><br>' +
-        '<code>https://github.com/furkansagdic2603-ctrl/furkansagdic2603-ctrl.github.io/tree/main/felsefe</code><br><br>' +
+        '<code>https://github.com/furkansagdic2603-ctrl/furkansagdic2603-ctrl.github.io/tree/main/' + githubKlasor + '</code><br><br>' +
         '<strong>1.</strong> Add file → Create new file<br>' +
         '<strong>2.</strong> Dosya adı: <code>' + slug + '/index.html</code><br>' +
         '<strong>3.</strong> İçine indirdiğiniz dosyanın içeriğini yapıştırın<br>' +
         '<strong>4.</strong> Commit changes<br><br>' +
         '<strong>Yazı adresi:</strong><br>' +
-        '<code>https://furkansagdic2603-ctrl.github.io/felsefe/' + slug + '/</code>';
+        '<code>' + yaziAdresi + '</code>';
 
 }
 
@@ -483,6 +509,7 @@ function temizle() {
     document.getElementById('baslik').value = '';
     document.getElementById('slug').value = '';
     document.getElementById('ozet').value = '';
+    document.getElementById('altkategori').value = '';
     document.getElementById('editor').innerHTML = '<p>Buraya yazmaya başlayın...</p>';
     document.getElementById('durum').className = 'durum';
 }
