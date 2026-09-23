@@ -1,0 +1,30 @@
+name: Update article lists
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**/index.html'
+      - 'build_site.py'
+      - '!articles.json'
+permissions:
+  contents: write
+jobs:
+  build:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install lxml==6.0.2
+      - run: python build_site.py
+      - name: Commit updated pages
+        run: |
+          if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add .
+            git commit -m "Update article lists"
+            git push
+          fi
