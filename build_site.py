@@ -5,7 +5,8 @@ import json, re
 from html import escape
 
 ROOT = Path(__file__).parent
-CATS = {'felsefe':'Felsefe','sanat':'Sanat','edebiyat':'Edebiyat','tarih':'Tarih','din':'Din','mitoloji':'Mitoloji','sosyoloji':'Sosyoloji','psikoloji':'Psikoloji','bilim':'Bilim','notlar':'Notlar'}
+CATS = {'kitap-notlari':'Kitap Notları','felsefe':'Felsefe','sanat':'Sanat','edebiyat':'Edebiyat','tarih':'Tarih','din':'Din','mitoloji':'Mitoloji','sosyoloji':'Sosyoloji','psikoloji':'Psikoloji','bilim':'Bilim','notlar':'Notlar'}
+BOOK_TOPICS = {'felsefe':'Felsefe','din':'Din','tarih':'Tarih','edebiyat':'Edebiyat','sanat':'Sanat','sosyoloji':'Sosyoloji','psikoloji':'Psikoloji','bilim':'Bilim','mitoloji':'Mitoloji','diger':'Diğer'}
 EXTRAS = {'kaynakca':'Kaynakça','galeri':'Galeri','hakkimda':'Hakkımda','iletisim':'İletişim','arsiv':'Arşiv'}
 
 def doc(title, main, active='', description='Furkan Sağdıç’ın yazıları ve notları.'):
@@ -55,7 +56,7 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     articles.append(dict(title=title,date=date,description=description,category=category,url=url))
     # Retain the original article body, including supplied images and formatting.
     # New editor-created pages are also normalized on the next GitHub build.
-    label=CATS[category] + (' · '+parts[1].replace('-',' ').title() if len(parts)>3 else '')
+    label=CATS[category] + (' · '+BOOK_TOPICS.get(parts[1],parts[1].replace('-',' ').title()) if len(parts)>3 else '')
     content=f'<div class="article-head"><a class="back" href="/{category}/">← {CATS[category]}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div><article class="prose yazi-icerik" data-article="true">{body}</article><div class="article-end"><a href="/{category}/">← {CATS[category]} yazıları</a></div>'
     write(path.relative_to(ROOT),doc(title,content,category,description))
 
@@ -70,6 +71,13 @@ write('index.html',doc('Ana sayfa',main,description='Furkan Sağdıç’ın fels
 for slug,name in CATS.items():
     matched=[a for a in articles if a['category']==slug]
     inner=f'<section class="page-head"><span class="eyebrow">KONU / {escape(name.upper())}</span><h1>{name}</h1><p>{len(matched)} yazı</p></section><section class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Bu bölümde henüz yazı yok. Yeni yazılar burada görünecek.</p>')+'</section>'
+    if slug == 'kitap-notlari':
+        links=''.join(f'<a href="/kitap-notlari/{key}/"><span>{value}</span><span>↗</span></a>' for key,value in BOOK_TOPICS.items())
+        inner='<section class="page-head"><span class="eyebrow">OKUMA DEFTERİ</span><h1>Kitap Notları</h1><p>Okuduğum kitaplardan notlar, alıntılar ve değerlendirmeler.</p></section><div class="topic-grid">'+links+'</div><section class="listing"><div class="section-heading"><h2>Son kitap notları</h2></div><div class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Henüz kitap notu yayımlanmadı.</p>')+'</div></section>'
+        for key,value in BOOK_TOPICS.items():
+            notes=[a for a in matched if a['url'].startswith('/kitap-notlari/'+key+'/')]
+            topic='<section class="page-head"><a class="back" href="/kitap-notlari/">← Kitap Notları</a><h1>'+value+'</h1><p>'+str(len(notes))+' kitap notu</p></section><section class="entries">'+(''.join(card(a) for a in notes) if notes else '<p class="empty">Bu kategoride henüz kitap notu yayımlanmadı.</p>')+'</section>'
+            write(f'kitap-notlari/{key}/index.html',doc(value+' — Kitap Notları',topic,slug))
     write(f'{slug}/index.html',doc(name,inner,slug))
 # Existing nested topic remains reachable from its parent.
 if (ROOT/'felsefe/estetik').exists():
