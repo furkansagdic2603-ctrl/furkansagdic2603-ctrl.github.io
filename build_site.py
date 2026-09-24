@@ -5,8 +5,10 @@ import json, re
 from html import escape
 
 ROOT = Path(__file__).parent
-CATS = {item['slug']: item['name'] for item in json.loads((ROOT/'data/categories.json').read_text(encoding='utf-8'))}
-BOOK_TOPICS = {'felsefe':'Felsefe','din':'Din','tarih':'Tarih','edebiyat':'Edebiyat','sanat':'Sanat','sinema':'Sinema','sosyoloji':'Sosyoloji','psikoloji':'Psikoloji','bilim':'Bilim','mitoloji':'Mitoloji','diger':'Diğer'}
+CATEGORY_ROWS = json.loads((ROOT/'data/categories.json').read_text(encoding='utf-8'))
+CATS = {item['slug']: item['name'] for item in CATEGORY_ROWS if not item.get('parent')}
+CATEGORY_PATHS = {item.get('parent', '') + ('/' if item.get('parent') else '') + item['slug']: item['name'] for item in CATEGORY_ROWS}
+BOOK_TOPICS = {item['slug']:item['name'] for item in CATEGORY_ROWS if item.get('parent') == 'kitap-notlari'}
 EXTRAS = {'kaynakca':'Kaynakça','galeri':'Galeri','hakkimda':'Hakkımda','iletisim':'İletişim','arsiv':'Arşiv'}
 
 def doc(title, main, active='', description='Furkan Sağdıç’ın yazıları ve notları.'):
@@ -56,10 +58,12 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     articles.append(dict(title=title,date=date,description=description,category=category,url=url))
     # Retain the original article body, including supplied images and formatting.
     # New editor-created pages are also normalized on the next GitHub build.
-    label=CATS[category] + (' · '+BOOK_TOPICS.get(parts[1],parts[1].replace('-',' ').title()) if len(parts)>3 else '')
-    parent_url = f'/{category}/{parts[1]}/' if category == 'kitap-notlari' and len(parts)>3 else f'/{category}/'
+    category_path = '/'.join(parts[:-2])
+    label = ' · '.join(CATEGORY_PATHS.get('/'.join(parts[:i]), parts[i-1].replace('-',' ').title()) for i in range(1, len(parts)-1) if '/'.join(parts[:i]) in CATEGORY_PATHS)
+    if not label: label=CATS[category]
+    parent_url = f'/{category_path}/' if category_path else f'/{category}/'
     chapter_note = ''
-    if category == 'kitap-notlari' and len(parts) > 4:
+    if category == 'kitap-notlari' and len(parts) > 4 and category_path not in CATEGORY_PATHS:
         parent_url = '/' + '/'.join(parts[:-2]) + '/'
     comments = '''<section class="comments" aria-labelledby="comments-title" hidden><h2 id="comments-title">Yorumlar</h2><div id="comments-list" aria-live="polite"></div><form id="comment-form" hidden><div class="comment-fields"><label>Ad<input name="first_name" autocomplete="given-name" maxlength="60" required></label><label>Soyad<input name="last_name" autocomplete="family-name" maxlength="60" required></label></div><label>Yorum<textarea name="body" rows="5" maxlength="2000" required></textarea></label><div class="comment-trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Yorumu gönder</button><p id="comment-status" role="status"></p></form></section><script src="/comments-config.js" defer></script><script src="/comments.js" defer></script>'''
     content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true">{body}</article><div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
@@ -82,6 +86,10 @@ write('index.html',doc('Ana sayfa',main,description='Furkan Sağdıç’ın fels
 for slug,name in CATS.items():
     matched=[a for a in visible if a['category']==slug]
     inner=f'<section class="page-head"><span class="eyebrow">KONU / {escape(name.upper())}</span><h1>{name}</h1><p>{len(matched)} yazı</p></section><section class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Bu bölümde henüz yazı yok. Yeni yazılar burada görünecek.</p>')+'</section>'
+    children=[(key,value) for key,value in CATEGORY_PATHS.items() if key.rsplit('/',1)[0] == slug and '/' in key]
+    if children and slug != 'kitap-notlari':
+        links=''.join(f'<a href="/{escape(key)}/"><span>{escape(value)}</span><span>↗</span></a>' for key,value in children)
+        inner=inner.replace('<section class="entries">','<div class="topic-grid">'+links+'</div><section class="entries">',1)
     if slug == 'kitap-notlari':
         links=''.join(f'<a href="/kitap-notlari/{key}/"><span>{value}</span><span>↗</span></a>' for key,value in BOOK_TOPICS.items())
         inner='<section class="page-head"><span class="eyebrow">OKUMA DEFTERİ</span><h1>Kitap Notları</h1><p>Okuduğum kitaplardan notlar, alıntılar ve değerlendirmeler.</p></section><div class="topic-grid">'+links+'</div><section class="listing"><div class="section-heading"><h2>Son kitap notları</h2></div><div class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Henüz kitap notu yayımlanmadı.</p>')+'</div></section>'
@@ -90,8 +98,18 @@ for slug,name in CATS.items():
             topic='<section class="page-head"><a class="back" href="/kitap-notlari/">← Kitap Notları</a><h1>'+value+'</h1><p>'+str(len(notes))+' kitap notu</p></section><section class="entries">'+(''.join(card(a) for a in notes) if notes else '<p class="empty">Bu kategoride henüz kitap notu yayımlanmadı.</p>')+'</section>'
             write(f'kitap-notlari/{key}/index.html',doc(value+' — Kitap Notları',topic,slug))
     write(f'{slug}/index.html',doc(name,inner,slug))
-# Existing nested topic remains reachable from its parent.
-if (ROOT/'felsefe/estetik').exists():
+# Show nested categories at every level, including existing philosophy pages.
+for path, name in CATEGORY_PATHS.items():
+    if '/' not in path: continue
+    parent=path.rsplit('/',1)[0]
+    children=[(key,value) for key,value in CATEGORY_PATHS.items() if key.rsplit('/',1)[0] == path and '/' in key]
+    matched=[a for a in visible if a['url'].startswith('/'+path+'/')]
+    links=''.join(f'<a href="/{escape(key)}/"><span>{escape(value)}</span><span>↗</span></a>' for key,value in children)
+    inner=f'<section class="page-head"><a class="back" href="/{parent}/">← {escape(CATEGORY_PATHS.get(parent, CATS.get(parent, parent)))}</a><h1>{escape(name)}</h1><p>{len(matched)} yazı</p></section>'
+    if links: inner+='<div class="topic-grid">'+links+'</div>'
+    inner+='<section class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Bu bölümde henüz yazı yok.</p>')+'</section>'
+    write(f'{path}/index.html',doc(name,inner,path.split('/')[0]))
+if (ROOT/'felsefe/estetik').exists() and 'felsefe/estetik' not in CATEGORY_PATHS:
     matched=[a for a in articles if a['url'].startswith('/felsefe/estetik/')]
     write('felsefe/estetik/index.html',doc('Estetik','<section class="page-head"><a class="back" href="/felsefe/">← Felsefe</a><h1>Estetik</h1></section><section class="entries">'+''.join(card(a) for a in matched)+'</section>','felsefe'))
 book_rows = ''
