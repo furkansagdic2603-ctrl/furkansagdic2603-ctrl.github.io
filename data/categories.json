@@ -102,5 +102,10 @@
     "slug": "estetik-felsefesi",
     "name": "Estetik Felsefesi",
     "parent": "kitap-notlari/felsefe"
+  },
+  {
+    "slug": "muzik-felsefesi",
+    "name": "Müzik Felsefesi",
+    "parent": "kitap-notlari/felsefe"
   }
 ]
