@@ -115,8 +115,7 @@
     finally { button.disabled = false; }
   });
   $('article-search').addEventListener('input', filterArticles);
-  $('new-article').addEventListener('click', () => {
-    if (($('title').value || $('editor').textContent.trim()) && !confirm('Editördeki yazıyı kapatıp yeni yazı açmak istiyor musun?')) return;
+  function resetEditor() {
     editing = null;
     $('title').value = '';
     $('description').value = '';
@@ -125,8 +124,30 @@
     $('editor-heading').textContent = 'Yeni yazı';
     $('publish').textContent = 'Yayımla';
     $('edit-note').hidden = true;
+    $('delete-article').hidden = true;
     localStorage.removeItem('furkan-editor-draft-v1');
+  }
+  $('new-article').addEventListener('click', () => {
+    if (($('title').value || $('editor').textContent.trim()) && !confirm('Editördeki yazıyı kapatıp yeni yazı açmak istiyor musun?')) return;
+    resetEditor();
     feedback('Yeni yazı açıldı.');
+  });
+  $('delete-article').addEventListener('click', async () => {
+    if (!editing) return;
+    const current = articles.find(item => editing.path === item.url.replace(/^\//, '') + 'index.html');
+    const name = $('title').value.trim();
+    if (prompt(`“${name}” yazısını kalıcı olarak silmek için SİL yaz:`) !== 'SİL') return;
+    const button = $('delete-article'); button.disabled = true;
+    $('article-status').textContent = 'Yazı siliniyor…';
+    try {
+      await callAdmin('delete_article', { path: editing.path, sha: editing.sha });
+      articles = articles.filter(item => item !== current);
+      resetEditor();
+      filterArticles();
+      $('article-status').textContent = `“${name}” silindi. Site listelerinin güncellenmesi birkaç dakika sürebilir.`;
+      feedback('Yazı silindi.');
+    } catch (err) { $('article-status').textContent = err.message; }
+    finally { button.disabled = false; }
   });
   $('open-article').addEventListener('click', async () => {
     const url = $('article-list').value;
@@ -152,6 +173,7 @@
       $('editor-heading').textContent = 'Yazıyı düzenle';
       $('publish').textContent = 'Değişiklikleri kaydet';
       $('edit-note').hidden = false;
+      $('delete-article').hidden = false;
       $('article-status').textContent = 'Yazı açıldı; değiştirip kaydedebilirsin.';
       $('editor-heading').scrollIntoView({ behavior: 'smooth' });
     } catch (err) { $('article-status').textContent = err.message; }
