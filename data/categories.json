@@ -132,5 +132,10 @@
     "slug": "osmanlica-felsefe",
     "name": "Osmanlıca Felsefe",
     "parent": "kitap-notlari/felsefe"
+  },
+  {
+    "slug": "risale-i-nur",
+    "name": "Risale-i Nur",
+    "parent": "din"
   }
 ]
