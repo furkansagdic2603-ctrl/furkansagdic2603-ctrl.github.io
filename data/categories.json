@@ -137,5 +137,10 @@
     "slug": "risale-i-nur",
     "name": "Risale-i Nur",
     "parent": "din"
+  },
+  {
+    "slug": "risale-i-nur-serhi",
+    "name": "Risale-i Nur Şerhi",
+    "parent": "din/risale-i-nur"
   }
 ]
