@@ -8,3 +8,5 @@
 @media(max-width:700px){.docx-content{padding:18px;font-size:12pt}}
 
 .chapter-list{max-width:850px;margin:38px auto 0;border-top:1px solid var(--rule)}.chapter-row{display:grid;grid-template-columns:65px 1fr 24px;gap:18px;align-items:center;padding:20px 16px;border-bottom:1px solid var(--rule);font:24px var(--serif);text-decoration:none}.chapter-row span:first-child{color:var(--accent);font:16px system-ui}.chapter-row.pending{color:var(--muted);font-size:20px}.chapter-row:not(.pending):hover{background:#f2eee6}
+
+.comments{max-width:850px;margin:55px auto 0;padding-top:25px;border-top:1px solid var(--rule)}.comments h2{font:normal 32px/1.2 var(--serif);margin:0 0 8px}.comments>p{color:var(--muted);font-size:14px;margin:0 0 22px}.comments .utterances{max-width:100%}
