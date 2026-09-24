@@ -122,5 +122,10 @@
     "slug": "klasikler",
     "name": "Klasikler",
     "parent": "kitap-notlari/felsefe"
+  },
+  {
+    "slug": "schopenhauer",
+    "name": "Schopenhauer",
+    "parent": "kitap-notlari/felsefe/klasikler"
   }
 ]
