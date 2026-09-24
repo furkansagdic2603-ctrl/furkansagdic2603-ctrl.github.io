@@ -79,6 +79,18 @@ Deno.serve(async req => {
     if (new TextEncoder().encode(raw).length > MAX_REQUEST_BYTES) return result({ error: 'Yazı 4 MB sınırını aşıyor. Görselleri bağlantı olarak ekle veya yazıyı bölümlere ayır.' }, 413);
     const input = JSON.parse(raw);
     if (input.action === 'whoami') return result({ ok: true });
+    if (input.action === 'save_theme') {
+      const theme = input.theme || {};
+      const validColor = (value: unknown) => typeof value === 'string' && /^#[0-9a-fA-F]{6}$/.test(value);
+      if (!validColor(theme.accent) || !validColor(theme.paper) || !validColor(theme.ink)) return result({ error: 'Geçerli renk değerleri seç.' }, 400);
+      const path = 'data/theme.json';
+      const existing = await fetch(ghUrl(path), { headers: ghHeaders(token) });
+      let sha: string | undefined;
+      if (existing.ok) sha = (await existing.json()).sha as string;
+      else if (existing.status !== 404) throw new Error('Renk ayarları okunamadı.');
+      await putFile(token, path, JSON.stringify({ accent: theme.accent, paper: theme.paper, ink: theme.ink }, null, 2) + '\n', 'Update site colors', sha);
+      return result({ ok: true });
+    }
     if (input.action === 'add_category') {
       const name = String(input.name || '').trim();
       const parent = String(input.parent || '');
