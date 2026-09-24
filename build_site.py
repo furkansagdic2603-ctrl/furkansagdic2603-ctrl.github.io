@@ -5,12 +5,12 @@ import json, re
 from html import escape
 
 ROOT = Path(__file__).parent
-CATS = {'kitap-notlari':'Kitap Notları','felsefe':'Felsefe','sanat':'Sanat','edebiyat':'Edebiyat','tarih':'Tarih','din':'Din','mitoloji':'Mitoloji','sosyoloji':'Sosyoloji','psikoloji':'Psikoloji','bilim':'Bilim','notlar':'Notlar'}
+CATS = {item['slug']: item['name'] for item in json.loads((ROOT/'data/categories.json').read_text(encoding='utf-8'))}
 BOOK_TOPICS = {'felsefe':'Felsefe','din':'Din','tarih':'Tarih','edebiyat':'Edebiyat','sanat':'Sanat','sinema':'Sinema','sosyoloji':'Sosyoloji','psikoloji':'Psikoloji','bilim':'Bilim','mitoloji':'Mitoloji','diger':'Diğer'}
 EXTRAS = {'kaynakca':'Kaynakça','galeri':'Galeri','hakkimda':'Hakkımda','iletisim':'İletişim','arsiv':'Arşiv'}
 
 def doc(title, main, active='', description='Furkan Sağdıç’ın yazıları ve notları.'):
-    nav = ''.join(f'<a {"aria-current=\"page\"" if active == slug else ""} href="/{slug}/">{name}</a>' for slug,name in CATS.items())
+    nav = ''.join(f'<a {"aria-current=\"page\"" if active == slug else ""} href="/{slug}/">{escape(name)}</a>' for slug,name in CATS.items())
     nav += ''.join(f'<a {"aria-current=\"page\"" if active == slug else ""} href="/{slug}/">{name}</a>' for slug,name in EXTRAS.items())
     return f'''<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} | Furkan Sağdıç</title><meta name="description" content="{escape(description,quote=True)}"><link rel="icon" href="/favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="/style.css"></head><body><header class="masthead"><div class="topline"><a class="brand" href="/">Furkan Sağdıç<span>Yazılar &amp; notlar</span></a><div class="top-actions"><a class="search-link" href="/arama/">Ara</a><button id="menu-buton" class="menu-buton" aria-expanded="false" aria-controls="ana-menu">Menü</button></div></div><nav id="ana-menu" class="main-nav" aria-label="Ana menü">{nav}</nav></header><main id="icerik">{main}</main><footer class="footer"><span>© Furkan Sağdıç</span><a href="/arsiv/">Yazı arşivi</a><a href="/admin/">Yazı editörü</a></footer><script src="/script.js" defer></script></body></html>'''
 
