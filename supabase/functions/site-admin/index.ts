@@ -40,6 +40,24 @@ async function putFile(token: string, path: string, content: string, message: st
   });
   if (res.status === 422 || res.status === 409) throw new Error('Bu adla kayıt zaten var veya dosya değişti. Farklı ad dene.');
   if (!res.ok) throw new Error(`GitHub yayımlama hatası (${res.status}).`);
+  const saved = await res.json();
+  return saved.content.sha as string;
+}
+
+async function getArticle(token: string, path: string, categories: Category[]) {
+  if (!/^[a-z0-9-]+(?:\/[a-z0-9-]+){1,6}\/index\.html$/.test(path) || !categories.some(item => !item.parent && path.startsWith(item.slug + '/'))) throw new Error('Yazı yolu geçersiz.');
+  const res = await fetch(ghUrl(path), { headers: ghHeaders(token) });
+  if (!res.ok) throw new Error('Yazı GitHub üzerinde bulunamadı.');
+  const file = await res.json();
+  let content: string;
+  if (file.encoding === 'base64' && file.content) content = decode(file.content);
+  else {
+    const raw = await fetch(ghUrl(path), { headers: { ...ghHeaders(token), Accept: 'application/vnd.github.raw+json' } });
+    if (!raw.ok) throw new Error('Büyük yazı GitHub üzerinden okunamadı.');
+    content = await raw.text();
+  }
+  if (!/<article\b[^>]*\byazi-icerik\b[^>]*>/i.test(content)) throw new Error('Bu sayfa panelde düzenlenebilen bir yazı değil.');
+  return { content, sha: file.sha as string };
 }
 
 Deno.serve(async req => {
@@ -73,6 +91,26 @@ Deno.serve(async req => {
       categories.push({ slug: categorySlug, name, ...(parent ? { parent } : {}) });
       await putFile(token, 'data/categories.json', JSON.stringify(categories, null, 2) + '\n', `Add category: ${name}`, sha);
       return result({ path, categories });
+    }
+    if (input.action === 'load_article' || input.action === 'update_article') {
+      const path = String(input.path || '');
+      const { categories } = await getCategories(token);
+      const original = await getArticle(token, path, categories);
+      if (input.action === 'load_article') return result({ ...original, path });
+      const title = String(input.title || '').trim(), description = String(input.description || '').trim();
+      const body = String(input.body || '').trim();
+      if (!title || title.length > 160 || description.length > 500 || !body) return result({ error: 'Başlık veya yazı içeriği geçersiz.' }, 400);
+      if (/<\s*(script|iframe|object|embed|form|base|link|meta)\b|\bon[a-z]+\s*=|javascript:/i.test(body)) return result({ error: 'Yazı içinde izin verilmeyen HTML var.' }, 400);
+      if (String(input.sha || '') !== original.sha) return result({ error: 'Yazı başka bir işlemle değişti. Listeyi yenileyip tekrar aç.' }, 409);
+      const article = /(<article\b[^>]*\byazi-icerik\b[^>]*>)[\s\S]*?(<\/article>)/i;
+      let updated = original.content;
+      if (!/<div class="article-head">[\s\S]*?<h1>[\s\S]*?<\/h1>/.test(updated) || !/<meta name="description" content="[^"]*">/.test(updated) || !article.test(updated)) throw new Error('Yazının biçimi düzenleme için uygun değil.');
+      updated = updated.replace(/<title>[\s\S]*?<\/title>/, `<title>${escapeHtml(title)} | Furkan Sağdıç</title>`);
+      updated = updated.replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${escapeHtml(description)}">`);
+      updated = updated.replace(/(<div class="article-head">[\s\S]*?<h1>)[\s\S]*?(<\/h1>)/, (_all, before, after) => `${before}${escapeHtml(title)}${after}`);
+      updated = updated.replace(article, (_all, before, after) => `${before}${body}${after}`);
+      const sha = await putFile(token, path, updated, `Update article: ${title}`, original.sha);
+      return result({ url: `/${path.replace(/index\.html$/, '')}`, sha });
     }
     if (input.action === 'publish') {
       const title = String(input.title || '').trim(), description = String(input.description || '').trim();
