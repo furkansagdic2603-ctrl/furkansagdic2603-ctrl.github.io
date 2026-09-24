@@ -148,7 +148,7 @@
       $('article-status').textContent = `“${name}” silindi. Site listelerinin güncellenmesi birkaç dakika sürebilir.`;
       feedback('Yazı silindi.');
     } catch (err) { $('article-status').textContent = err.message; }
-    finally { button.disabled = false; }
+    finally { button.disabled = !editing; }
   });
   $('open-article').addEventListener('click', async () => {
     const url = $('article-list').value;
