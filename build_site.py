@@ -61,7 +61,7 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     chapter_note = ''
     if category == 'kitap-notlari' and len(parts) > 4:
         parent_url = '/' + '/'.join(parts[:-2]) + '/'
-    comments = '''<section class="comments" aria-labelledby="comments-title"><h2 id="comments-title">Yorumlar</h2><p>Görüşlerini paylaşmak için GitHub hesabınla giriş yapabilirsin.</p><script src="https://utteranc.es/client.js" repo="furkansagdic2603-ctrl/furkansagdic2603-ctrl.github.io" issue-term="pathname" label="yorum" theme="github-light" crossorigin="anonymous" async></script></section>'''
+    comments = '''<section class="comments" aria-labelledby="comments-title" hidden><h2 id="comments-title">Yorumlar</h2><div id="comments-list" aria-live="polite"></div><form id="comment-form" hidden><div class="comment-fields"><label>Ad<input name="first_name" autocomplete="given-name" maxlength="60" required></label><label>Soyad<input name="last_name" autocomplete="family-name" maxlength="60" required></label></div><label>Yorum<textarea name="body" rows="5" maxlength="2000" required></textarea></label><div class="comment-trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Yorumu gönder</button><p id="comment-status" role="status"></p></form></section><script src="/comments-config.js" defer></script><script src="/comments.js" defer></script>'''
     content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true">{body}</article><div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
     write(path.relative_to(ROOT),doc(title,content,category,description))
 
@@ -119,4 +119,3 @@ write('hakkimda/index.html',doc('Hakkımda','<section class="page-head"><span cl
 write('kaynakca/index.html',doc('Kaynakça',(ROOT/'bibliography_content.html').read_text(encoding='utf-8'),'kaynakca','Furkan Sağdıç’ın kişisel kütüphanesi: kitaplar, yazarlar ve yayınevleri.'))
 write('galeri/index.html',doc('Galeri','<section class="page-head"><span class="eyebrow">GÖRSELLER</span><h1>Galeri</h1></section><div class="prose static-copy"><p>Görsel çalışmalar ve fotoğraflar yayımlandıkça bu bölümde yer alacak.</p></div>','galeri'))
 write('iletisim/index.html',doc('İletişim','<section class="page-head"><span class="eyebrow">İLETİŞİM</span><h1>İletişim</h1></section><div class="prose static-copy"><p>İletişim bilgileri yakında burada yer alacak.</p></div>','iletisim'))
-
