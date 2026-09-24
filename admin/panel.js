@@ -8,7 +8,7 @@
   try { session = JSON.parse(sessionStorage.getItem(authKey) || 'null'); } catch { session = null; }
   const authHeaders = () => ({ apikey: key, Authorization: `Bearer ${session.access_token}`, 'Content-Type': 'application/json' });
   const feedback = message => { $('feedback').textContent = message; };
-  const slug = text => text.toLocaleLowerCase('tr').replace(/[ıİ]/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+  const pathOf = item => `${item.parent ? item.parent + '/' : ''}${item.slug}`;
 
   async function refreshSession() {
     if (!session?.refresh_token) throw new Error('Oturum süresi doldu. Yeniden giriş yap.');
@@ -28,12 +28,20 @@
   }
   function renderCategories(categories, selected) {
     const select = $('category');
+    const parentSelect = $('category-parent');
     const previous = selected || JSON.parse(localStorage.getItem('furkan-editor-draft-v1') || '{}').category || select.value;
-    select.replaceChildren(...categories.map(item => {
-      const option = document.createElement('option'); option.value = item.slug; option.textContent = item.name; return option;
-    }));
-    if (categories.some(item => item.slug === previous)) select.value = previous;
-    select.dispatchEvent(new Event('change'));
+    const previousParent = parentSelect.value;
+    const names = new Map(categories.map(item => [pathOf(item), item.name]));
+    const options = categories.map(item => {
+      const option = document.createElement('option');
+      option.value = pathOf(item);
+      option.textContent = option.value.split('/').map((part, i, parts) => names.get(parts.slice(0, i + 1).join('/')) || part).join(' → ');
+      return option;
+    });
+    select.replaceChildren(...options.map(option => option.cloneNode(true)));
+    parentSelect.replaceChildren(new Option('Ana kategori', ''), ...options.filter(option => option.value.split('/').length < 4));
+    if (names.has(previous)) select.value = previous;
+    if (names.has(previousParent)) parentSelect.value = previousParent;
   }
   async function loadCategories() {
     const res = await fetch('/data/categories.json', { cache: 'no-store' });
@@ -73,10 +81,10 @@
     if (!name) { feedback('Kategori adı yaz.'); return; }
     const button = $('add-category'); button.disabled = true; feedback('Kategori ekleniyor…');
     try {
-      const result = await callAdmin('add_category', { name });
+      const result = await callAdmin('add_category', { name, parent: $('category-parent').value });
       $('new-category').value = '';
       feedback(`“${name}” eklendi. Sitede görünmesi birkaç dakika sürebilir.`);
-      renderCategories(result.categories, result.slug);
+      renderCategories(result.categories, result.path);
     } catch (err) { feedback(err.message); }
     finally { button.disabled = false; }
   });
@@ -84,11 +92,10 @@
     const title = $('title').value.trim(), body = $('editor').innerHTML.trim();
     if (!title || !$('editor').textContent.trim()) { feedback('Başlık ve yazı içeriği gerekli.'); return; }
     const category = $('category').value;
-    const subcategory = category === 'kitap-notlari' ? $('book-topic').value : slug($('subcategory').value);
     const description = $('description').value.trim() || $('editor').textContent.trim().slice(0, 160);
     const button = $('publish'); button.disabled = true; feedback('Yayımlanıyor…');
     try {
-      const result = await callAdmin('publish', { title, description, category, subcategory, body });
+      const result = await callAdmin('publish', { title, description, category, body });
       const link = document.createElement('a'); link.href = result.url; link.textContent = 'Yazıyı aç →';
       $('feedback').replaceChildren('Yazı kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ', link);
     } catch (err) { feedback(err.message); }
