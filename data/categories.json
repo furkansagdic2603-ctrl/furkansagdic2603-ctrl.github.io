@@ -117,5 +117,10 @@
     "slug": "ontoloji",
     "name": "Ontoloji",
     "parent": "kitap-notlari/felsefe"
+  },
+  {
+    "slug": "klasikler",
+    "name": "Klasikler",
+    "parent": "kitap-notlari/felsefe"
   }
 ]
