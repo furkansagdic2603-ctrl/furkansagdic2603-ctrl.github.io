@@ -52,7 +52,7 @@
       const response = await fetch(endpoint, { method: 'POST', headers: { ...headers, Prefer: 'return=minimal' }, body: JSON.stringify({ page_path: path, first_name, last_name, body }) });
       if (!response.ok) throw new Error('send failed');
       form.reset();
-      status.textContent = 'Yorumun yayımlandı.';
+      status.textContent = 'Yorumun gönderildi.';
       await load();
     } catch { status.textContent = 'Yorum gönderilemedi. Lütfen tekrar dene.'; }
     finally { button.disabled = false; }
