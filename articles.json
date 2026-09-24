@@ -22,9 +22,23 @@
   },
   {
     "title": "Bir birey nasıl yaşayabilir?",
+    "date": "",
+    "description": "Deleuze üzerine kitap notları · 5 bölüm",
+    "category": "kitap-notlari",
+    "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/"
+  },
+  {
+    "title": "Bölüm 1",
     "date": "BÖLÜM 1/5",
     "description": "Bir birey nasıl yaşayabilir? — kitap notları, bölüm 1",
     "category": "kitap-notlari",
-    "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/"
+    "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-1/"
+  },
+  {
+    "title": "Bölüm 2",
+    "date": "BÖLÜM 1/5",
+    "description": "Bir birey nasıl yaşayabilir? — Bölüm 2",
+    "category": "kitap-notlari",
+    "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-2/"
   }
 ]

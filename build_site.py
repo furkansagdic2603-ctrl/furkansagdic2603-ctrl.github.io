@@ -58,20 +58,26 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     # New editor-created pages are also normalized on the next GitHub build.
     label=CATS[category] + (' · '+BOOK_TOPICS.get(parts[1],parts[1].replace('-',' ').title()) if len(parts)>3 else '')
     parent_url = f'/{category}/{parts[1]}/' if category == 'kitap-notlari' and len(parts)>3 else f'/{category}/'
-    chapter_note = '<p class="chapter-note">Bu kitabın notları beş bölümden oluşuyor. Şu anda birinci bölüm yayımlandı.</p>' if path.parent.name == 'bir-birey-nasil-yasayabilir' else ''
+    chapter_note = ''
+    if category == 'kitap-notlari' and len(parts) > 4:
+        parent_url = '/' + '/'.join(parts[:-2]) + '/'
     content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true">{body}</article><div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>'
     write(path.relative_to(ROOT),doc(title,content,category,description))
 
+book_url = '/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/'
+book = dict(title='Bir birey nasıl yaşayabilir?', date='', description='Deleuze üzerine kitap notları · 5 bölüm', category='kitap-notlari', url=book_url)
+articles.append(book)
+visible = [a for a in articles if not a['url'].startswith(book_url) or a['url'] == book_url]
 articles.sort(key=lambda a: ('2026' not in a['date'],a['url']))
 write('articles.json',json.dumps(articles,ensure_ascii=False,indent=2))
-latest=''.join(card(a) for a in articles[:5])
-count=len(articles)
+latest=''.join(card(a) for a in visible[:5])
+count=len(visible)
 intro='<section class="hero"><div class="hero-kicker">KİŞİSEL YAZI DEFTERİ <span> / </span> DÜŞÜNCE • KÜLTÜR • SANAT</div><h1>Okumak, düşünmek,<br><em>yeniden bakmak.</em></h1><p>Felsefe, sanat, edebiyat, tarih ve düşünce üzerine yazılarım ile okuma notlarım.</p></section>'
 sections=''.join(f'<a href="/{slug}/"><span>{name}</span><span>↗</span></a>' for slug,name in list(CATS.items())[:6])
 main=intro+f'<section class="listing"><div class="section-heading"><div><span class="eyebrow">{count:02d} YAZI</span><h2>Son yazılar</h2></div><a href="/arsiv/">Tüm yazılar →</a></div><div class="entries">{latest}</div></section><section class="topics"><div class="section-heading"><h2>Konular</h2></div><div class="topic-grid">{sections}</div></section>'
 write('index.html',doc('Ana sayfa',main,description='Furkan Sağdıç’ın felsefe, sanat, edebiyat, tarih ve düşünce yazıları.'))
 for slug,name in CATS.items():
-    matched=[a for a in articles if a['category']==slug]
+    matched=[a for a in visible if a['category']==slug]
     inner=f'<section class="page-head"><span class="eyebrow">KONU / {escape(name.upper())}</span><h1>{name}</h1><p>{len(matched)} yazı</p></section><section class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Bu bölümde henüz yazı yok. Yeni yazılar burada görünecek.</p>')+'</section>'
     if slug == 'kitap-notlari':
         links=''.join(f'<a href="/kitap-notlari/{key}/"><span>{value}</span><span>↗</span></a>' for key,value in BOOK_TOPICS.items())
@@ -85,7 +91,15 @@ for slug,name in CATS.items():
 if (ROOT/'felsefe/estetik').exists():
     matched=[a for a in articles if a['url'].startswith('/felsefe/estetik/')]
     write('felsefe/estetik/index.html',doc('Estetik','<section class="page-head"><a class="back" href="/felsefe/">← Felsefe</a><h1>Estetik</h1></section><section class="entries">'+''.join(card(a) for a in matched)+'</section>','felsefe'))
-archive='<section class="page-head"><span class="eyebrow">TÜM YAZILAR</span><h1>Arşiv</h1><p>Yazılar ve okuma notları</p></section><section class="entries">'+''.join(card(a) for a in articles)+'</section>'
+book_rows = ''
+for number in range(1, 6):
+    available = number <= 2
+    href = f'href="{book_url}bolum-{number}/"' if available else 'aria-disabled="true"'
+    caption = f'Bölüm {number}' + ('' if available else ' · Yakında')
+    book_rows += f'<a class="chapter-row" {href}><span>{number}</span><span>{caption}</span><span>{"→" if available else ""}</span></a>' if available else f'<div class="chapter-row pending" aria-disabled="true"><span>{number}</span><span>{caption}</span></div>'
+book_main = '<section class="page-head"><a class="back" href="/kitap-notlari/felsefe/">← Kitap Notları / Felsefe</a><h1>Bir birey nasıl yaşayabilir?</h1><p>Kitap notları · 5 bölüm</p></section><section class="chapter-list" aria-label="Bölümler">'+book_rows+'</section>'
+write('kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/index.html',doc('Bir birey nasıl yaşayabilir?',book_main,'kitap-notlari'))
+archive='<section class="page-head"><span class="eyebrow">TÜM YAZILAR</span><h1>Arşiv</h1><p>Yazılar ve okuma notları</p></section><section class="entries">'+''.join(card(a) for a in visible)+'</section>'
 write('arsiv/index.html',doc('Arşiv',archive,'arsiv'))
 write('arama/index.html',doc('Yazılarda ara','<section class="page-head"><span class="eyebrow">YAZILAR</span><h1>Ara</h1><label class="search-label" for="site-search">Başlık veya metin</label><input id="site-search" type="search" placeholder="Bir kelime yazın…" autofocus autocomplete="off"><p id="result-count" aria-live="polite"></p></section><section class="entries" id="search-results"></section>',description='Furkan Sağdıç’ın yazılarında arama.'))
 write('hakkimda/index.html',doc('Hakkımda','<section class="page-head"><span class="eyebrow">YAZAR</span><h1>Hakkımda</h1></section><div class="prose static-copy"><p>Ben Furkan Sağdıç. Mühendislik eğitimi aldım; felsefe, edebiyat, sanat ve düşünce tarihi üzerine okuyup yazıyorum.</p><p>Bu site, okuduklarımı, sorularımı ve kendi yazılarımı bir araya getirdiğim kişisel alanım.</p></div>','hakkimda'))
