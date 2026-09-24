@@ -124,7 +124,8 @@
     $('editor-heading').textContent = 'Yeni yazı';
     $('publish').textContent = 'Yayımla';
     $('edit-note').hidden = true;
-    $('delete-article').hidden = true;
+    $('delete-article').disabled = true;
+    $('delete-article').textContent = 'Yazıyı sil (önce aç)';
     localStorage.removeItem('furkan-editor-draft-v1');
   }
   $('new-article').addEventListener('click', () => {
@@ -173,7 +174,8 @@
       $('editor-heading').textContent = 'Yazıyı düzenle';
       $('publish').textContent = 'Değişiklikleri kaydet';
       $('edit-note').hidden = false;
-      $('delete-article').hidden = false;
+      $('delete-article').disabled = false;
+      $('delete-article').textContent = 'Bu yazıyı sil';
       $('article-status').textContent = 'Yazı açıldı; değiştirip kaydedebilirsin.';
       $('editor-heading').scrollIntoView({ behavior: 'smooth' });
     } catch (err) { $('article-status').textContent = err.message; }
