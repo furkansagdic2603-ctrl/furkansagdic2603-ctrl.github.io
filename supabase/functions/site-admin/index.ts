@@ -92,16 +92,24 @@ Deno.serve(async req => {
       await putFile(token, 'data/categories.json', JSON.stringify(categories, null, 2) + '\n', `Add category: ${name}`, sha);
       return result({ path, categories });
     }
-    if (input.action === 'load_article' || input.action === 'update_article') {
+    if (input.action === 'load_article' || input.action === 'update_article' || input.action === 'delete_article') {
       const path = String(input.path || '');
       const { categories } = await getCategories(token);
       const original = await getArticle(token, path, categories);
       if (input.action === 'load_article') return result({ ...original, path });
+      if (String(input.sha || '') !== original.sha) return result({ error: 'Yazı başka bir işlemle değişti. Listeyi yenileyip tekrar aç.' }, 409);
+      if (input.action === 'delete_article') {
+        const res = await fetch(ghUrl(path), {
+          method: 'DELETE', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: `Delete article: ${path}`, sha: original.sha }),
+        });
+        if (!res.ok) throw new Error(`GitHub silme hatası (${res.status}).`);
+        return result({ ok: true });
+      }
       const title = String(input.title || '').trim(), description = String(input.description || '').trim();
       const body = String(input.body || '').trim();
       if (!title || title.length > 160 || description.length > 500 || !body) return result({ error: 'Başlık veya yazı içeriği geçersiz.' }, 400);
       if (/<\s*(script|iframe|object|embed|form|base|link|meta)\b|\bon[a-z]+\s*=|javascript:/i.test(body)) return result({ error: 'Yazı içinde izin verilmeyen HTML var.' }, 400);
-      if (String(input.sha || '') !== original.sha) return result({ error: 'Yazı başka bir işlemle değişti. Listeyi yenileyip tekrar aç.' }, 409);
       const article = /(<article\b[^>]*\byazi-icerik\b[^>]*>)[\s\S]*?(<\/article>)/i;
       let updated = original.content;
       if (!/<div class="article-head">[\s\S]*?<h1>[\s\S]*?<\/h1>/.test(updated) || !/<meta name="description" content="[^"]*">/.test(updated) || !article.test(updated)) throw new Error('Yazının biçimi düzenleme için uygun değil.');
