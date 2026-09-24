@@ -1,2 +1,9 @@
+fetch('/data/theme.json', { cache: 'no-store' }).then(r => r.ok ? r.json() : null).then(theme => {
+  if (!theme) return;
+  const valid = value => typeof value === 'string' && /^#[0-9a-f]{6}$/i.test(value);
+  if (valid(theme.accent)) document.documentElement.style.setProperty('--accent', theme.accent);
+  if (valid(theme.paper)) document.documentElement.style.setProperty('--paper', theme.paper);
+  if (valid(theme.ink)) document.documentElement.style.setProperty('--ink', theme.ink);
+}).catch(() => {});
 const menu=document.getElementById('menu-buton');const nav=document.getElementById('ana-menu');if(menu&&nav)menu.addEventListener('click',()=>{const open=nav.classList.toggle('acik');menu.setAttribute('aria-expanded',String(open))});
 const search=document.getElementById('site-search');if(search){fetch('/articles.json').then(r=>r.json()).then(items=>{const output=document.getElementById('search-results'),count=document.getElementById('result-count');function render(){const q=search.value.trim().toLocaleLowerCase('tr');const found=q?items.filter(a=>(a.title+' '+a.description+' '+a.category).toLocaleLowerCase('tr').includes(q)):items;output.replaceChildren(...found.map(a=>{const article=document.createElement('article');article.className='entry';const meta=document.createElement('div');meta.className='eyebrow';meta.textContent=a.category+' · '+a.date;const heading=document.createElement('h3');const link=document.createElement('a');link.href=a.url;link.textContent=a.title;heading.append(link);const p=document.createElement('p');p.textContent=a.description;article.append(meta,heading,p);return article}));count.textContent=found.length+' yazı bulundu.'}search.addEventListener('input',render);render()}).catch(()=>{document.getElementById('result-count').textContent='Yazılar yüklenemedi.'})}
