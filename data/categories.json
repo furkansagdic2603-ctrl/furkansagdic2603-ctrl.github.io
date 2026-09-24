@@ -9,5 +9,16 @@
   {"slug":"sosyoloji","name":"Sosyoloji"},
   {"slug":"psikoloji","name":"Psikoloji"},
   {"slug":"bilim","name":"Bilim"},
-  {"slug":"notlar","name":"Notlar"}
+  {"slug":"notlar","name":"Notlar"},
+  {"slug":"felsefe","name":"Felsefe","parent":"kitap-notlari"},
+  {"slug":"din","name":"Din","parent":"kitap-notlari"},
+  {"slug":"tarih","name":"Tarih","parent":"kitap-notlari"},
+  {"slug":"edebiyat","name":"Edebiyat","parent":"kitap-notlari"},
+  {"slug":"sanat","name":"Sanat","parent":"kitap-notlari"},
+  {"slug":"sinema","name":"Sinema","parent":"kitap-notlari"},
+  {"slug":"sosyoloji","name":"Sosyoloji","parent":"kitap-notlari"},
+  {"slug":"psikoloji","name":"Psikoloji","parent":"kitap-notlari"},
+  {"slug":"bilim","name":"Bilim","parent":"kitap-notlari"},
+  {"slug":"mitoloji","name":"Mitoloji","parent":"kitap-notlari"},
+  {"slug":"diger","name":"Diğer","parent":"kitap-notlari"}
 ]

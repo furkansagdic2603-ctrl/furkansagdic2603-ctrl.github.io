@@ -12,6 +12,8 @@ const cors = {
 const result = (data: object, status = 200) => new Response(JSON.stringify(data), { status, headers: cors });
 const slug = (s: string) => s.toLocaleLowerCase('tr').replace(/[ıİ]/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const escapeHtml = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+type Category = { slug: string; name: string; parent?: string };
+const categoryPath = (item: Category) => `${item.parent ? item.parent + '/' : ''}${item.slug}`;
 const ghUrl = (path: string) => `https://api.github.com/repos/${REPOSITORY}/contents/${path.split('/').map(encodeURIComponent).join('/')}`;
 const ghHeaders = (token: string) => ({ Authorization: `Bearer ${token}`, Accept: 'application/vnd.github+json', 'X-GitHub-Api-Version': '2026-03-10' });
 function encode(text: string) {
@@ -28,7 +30,7 @@ async function getCategories(token: string) {
   const res = await fetch(ghUrl('data/categories.json'), { headers: ghHeaders(token) });
   if (!res.ok) throw new Error('Kategori listesi alınamadı.');
   const file = await res.json();
-  return { categories: JSON.parse(decode(file.content)) as {slug:string;name:string}[], sha: file.sha as string };
+  return { categories: JSON.parse(decode(file.content)) as Category[], sha: file.sha as string };
 }
 async function putFile(token: string, path: string, content: string, message: string, sha?: string) {
   const res = await fetch(ghUrl(path), {
@@ -58,26 +60,28 @@ Deno.serve(async req => {
     if (input.action === 'whoami') return result({ ok: true });
     if (input.action === 'add_category') {
       const name = String(input.name || '').trim();
+      const parent = String(input.parent || '');
       const categorySlug = slug(name);
       if (!name || name.length > 50 || !/^[\p{L}\p{N} &-]+$/u.test(name) || !/^[a-z][a-z0-9-]{1,39}$/.test(categorySlug)) return result({ error: 'Geçerli bir kategori adı yaz.' }, 400);
       const { categories, sha } = await getCategories(token);
-      if (categories.some(item => item.slug === categorySlug)) return result({ error: 'Bu kategori zaten var.' }, 409);
-      categories.push({ slug: categorySlug, name });
+      if (parent && (!categories.some(item => categoryPath(item) === parent) || parent.split('/').length >= 4)) return result({ error: 'Üst kategori geçersiz.' }, 400);
+      const path = `${parent ? parent + '/' : ''}${categorySlug}`;
+      if (categories.some(item => categoryPath(item) === path)) return result({ error: 'Bu kategori zaten var.' }, 409);
+      categories.push({ slug: categorySlug, name, ...(parent ? { parent } : {}) });
       await putFile(token, 'data/categories.json', JSON.stringify(categories, null, 2) + '\n', `Add category: ${name}`, sha);
-      return result({ slug: categorySlug, categories });
+      return result({ path, categories });
     }
     if (input.action === 'publish') {
       const title = String(input.title || '').trim(), description = String(input.description || '').trim();
       const body = String(input.body || '').trim(), category = String(input.category || '');
-      const subcategory = String(input.subcategory || '');
       if (!title || title.length > 160 || description.length > 500 || !body || body.length > 180000) return result({ error: 'Başlık veya yazı içeriği geçersiz.' }, 400);
       if (/<\s*(script|iframe|object|embed|form|base|link|meta)\b|\bon[a-z]+\s*=|javascript:/i.test(body)) return result({ error: 'Yazı içinde izin verilmeyen HTML var.' }, 400);
       const { categories } = await getCategories(token);
-      const selected = categories.find(item => item.slug === category);
-      if (!selected || (subcategory && slug(subcategory) !== subcategory)) return result({ error: 'Kategori geçersiz.' }, 400);
+      const selected = categories.find(item => categoryPath(item) === category);
+      if (!selected) return result({ error: 'Kategori geçersiz.' }, 400);
       const articleSlug = slug(title);
       if (!articleSlug || articleSlug.length > 100) return result({ error: 'Başlık URL için uygun değil.' }, 400);
-      const path = [category, ...(subcategory ? [subcategory] : []), articleSlug, 'index.html'].join('/');
+      const path = [category, articleSlug, 'index.html'].join('/');
       const url = `/${path.replace(/index\.html$/, '')}`;
       const date = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Istanbul' }).format(new Date());
       const page = `<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)} | Furkan Sağdıç</title><meta name="description" content="${escapeHtml(description)}"><link rel="stylesheet" href="/style.css"></head><body><header class="masthead"><div class="topline"><a class="brand" href="/">Furkan Sağdıç</a></div></header><main><div class="article-head"><a class="back" href="/${category}/">← ${escapeHtml(selected.name)}</a><div class="eyebrow">${escapeHtml(selected.name)} · ${date}</div><h1>${escapeHtml(title)}</h1></div><article class="prose yazi-icerik" data-article="true">${body}</article></main></body></html>`;
