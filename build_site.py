@@ -67,7 +67,9 @@ for path in sorted(ROOT.glob('*/**/index.html')):
 book_url = '/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/'
 book = dict(title='Bir birey nasıl yaşayabilir?', date='', description='Deleuze üzerine kitap notları · 5 bölüm', category='kitap-notlari', url=book_url)
 articles.append(book)
-visible = [a for a in articles if not a['url'].startswith(book_url) or a['url'] == book_url]
+cinema_book_url = '/kitap-notlari/sinema/sinemanin-kokleri/'
+articles.append(dict(title='Sinemanın Kökleri', date='', description='Enver Gülşen · kitap notları · 5 bölüm', category='kitap-notlari', url=cinema_book_url))
+visible = [a for a in articles if all(not a['url'].startswith(url) or a['url'] == url for url in (book_url, cinema_book_url))]
 articles.sort(key=lambda a: ('2026' not in a['date'],a['url']))
 write('articles.json',json.dumps(articles,ensure_ascii=False,indent=2))
 latest=''.join(card(a) for a in visible[:5])
@@ -99,6 +101,16 @@ for number in range(1, 6):
     book_rows += f'<a class="chapter-row" {href}><span>{number}</span><span>{caption}</span><span>{"→" if available else ""}</span></a>' if available else f'<div class="chapter-row pending" aria-disabled="true"><span>{number}</span><span>{caption}</span></div>'
 book_main = '<section class="page-head"><a class="back" href="/kitap-notlari/felsefe/">← Kitap Notları / Felsefe</a><h1>Bir birey nasıl yaşayabilir?</h1><p>Kitap notları · 5 bölüm</p></section><section class="chapter-list" aria-label="Bölümler">'+book_rows+'</section>'
 write('kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/index.html',doc('Bir birey nasıl yaşayabilir?',book_main,'kitap-notlari'))
+cinema_rows = ''
+for number in range(1, 6):
+    available = (ROOT / f'kitap-notlari/sinema/sinemanin-kokleri/bolum-{number}/index.html').is_file()
+    caption = f'Bölüm {number}' + (' · Mukaddime' if number == 1 else '') + ('' if available else ' · Yakında')
+    if available:
+        cinema_rows += f'<a class="chapter-row" href="{cinema_book_url}bolum-{number}/"><span>{number}</span><span>{caption}</span><span>→</span></a>'
+    else:
+        cinema_rows += f'<div class="chapter-row pending" aria-disabled="true"><span>{number}</span><span>{caption}</span></div>'
+cinema_main = '<section class="page-head"><a class="back" href="/kitap-notlari/sinema/">← Kitap Notları / Sinema</a><h1>Sinemanın Kökleri</h1><p>Enver Gülşen · Kitap notları · 5 bölüm</p></section><section class="chapter-list" aria-label="Bölümler">' + cinema_rows + '</section>'
+write('kitap-notlari/sinema/sinemanin-kokleri/index.html',doc('Sinemanın Kökleri',cinema_main,'kitap-notlari'))
 archive='<section class="page-head"><span class="eyebrow">TÜM YAZILAR</span><h1>Arşiv</h1><p>Yazılar ve okuma notları</p></section><section class="entries">'+''.join(card(a) for a in visible)+'</section>'
 write('arsiv/index.html',doc('Arşiv',archive,'arsiv'))
 write('arama/index.html',doc('Yazılarda ara','<section class="page-head"><span class="eyebrow">YAZILAR</span><h1>Ara</h1><label class="search-label" for="site-search">Başlık veya metin</label><input id="site-search" type="search" placeholder="Bir kelime yazın…" autofocus autocomplete="off"><p id="result-count" aria-live="polite"></p></section><section class="entries" id="search-results"></section>',description='Furkan Sağdıç’ın yazılarında arama.'))
