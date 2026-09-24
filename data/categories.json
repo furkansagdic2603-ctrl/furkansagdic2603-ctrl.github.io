@@ -1,24 +1,106 @@
 [
-  {"slug":"kitap-notlari","name":"Kitap Notları"},
-  {"slug":"felsefe","name":"Felsefe"},
-  {"slug":"sanat","name":"Sanat"},
-  {"slug":"edebiyat","name":"Edebiyat"},
-  {"slug":"tarih","name":"Tarih"},
-  {"slug":"din","name":"Din"},
-  {"slug":"mitoloji","name":"Mitoloji"},
-  {"slug":"sosyoloji","name":"Sosyoloji"},
-  {"slug":"psikoloji","name":"Psikoloji"},
-  {"slug":"bilim","name":"Bilim"},
-  {"slug":"notlar","name":"Notlar"},
-  {"slug":"felsefe","name":"Felsefe","parent":"kitap-notlari"},
-  {"slug":"din","name":"Din","parent":"kitap-notlari"},
-  {"slug":"tarih","name":"Tarih","parent":"kitap-notlari"},
-  {"slug":"edebiyat","name":"Edebiyat","parent":"kitap-notlari"},
-  {"slug":"sanat","name":"Sanat","parent":"kitap-notlari"},
-  {"slug":"sinema","name":"Sinema","parent":"kitap-notlari"},
-  {"slug":"sosyoloji","name":"Sosyoloji","parent":"kitap-notlari"},
-  {"slug":"psikoloji","name":"Psikoloji","parent":"kitap-notlari"},
-  {"slug":"bilim","name":"Bilim","parent":"kitap-notlari"},
-  {"slug":"mitoloji","name":"Mitoloji","parent":"kitap-notlari"},
-  {"slug":"diger","name":"Diğer","parent":"kitap-notlari"}
+  {
+    "slug": "kitap-notlari",
+    "name": "Kitap Notları"
+  },
+  {
+    "slug": "felsefe",
+    "name": "Felsefe"
+  },
+  {
+    "slug": "sanat",
+    "name": "Sanat"
+  },
+  {
+    "slug": "edebiyat",
+    "name": "Edebiyat"
+  },
+  {
+    "slug": "tarih",
+    "name": "Tarih"
+  },
+  {
+    "slug": "din",
+    "name": "Din"
+  },
+  {
+    "slug": "mitoloji",
+    "name": "Mitoloji"
+  },
+  {
+    "slug": "sosyoloji",
+    "name": "Sosyoloji"
+  },
+  {
+    "slug": "psikoloji",
+    "name": "Psikoloji"
+  },
+  {
+    "slug": "bilim",
+    "name": "Bilim"
+  },
+  {
+    "slug": "notlar",
+    "name": "Notlar"
+  },
+  {
+    "slug": "felsefe",
+    "name": "Felsefe",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "din",
+    "name": "Din",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "tarih",
+    "name": "Tarih",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "edebiyat",
+    "name": "Edebiyat",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "sanat",
+    "name": "Sanat",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "sinema",
+    "name": "Sinema",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "sosyoloji",
+    "name": "Sosyoloji",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "psikoloji",
+    "name": "Psikoloji",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "bilim",
+    "name": "Bilim",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "mitoloji",
+    "name": "Mitoloji",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "diger",
+    "name": "Diğer",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "estetik-felsefesi",
+    "name": "Estetik Felsefesi",
+    "parent": "kitap-notlari/felsefe"
+  }
 ]
