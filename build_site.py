@@ -61,7 +61,8 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     chapter_note = ''
     if category == 'kitap-notlari' and len(parts) > 4:
         parent_url = '/' + '/'.join(parts[:-2]) + '/'
-    content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true">{body}</article><div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>'
+    comments = '''<section class="comments" aria-labelledby="comments-title"><h2 id="comments-title">Yorumlar</h2><p>Görüşlerini paylaşmak için GitHub hesabınla giriş yapabilirsin.</p><script src="https://utteranc.es/client.js" repo="furkansagdic2603-ctrl/furkansagdic2603-ctrl.github.io" issue-term="pathname" label="yorum" theme="github-light" crossorigin="anonymous" async></script></section>'''
+    content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true">{body}</article><div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
     write(path.relative_to(ROOT),doc(title,content,category,description))
 
 book_url = '/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/'
