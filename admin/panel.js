@@ -75,6 +75,13 @@
   }
   async function showPanel() {
     await callAdmin('whoami');
+    try {
+      const themeRes = await fetch('/data/theme.json', { cache: 'no-store' });
+      const theme = themeRes.ok ? await themeRes.json() : {};
+      $('theme-accent').value = theme.accent || '#8b3d2e';
+      $('theme-paper').value = theme.paper || '#faf8f3';
+      $('theme-ink').value = theme.ink || '#22221e';
+    } catch { /* First visit or unavailable theme file: use the built-in palette. */ }
     await loadCategories();
     await loadArticles();
     $('admin-login').hidden = true;
@@ -101,6 +108,19 @@
   $('logout').addEventListener('click', () => {
     session = null; sessionStorage.removeItem(authKey);
     $('admin-panel').hidden = true; $('admin-login').hidden = false;
+  });
+  $('save-theme').addEventListener('click', async () => {
+    const button = $('save-theme'); button.disabled = true;
+    $('theme-feedback').textContent = 'Renkler kaydediliyor…';
+    try {
+      await callAdmin('save_theme', { theme: {
+        accent: $('theme-accent').value,
+        paper: $('theme-paper').value,
+        ink: $('theme-ink').value
+      }});
+      $('theme-feedback').textContent = 'Renkler kaydedildi. Sitede görünmesi birkaç dakika sürebilir.';
+    } catch (err) { $('theme-feedback').textContent = err.message; }
+    finally { button.disabled = false; }
   });
   $('add-category').addEventListener('click', async () => {
     const name = $('new-category').value.trim();
