@@ -49,7 +49,6 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     if not item: continue
     title,date,description,body=item
     original_titles={'ilk-deneme-yazim':'İlk Deneme Yazım','zaman-ve-insan':'Zaman ve İnsan','suut-kemal-yetkin-estetik':'Estetik (Müellif: Suut Kemal Yetkin)'}
-    title=original_titles.get(path.parent.name,title)
     if not date and path.parent.name in original_titles: date='20 Eylül 2026'
     if 'data-article="true"' in path.read_text(encoding='utf-8'):
         pass
