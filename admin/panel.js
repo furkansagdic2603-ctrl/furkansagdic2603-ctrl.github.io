@@ -20,8 +20,16 @@
     sessionStorage.setItem(authKey, JSON.stringify(session));
   }
   async function callAdmin(action, payload = {}) {
+    const body = JSON.stringify({ action, ...payload });
+    const bytes = new TextEncoder().encode(body).length;
+    if (bytes > 4 * 1024 * 1024) throw new Error(`Yazı ${(bytes / 1024 / 1024).toFixed(1)} MB. Üst sınır 4 MB; görselleri bağlantı olarak ekle veya yazıyı bölümlere ayır.`);
     await refreshSession();
-    const res = await fetch(`${base}/functions/v1/site-admin`, { method: 'POST', headers: authHeaders(), body: JSON.stringify({ action, ...payload }) });
+    let res;
+    try {
+      res = await fetch(`${base}/functions/v1/site-admin`, { method: 'POST', headers: authHeaders(), body });
+    } catch {
+      throw new Error(`Supabase bağlantısı kurulamadı (${(bytes / 1024).toFixed(0)} KB gönderiliyor). Bağlantını kontrol edip tekrar dene; yazı panelde duruyor.`);
+    }
     const data = await res.json().catch(() => ({}));
     if (!res.ok) throw new Error(data.error || 'İşlem tamamlanamadı.');
     return data;

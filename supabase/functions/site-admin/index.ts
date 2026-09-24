@@ -2,6 +2,7 @@ const SITE_ORIGIN = 'https://furkansagdic.com.tr';
 const PROJECT_URL = 'https://vdwioetyxlujrhqrzhwc.supabase.co';
 const PUBLIC_KEY = 'sb_publishable_4dB2-eRe_FEkJJfkzaLwoQ_UuzIF5WT';
 const REPOSITORY = 'furkansagdic2603-ctrl/furkansagdic2603-ctrl.github.io';
+const MAX_REQUEST_BYTES = 4 * 1024 * 1024;
 const cors = {
   'Access-Control-Allow-Origin': SITE_ORIGIN,
   'Access-Control-Allow-Headers': 'authorization, apikey, content-type',
@@ -55,8 +56,10 @@ Deno.serve(async req => {
     if (!auth.ok) return result({ error: 'Oturum geçersiz.' }, 401);
     const user = await auth.json();
     if (!user.email_confirmed_at || user.email?.toLowerCase() !== adminEmail) return result({ error: 'Bu hesap yönetici değil.' }, 403);
-    if (Number(req.headers.get('content-length') || 0) > 250000) return result({ error: 'Yazı çok büyük.' }, 413);
-    const input = await req.json();
+    if (Number(req.headers.get('content-length') || 0) > MAX_REQUEST_BYTES) return result({ error: 'Yazı 4 MB sınırını aşıyor. Görselleri bağlantı olarak ekle veya yazıyı bölümlere ayır.' }, 413);
+    const raw = await req.text();
+    if (new TextEncoder().encode(raw).length > MAX_REQUEST_BYTES) return result({ error: 'Yazı 4 MB sınırını aşıyor. Görselleri bağlantı olarak ekle veya yazıyı bölümlere ayır.' }, 413);
+    const input = JSON.parse(raw);
     if (input.action === 'whoami') return result({ ok: true });
     if (input.action === 'add_category') {
       const name = String(input.name || '').trim();
@@ -74,7 +77,7 @@ Deno.serve(async req => {
     if (input.action === 'publish') {
       const title = String(input.title || '').trim(), description = String(input.description || '').trim();
       const body = String(input.body || '').trim(), category = String(input.category || '');
-      if (!title || title.length > 160 || description.length > 500 || !body || body.length > 180000) return result({ error: 'Başlık veya yazı içeriği geçersiz.' }, 400);
+      if (!title || title.length > 160 || description.length > 500 || !body) return result({ error: 'Başlık veya yazı içeriği geçersiz.' }, 400);
       if (/<\s*(script|iframe|object|embed|form|base|link|meta)\b|\bon[a-z]+\s*=|javascript:/i.test(body)) return result({ error: 'Yazı içinde izin verilmeyen HTML var.' }, 400);
       const { categories } = await getCategories(token);
       const selected = categories.find(item => categoryPath(item) === category);
