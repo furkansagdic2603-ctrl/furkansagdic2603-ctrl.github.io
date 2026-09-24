@@ -57,7 +57,9 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     # Retain the original article body, including supplied images and formatting.
     # New editor-created pages are also normalized on the next GitHub build.
     label=CATS[category] + (' · '+BOOK_TOPICS.get(parts[1],parts[1].replace('-',' ').title()) if len(parts)>3 else '')
-    content=f'<div class="article-head"><a class="back" href="/{category}/">← {CATS[category]}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div><article class="prose yazi-icerik" data-article="true">{body}</article><div class="article-end"><a href="/{category}/">← {CATS[category]} yazıları</a></div>'
+    parent_url = f'/{category}/{parts[1]}/' if category == 'kitap-notlari' and len(parts)>3 else f'/{category}/'
+    chapter_note = '<p class="chapter-note">Bu kitabın notları beş bölümden oluşuyor. Şu anda birinci bölüm yayımlandı.</p>' if path.parent.name == 'bir-birey-nasil-yasayabilir' else ''
+    content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true">{body}</article><div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>'
     write(path.relative_to(ROOT),doc(title,content,category,description))
 
 articles.sort(key=lambda a: ('2026' not in a['date'],a['url']))
