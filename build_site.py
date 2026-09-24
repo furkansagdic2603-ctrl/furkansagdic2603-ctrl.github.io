@@ -6,7 +6,7 @@ from html import escape
 
 ROOT = Path(__file__).parent
 CATS = {'kitap-notlari':'Kitap Notları','felsefe':'Felsefe','sanat':'Sanat','edebiyat':'Edebiyat','tarih':'Tarih','din':'Din','mitoloji':'Mitoloji','sosyoloji':'Sosyoloji','psikoloji':'Psikoloji','bilim':'Bilim','notlar':'Notlar'}
-BOOK_TOPICS = {'felsefe':'Felsefe','din':'Din','tarih':'Tarih','edebiyat':'Edebiyat','sanat':'Sanat','sosyoloji':'Sosyoloji','psikoloji':'Psikoloji','bilim':'Bilim','mitoloji':'Mitoloji','diger':'Diğer'}
+BOOK_TOPICS = {'felsefe':'Felsefe','din':'Din','tarih':'Tarih','edebiyat':'Edebiyat','sanat':'Sanat','sinema':'Sinema','sosyoloji':'Sosyoloji','psikoloji':'Psikoloji','bilim':'Bilim','mitoloji':'Mitoloji','diger':'Diğer'}
 EXTRAS = {'kaynakca':'Kaynakça','galeri':'Galeri','hakkimda':'Hakkımda','iletisim':'İletişim','arsiv':'Arşiv'}
 
 def doc(title, main, active='', description='Furkan Sağdıç’ın yazıları ve notları.'):
