@@ -93,7 +93,7 @@ if (ROOT/'felsefe/estetik').exists():
     write('felsefe/estetik/index.html',doc('Estetik','<section class="page-head"><a class="back" href="/felsefe/">← Felsefe</a><h1>Estetik</h1></section><section class="entries">'+''.join(card(a) for a in matched)+'</section>','felsefe'))
 book_rows = ''
 for number in range(1, 6):
-    available = number <= 2
+    available = (ROOT / f"kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-{number}/index.html").is_file()
     href = f'href="{book_url}bolum-{number}/"' if available else 'aria-disabled="true"'
     caption = f'Bölüm {number}' + ('' if available else ' · Yakında')
     book_rows += f'<a class="chapter-row" {href}><span>{number}</span><span>{caption}</span><span>{"→" if available else ""}</span></a>' if available else f'<div class="chapter-row pending" aria-disabled="true"><span>{number}</span><span>{caption}</span></div>'
