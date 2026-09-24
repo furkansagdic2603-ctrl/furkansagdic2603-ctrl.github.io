@@ -104,7 +104,7 @@ write('kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/index.html',doc('Bir bi
 cinema_rows = ''
 for number in range(1, 6):
     available = (ROOT / f'kitap-notlari/sinema/sinemanin-kokleri/bolum-{number}/index.html').is_file()
-    caption = f'Bölüm {number}' + ({1: ' · Mukaddime', 2: ' · Mukaddime', 3: ' · Filmlere Neden İhtiyacımız Var? Neden Film İzleriz?', 4: ' · İmge, Sanat Gelenekleri ve Sinemaya Giriş'}.get(number, '')) + ('' if available else ' · Yakında')
+    caption = f'Bölüm {number}' + ({1: ' · Mukaddime', 2: ' · Mukaddime', 3: ' · Filmlere Neden İhtiyacımız Var? Neden Film İzleriz?', 4: ' · İmge, Sanat Gelenekleri ve Sinemaya Giriş', 5: ' · Kayıp Hikmetin Peşinde'}.get(number, '')) + ('' if available else ' · Yakında')
     if available:
         cinema_rows += f'<a class="chapter-row" href="{cinema_book_url}bolum-{number}/"><span>{number}</span><span>{caption}</span><span>→</span></a>'
     else:
