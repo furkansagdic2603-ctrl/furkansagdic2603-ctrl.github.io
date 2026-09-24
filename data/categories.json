@@ -127,5 +127,10 @@
     "slug": "schopenhauer",
     "name": "Schopenhauer",
     "parent": "kitap-notlari/felsefe/klasikler"
+  },
+  {
+    "slug": "osmanlica-felsefe",
+    "name": "Osmanlıca Felsefe",
+    "parent": "kitap-notlari/felsefe"
   }
 ]
