@@ -1,0 +1,13 @@
+[
+  {"slug":"kitap-notlari","name":"Kitap Notları"},
+  {"slug":"felsefe","name":"Felsefe"},
+  {"slug":"sanat","name":"Sanat"},
+  {"slug":"edebiyat","name":"Edebiyat"},
+  {"slug":"tarih","name":"Tarih"},
+  {"slug":"din","name":"Din"},
+  {"slug":"mitoloji","name":"Mitoloji"},
+  {"slug":"sosyoloji","name":"Sosyoloji"},
+  {"slug":"psikoloji","name":"Psikoloji"},
+  {"slug":"bilim","name":"Bilim"},
+  {"slug":"notlar","name":"Notlar"}
+]
