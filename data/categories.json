@@ -142,5 +142,10 @@
     "slug": "risale-i-nur-serhi",
     "name": "Risale-i Nur Şerhi",
     "parent": "din/risale-i-nur"
+  },
+  {
+    "slug": "risale-i-nur-serhi",
+    "name": "Risale-i Nur Şerhi",
+    "parent": "kitap-notlari/din"
   }
 ]
