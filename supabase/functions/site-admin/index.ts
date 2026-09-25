@@ -104,6 +104,28 @@ Deno.serve(async req => {
       await putFile(token, 'data/categories.json', JSON.stringify(categories, null, 2) + '\n', `Add category: ${name}`, sha);
       return result({ path, categories });
     }
+    if (input.action === 'upload_image') {
+      const filename = String(input.filename || '');
+      const type = String(input.mime || '');
+      const base64 = String(input.data || '');
+      const formats: Record<string, { ext: string; magic: number[] }> = {
+        'image/jpeg': { ext: 'jpg', magic: [0xff, 0xd8, 0xff] },
+        'image/png': { ext: 'png', magic: [0x89, 0x50, 0x4e, 0x47] },
+        'image/gif': { ext: 'gif', magic: [0x47, 0x49, 0x46, 0x38] },
+        'image/webp': { ext: 'webp', magic: [0x52, 0x49, 0x46, 0x46] },
+      };
+      const format = formats[type];
+      if (!format || !filename || filename.length > 120 || /[\\/\r\n]/.test(filename) || !/^[A-Za-z0-9+/]+={0,2}$/.test(base64) || base64.length > 2_800_000) return result({ error: 'JPEG, PNG, GIF veya WebP görsel seç (en fazla 2 MB).' }, 400);
+      const binary = atob(base64);
+      if (binary.length > 2 * 1024 * 1024 || !format.magic.every((byte, index) => binary.charCodeAt(index) === byte) || (type === 'image/webp' && binary.slice(8, 12) !== 'WEBP')) return result({ error: 'Görsel biçimi veya boyutu geçersiz.' }, 400);
+      const path = `assets/uploads/${new Date().toISOString().slice(0, 10)}/${crypto.randomUUID()}.${format.ext}`;
+      const res = await fetch(ghUrl(path), {
+        method: 'PUT', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: `Upload image: ${filename}`, content: base64 }),
+      });
+      if (!res.ok) throw new Error(`Görsel yükleme hatası (${res.status}).`);
+      return result({ url: `/${path}` });
+    }
     if (input.action === 'load_article' || input.action === 'update_article' || input.action === 'delete_article') {
       const path = String(input.path || '');
       const { categories } = await getCategories(token);
@@ -120,6 +142,8 @@ Deno.serve(async req => {
       }
       const title = String(input.title || '').trim(), description = String(input.description || '').trim();
       const body = String(input.body || '').trim();
+      const category = String(input.category || '');
+      if (!categories.some(item => categoryPath(item) === category)) return result({ error: 'Kategori geçersiz.' }, 400);
       if (!title || title.length > 160 || description.length > 500 || !body) return result({ error: 'Başlık veya yazı içeriği geçersiz.' }, 400);
       if (/<\s*(script|iframe|object|embed|form|base|link|meta)\b|\bon[a-z]+\s*=|javascript:/i.test(body)) return result({ error: 'Yazı içinde izin verilmeyen HTML var.' }, 400);
       const article = /(<article\b[^>]*\byazi-icerik\b[^>]*>)[\s\S]*?(<\/article>)/i;
@@ -129,6 +153,7 @@ Deno.serve(async req => {
       updated = updated.replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${escapeHtml(description)}">`);
       updated = updated.replace(/(<div class="article-head">[\s\S]*?<h1>)[\s\S]*?(<\/h1>)/, (_all, before, after) => `${before}${escapeHtml(title)}${after}`);
       updated = updated.replace(article, (_all, before, after) => `${before}${body}${after}`);
+      updated = updated.replace(/(<article\b[^>]*\byazi-icerik\b[^>]*)(>)/i, (_all, before, after) => `${before.replace(/\sdata-category="[^"]*"/i, '')} data-category="${category}"${after}`);
       const sha = await putFile(token, path, updated, `Update article: ${title}`, original.sha);
       return result({ url: `/${path.replace(/index\.html$/, '')}`, sha });
     }
