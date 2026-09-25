@@ -9,6 +9,7 @@
   const authHeaders = () => ({ apikey: key, Authorization: `Bearer ${session.access_token}`, 'Content-Type': 'application/json' });
   const feedback = message => { $('feedback').textContent = message; };
   const pathOf = item => `${item.parent ? item.parent + '/' : ''}${item.slug}`;
+  const escapeAttribute = value => value.replace(/[&<>"']/g, char => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[char]);
   let editing = null;
   let articles = [];
 
@@ -134,6 +135,39 @@
     } catch (err) { feedback(err.message); }
     finally { button.disabled = false; }
   });
+  let imageRange = null;
+  const rememberSelection = () => {
+    const selection = getSelection();
+    if (selection.rangeCount && $('editor').contains(selection.anchorNode)) imageRange = selection.getRangeAt(0).cloneRange();
+  };
+  $('editor').addEventListener('mouseup', rememberSelection);
+  $('editor').addEventListener('keyup', rememberSelection);
+  $('image-file').addEventListener('change', async event => {
+    const file = event.target.files[0];
+    if (!file) return;
+    event.target.value = '';
+    if (file.size > 2 * 1024 * 1024) { feedback('Görsel en fazla 2 MB olabilir.'); return; }
+    if (!['image/jpeg', 'image/png', 'image/gif', 'image/webp'].includes(file.type)) { feedback('JPEG, PNG, GIF veya WebP görsel seç.'); return; }
+    const button = $('image'); button.disabled = true; feedback('Görsel yükleniyor…');
+    try {
+      const dataUrl = await new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(reader.result);
+        reader.onerror = () => reject(new Error('Görsel okunamadı.'));
+        reader.readAsDataURL(file);
+      });
+      const result = await callAdmin('upload_image', { filename: file.name, mime: file.type, data: dataUrl.split(',')[1] });
+      $('editor').focus();
+      if (imageRange && $('editor').contains(imageRange.commonAncestorContainer)) {
+        const selection = getSelection(); selection.removeAllRanges(); selection.addRange(imageRange);
+      }
+      const alt = prompt('Görsel açıklaması (isteğe bağlı):') || '';
+      document.execCommand('insertHTML', false, `<img src="${result.url}" alt="${escapeAttribute(alt)}">`);
+      $('editor').dispatchEvent(new Event('input'));
+      feedback('Görsel eklendi. Yazıyı kaydettiğinde sitede görünür.');
+    } catch (err) { feedback(err.message); }
+    finally { button.disabled = false; imageRange = null; }
+  });
   $('article-search').addEventListener('input', filterArticles);
   function resetEditor() {
     editing = null;
@@ -183,11 +217,11 @@
       const article = page.querySelector('article.yazi-icerik');
       const title = page.querySelector('.article-head h1');
       if (!article || !title) throw new Error('Bu sayfa düzenlenebilen bir yazı değil.');
-      const category = Array.from($('category').options).map(option => option.value).filter(value => path.startsWith(value + '/')).sort((a, b) => b.length - a.length)[0];
+      const category = article.dataset.category || Array.from($('category').options).map(option => option.value).filter(value => path.startsWith(value + '/')).sort((a, b) => b.length - a.length)[0];
       if (!category) throw new Error('Yazının kategorisi bulunamadı.');
       editing = { path, sha: data.sha };
       $('category').value = category;
-      $('category').disabled = true;
+      $('category').disabled = false;
       $('title').value = title.textContent.trim();
       $('description').value = page.querySelector('meta[name="description"]')?.content || '';
       $('editor').innerHTML = article.innerHTML;
@@ -209,7 +243,7 @@
     const button = $('publish'); button.disabled = true; feedback(editing ? 'Değişiklikler kaydediliyor…' : 'Yayımlanıyor…');
     try {
       const result = editing
-        ? await callAdmin('update_article', { title, description, body, path: editing.path, sha: editing.sha })
+        ? await callAdmin('update_article', { title, description, body, category, path: editing.path, sha: editing.sha })
         : await callAdmin('publish', { title, description, category, body });
       if (editing) editing.sha = result.sha;
       const link = document.createElement('a'); link.href = result.url; link.textContent = 'Yazıyı aç →';
