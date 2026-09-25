@@ -21,6 +21,12 @@ def write(path, text):
     file.parent.mkdir(parents=True,exist_ok=True)
     file.write_text(text,encoding='utf-8')
 
+# The palette must load as render-blocking CSS, before the page is first painted.
+theme = json.loads((ROOT/'data/theme.json').read_text(encoding='utf-8'))
+if not all(re.fullmatch(r'#[0-9a-fA-F]{6}', theme.get(key, '')) for key in ('accent', 'paper', 'ink')):
+    raise ValueError('Invalid site colors')
+write('data/theme.css', 'html:root{' + ''.join(f'--{key}:{theme[key]};' for key in ('accent', 'paper', 'ink')) + 'background:var(--paper)}\n')
+
 def article_body(path):
     tree = html.fromstring(path.read_text(encoding='utf-8'))
     arts = tree.xpath('//article[contains(concat(" ", normalize-space(@class), " "), " yazi-icerik ")]')

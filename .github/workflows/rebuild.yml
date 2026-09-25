@@ -6,6 +6,7 @@ on:
       - '**/index.html'
       - 'build_site.py'
       - 'data/categories.json'
+      - 'data/theme.json'
       - '!articles.json'
 permissions:
   contents: write
