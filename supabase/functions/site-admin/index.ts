@@ -41,24 +41,6 @@ function commentHeaders() {
   const key = commentAdminKey();
   return { apikey: key, ...(key.startsWith('sb_secret_') ? {} : { Authorization: `Bearer ${key}` }), 'Content-Type': 'application/json' };
 }
-const audioStore = (path: string) => `${PROJECT_URL}/storage/v1/object/article-audio/${path.split('/').map(encodeURIComponent).join('/')}`;
-function speechChunks(page: string) {
-  const match = page.match(/<article\b[^>]*\byazi-icerik\b[^>]*>([\s\S]*?)<\/article>/i);
-  if (!match) throw new Error('Seslendirilecek yazı bulunamadı.');
-  const plain = match[1].replace(/<\s*br\s*\/?\s*>|<\/(?:p|h[1-6]|li|blockquote)>/gi, ' ').replace(/<[^>]*>/g, ' ')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n))).replace(/&#x([\da-f]+);/gi, (_, n) => String.fromCodePoint(parseInt(n, 16)))
-    .replace(/&(?:nbsp|amp|lt|gt|quot|apos);/g, entity => ({ '&nbsp;': ' ', '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&apos;': "'" })[entity] || entity)
-    .replace(/\s+/g, ' ').trim();
-  const chunks: string[] = [];
-  let current = '';
-  for (const word of plain.split(' ')) {
-    if (current && (current.length + word.length + 1 > 1800)) { chunks.push(current); current = ''; }
-    current += (current ? ' ' : '') + word;
-  }
-  if (current) chunks.push(current);
-  if (!chunks.length || chunks.length > 300) throw new Error('Yazı seslendirme sınırını aşıyor.');
-  return chunks;
-}
 async function getCategories(token: string) {
   const res = await fetch(ghUrl('data/categories.json'), { headers: ghHeaders(token) });
   if (!res.ok) throw new Error('Kategori listesi alınamadı.');
@@ -121,34 +103,6 @@ Deno.serve(async req => {
       const dayOf = (date: Date) => new Intl.DateTimeFormat('sv-SE', { timeZone: 'Europe/Istanbul', year: 'numeric', month: '2-digit', day: '2-digit' }).format(date);
       for (const view of views) { const day = dayOf(new Date(view.created_at)); days[day] = (days[day] || 0) + 1; paths[view.page_path] = (paths[view.page_path] || 0) + 1; }
       return result({ total: views.length, today: days[dayOf(new Date())] || 0, daily: Object.entries(days).sort(([a], [b]) => a.localeCompare(b)), top: Object.entries(paths).sort((a, b) => b[1] - a[1]).slice(0, 12), truncated: views.length === 10000 });
-    }
-    if (input.action === 'generate_audio_chunk') {
-      const path = String(input.path || '');
-      const index = Number(input.index);
-      const key = Deno.env.get('OPENAI_API_KEY');
-      if (!key) return result({ error: 'Yapay zekâ seslendirmesi için OPENAI_API_KEY Supabase sırrını ekle.' }, 503);
-      const { categories } = await getCategories(token);
-      const article = await getArticle(token, path, categories);
-      const chunks = speechChunks(article.content);
-      if (!Number.isSafeInteger(index) || index < 0 || index >= chunks.length) return result({ error: 'Ses parçası numarası geçersiz.' }, 400);
-      const prefix = `${path.replace(/\/index\.html$/, '')}/${article.sha.slice(0, 12)}`;
-      const audioPath = `${prefix}/part-${String(index).padStart(3, '0')}.mp3`;
-      const existing = await fetch(audioStore(audioPath), { method: 'HEAD' });
-      if (!existing.ok) {
-        const generated = await fetch('https://api.openai.com/v1/audio/speech', {
-          method: 'POST', headers: { Authorization: `Bearer ${key}`, 'Content-Type': 'application/json' },
-          body: JSON.stringify({ model: 'gpt-4o-mini-tts', voice: 'coral', input: chunks[index], instructions: 'Türkçe metni doğal, sakin ve anlaşılır bir sesle oku.', response_format: 'mp3' }),
-        });
-        if (!generated.ok) throw new Error(`Yapay zekâ seslendirmesi başarısız (${generated.status}). API anahtarını ve krediyi kontrol et.`);
-        const upload = await fetch(audioStore(audioPath), { method: 'POST', headers: { ...commentHeaders(), 'Content-Type': 'audio/mpeg', 'x-upsert': 'true' }, body: await generated.arrayBuffer() });
-        if (!upload.ok) throw new Error(`Ses dosyası saklanamadı (${upload.status}). Kurulum SQL dosyasını çalıştır.`);
-      }
-      if (index === chunks.length - 1) {
-        const manifest = { parts: chunks.length, version: article.sha.slice(0, 12), model: 'gpt-4o-mini-tts' };
-        const uploaded = await fetch(audioStore(`${path.replace(/\/index\.html$/, '')}/manifest.json`), { method: 'POST', headers: { ...commentHeaders(), 'Content-Type': 'application/json', 'x-upsert': 'true' }, body: JSON.stringify(manifest) });
-        if (!uploaded.ok) throw new Error(`Ses listesi saklanamadı (${uploaded.status}).`);
-      }
-      return result({ index, total: chunks.length, ready: index === chunks.length - 1, cached: existing.ok });
     }
     if (input.action === 'list_comments') {
       const offset = Number(input.offset || 0);
@@ -243,7 +197,6 @@ Deno.serve(async req => {
       updated = updated.replace(article, (_all, before, after) => `${before}${body}${after}`);
       updated = updated.replace(/(<article\b[^>]*\byazi-icerik\b[^>]*)(>)/i, (_all, before, after) => `${before.replace(/\sdata-category="[^"]*"/i, '')} data-category="${category}"${after}`);
       const sha = await putFile(token, path, updated, `Update article: ${title}`, original.sha);
-      await fetch(audioStore(`${path.replace(/\/index\.html$/, '')}/manifest.json`), { method: 'DELETE', headers: commentHeaders() }).catch(() => {});
       return result({ url: `/${path.replace(/index\.html$/, '')}`, sha });
     }
     if (input.action === 'publish') {
