@@ -42,7 +42,8 @@ def article_body(path):
     desc = tree.xpath('//meta[@name="description"]/@content')
     body = ''.join(etree.tostring(child,encoding='unicode',method='html') for child in art)
     if art.text: body = escape(art.text) + body
-    return title,date,(desc[0] if desc else ''),body
+    category_override = art.get('data-category', '')
+    return title,date,(desc[0] if desc else ''),body,category_override
 
 def card(a):
     return f'<article class="entry"><div class="eyebrow">{escape(CATS[a["category"]])} <span>·</span> {escape(a["date"])}</div><h3><a href="{a["url"]}">{escape(a["title"])}</a></h3><p>{escape(a["description"])}</p><a class="read" href="{a["url"]}">Yazıyı oku →</a></article>'
@@ -53,33 +54,34 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     if len(parts)<3 or parts[0] not in CATS: continue
     item=article_body(path)
     if not item: continue
-    title,date,description,body=item
+    title,date,description,body,category_override=item
     original_titles={'ilk-deneme-yazim':'İlk Deneme Yazım','zaman-ve-insan':'Zaman ve İnsan','suut-kemal-yetkin-estetik':'Estetik (Müellif: Suut Kemal Yetkin)'}
     if not date and path.parent.name in original_titles: date='20 Eylül 2026'
     if 'data-article="true"' in path.read_text(encoding='utf-8'):
         pass
-    category=parts[0]; url='/'+'/'.join(parts[:-1])+'/'
+    original_path = '/'.join(parts[:-2])
+    category_path = category_override if category_override in CATEGORY_PATHS else next((key for key in sorted(CATEGORY_PATHS, key=len, reverse=True) if original_path == key or original_path.startswith(key+'/')), parts[0])
+    category=category_path.split('/')[0]; url='/'+'/'.join(parts[:-1])+'/'
     if not description: description=title
-    articles.append(dict(title=title,date=date,description=description,category=category,url=url))
+    articles.append(dict(title=title,date=date,description=description,category=category,categoryPath=category_path,url=url))
     # Retain the original article body, including supplied images and formatting.
     # New editor-created pages are also normalized on the next GitHub build.
-    category_path = '/'.join(parts[:-2])
-    label = ' · '.join(CATEGORY_PATHS.get('/'.join(parts[:i]), parts[i-1].replace('-',' ').title()) for i in range(1, len(parts)-1) if '/'.join(parts[:i]) in CATEGORY_PATHS)
+    label = ' · '.join(CATEGORY_PATHS['/'.join(category_path.split('/')[:i])] for i in range(1, len(category_path.split('/'))+1) if '/'.join(category_path.split('/')[:i]) in CATEGORY_PATHS)
     if not label: label=CATS[category]
     parent_url = f'/{category_path}/' if category_path else f'/{category}/'
     chapter_note = ''
-    if category == 'kitap-notlari' and len(parts) > 4 and category_path not in CATEGORY_PATHS:
+    if category == 'kitap-notlari' and len(parts) > 4 and original_path not in CATEGORY_PATHS and not category_override:
         parent_url = '/' + '/'.join(parts[:-2]) + '/'
     comments = '''<section class="comments" aria-labelledby="comments-title" hidden><h2 id="comments-title">Yorumlar</h2><div id="comments-list" aria-live="polite"></div><form id="comment-form" hidden><div class="comment-fields"><label>Ad<input name="first_name" autocomplete="given-name" maxlength="60" required></label><label>Soyad<input name="last_name" autocomplete="family-name" maxlength="60" required></label></div><label>Yorum<textarea name="body" rows="5" maxlength="2000" required></textarea></label><div class="comment-trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Yorumu gönder</button><p id="comment-status" role="status"></p></form></section><script src="/comments-config.js" defer></script><script src="/comments.js" defer></script>'''
-    content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true">{body}</article><div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
+    content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true" data-category="{escape(category_path, quote=True)}">{body}</article><div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
     write(path.relative_to(ROOT),doc(title,content,category,description))
 
 book_url = '/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/'
-book = dict(title='Bir birey nasıl yaşayabilir?', date='', description='Deleuze üzerine kitap notları · 5 bölüm', category='kitap-notlari', url=book_url)
+book = dict(title='Bir birey nasıl yaşayabilir?', date='', description='Deleuze üzerine kitap notları · 5 bölüm', category='kitap-notlari', categoryPath='kitap-notlari/felsefe', url=book_url)
 articles.append(book)
 cinema_book_url = '/kitap-notlari/sinema/sinemanin-kokleri/'
-articles.append(dict(title='Sinemanın Kökleri', date='', description='Enver Gülşen · kitap notları · 5 bölüm', category='kitap-notlari', url=cinema_book_url))
-visible = [a for a in articles if all(not a['url'].startswith(url) or a['url'] == url for url in (book_url, cinema_book_url))]
+articles.append(dict(title='Sinemanın Kökleri', date='', description='Enver Gülşen · kitap notları · 5 bölüm', category='kitap-notlari', categoryPath='kitap-notlari/sinema', url=cinema_book_url))
+visible = [a for a in articles if all(not a['url'].startswith(url) or a['url'] == url or a.get('categoryPath') not in ('kitap-notlari/felsefe','kitap-notlari/sinema') for url in (book_url, cinema_book_url))]
 articles.sort(key=lambda a: ('2026' not in a['date'],a['url']))
 write('articles.json',json.dumps(articles,ensure_ascii=False,indent=2))
 latest=''.join(card(a) for a in visible[:5])
@@ -99,7 +101,7 @@ for slug,name in CATS.items():
         links=''.join(f'<a href="/kitap-notlari/{key}/"><span>{value}</span><span>↗</span></a>' for key,value in BOOK_TOPICS.items())
         inner='<section class="page-head"><span class="eyebrow">OKUMA DEFTERİ</span><h1>Kitap Notları</h1><p>Okuduğum kitaplardan notlar, alıntılar ve değerlendirmeler.</p></section><div class="topic-grid">'+links+'</div><section class="listing"><div class="section-heading"><h2>Son kitap notları</h2></div><div class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Henüz kitap notu yayımlanmadı.</p>')+'</div></section>'
         for key,value in BOOK_TOPICS.items():
-            notes=[a for a in matched if a['url'].startswith('/kitap-notlari/'+key+'/')]
+            notes=[a for a in matched if a.get('categoryPath','').startswith('kitap-notlari/'+key)]
             topic='<section class="page-head"><a class="back" href="/kitap-notlari/">← Kitap Notları</a><h1>'+value+'</h1><p>'+str(len(notes))+' kitap notu</p></section><section class="entries">'+(''.join(card(a) for a in notes) if notes else '<p class="empty">Bu kategoride henüz kitap notu yayımlanmadı.</p>')+'</section>'
             write(f'kitap-notlari/{key}/index.html',doc(value+' — Kitap Notları',topic,slug))
     write(f'{slug}/index.html',doc(name,inner,slug))
@@ -108,14 +110,14 @@ for path, name in CATEGORY_PATHS.items():
     if '/' not in path: continue
     parent=path.rsplit('/',1)[0]
     children=[(key,value) for key,value in CATEGORY_PATHS.items() if key.rsplit('/',1)[0] == path and '/' in key]
-    matched=[a for a in visible if a['url'].startswith('/'+path+'/')]
+    matched=[a for a in visible if a.get('categoryPath') == path or a.get('categoryPath','').startswith(path+'/')]
     links=''.join(f'<a href="/{escape(key)}/"><span>{escape(value)}</span><span>↗</span></a>' for key,value in children)
     inner=f'<section class="page-head"><a class="back" href="/{parent}/">← {escape(CATEGORY_PATHS.get(parent, CATS.get(parent, parent)))}</a><h1>{escape(name)}</h1><p>{len(matched)} yazı</p></section>'
     if links: inner+='<div class="topic-grid">'+links+'</div>'
     inner+='<section class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Bu bölümde henüz yazı yok.</p>')+'</section>'
     write(f'{path}/index.html',doc(name,inner,path.split('/')[0]))
 if (ROOT/'felsefe/estetik').exists() and 'felsefe/estetik' not in CATEGORY_PATHS:
-    matched=[a for a in articles if a['url'].startswith('/felsefe/estetik/')]
+    matched=[a for a in articles if a['url'].startswith('/felsefe/estetik/') and a.get('categoryPath') == 'felsefe']
     write('felsefe/estetik/index.html',doc('Estetik','<section class="page-head"><a class="back" href="/felsefe/">← Felsefe</a><h1>Estetik</h1></section><section class="entries">'+''.join(card(a) for a in matched)+'</section>','felsefe'))
 book_rows = ''
 for number in range(1, 6):
@@ -142,3 +144,10 @@ write('hakkimda/index.html',doc('Hakkımda','<section class="page-head"><span cl
 write('kaynakca/index.html',doc('Kaynakça',(ROOT/'bibliography_content.html').read_text(encoding='utf-8'),'kaynakca','Furkan Sağdıç’ın kişisel kütüphanesi: kitaplar, yazarlar ve yayınevleri.'))
 write('galeri/index.html',doc('Galeri','<section class="page-head"><span class="eyebrow">GÖRSELLER</span><h1>Galeri</h1></section><div class="prose static-copy"><p>Görsel çalışmalar ve fotoğraflar yayımlandıkça bu bölümde yer alacak.</p></div>','galeri'))
 write('iletisim/index.html',doc('İletişim','<section class="page-head"><span class="eyebrow">İLETİŞİM</span><h1>İletişim</h1></section><div class="prose static-copy"><p>İletişim bilgileri yakında burada yer alacak.</p></div>','iletisim'))
+urls = {'/'} | {f'/{key}/' for key in CATEGORY_PATHS} | {f'/{key}/' for key in EXTRAS} | {a['url'] for a in articles}
+urls.add('/arama/')
+urls.add('/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/')
+urls.add('/kitap-notlari/sinema/sinemanin-kokleri/')
+urls = sorted(url for url in urls if (ROOT / url.lstrip('/') / 'index.html').is_file())
+write('sitemap.xml', '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + ''.join(f'  <url><loc>{escape("https://furkansagdic.com.tr" + url)}</loc></url>\n' for url in urls) + '</urlset>\n')
+write('robots.txt', 'User-agent: *\nAllow: /\nSitemap: https://furkansagdic.com.tr/sitemap.xml\n')
