@@ -72,8 +72,17 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     chapter_note = ''
     if category == 'kitap-notlari' and len(parts) > 4 and original_path not in CATEGORY_PATHS and not category_override:
         parent_url = '/' + '/'.join(parts[:-2]) + '/'
+    chapter_navigation = ''
+    chapter_match = re.fullmatch(r'bolum-(\d+)', path.parent.name)
+    if category == 'kitap-notlari' and chapter_match:
+        siblings = sorted((int(match.group(1)), folder) for folder in path.parent.parent.iterdir() if folder.is_dir() and (match := re.fullmatch(r'bolum-(\d+)', folder.name)) and (folder / 'index.html').is_file())
+        numbers = [number for number, _ in siblings]
+        position = numbers.index(int(chapter_match.group(1)))
+        before = f'<a href="../bolum-{numbers[position-1]}/">← Bölüm {numbers[position-1]}</a>' if position else '<span></span>'
+        after = f'<a href="../bolum-{numbers[position+1]}/">Bölüm {numbers[position+1]} →</a>' if position + 1 < len(numbers) else '<span></span>'
+        chapter_navigation = f'<nav class="chapter-navigation" aria-label="Bölümler arasında gezinme">{before}{after}</nav>'
     comments = '''<section class="comments" aria-labelledby="comments-title" hidden><h2 id="comments-title">Yorumlar</h2><div id="comments-list" aria-live="polite"></div><form id="comment-form" hidden><div class="comment-fields"><label>Ad<input name="first_name" autocomplete="given-name" maxlength="60" required></label><label>Soyad<input name="last_name" autocomplete="family-name" maxlength="60" required></label></div><label>Yorum<textarea name="body" rows="5" maxlength="2000" required></textarea></label><div class="comment-trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Yorumu gönder</button><p id="comment-status" role="status"></p></form></section><script src="/comments-config.js" defer></script><script src="/comments.js" defer></script>'''
-    content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true" data-category="{escape(category_path, quote=True)}">{body}</article><div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
+    content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true" data-category="{escape(category_path, quote=True)}">{body}</article>{chapter_navigation}<div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
     write(path.relative_to(ROOT),doc(title,content,category,description))
 
 book_url = '/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/'
@@ -88,7 +97,8 @@ latest=''.join(card(a) for a in visible[:5])
 count=len(visible)
 intro='<section class="hero"><div class="hero-kicker">KİŞİSEL YAZI DEFTERİ <span> / </span> DÜŞÜNCE • KÜLTÜR • SANAT</div><h1>Okumak, düşünmek,<br><em>yeniden bakmak.</em></h1><p>Felsefe, sanat, edebiyat, tarih ve düşünce üzerine yazılarım ile okuma notlarım.</p></section>'
 sections=''.join(f'<a href="/{slug}/"><span>{name}</span><span>↗</span></a>' for slug,name in list(CATS.items())[:6])
-main=intro+f'<section class="listing"><div class="section-heading"><div><span class="eyebrow">{count:02d} YAZI</span><h2>Son yazılar</h2></div><a href="/arsiv/">Tüm yazılar →</a></div><div class="entries">{latest}</div></section><section class="topics"><div class="section-heading"><h2>Konular</h2></div><div class="topic-grid">{sections}</div></section>'
+resume='<section class="resume-reading" id="resume-reading" hidden><span class="eyebrow">OKUMAYA DEVAM ET</span><a id="resume-reading-link" href="/"></a><p id="resume-reading-detail"></p></section>'
+main=intro+resume+f'<section class="listing"><div class="section-heading"><div><span class="eyebrow">{count:02d} YAZI</span><h2>Son yazılar</h2></div><a href="/arsiv/">Tüm yazılar →</a></div><div class="entries">{latest}</div></section><section class="topics"><div class="section-heading"><h2>Konular</h2></div><div class="topic-grid">{sections}</div></section>'
 write('index.html',doc('Ana sayfa',main,description='Furkan Sağdıç’ın felsefe, sanat, edebiyat, tarih ve düşünce yazıları.'))
 for slug,name in CATS.items():
     matched=[a for a in visible if a['category']==slug]
