@@ -27,6 +27,20 @@ function decode(base64: string) {
   const bytes = Uint8Array.from(atob(base64.replace(/\s/g, '')), c => c.charCodeAt(0));
   return new TextDecoder().decode(bytes);
 }
+function commentAdminKey() {
+  const configured = Deno.env.get('SUPABASE_SECRET_KEYS');
+  let key: string | undefined;
+  if (configured) {
+    try { key = JSON.parse(configured).default; } catch { /* Legacy projects may only have a service role key. */ }
+  }
+  key ||= Deno.env.get('SUPABASE_SERVICE_ROLE_KEY');
+  if (!key) throw new Error('Yorum yönetimi için Supabase sunucu anahtarı bulunamadı.');
+  return key;
+}
+function commentHeaders() {
+  const key = commentAdminKey();
+  return { apikey: key, ...(key.startsWith('sb_secret_') ? {} : { Authorization: `Bearer ${key}` }), 'Content-Type': 'application/json' };
+}
 async function getCategories(token: string) {
   const res = await fetch(ghUrl('data/categories.json'), { headers: ghHeaders(token) });
   if (!res.ok) throw new Error('Kategori listesi alınamadı.');
@@ -79,6 +93,23 @@ Deno.serve(async req => {
     if (new TextEncoder().encode(raw).length > MAX_REQUEST_BYTES) return result({ error: 'Yazı 4 MB sınırını aşıyor. Görselleri bağlantı olarak ekle veya yazıyı bölümlere ayır.' }, 413);
     const input = JSON.parse(raw);
     if (input.action === 'whoami') return result({ ok: true });
+    if (input.action === 'list_comments') {
+      const offset = Number(input.offset || 0);
+      if (!Number.isSafeInteger(offset) || offset < 0 || offset > 10000) return result({ error: 'Yorum sayfası geçersiz.' }, 400);
+      const params = new URLSearchParams({ select: 'id,page_path,first_name,last_name,body,created_at', order: 'created_at.desc,id.desc', limit: '100', offset: String(offset) });
+      const res = await fetch(`${PROJECT_URL}/rest/v1/site_comments?${params}`, { headers: commentHeaders() });
+      if (!res.ok) throw new Error(`Yorumlar alınamadı (${res.status}).`);
+      return result({ comments: await res.json() });
+    }
+    if (input.action === 'delete_comment') {
+      const id = Number(input.id);
+      if (!Number.isSafeInteger(id) || id < 1) return result({ error: 'Yorum numarası geçersiz.' }, 400);
+      const params = new URLSearchParams({ id: `eq.${id}`, select: 'id' });
+      const res = await fetch(`${PROJECT_URL}/rest/v1/site_comments?${params}`, { method: 'DELETE', headers: { ...commentHeaders(), Prefer: 'return=representation' } });
+      if (!res.ok) throw new Error(`Yorum silinemedi (${res.status}).`);
+      if (!(await res.json()).length) return result({ error: 'Yorum bulunamadı veya zaten silinmiş.' }, 404);
+      return result({ ok: true });
+    }
     if (input.action === 'save_theme') {
       const theme = input.theme || {};
       const validColor = (value: unknown) => typeof value === 'string' && /^#[0-9a-fA-F]{6}$/.test(value);
