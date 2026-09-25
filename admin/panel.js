@@ -159,20 +159,6 @@
     fetchStats().catch(err => { $('stats-status').textContent = err.message; });
   }
   $('refresh-stats').addEventListener('click', () => fetchStats().catch(err => { $('stats-status').textContent = err.message; }));
-  $('generate-audio').addEventListener('click', async () => {
-    if (!editing) return;
-    const button = $('generate-audio'); button.disabled = true;
-    try {
-      for (let index = 0; ; index++) {
-        $('audio-status').textContent = `Ses hazırlanıyor: ${index + 1}. parça…`;
-        const result = await callAdmin('generate_audio_chunk', { path: editing.path, index });
-        $('audio-status').textContent = `${index + 1}/${result.total} parça hazır${result.cached ? ' (önceden oluşturulmuş)' : ''}.`;
-        if (result.ready) break;
-      }
-      $('audio-status').textContent = 'Yapay zekâ seslendirmesi hazır. Yazı sayfasını yenileyerek dinleyebilirsin.';
-    } catch (err) { $('audio-status').textContent = err.message; }
-    finally { button.disabled = !editing; }
-  });
   $('login-form').addEventListener('submit', async event => {
     event.preventDefault();
     const form = event.currentTarget;
@@ -267,8 +253,6 @@
     $('publish').textContent = 'Yayımla';
     $('edit-note').hidden = true;
     $('delete-article').disabled = true;
-    $('generate-audio').disabled = true;
-    $('audio-status').textContent = '';
     $('delete-article').textContent = 'Yazıyı sil (önce aç)';
     localStorage.removeItem('furkan-editor-draft-v1');
   }
@@ -319,8 +303,6 @@
       $('publish').textContent = 'Değişiklikleri kaydet';
       $('edit-note').hidden = false;
       $('delete-article').disabled = false;
-      $('generate-audio').disabled = false;
-      $('audio-status').textContent = 'Bu yazıyı yapay zekâ ile seslendirebilirsin.';
       $('delete-article').textContent = 'Bu yazıyı sil';
       $('article-status').textContent = 'Yazı açıldı; değiştirip kaydedebilirsin.';
       $('editor-heading').scrollIntoView({ behavior: 'smooth' });
