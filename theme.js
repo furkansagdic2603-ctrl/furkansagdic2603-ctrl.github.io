@@ -27,7 +27,7 @@
     if (!article) return;
 
     const styles = document.createElement('style');
-    styles.textContent = '.reading-progress{position:fixed;top:0;right:10px;width:4px;height:100vh;height:100dvh;z-index:1000;background:color-mix(in srgb,var(--rule) 55%,transparent);pointer-events:none}.reading-progress span{display:block;width:100%;height:0;background:var(--accent);transition:height .12s linear}@media(prefers-reduced-motion:reduce){.reading-progress span{transition:none}}';
+    styles.textContent = '.reading-progress{position:fixed;top:0;right:20px;width:5px;height:100vh;height:100dvh;z-index:1000;background:rgba(112,96,82,.22);pointer-events:none}.reading-progress span{display:block;width:100%;height:0;background:var(--accent);transition:height .12s linear}@media(prefers-reduced-motion:reduce){.reading-progress span{transition:none}}';
     document.head.appendChild(styles);
 
     const progressBar = document.createElement('div');
