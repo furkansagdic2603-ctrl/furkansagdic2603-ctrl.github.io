@@ -27,7 +27,7 @@
     if (!article) return;
 
     const styles = document.createElement('style');
-    styles.textContent = '.reading-progress{position:fixed;top:0;right:20px;width:5px;height:100vh;height:100dvh;z-index:1000;background:rgba(112,96,82,.22);pointer-events:none}.reading-progress span{display:block;width:100%;height:0;background:var(--accent);transition:height .12s linear}@media(prefers-reduced-motion:reduce){.reading-progress span{transition:none}}';
+    styles.textContent = '.reading-progress{position:fixed;top:0;left:0;width:100vw;height:4px;z-index:1000;background:rgba(112,96,82,.22);pointer-events:none}.reading-progress span{display:block;width:0;height:100%;background:var(--accent);transition:width .12s linear}@media(prefers-reduced-motion:reduce){.reading-progress span{transition:none}}';
     document.head.appendChild(styles);
 
     const progressBar = document.createElement('div');
@@ -48,7 +48,7 @@
       const start = articleTop - window.innerHeight * 0.65;
       const end = articleTop + articleHeight - window.innerHeight * 0.35;
       const percent = Math.round(Math.min(100, Math.max(0, (window.scrollY - start) / Math.max(1, end - start) * 100)));
-      fill.style.height = percent + '%';
+      fill.style.width = percent + '%';
       progressBar.setAttribute('aria-valuenow', String(percent));
       progressBar.setAttribute('aria-valuetext', percent + '%');
     }
