@@ -30,7 +30,7 @@
       button.className = 'script-switch';
       button.setAttribute('aria-pressed', 'false');
       button.setAttribute('aria-label', 'Osmanlı harfleriyle oku');
-      button.innerHTML = '<span lang="tr">Latin</span><span class="switch-track" aria-hidden="true"><i></i></span><span lang="ota" dir="rtl">عثمانلی</span>';
+      button.innerHTML = '<span lang="tr">Latin</span><span class="switch-track" aria-hidden="true"><i></i></span><span lang="tr">Osmanlıca</span>';
       actions?.prepend(button);
       const notice = document.createElement('p');
       notice.className = 'script-note';
