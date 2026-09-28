@@ -51,3 +51,6 @@ html[data-theme="dark"] .admin-top button,html[data-theme="dark"] .article-picke
 html[data-theme="dark"] .action{background:#e0a387;color:#151a21}
 html[data-theme="dark"] #feedback,html[data-theme="dark"] .stats-bar{color:var(--accent);background-color:var(--accent)}
 html[data-theme="dark"] #feedback{background:transparent}
+
+/* Public pages keep the editor URL out of the navigation. */
+.footer a[href="/admin/"]{display:none}
