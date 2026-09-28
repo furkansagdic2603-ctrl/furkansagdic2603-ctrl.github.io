@@ -137,7 +137,7 @@ Deno.serve(async req => {
       const name = String(input.name || '').trim();
       const parent = String(input.parent || '');
       const categorySlug = slug(name);
-      if (!name || name.length > 50 || !/^[\p{L}\p{N} &-]+$/u.test(name) || !/^[a-z][a-z0-9-]{1,39}$/.test(categorySlug)) return result({ error: 'Geçerli bir kategori adı yaz.' }, 400);
+      if (!name || name.length > 50 || !/^[\p{L}\p{N} &\/-]+$/u.test(name) || !/^[a-z][a-z0-9-]{1,39}$/.test(categorySlug)) return result({ error: 'Geçerli bir kategori adı yaz.' }, 400);
       const { categories, sha } = await getCategories(token);
       if (parent && (!categories.some(item => categoryPath(item) === parent) || parent.split('/').length >= 4)) return result({ error: 'Üst kategori geçersiz.' }, 400);
       const path = `${parent ? parent + '/' : ''}${categorySlug}`;
