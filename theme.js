@@ -6,6 +6,61 @@
   document.documentElement.dataset.theme = mode;
 
   document.addEventListener('DOMContentLoaded', () => {
+    // Reader script preference; preserve the source text so switching back is exact.
+    if (!document.getElementById('admin-panel')) {
+      const originalText = new Map();
+      const scriptKey = 'furkan-reading-script-v1';
+      const map = { a:'ا', b:'ب', c:'ج', ç:'چ', d:'د', e:'ه', f:'ف', g:'گ', ğ:'غ', h:'ه', ı:'ی', i:'ی', j:'ژ', k:'ك', l:'ل', m:'م', n:'ن', o:'و', ö:'و', p:'پ', r:'ر', s:'س', ş:'ش', t:'ت', u:'و', ü:'و', v:'و', y:'ي', z:'ز', q:'ق', w:'و', x:'كس' };
+      const words = { ve:'و', bir:'بر', bu:'بو', ile:'ايله', için:'ايچون', da:'ده', de:'ده', ki:'كه', ne:'نه', ben:'بن', sen:'سن', o:'او', biz:'بز', siz:'سز', onlar:'اونلار', felsefe:'فلسفه', sanat:'صنعت', tarih:'تاريخ', kitap:'كتاب', din:'دين', insan:'انسان', hayat:'حيات', zaman:'زمان', düşünce:'دوشونجه', osmanlı:'عثمانلی', yazı:'يازی', yazılar:'يازىلار', notlar:'نوتلار', kitaplar:'كتاب لار', edebiyat:'ادبيات', mitoloji:'ميتولوژی', sosyoloji:'سوسيولوژی', psikoloji:'پسيكولوژی', bilim:'علم', kaynakça:'مآخذ', galeri:'گالری', hakkında:'حقّنده', iletişim:'ارتباط', arşiv:'آرشيو', oku:'اوقو', okuma:'اوقوما', ara:'آرا' };
+      const convert = source => source.replace(/[A-Za-zÇĞİÖŞÜçğıöşü]+/g, word => words[word.toLocaleLowerCase('tr')] || [...word.toLocaleLowerCase('tr')].map(letter => map[letter] || letter).join(''));
+      const shouldSkip = node => node.parentElement?.closest('script,style,noscript,code,pre,svg,textarea,[contenteditable],.script-switch,.script-note,[data-script-exempt]');
+      function applyScript(root, ottoman) {
+        const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+        let node;
+        while ((node = walker.nextNode())) {
+          if (shouldSkip(node) || (!originalText.has(node) && !/[A-Za-zÇĞİÖŞÜçğıöşü]/.test(node.nodeValue))) continue;
+          if (!originalText.has(node)) originalText.set(node, node.nodeValue);
+          const supplied = node.parentElement?.childNodes.length === 1 ? node.parentElement.getAttribute('data-ottoman') : null;
+          node.nodeValue = ottoman ? (supplied || convert(originalText.get(node))) : originalText.get(node);
+        }
+      }
+      const actions = document.querySelector('.top-actions');
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'script-switch';
+      button.setAttribute('aria-pressed', 'false');
+      button.setAttribute('aria-label', 'Osmanlı harfleriyle oku');
+      button.innerHTML = '<span lang="tr">Latin</span><span class="switch-track" aria-hidden="true"><i></i></span><span lang="ota" dir="rtl">عثمانلی</span>';
+      actions?.prepend(button);
+      const notice = document.createElement('p');
+      notice.className = 'script-note';
+      notice.textContent = 'Otomatik harf aktarımıdır; tarihî Osmanlı imlasının birebir karşılığı değildir.';
+      notice.hidden = true;
+      const main = document.querySelector('main');
+      main?.prepend(notice);
+      let ottoman = false;
+      function setScript(next) {
+        ottoman = next;
+        document.documentElement.dataset.script = next ? 'ottoman' : 'latin';
+        applyScript(document.body, next);
+        button.setAttribute('aria-pressed', String(next));
+        button.setAttribute('aria-label', next ? 'Latin harflerine geç' : 'Osmanlı harfleriyle oku');
+        notice.hidden = !next;
+        try { localStorage.setItem(scriptKey, next ? 'ottoman' : 'latin'); } catch { /* Preference still works on this page. */ }
+      }
+      button.addEventListener('click', () => setScript(!ottoman));
+      try { if (localStorage.getItem(scriptKey) === 'ottoman') setScript(true); } catch { /* Storage may be disabled. */ }
+      const observer = new MutationObserver(records => {
+        if (!ottoman) return;
+        for (const record of records) for (const added of record.addedNodes) {
+          if (added.nodeType === Node.TEXT_NODE && !shouldSkip(added)) {
+            if (!originalText.has(added)) originalText.set(added, added.nodeValue);
+            added.nodeValue = convert(originalText.get(added));
+          } else if (added.nodeType === Node.ELEMENT_NODE && !added.closest('.script-switch,.script-note')) applyScript(added, true);
+        }
+      });
+      observer.observe(document.body, { childList: true, subtree: true });
+    }
     const button = document.getElementById('theme-toggle');
     if (button) {
       function updateThemeButton() {
