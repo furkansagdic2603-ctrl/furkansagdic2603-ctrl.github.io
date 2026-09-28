@@ -176,3 +176,5 @@ html[data-script="ottoman"] .header-search,html[data-script="ottoman"] .search-f
 @media(max-width:700px){.top-actions{gap:7px}.script-switch{padding:6px;gap:4px;font-size:12px}}
 @media(max-width:420px){.script-switch{font-size:11px}.script-switch .switch-track{width:24px}.script-switch .switch-track i{width:8px;height:8px}html[data-script="ottoman"] .switch-track i{transform:translateX(10px)}}
 @media(prefers-reduced-motion:reduce){.switch-track,.switch-track i{transition:none}}
+
+.heritage-topics:has(>a:only-child){grid-template-columns:minmax(0,1fr);max-width:380px}
