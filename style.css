@@ -66,3 +66,12 @@ body:has(.heritage-hero) .brand-mark{border:1px solid var(--accent);border-radiu
 .heritage-topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;padding:32px 0 26px;border-bottom:1px solid var(--rule)}.heritage-topics>a{min-width:0;min-height:194px;padding:20px 23px;border:1px solid var(--rule);text-decoration:none;display:flex;flex-direction:column;align-items:flex-start;position:relative}.heritage-topics>a:before,.heritage-topics>a:after{content:"✧";position:absolute;color:var(--accent);opacity:.5;font:16px var(--serif)}.heritage-topics>a:before{top:2px;left:8px}.heritage-topics>a:after{right:8px;bottom:2px}.heritage-topics>a:hover,.heritage-topics>a:focus-visible{border-color:var(--accent)}.heritage-topic-icon{color:var(--accent);font:28px var(--serif);line-height:1}.heritage-topics>a>span:nth-child(2){font-size:11px;letter-spacing:.18em;margin:10px 0 5px}.heritage-topics strong{font:23px/1.25 var(--serif)}.heritage-topic-more{margin-top:auto;color:var(--accent);font:15px var(--serif);padding-top:14px}
 @media(max-width:900px){.heritage-hero{grid-template-columns:1fr;padding-top:55px}.heritage-intro h1{font-size:clamp(54px,9vw,84px)}.heritage-feature{max-width:720px;width:100%;margin:auto}.heritage-topics{gap:10px}}
 @media(max-width:600px){.heritage-hero{gap:32px;padding:40px 0}.heritage-rule{margin-bottom:17px}.heritage-intro h1{font-size:clamp(46px,12vw,72px)}.heritage-lead{font-size:21px;margin-bottom:20px}.heritage-description{font-size:17px}.heritage-feature{grid-template-columns:1fr;border-radius:135px 30px 0 0}.heritage-arch{height:240px;border-radius:125px 125px 0 0}.heritage-feature-copy{padding:20px 12px 24px}.heritage-topics{grid-template-columns:1fr;gap:10px}.heritage-topics>a{min-height:150px}.heritage-topics strong{font-size:21px}}
+
+/* Quiet geometric side panels fill the unused desktop gutters. */
+@media(min-width:1360px){
+  body:has(.heritage-hero){position:relative}
+  body:has(.heritage-hero):before,body:has(.heritage-hero):after{content:"";position:absolute;top:158px;bottom:42px;width:clamp(58px,calc((100vw - 1180px)/2 - 16px),150px);background-image:url('/side-ornament.svg');background-repeat:repeat-y;background-size:88px 192px;background-position:center top;opacity:.34;pointer-events:none}
+  body:has(.heritage-hero):before{left:8px;border-right:1px solid var(--rule)}
+  body:has(.heritage-hero):after{right:8px;border-left:1px solid var(--rule)}
+}
+html[data-theme="dark"] body:has(.heritage-hero):before,html[data-theme="dark"] body:has(.heritage-hero):after{opacity:.24}
