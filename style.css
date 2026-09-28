@@ -68,10 +68,10 @@ body:has(.heritage-hero) .brand-mark{border:1px solid var(--accent);border-radiu
 @media(max-width:600px){.heritage-hero{gap:32px;padding:40px 0}.heritage-rule{margin-bottom:17px}.heritage-intro h1{font-size:clamp(46px,12vw,72px)}.heritage-lead{font-size:21px;margin-bottom:20px}.heritage-description{font-size:17px}.heritage-feature{grid-template-columns:1fr;border-radius:135px 30px 0 0}.heritage-arch{height:240px;border-radius:125px 125px 0 0}.heritage-feature-copy{padding:20px 12px 24px}.heritage-topics{grid-template-columns:1fr;gap:10px}.heritage-topics>a{min-height:150px}.heritage-topics strong{font-size:21px}}
 
 /* Quiet geometric side panels fill the unused desktop gutters. */
-@media(min-width:1360px){
+@media(min-width:1440px){
   body:has(.heritage-hero){position:relative}
-  body:has(.heritage-hero):before,body:has(.heritage-hero):after{content:"";position:absolute;top:158px;bottom:42px;width:clamp(58px,calc((100vw - 1180px)/2 - 16px),150px);background-image:url('/side-ornament.svg');background-repeat:repeat-y;background-size:88px 192px;background-position:center top;opacity:.34;pointer-events:none}
-  body:has(.heritage-hero):before{left:8px;border-right:1px solid var(--rule)}
-  body:has(.heritage-hero):after{right:8px;border-left:1px solid var(--rule)}
+  body:has(.heritage-hero):before,body:has(.heritage-hero):after{content:"";position:absolute;top:158px;bottom:42px;width:clamp(100px,calc((100vw - 1180px)/2 - 16px),220px);background-image:url('/side-ornament.svg');background-repeat:repeat-y;background-size:120px 560px;background-position:center top;opacity:.68;pointer-events:none}
+  body:has(.heritage-hero):before{left:8px}
+  body:has(.heritage-hero):after{right:8px}
 }
-html[data-theme="dark"] body:has(.heritage-hero):before,html[data-theme="dark"] body:has(.heritage-hero):after{opacity:.24}
+html[data-theme="dark"] body:has(.heritage-hero):before,html[data-theme="dark"] body:has(.heritage-hero):after{opacity:.42}
