@@ -155,3 +155,25 @@ body:has(.main-nav a[aria-current][href="/notlar/"]){--chapter-seal:"✒"}
 @media(max-width:700px){.heritage-hero{padding:40px 24px 42px}.page-head{padding:48px 19px 27px;margin-top:20px}.article-head{padding:27px 23px 30px}.prose:not(.docx-content){padding:26px 22px 40px}.article-end{padding:35px 22px 28px}.article-end:before{font-size:14px;letter-spacing:0}.section-heading h2:before{margin-right:7px}}
 @media(max-width:420px){.heritage-hero{padding-left:17px;padding-right:17px}.heritage-intro h1{font-size:clamp(43px,11vw,60px)}.page-head h1{font-size:clamp(41px,11vw,60px)}}
 html[data-theme="dark"] .heritage-hero,html[data-theme="dark"] .page-head,html[data-theme="dark"] .article-head,html[data-theme="dark"] .prose:not(.docx-content),html[data-theme="dark"] .article-end{background:var(--surface)}
+
+/* Reader-selected Latin / Ottoman-script view. */
+.script-switch{display:inline-flex;align-items:center;gap:7px;padding:7px 9px;border:1px solid var(--rule);border-radius:2px;background:var(--surface);color:var(--ink);font-size:13px;white-space:nowrap;line-height:1.4}
+.script-switch:hover,.script-switch:focus-visible{border-color:var(--gold);outline-color:var(--accent)}
+.script-switch [lang="ota"]{font:17px/1.1 'Noto Naskh Arabic','Traditional Arabic',serif}
+.switch-track{position:relative;width:27px;height:15px;border-radius:12px;background:var(--rule);border:1px solid var(--gold);transition:background .2s}
+.switch-track i{position:absolute;top:2px;left:2px;width:9px;height:9px;background:var(--surface);border-radius:50%;box-shadow:0 0 0 1px var(--accent);transition:transform .2s}
+html[data-script="ottoman"] .switch-track{background:var(--tile)}
+html[data-script="ottoman"] .switch-track i{transform:translateX(12px)}
+.script-note{font-size:13px;line-height:1.5;color:var(--muted);background:var(--surface);border-left:2px solid var(--gold);padding:8px 12px;margin:18px 0 0}
+.script-note[hidden]{display:none}
+html[data-script="ottoman"] main,html[data-script="ottoman"] .main-nav,html[data-script="ottoman"] .footer{direction:rtl}
+html[data-script="ottoman"] main,html[data-script="ottoman"] .main-nav,html[data-script="ottoman"] .brand-name{font-family:'Noto Naskh Arabic','Traditional Arabic',serif}
+html[data-script="ottoman"] .prose:not(.docx-content){font-family:'Noto Naskh Arabic','Traditional Arabic',serif;font-size:22px;line-height:2}
+html[data-script="ottoman"] .prose:not(.docx-content)>p:first-of-type::first-letter{float:none;font-size:inherit;padding:0;color:inherit}
+html[data-script="ottoman"] .page-head h1,html[data-script="ottoman"] .article-head h1,html[data-script="ottoman"] .heritage-intro h1{letter-spacing:0;line-height:1.45}
+html[data-script="ottoman"] .eyebrow,html[data-script="ottoman"] .hero-kicker{letter-spacing:0}
+html[data-script="ottoman"] .article-head .back,html[data-script="ottoman"] .book-table{text-align:right}
+html[data-script="ottoman"] .header-search,html[data-script="ottoman"] .search-field,html[data-script="ottoman"] .script-note{direction:ltr}
+@media(max-width:700px){.top-actions{gap:7px}.script-switch{padding:6px;gap:4px;font-size:12px}.script-switch [lang="ota"]{font-size:15px}}
+@media(max-width:420px){.script-switch{font-size:11px}.script-switch [lang="ota"]{font-size:13px}.script-switch .switch-track{width:24px}.script-switch .switch-track i{width:8px;height:8px}html[data-script="ottoman"] .switch-track i{transform:translateX(10px)}}
+@media(prefers-reduced-motion:reduce){.switch-track,.switch-track i{transition:none}}
