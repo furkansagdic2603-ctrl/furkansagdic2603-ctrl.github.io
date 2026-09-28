@@ -159,7 +159,6 @@ html[data-theme="dark"] .heritage-hero,html[data-theme="dark"] .page-head,html[d
 /* Reader-selected Latin / Ottoman-script view. */
 .script-switch{display:inline-flex;align-items:center;gap:7px;padding:7px 9px;border:1px solid var(--rule);border-radius:2px;background:var(--surface);color:var(--ink);font-size:13px;white-space:nowrap;line-height:1.4}
 .script-switch:hover,.script-switch:focus-visible{border-color:var(--gold);outline-color:var(--accent)}
-.script-switch [lang="ota"]{font:17px/1.1 'Noto Naskh Arabic','Traditional Arabic',serif}
 .switch-track{position:relative;width:27px;height:15px;border-radius:12px;background:var(--rule);border:1px solid var(--gold);transition:background .2s}
 .switch-track i{position:absolute;top:2px;left:2px;width:9px;height:9px;background:var(--surface);border-radius:50%;box-shadow:0 0 0 1px var(--accent);transition:transform .2s}
 html[data-script="ottoman"] .switch-track{background:var(--tile)}
@@ -174,6 +173,6 @@ html[data-script="ottoman"] .page-head h1,html[data-script="ottoman"] .article-h
 html[data-script="ottoman"] .eyebrow,html[data-script="ottoman"] .hero-kicker{letter-spacing:0}
 html[data-script="ottoman"] .article-head .back,html[data-script="ottoman"] .book-table{text-align:right}
 html[data-script="ottoman"] .header-search,html[data-script="ottoman"] .search-field,html[data-script="ottoman"] .script-note{direction:ltr}
-@media(max-width:700px){.top-actions{gap:7px}.script-switch{padding:6px;gap:4px;font-size:12px}.script-switch [lang="ota"]{font-size:15px}}
-@media(max-width:420px){.script-switch{font-size:11px}.script-switch [lang="ota"]{font-size:13px}.script-switch .switch-track{width:24px}.script-switch .switch-track i{width:8px;height:8px}html[data-script="ottoman"] .switch-track i{transform:translateX(10px)}}
+@media(max-width:700px){.top-actions{gap:7px}.script-switch{padding:6px;gap:4px;font-size:12px}}
+@media(max-width:420px){.script-switch{font-size:11px}.script-switch .switch-track{width:24px}.script-switch .switch-track i{width:8px;height:8px}html[data-script="ottoman"] .switch-track i{transform:translateX(10px)}}
 @media(prefers-reduced-motion:reduce){.switch-track,.switch-track i{transition:none}}
