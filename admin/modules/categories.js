@@ -4,6 +4,7 @@ export function createCategories({ $, callAdmin, feedback }) {
   function renderCategories(categories, selected) {
     const select = $('category');
     const parentSelect = $('category-parent');
+    const deleteSelect = $('delete-category');
     const previous = selected || JSON.parse(localStorage.getItem('furkan-editor-draft-v1') || '{}').category || select.value;
     const previousParent = parentSelect.value;
     const names = new Map(categories.map(item => [pathOf(item), item.name]));
@@ -15,6 +16,7 @@ export function createCategories({ $, callAdmin, feedback }) {
     });
     select.replaceChildren(...options.map(option => option.cloneNode(true)));
     parentSelect.replaceChildren(new Option('Ana kategori', ''), ...options.filter(option => option.value.split('/').length < 4));
+    deleteSelect.replaceChildren(new Option('Silinecek kategoriyi seç', ''), ...options.map(option => option.cloneNode(true)));
     if (names.has(previous)) select.value = previous;
     if (names.has(previousParent)) parentSelect.value = previousParent;
   }
@@ -32,6 +34,19 @@ export function createCategories({ $, callAdmin, feedback }) {
       $('new-category').value = '';
       feedback(`“${name}” eklendi. Sitede görünmesi birkaç dakika sürebilir.`);
       renderCategories(result.categories, result.path);
+    } catch (err) { feedback(err.message); }
+    finally { button.disabled = false; }
+  });
+  $('delete-category-button').addEventListener('click', async () => {
+    const path = $('delete-category').value;
+    if (!path) { feedback('Silinecek kategoriyi seç.'); return; }
+    const label = $('delete-category').selectedOptions[0].textContent;
+    if (!confirm(`“${label}” kategorisini silmek istiyor musun? Yalnızca boş kategoriler silinebilir.`)) return;
+    const button = $('delete-category-button'); button.disabled = true; feedback('Kategori siliniyor…');
+    try {
+      const result = await callAdmin('delete_category', { path });
+      feedback(`“${label}” silindi. Sitede görünmesi birkaç dakika sürebilir.`);
+      renderCategories(result.categories);
     } catch (err) { feedback(err.message); }
     finally { button.disabled = false; }
   });
