@@ -70,9 +70,9 @@ body:has(.heritage-hero) .brand-mark{border:1px solid var(--accent);border-radiu
 /* Quiet geometric side panels fill the unused desktop gutters. */
 @media(min-width:1440px){
   body:has(.heritage-hero){position:relative}
-  body:has(.heritage-hero):before,body:has(.heritage-hero):after{content:"";position:absolute;top:158px;bottom:42px;width:clamp(100px,calc((100vw - 1180px)/2 - 16px),220px);background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/7/7f/Cobalt_blue_Iznik_tiles_-_Harem_-_Topkapi_Palace_%288395603791%29.jpg/960px-Cobalt_blue_Iznik_tiles_-_Harem_-_Topkapi_Palace_%288395603791%29.jpg');background-repeat:repeat-y;background-size:auto 440px;background-position:48% top;opacity:.82;pointer-events:none}
+  body:has(.heritage-hero):before,body:has(.heritage-hero):after{content:"";position:absolute;top:158px;bottom:42px;width:clamp(100px,calc((100vw - 1180px)/2 - 16px),220px);background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Topkap%C4%B1_Harem_Antechamber_Tiles_at_entrance_to_Chamber_Murad_III_in_2018_06_6447.jpg/500px-Topkap%C4%B1_Harem_Antechamber_Tiles_at_entrance_to_Chamber_Murad_III_in_2018_06_6447.jpg');background-repeat:repeat-y;background-size:auto 500px;background-position:center top;opacity:1;pointer-events:none}
   body:has(.heritage-hero):before{left:8px}
   body:has(.heritage-hero):after{right:8px}
 }
-html[data-theme="dark"] body:has(.heritage-hero):before,html[data-theme="dark"] body:has(.heritage-hero):after{opacity:.66}
+html[data-theme="dark"] body:has(.heritage-hero):before,html[data-theme="dark"] body:has(.heritage-hero):after{opacity:.85}
 .photo-credit{font-size:11px;color:var(--muted)}.photo-credit a{text-decoration:underline;text-underline-offset:2px}
