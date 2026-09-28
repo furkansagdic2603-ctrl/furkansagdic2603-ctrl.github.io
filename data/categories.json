@@ -148,5 +148,10 @@
     "slug": "gundelik-hayat-felsefesi",
     "name": "Gündelik Hayat Felsefesi",
     "parent": "kitap-notlari/felsefe"
+  },
+  {
+    "slug": "gundelik-hayat-tenkidleri",
+    "name": "Gündelik Hayat Tenkidleri",
+    "parent": "kitap-notlari/felsefe/gundelik-hayat-felsefesi"
   }
 ]
