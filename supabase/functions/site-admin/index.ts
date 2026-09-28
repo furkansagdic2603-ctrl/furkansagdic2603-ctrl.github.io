@@ -160,7 +160,10 @@ Deno.serve(async req => {
       if (!format || !filename || filename.length > 120 || /[\\/\r\n]/.test(filename) || !/^[A-Za-z0-9+/]+={0,2}$/.test(base64) || base64.length > 2_800_000) return result({ error: 'JPEG, PNG, GIF veya WebP görsel seç (en fazla 2 MB).' }, 400);
       const binary = atob(base64);
       if (binary.length > 2 * 1024 * 1024 || !format.magic.every((byte, index) => binary.charCodeAt(index) === byte) || (type === 'image/webp' && binary.slice(8, 12) !== 'WEBP')) return result({ error: 'Görsel biçimi veya boyutu geçersiz.' }, 400);
-      const path = `assets/uploads/${new Date().toISOString().slice(0, 10)}/${crypto.randomUUID()}.${format.ext}`;
+      const isQuotePhoto = input.gallery === 'iktibas-alintilar';
+      const path = isQuotePhoto
+        ? `iktibas-alintilar/fotograflar/${new Date().toISOString().replace(/\D/g, '').slice(0, 14)}-${crypto.randomUUID()}.${format.ext}`
+        : `assets/uploads/${new Date().toISOString().slice(0, 10)}/${crypto.randomUUID()}.${format.ext}`;
       const res = await fetch(ghUrl(path), {
         method: 'PUT', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' },
         body: JSON.stringify({ message: `Upload image: ${filename}`, content: base64 }),

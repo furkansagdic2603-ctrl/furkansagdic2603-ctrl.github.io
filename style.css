@@ -167,3 +167,10 @@ html[data-script="ottoman"] .header-search,html[data-script="ottoman"] .search-f
 @media(prefers-reduced-motion:reduce){.switch-track,.switch-track i{transition:none}}
 
 .heritage-topics:has(>a:only-child){grid-template-columns:minmax(0,1fr);max-width:380px}
+
+/* İktibas / Alıntılar: photos retain their original proportions. */
+.quote-photo-grid{columns:3 250px;column-gap:18px;margin:30px 0 64px}
+.quote-photo-grid a{display:block;break-inside:avoid;margin:0 0 18px;padding:8px;background:var(--surface);border:1px solid var(--gold);box-shadow:0 5px 18px rgba(34,44,43,.08)}
+.quote-photo-grid a:hover,.quote-photo-grid a:focus-visible{border-color:var(--accent);box-shadow:0 8px 22px rgba(34,44,43,.16)}
+.quote-photo-grid img{display:block;width:100%;height:auto}
+@media(max-width:650px){.quote-photo-grid{columns:2 150px;column-gap:10px}.quote-photo-grid a{margin-bottom:10px;padding:5px}}

@@ -5,6 +5,7 @@ import { createComments } from './modules/comments.js';
 import { createStats } from './modules/stats.js';
 import { createTheme } from './modules/theme.js';
 import { initImages } from './modules/images.js';
+import { initQuotePhotos } from './modules/quote-photos.js';
 
 const $ = id => document.getElementById(id);
 const feedback = message => { $('feedback').textContent = message; };
@@ -16,6 +17,7 @@ const comments = createComments({ $, callAdmin, getArticles: articles.getArticle
 const stats = createStats({ $, callAdmin, getArticles: articles.getArticles });
 const theme = createTheme({ $, callAdmin });
 initImages({ $, callAdmin, feedback });
+initQuotePhotos({ $, callAdmin });
 
 async function showPanel() {
   await callAdmin('whoami');

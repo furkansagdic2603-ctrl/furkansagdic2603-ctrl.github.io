@@ -109,6 +109,10 @@ write('index.html',doc('Ana sayfa',main,description='Furkan Sağdıç’ın fels
 for slug,name in CATS.items():
     matched=[a for a in visible if a['category']==slug]
     inner=f'<section class="page-head"><span class="eyebrow">KONU / {escape(name.upper())}</span><h1>{name}</h1><p>{len(matched)} yazı</p></section><section class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Bu bölümde henüz yazı yok. Yeni yazılar burada görünecek.</p>')+'</section>'
+    if slug == 'iktibas-alintilar':
+        photos = sorted((p for p in (ROOT/slug/'fotograflar').glob('*') if p.suffix.lower() in {'.jpg', '.jpeg', '.png', '.gif', '.webp'}), reverse=True)
+        images = ''.join(f'<a href="/{slug}/fotograflar/{escape(p.name, quote=True)}" target="_blank" rel="noopener" aria-label="Fotoğrafı aç"><img src="/{slug}/fotograflar/{escape(p.name, quote=True)}" alt="İktibas / Alıntılar fotoğrafı" loading="lazy" decoding="async"></a>' for p in photos)
+        inner=f'<section class="page-head"><span class="eyebrow">GÖRSEL ARŞİV</span><h1>{escape(name)}</h1></section><section class="quote-photo-grid" aria-label="İktibas ve alıntılar fotoğrafları">{images}</section>' if photos else f'<section class="page-head"><span class="eyebrow">GÖRSEL ARŞİV</span><h1>{escape(name)}</h1></section><p class="empty">Henüz fotoğraf eklenmedi.</p>'
     children=[(key,value) for key,value in CATEGORY_PATHS.items() if key.rsplit('/',1)[0] == slug and '/' in key]
     if children and slug != 'kitap-notlari':
         links=''.join(f'<a href="/{escape(key)}/"><span>{escape(value)}</span><span>↗</span></a>' for key,value in children)
