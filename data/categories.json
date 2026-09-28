@@ -153,5 +153,9 @@
     "slug": "gundelik-hayat-tenkidleri",
     "name": "Gündelik Hayat Tenkidleri",
     "parent": "kitap-notlari/felsefe/gundelik-hayat-felsefesi"
+  },
+  {
+    "slug": "sinema-tahlilleri",
+    "name": "Sinema Tahlilleri"
   }
 ]
