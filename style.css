@@ -67,17 +67,6 @@ body:has(.heritage-hero) .brand-mark{border:1px solid var(--accent);border-radiu
 @media(max-width:900px){.heritage-hero{grid-template-columns:1fr;padding-top:55px}.heritage-intro h1{font-size:clamp(54px,9vw,84px)}.heritage-feature{max-width:720px;width:100%;margin:auto}.heritage-topics{gap:10px}}
 @media(max-width:600px){.heritage-hero{gap:32px;padding:40px 0}.heritage-rule{margin-bottom:17px}.heritage-intro h1{font-size:clamp(46px,12vw,72px)}.heritage-lead{font-size:21px;margin-bottom:20px}.heritage-description{font-size:17px}.heritage-feature{grid-template-columns:1fr;border-radius:135px 30px 0 0}.heritage-arch{height:240px;border-radius:125px 125px 0 0}.heritage-feature-copy{padding:20px 12px 24px}.heritage-topics{grid-template-columns:1fr;gap:10px}.heritage-topics>a{min-height:150px}.heritage-topics strong{font-size:21px}}
 
-/* Quiet geometric side panels fill the unused desktop gutters. */
-@media(min-width:1440px){
-  body:has(.heritage-hero){position:relative}
-  body:has(.heritage-hero):before,body:has(.heritage-hero):after{content:"";position:absolute;top:158px;bottom:42px;width:clamp(100px,calc((100vw - 1180px)/2 - 16px),220px);background-image:url('https://thumb.wikimedia.org/wikipedia/commons/thumb/b/ba/Topkap%C4%B1_Harem_Antechamber_Tiles_at_entrance_to_Chamber_Murad_III_in_2018_06_6447.jpg/500px-Topkap%C4%B1_Harem_Antechamber_Tiles_at_entrance_to_Chamber_Murad_III_in_2018_06_6447.jpg');background-repeat:repeat-y;background-size:auto 500px;background-position:center top;opacity:1;pointer-events:none}
-  body:has(.heritage-hero):before{left:8px}
-  body:has(.heritage-hero):after{right:8px}
-}
-html[data-theme="dark"] body:has(.heritage-hero):before,html[data-theme="dark"] body:has(.heritage-hero):after{opacity:.85}
-.photo-credit{font-size:11px;color:var(--muted)}.photo-credit a{text-decoration:underline;text-underline-offset:2px}
-
-/* A shared Ottoman reading room: restrained İznik blue, deep red and gilded rules. */
 :root{--paper:#f8f5eb;--ink:#202d32;--muted:#566269;--rule:#d2c7aa;--accent:#883f34;--tile:#205b68;--gold:#b18a49;--surface:#fffdf7;--serif:Georgia,'Times New Roman',serif}
 html[data-theme="dark"]{--paper:#142329;--ink:#f3ead5;--muted:#c1c5bd;--rule:#52605c;--accent:#e4aa83;--tile:#8fc9ca;--gold:#d3b87b;--surface:#1d3034}
 body{background-color:var(--paper);background-image:linear-gradient(90deg,rgba(177,138,73,.06) 1px,transparent 1px),linear-gradient(rgba(177,138,73,.06) 1px,transparent 1px);background-size:36px 36px}
@@ -95,7 +84,7 @@ main{position:relative;background:var(--paper);box-shadow:-1px 0 var(--rule),1px
 .section-heading,.page-head{border-bottom:2px solid var(--gold)}.section-heading:after{content:"✦";color:var(--gold);font-size:14px;align-self:end;margin-left:auto}.section-heading>a{margin-left:8px;white-space:nowrap}.entry{border-color:var(--rule);border-bottom-width:1px}.entry h3 a:hover,.chapter-navigation a:hover{text-decoration:underline;text-decoration-color:var(--gold);text-underline-offset:5px}
 .page-head,.article-head{position:relative}.page-head:before,.article-head:before{content:"✦  ✧  ✦";display:block;color:var(--gold);letter-spacing:.35em;font-size:15px;margin-bottom:14px}.article-head .back{margin-bottom:28px}.prose{color:var(--ink)}.prose h2,.prose h3{color:var(--tile)}.prose blockquote{border-left:3px solid var(--gold);background:color-mix(in srgb,var(--surface) 86%,var(--gold));padding:16px 24px}.article-end,.comments,.chapter-list{border-color:var(--gold)}
 .chapter-row{background:var(--surface)}.chapter-row span:first-child{color:var(--tile)}.resume-reading,.article-picker{background:var(--surface);border-color:var(--gold)}.book-table th{color:var(--tile);border-color:var(--gold)}.book-table tr:nth-child(even){background:color-mix(in srgb,var(--surface) 92%,var(--gold))}
-.comments input,.comments textarea,.book-controls input,.book-controls select,#site-search,.search-field #site-search{background:var(--surface);color:var(--ink);border-color:var(--rule);border-radius:2px}.comments button,.action{background:var(--accent);color:#fff}.footer{position:relative;z-index:1;border-top:3px double var(--gold);background:var(--surface);max-width:none;justify-content:center;flex-wrap:wrap;padding-left:max(32px,calc((100vw - 1180px)/2));padding-right:max(32px,calc((100vw - 1180px)/2))}.footer:before{content:"✦";color:var(--gold);position:absolute;top:-15px;left:50%;padding:0 12px;background:var(--surface)}.footer span{margin-right:0}.footer .photo-credit{flex-basis:100%;text-align:center}
+.comments input,.comments textarea,.book-controls input,.book-controls select,#site-search,.search-field #site-search{background:var(--surface);color:var(--ink);border-color:var(--rule);border-radius:2px}.comments button,.action{background:var(--accent);color:#fff}.footer{position:relative;z-index:1;border-top:3px double var(--gold);background:var(--surface);max-width:none;justify-content:center;flex-wrap:wrap;padding-left:max(32px,calc((100vw - 1180px)/2));padding-right:max(32px,calc((100vw - 1180px)/2))}.footer:before{content:"✦";color:var(--gold);position:absolute;top:-15px;left:50%;padding:0 12px;background:var(--surface)}.footer span{margin-right:0}
 /* Ornament belongs in the margins, leaving the reading column calm. */
 @media(min-width:1440px){
   body{background-color:var(--paper);background-image:none}
