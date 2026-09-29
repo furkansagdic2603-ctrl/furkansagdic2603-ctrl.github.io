@@ -139,8 +139,12 @@ for path, name in CATEGORY_PATHS.items():
     links=''.join(f'<a href="/{escape(key)}/"><span>{escape(value)}</span><span>↗</span></a>' for key,value in children)
     inner=f'<section class="page-head"><a class="back" href="/{parent}/">← {escape(CATEGORY_PATHS.get(parent, CATS.get(parent, parent)))}</a><h1>{escape(name)}</h1><p>{len(matched)} yazı</p></section>'
     if links: inner+='<div class="topic-grid">'+links+'</div>'
-    inner+='<section class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Bu bölümde henüz yazı yok.</p>')+'</section>'
-    write(f'{path}/index.html',doc(name,inner,path.split('/')[0]))
+    entries_class='entries chapter-strips' if path == 'kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri' else 'entries'
+    inner+=f'<section class="{entries_class}">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Bu bölümde henüz yazı yok.</p>')+'</section>'
+    page=doc(name,inner,path.split('/')[0])
+    if entries_class == 'entries chapter-strips':
+        page=page.replace('/style.css?v=20260929-covers','/style.css?v=20260929-strips')
+    write(f'{path}/index.html',page)
 if (ROOT/'felsefe/estetik').exists() and 'felsefe/estetik' not in CATEGORY_PATHS:
     matched=[a for a in articles if a['url'].startswith('/felsefe/estetik/') and a.get('categoryPath') == 'felsefe']
     write('felsefe/estetik/index.html',doc('Estetik','<section class="page-head"><a class="back" href="/felsefe/">← Felsefe</a><h1>Estetik</h1></section><section class="entries">'+''.join(card(a) for a in matched)+'</section>','felsefe'))
