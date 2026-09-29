@@ -89,14 +89,15 @@ export function createArticles({ $, callAdmin, feedback }) {
     if (!title || !$('editor').textContent.trim()) { feedback('Başlık ve yazı içeriği gerekli.'); return; }
     const category = $('category').value;
     const description = $('description').value.trim() || $('editor').textContent.trim().slice(0, 160);
-    const button = $('publish'); button.disabled = true; feedback(editing ? 'Değişiklikler kaydediliyor…' : 'Yayımlanıyor…');
+    const button = $('publish'); button.disabled = true; feedback(editing ? 'Değişiklikler kaydediliyor…' : 'Gemini kapak görseli oluşturuyor ve yazı yayımlanıyor… Bu işlem biraz sürebilir.');
     try {
       const result = editing
         ? await callAdmin('update_article', { title, description, body, category, path: editing.path, sha: editing.sha })
         : await callAdmin('publish', { title, description, category, body });
       if (editing) editing.sha = result.sha;
       const link = document.createElement('a'); link.href = result.url; link.textContent = 'Yazıyı aç →';
-      $('feedback').replaceChildren(editing ? 'Değişiklikler kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ' : 'Yazı kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ', link);
+      const message = editing ? 'Değişiklikler kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ' : result.coverConfigured ? 'Kapak görseliyle birlikte yazı kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ' : 'Yazı kaydedildi. Gemini anahtarı ayarlanmadığı için kapak görseli üretilmedi. ';
+      $('feedback').replaceChildren(message, link);
     } catch (err) { feedback(err.message); }
     finally { button.disabled = false; }
   });
