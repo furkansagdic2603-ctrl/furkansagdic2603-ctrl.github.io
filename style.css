@@ -85,9 +85,13 @@ main{position:relative;background:var(--paper);box-shadow:-1px 0 var(--rule),1px
 .page-head,.article-head{position:relative}.page-head:before,.article-head:before{content:"✦  ✧  ✦";display:block;color:var(--gold);letter-spacing:.35em;font-size:15px;margin-bottom:14px}.article-head .back{margin-bottom:28px}.prose{color:var(--ink)}.prose h2,.prose h3{color:var(--tile)}.prose blockquote{border-left:3px solid var(--gold);background:color-mix(in srgb,var(--surface) 86%,var(--gold));padding:16px 24px}.article-end,.comments,.chapter-list{border-color:var(--gold)}
 .chapter-row{background:var(--surface)}.chapter-row span:first-child{color:var(--tile)}.resume-reading,.article-picker{background:var(--surface);border-color:var(--gold)}.book-table th{color:var(--tile);border-color:var(--gold)}.book-table tr:nth-child(even){background:color-mix(in srgb,var(--surface) 92%,var(--gold))}
 .comments input,.comments textarea,.book-controls input,.book-controls select,#site-search,.search-field #site-search{background:var(--surface);color:var(--ink);border-color:var(--rule);border-radius:2px}.comments button,.action{background:var(--accent);color:#fff}.footer{position:relative;z-index:1;border-top:3px double var(--gold);background:var(--surface);max-width:none;justify-content:center;flex-wrap:wrap;padding-left:max(32px,calc((100vw - 1180px)/2));padding-right:max(32px,calc((100vw - 1180px)/2))}.footer:before{content:"✦";color:var(--gold);position:absolute;top:-15px;left:50%;padding:0 12px;background:var(--surface)}.footer span{margin-right:0}
-/* Keep the wide reading margins clear. */
-@media(min-width:1440px){
+/* A quiet Seljuk eight-point star lattice in the desktop reading margins. */
+@media(min-width:1280px){
   body{background-color:var(--paper);background-image:none}
+  body:before,body:after{content:"";position:fixed;z-index:0;top:0;bottom:0;width:min(72px,calc((100vw - 1180px)/2 - 20px));background:url('/selcuklu-yildiz-serit.svg') center top / 100% auto repeat-y;opacity:.62;pointer-events:none}
+  body:before{left:max(8px,calc((100vw - 1180px)/2 - 80px))}
+  body:after{right:max(8px,calc((100vw - 1180px)/2 - 80px))}
+  html[data-theme="dark"] body:before,html[data-theme="dark"] body:after{opacity:.36}
   main{z-index:1;max-width:1180px;padding-left:82px;padding-right:82px;box-shadow:0 0 0 1px var(--gold),0 8px 28px rgba(30,39,41,.1)}
 }
 @media(max-width:700px){.masthead:before{height:8px}.main-nav.acik{background:var(--surface);border-top:1px solid var(--rule)}.section-heading:after{display:none}.footer{padding-left:20px;padding-right:20px}.heritage-feature{box-shadow:none}}
