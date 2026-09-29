@@ -174,3 +174,6 @@ html[data-script="ottoman"] .header-search,html[data-script="ottoman"] .search-f
 .quote-photo-grid a:hover,.quote-photo-grid a:focus-visible{border-color:var(--accent);box-shadow:0 8px 22px rgba(34,44,43,.16)}
 .quote-photo-grid img{display:block;width:100%;height:auto}
 @media(max-width:650px){.quote-photo-grid{columns:2 150px;column-gap:10px}.quote-photo-grid a{margin-bottom:10px;padding:5px}}
+
+/* Generated article covers */
+.entry-cover{display:block;margin:0 0 22px;overflow:hidden;border:1px solid var(--rule)}.entry-cover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}.article-cover{max-width:750px;margin:-8px auto 38px}.article-cover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--rule)}
