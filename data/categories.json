@@ -161,5 +161,10 @@
   {
     "slug": "iktibas-alintilar",
     "name": "İktibas / Alıntılar"
+  },
+  {
+    "slug": "sirat-i-mustakim-sebil-rresad-mecmuasi",
+    "name": "Sırat-ı Müstakim / Sebilûrreşad Mecmuası",
+    "parent": "kitap-notlari"
   }
 ]
