@@ -59,8 +59,9 @@ async function putFile(token: string, path: string, content: string, message: st
 }
 
 async function generateCover(token: string, title: string, description: string, body: string) {
-  const key = Deno.env.get('GEMINI_API_KEY');
+  const key = Deno.env.get('GEMINI_API_KEY')?.trim();
   if (!key) return null; // Existing publishing remains available until the secret is configured.
+  if (!/^[\x21-\x7e]+$/.test(key)) throw new Error('Gemini API anahtarında geçersiz karakter var. Supabase Secrets içindeki GEMINI_API_KEY değerine yalnızca anahtarın kendisini yapıştır. Yazı yayımlanmadı.');
   const summary = body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 2200);
   const prompt = `Türkçe bir düşünce ve kültür sitesindeki yazı için yatay, 16:9 kapak görseli oluştur. Konuyu özgün ve somut bir sahneyle yorumla. Sitenin sıcak kâğıt tonlarına ve ölçülü Osmanlı/İslam sanat estetiğine uyumlu, incelikli bir kompozisyon olsun. Gerekmedikçe dinî sembol veya insan yüzü ekleme. Yazı, harf, logo, filigran, çerçeve ve sahte tarihî belge ekleme. Başlık: ${title}. Açıklama: ${description}. Yazıdan özet: ${summary}`;
   const response = await fetch('https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-lite-image:generateContent', {
