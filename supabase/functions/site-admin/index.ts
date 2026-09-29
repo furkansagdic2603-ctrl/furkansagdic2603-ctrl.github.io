@@ -69,6 +69,7 @@ async function generateCover(token: string, title: string, description: string, 
     body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseModalities: ['IMAGE'], imageConfig: { aspectRatio: '16:9' } } }),
     signal: AbortSignal.timeout(90000),
   });
+  if (response.status === 429) throw new Error('Gemini görsel kotası veya hız sınırı aşıldı (429). Google AI Studio kota ve faturalandırma ayarlarını kontrol et ya da panelde “Gemini kapak görseli oluştur” seçeneğini kapatıp yazıyı kapaksız yayımla. Yazı yayımlanmadı.');
   if (!response.ok) throw new Error(`Gemini kapak görseli üretemedi (${response.status}). Yazı yayımlanmadı.`);
   const generated = await response.json();
   const image = generated.candidates?.[0]?.content?.parts?.find((part: { inlineData?: { data?: string; mimeType?: string } }) => part.inlineData?.data)?.inlineData;
@@ -239,7 +240,7 @@ Deno.serve(async req => {
       const existing = await fetch(ghUrl(path), { headers: ghHeaders(token) });
       if (existing.ok) return result({ error: 'Bu başlıkla bir yazı zaten var.' }, 409);
       if (existing.status !== 404) throw new Error('Yazı yolu kontrol edilemedi.');
-      const cover = await generateCover(token, title, description, body);
+      const cover = input.skipCover === true ? null : await generateCover(token, title, description, body);
       const date = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Istanbul' }).format(new Date());
       const coverHtml = cover ? `<figure class="article-cover"><img src="${cover}" alt="${escapeHtml(title)} için oluşturulmuş kapak görseli" width="1200" height="675"></figure>` : '';
       const coverAttr = cover ? ` data-cover="${cover}"` : '';
