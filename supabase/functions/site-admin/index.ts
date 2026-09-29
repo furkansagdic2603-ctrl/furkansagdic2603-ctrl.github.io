@@ -59,6 +59,26 @@ async function putFile(token: string, path: string, content: string, message: st
 }
 
 async function generateCover(token: string, title: string, description: string, body: string) {
+  const accountId = Deno.env.get('CLOUDFLARE_ACCOUNT_ID')?.trim();
+  const apiToken = Deno.env.get('CLOUDFLARE_API_TOKEN')?.trim();
+  if (accountId || apiToken) {
+    if (!accountId || !/^[a-f0-9]{32}$/i.test(accountId) || !apiToken || !/^[\x21-\x7e]+$/.test(apiToken)) throw new Error('Cloudflare hesap kimliği veya API anahtarı eksik ya da geçersiz. Supabase Secrets ayarlarını kontrol et. Yazı yayımlanmadı.');
+    const summary = body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 1100);
+    const prompt = `Editorial cover photograph for a Turkish essay. Topic: ${title}. ${description}. Context: ${summary}. Visually interpret the subject as a distinctive, realistic scene. Warm paper tones, subtle Ottoman and Islamic art influence, refined composition, landscape 16:9 feel. No text, letters, logo, watermark, frame or human faces.`.slice(0, 2048);
+    const response = await fetch(`https://api.cloudflare.com/client/v4/accounts/${accountId}/ai/run/@cf/black-forest-labs/flux-1-schnell`, {
+      method: 'POST', headers: { Authorization: `Bearer ${apiToken}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ prompt, steps: 4 }), signal: AbortSignal.timeout(90000),
+    });
+    if (response.status === 429) throw new Error('Cloudflare ücretsiz görsel kotası veya hız sınırı doldu (429). Daha sonra dene ya da “Kapak görseli oluştur” seçeneğini kapatıp yazıyı yayımla. Yazı yayımlanmadı.');
+    if (!response.ok) throw new Error(`Cloudflare kapak görseli üretemedi (${response.status}). Yazı yayımlanmadı.`);
+    const generated = await response.json();
+    const image = generated.result?.image;
+    if (generated.success !== true || typeof image !== 'string' || !/^[A-Za-z0-9+/]+={0,2}$/.test(image) || image.length > 13_000_000) throw new Error('Cloudflare geçerli bir kapak görseli döndürmedi. Yazı yayımlanmadı.');
+    const path = `assets/covers/${new Date().toISOString().slice(0, 10)}/${crypto.randomUUID()}.jpg`;
+    const upload = await fetch(ghUrl(path), { method: 'PUT', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' }, body: JSON.stringify({ message: `Generate cover: ${title}`, content: image }) });
+    if (!upload.ok) throw new Error(`Kapak kaydedilemedi (${upload.status}). Yazı yayımlanmadı.`);
+    return `/${path}`;
+  }
   const key = Deno.env.get('GEMINI_API_KEY')?.trim();
   if (!key) return null; // Existing publishing remains available until the secret is configured.
   if (!/^[\x21-\x7e]+$/.test(key)) throw new Error('Gemini API anahtarında geçersiz karakter var. Supabase Secrets içindeki GEMINI_API_KEY değerine yalnızca anahtarın kendisini yapıştır. Yazı yayımlanmadı.');
