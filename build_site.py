@@ -46,10 +46,13 @@ def article_body(path):
     body = ''.join(etree.tostring(child,encoding='unicode',method='html') for child in art)
     if art.text: body = escape(art.text) + body
     category_override = art.get('data-category', '')
-    return title,date,(desc[0] if desc else ''),body,category_override
+    cover = art.get('data-cover', '')
+    if not re.fullmatch(r'/assets/covers/[0-9]{4}-[0-9]{2}-[0-9]{2}/[0-9a-f-]+\.(?:png|jpg|webp)', cover): cover = ''
+    return title,date,(desc[0] if desc else ''),body,category_override,cover
 
 def card(a):
-    return f'<article class="entry"><div class="eyebrow">{escape(CATS[a["category"]])} <span>·</span> {escape(a["date"])}</div><h3><a href="{a["url"]}">{escape(a["title"])}</a></h3><p>{escape(a["description"])}</p><a class="read" href="{a["url"]}">Yazıyı oku →</a></article>'
+    cover = f'<a class="entry-cover" href="{a["url"]}"><img src="{escape(a["cover"], quote=True)}" alt="" loading="lazy" width="640" height="360"></a>' if a.get('cover') else ''
+    return f'<article class="entry">{cover}<div class="eyebrow">{escape(CATS[a["category"]])} <span>·</span> {escape(a["date"])}</div><h3><a href="{a["url"]}">{escape(a["title"])}</a></h3><p>{escape(a["description"])}</p><a class="read" href="{a["url"]}">Yazıyı oku →</a></article>'
 
 articles=[]
 for path in sorted(ROOT.glob('*/**/index.html')):
@@ -57,7 +60,7 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     if len(parts)<3 or parts[0] not in CATS: continue
     item=article_body(path)
     if not item: continue
-    title,date,description,body,category_override=item
+    title,date,description,body,category_override,cover=item
     original_titles={'ilk-deneme-yazim':'İlk Deneme Yazım','zaman-ve-insan':'Zaman ve İnsan','suut-kemal-yetkin-estetik':'Estetik (Müellif: Suut Kemal Yetkin)'}
     if not date and path.parent.name in original_titles: date='20 Eylül 2026'
     if 'data-article="true"' in path.read_text(encoding='utf-8'):
@@ -66,7 +69,7 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     category_path = category_override if category_override in CATEGORY_PATHS else next((key for key in sorted(CATEGORY_PATHS, key=len, reverse=True) if original_path == key or original_path.startswith(key+'/')), parts[0])
     category=category_path.split('/')[0]; url='/'+'/'.join(parts[:-1])+'/'
     if not description: description=title
-    articles.append(dict(title=title,date=date,description=description,category=category,categoryPath=category_path,url=url))
+    articles.append(dict(title=title,date=date,description=description,category=category,categoryPath=category_path,url=url,**({'cover':cover} if cover else {})))
     # Retain the original article body, including supplied images and formatting.
     # New editor-created pages are also normalized on the next GitHub build.
     label = ' · '.join(CATEGORY_PATHS['/'.join(category_path.split('/')[:i])] for i in range(1, len(category_path.split('/'))+1) if '/'.join(category_path.split('/')[:i]) in CATEGORY_PATHS)
@@ -87,7 +90,9 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     comments = '''<section class="comments" aria-labelledby="comments-title" hidden><h2 id="comments-title">Yorumlar</h2><div id="comments-list" aria-live="polite"></div><form id="comment-form" hidden><div class="comment-fields"><label>Ad<input name="first_name" autocomplete="given-name" maxlength="60" required></label><label>Soyad<input name="last_name" autocomplete="family-name" maxlength="60" required></label></div><label>Yorum<textarea name="body" rows="5" maxlength="2000" required></textarea></label><div class="comment-trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Yorumu gönder</button><p id="comment-status" role="status"></p></form></section><script src="/comments.js" defer></script>'''
     word_count = len(re.findall(r'\b\w+\b', html.fromstring(f'<div>{body}</div>').text_content(), re.UNICODE))
     minutes = max(1, ceil(word_count / 200))
-    content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1><p class="reading-time">Yaklaşık {minutes} dk okuma · {format(word_count, ",").replace(",", ".")} kelime</p></div>{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true" data-category="{escape(category_path, quote=True)}">{body}</article>{chapter_navigation}<div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
+    cover_html = f'<figure class="article-cover"><img src="{escape(cover, quote=True)}" alt="{escape(title, quote=True)} için oluşturulmuş kapak görseli" width="1200" height="675"></figure>' if cover else ''
+    cover_attribute = f' data-cover="{escape(cover, quote=True)}"' if cover else ''
+    content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1><p class="reading-time">Yaklaşık {minutes} dk okuma · {format(word_count, ",").replace(",", ".")} kelime</p></div>{cover_html}{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true" data-category="{escape(category_path, quote=True)}"{cover_attribute}>{body}</article>{chapter_navigation}<div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
     write(path.relative_to(ROOT),doc(title,content,category,description))
 
 book_url = '/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/'
