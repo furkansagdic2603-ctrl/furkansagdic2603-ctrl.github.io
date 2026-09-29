@@ -58,6 +58,27 @@ async function putFile(token: string, path: string, content: string, message: st
   return saved.content.sha as string;
 }
 
+async function generateCover(token: string, title: string, description: string, body: string) {
+  const key = Deno.env.get('GEMINI_API_KEY');
+  if (!key) return null; // Existing publishing remains available until the secret is configured.
+  const summary = body.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').slice(0, 2200);
+  const prompt = `Türkçe bir düşünce ve kültür sitesindeki yazı için yatay, 16:9 kapak görseli oluştur. Konuyu özgün ve somut bir sahneyle yorumla. Sitenin sıcak kâğıt tonlarına ve ölçülü Osmanlı/İslam sanat estetiğine uyumlu, incelikli bir kompozisyon olsun. Gerekmedikçe dinî sembol veya insan yüzü ekleme. Yazı, harf, logo, filigran, çerçeve ve sahte tarihî belge ekleme. Başlık: ${title}. Açıklama: ${description}. Yazıdan özet: ${summary}`;
+  const response = await fetch('https://generativelanguage.googleapis.com/v1/models/gemini-3.1-flash-lite-image:generateContent', {
+    method: 'POST', headers: { 'x-goog-api-key': key, 'Content-Type': 'application/json' },
+    body: JSON.stringify({ contents: [{ parts: [{ text: prompt }] }], generationConfig: { responseModalities: ['IMAGE'], imageConfig: { aspectRatio: '16:9' } } }),
+    signal: AbortSignal.timeout(90000),
+  });
+  if (!response.ok) throw new Error(`Gemini kapak görseli üretemedi (${response.status}). Yazı yayımlanmadı.`);
+  const generated = await response.json();
+  const image = generated.candidates?.[0]?.content?.parts?.find((part: { inlineData?: { data?: string; mimeType?: string } }) => part.inlineData?.data)?.inlineData;
+  const ext = image?.mimeType === 'image/png' ? 'png' : image?.mimeType === 'image/jpeg' ? 'jpg' : image?.mimeType === 'image/webp' ? 'webp' : null;
+  if (!ext || !/^[A-Za-z0-9+/]+={0,2}$/.test(image.data) || image.data.length > 13_000_000) throw new Error('Gemini geçerli bir kapak görseli döndürmedi. Yazı yayımlanmadı.');
+  const path = `assets/covers/${new Date().toISOString().slice(0, 10)}/${crypto.randomUUID()}.${ext}`;
+  const upload = await fetch(ghUrl(path), { method: 'PUT', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' }, body: JSON.stringify({ message: `Generate cover: ${title}`, content: image.data }) });
+  if (!upload.ok) throw new Error(`Kapak kaydedilemedi (${upload.status}). Yazı yayımlanmadı.`);
+  return `/${path}`;
+}
+
 async function getArticle(token: string, path: string, categories: Category[]) {
   if (!/^[a-z0-9-]+(?:\/[a-z0-9-]+){1,6}\/index\.html$/.test(path) || !categories.some(item => !item.parent && path.startsWith(item.slug + '/'))) throw new Error('Yazı yolu geçersiz.');
   const res = await fetch(ghUrl(path), { headers: ghHeaders(token) });
@@ -214,10 +235,16 @@ Deno.serve(async req => {
       if (!articleSlug || articleSlug.length > 100) return result({ error: 'Başlık URL için uygun değil.' }, 400);
       const path = [category, articleSlug, 'index.html'].join('/');
       const url = `/${path.replace(/index\.html$/, '')}`;
+      const existing = await fetch(ghUrl(path), { headers: ghHeaders(token) });
+      if (existing.ok) return result({ error: 'Bu başlıkla bir yazı zaten var.' }, 409);
+      if (existing.status !== 404) throw new Error('Yazı yolu kontrol edilemedi.');
+      const cover = await generateCover(token, title, description, body);
       const date = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Istanbul' }).format(new Date());
-      const page = `<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)} | Furkan Sağdıç</title><meta name="description" content="${escapeHtml(description)}"><link rel="stylesheet" href="/style.css"></head><body><header class="masthead"><div class="topline"><a class="brand" href="/">Furkan Sağdıç</a></div></header><main><div class="article-head"><a class="back" href="/${category}/">← ${escapeHtml(selected.name)}</a><div class="eyebrow">${escapeHtml(selected.name)} · ${date}</div><h1>${escapeHtml(title)}</h1></div><article class="prose yazi-icerik" data-article="true">${body}</article></main></body></html>`;
+      const coverHtml = cover ? `<figure class="article-cover"><img src="${cover}" alt="${escapeHtml(title)} için oluşturulmuş kapak görseli" width="1200" height="675"></figure>` : '';
+      const coverAttr = cover ? ` data-cover="${cover}"` : '';
+      const page = `<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)} | Furkan Sağdıç</title><meta name="description" content="${escapeHtml(description)}"><link rel="stylesheet" href="/style.css"></head><body><header class="masthead"><div class="topline"><a class="brand" href="/">Furkan Sağdıç</a></div></header><main><div class="article-head"><a class="back" href="/${category}/">← ${escapeHtml(selected.name)}</a><div class="eyebrow">${escapeHtml(selected.name)} · ${date}</div><h1>${escapeHtml(title)}</h1></div>${coverHtml}<article class="prose yazi-icerik" data-article="true"${coverAttr}>${body}</article></main></body></html>`;
       await putFile(token, path, page, `Publish article: ${title}`);
-      return result({ url });
+      return result({ url, coverConfigured: Boolean(cover) });
     }
     return result({ error: 'İşlem tanınmadı.' }, 400);
   } catch (error) {
