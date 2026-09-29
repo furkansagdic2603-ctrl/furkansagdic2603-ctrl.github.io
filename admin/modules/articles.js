@@ -92,7 +92,7 @@ export function createArticles({ $, callAdmin, feedback }) {
     const category = $('category').value;
     const description = $('description').value.trim() || $('editor').textContent.trim().slice(0, 160);
     const skipCover = !$('generate-cover').checked;
-    const button = $('publish'); button.disabled = true; feedback(editing ? 'Değişiklikler kaydediliyor…' : skipCover ? 'Yazı kapaksız yayımlanıyor…' : 'Gemini kapak görseli oluşturuyor ve yazı yayımlanıyor… Bu işlem biraz sürebilir.');
+    const button = $('publish'); button.disabled = true; feedback(editing ? 'Değişiklikler kaydediliyor…' : skipCover ? 'Yazı kapaksız yayımlanıyor…' : 'Kapak görseli oluşturuluyor ve yazı yayımlanıyor… Bu işlem biraz sürebilir.');
     try {
       const result = editing
         ? await callAdmin('update_article', { title, description, body, category, path: editing.path, sha: editing.sha })
