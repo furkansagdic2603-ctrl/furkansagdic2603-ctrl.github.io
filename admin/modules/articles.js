@@ -26,6 +26,7 @@ export function createArticles({ $, callAdmin, feedback }) {
     $('category').disabled = false;
     $('editor-heading').textContent = 'Yeni yazı';
     $('publish').textContent = 'Yayımla';
+    $('cover-option').hidden = false;
     $('edit-note').hidden = true;
     $('delete-article').disabled = true;
     $('delete-article').textContent = 'Yazıyı sil (önce aç)';
@@ -76,6 +77,7 @@ export function createArticles({ $, callAdmin, feedback }) {
       $('editor').innerHTML = article.innerHTML;
       $('editor-heading').textContent = 'Yazıyı düzenle';
       $('publish').textContent = 'Değişiklikleri kaydet';
+      $('cover-option').hidden = true;
       $('edit-note').hidden = false;
       $('delete-article').disabled = false;
       $('delete-article').textContent = 'Bu yazıyı sil';
@@ -89,14 +91,15 @@ export function createArticles({ $, callAdmin, feedback }) {
     if (!title || !$('editor').textContent.trim()) { feedback('Başlık ve yazı içeriği gerekli.'); return; }
     const category = $('category').value;
     const description = $('description').value.trim() || $('editor').textContent.trim().slice(0, 160);
-    const button = $('publish'); button.disabled = true; feedback(editing ? 'Değişiklikler kaydediliyor…' : 'Gemini kapak görseli oluşturuyor ve yazı yayımlanıyor… Bu işlem biraz sürebilir.');
+    const skipCover = !$('generate-cover').checked;
+    const button = $('publish'); button.disabled = true; feedback(editing ? 'Değişiklikler kaydediliyor…' : skipCover ? 'Yazı kapaksız yayımlanıyor…' : 'Gemini kapak görseli oluşturuyor ve yazı yayımlanıyor… Bu işlem biraz sürebilir.');
     try {
       const result = editing
         ? await callAdmin('update_article', { title, description, body, category, path: editing.path, sha: editing.sha })
-        : await callAdmin('publish', { title, description, category, body });
+        : await callAdmin('publish', { title, description, category, body, skipCover });
       if (editing) editing.sha = result.sha;
       const link = document.createElement('a'); link.href = result.url; link.textContent = 'Yazıyı aç →';
-      const message = editing ? 'Değişiklikler kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ' : result.coverConfigured ? 'Kapak görseliyle birlikte yazı kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ' : 'Yazı kaydedildi. Gemini anahtarı ayarlanmadığı için kapak görseli üretilmedi. ';
+      const message = editing ? 'Değişiklikler kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ' : result.coverConfigured ? 'Kapak görseliyle birlikte yazı kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ' : 'Yazı kapak görseli olmadan kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ';
       $('feedback').replaceChildren(message, link);
     } catch (err) { feedback(err.message); }
     finally { button.disabled = false; }
