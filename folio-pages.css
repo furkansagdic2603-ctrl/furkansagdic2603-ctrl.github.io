@@ -4,7 +4,7 @@ body[data-folio="galeri"]{--folio-gold:#ae995b;--folio-ink:#153d56;--folio-bg:#f
 body[data-folio="hakkimda"]{--folio-gold:#b18b48;--folio-ink:#153455;--folio-bg:#f5e8cd}
 body[data-folio="iletisim"]{--folio-gold:#d7b772;--folio-ink:#fff0cb;--folio-bg:#4b161d}
 body[data-folio="kaynakca"] .folio-head{background-image:url('/assets/folio-headers/kaynakca.webp')}
-body[data-folio="galeri"] .folio-head{background-image:url('/assets/folio-headers/galeri.webp')}
+body[data-folio="galeri"] .folio-head{background-image:url('/assets/folio-headers/galeri-floral.webp')}
 body[data-folio="hakkimda"] .folio-head{background-image:url('/assets/folio-headers/hakkimda.webp')}
 body[data-folio="iletisim"] .folio-head{background-image:url('/assets/folio-headers/iletisim.webp')}
 body[data-folio] .folio-head{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;aspect-ratio:3 / 1;min-height:240px;margin:32px 0 0;padding:32px 27%;color:var(--folio-ink);background-color:var(--folio-bg);background-size:100% 100%;background-position:center;background-repeat:no-repeat;border:0;text-align:center;box-shadow:0 8px 26px #00000012;isolation:isolate}
