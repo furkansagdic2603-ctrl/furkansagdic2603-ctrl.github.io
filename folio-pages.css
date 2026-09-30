@@ -1,0 +1,21 @@
+/* Decorative static pages, scoped to preserve other category designs. */
+body[data-folio]{--folio-gold:#d9bd83}
+body[data-folio="kaynakca"]{--folio-bg:#3c2930;--folio-gold:#dec28b}
+body[data-folio="galeri"]{--folio-bg:#153d56;--folio-gold:#d4be87}
+body[data-folio="hakkimda"]{--folio-bg:#365047;--folio-gold:#dbc48e}
+body[data-folio="iletisim"]{--folio-bg:#59302d;--folio-gold:#e4c595}
+body[data-folio] .folio-head{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:32px;align-items:center;min-height:300px;margin:32px 0 0;padding:38px 65px;color:#faf0da;background-color:var(--folio-bg);background-image:radial-gradient(ellipse at 20% 10%,#ffffff0a,transparent 65%);border:1px solid var(--folio-gold);box-shadow:inset 0 0 0 7px var(--folio-bg),inset 0 0 0 8px var(--folio-gold),0 12px 28px #00000012}
+body[data-folio] .folio-head:before{content:"";position:absolute;inset:16px;border:1px solid #d9bd8355;pointer-events:none}
+body[data-folio] .folio-heading{position:relative;min-width:0}
+body[data-folio] .folio-heading:after{content:"✧";display:block;color:var(--folio-gold);font-size:24px;line-height:1;margin-top:20px}
+body[data-folio] .folio-head h1{font-size:clamp(42px,6vw,72px);color:inherit;line-height:1.1;margin:14px 0}
+body[data-folio] .folio-head .eyebrow{color:var(--folio-gold);font-size:11px;letter-spacing:.2em}
+body[data-folio] .folio-head p{color:#eee1c7;font-size:15px}
+.folio-art{width:200px;height:250px;display:block;justify-self:center}
+body[data-folio] .static-copy{border:1px solid var(--rule);border-left:3px solid var(--folio-gold);padding:32px 36px;margin:32px 0;max-width:850px;background:var(--paper);box-shadow:0 6px 20px #00000004;white-space:normal}
+body[data-folio] .static-copy p:last-child{margin-bottom:0}
+body[data-folio="kaynakca"] .book-catalog{margin-top:30px;padding:24px;border:1px solid var(--rule);background:var(--paper)}
+body[data-folio="kaynakca"] .book-table th{background:color-mix(in srgb,var(--folio-gold) 12%,var(--paper))}
+body[data-folio="kaynakca"] .book-table tbody tr:nth-child(even){background:color-mix(in srgb,var(--folio-gold) 5%,var(--paper))}
+@media(max-width:600px){body[data-folio] .folio-head{grid-template-columns:minmax(0,1fr) 90px;gap:12px;min-height:210px;padding:30px 28px;margin-top:22px}body[data-folio] .folio-head h1{font-size:clamp(29px,8vw,44px)}body[data-folio] .folio-head .eyebrow{font-size:9px;letter-spacing:.1em}body[data-folio] .folio-head p{font-size:12px}.folio-art{width:90px;height:150px}body[data-folio] .static-copy{padding:24px 22px}body[data-folio="kaynakca"] .book-catalog{padding:16px}}
+@media(max-width:360px){body[data-folio] .folio-head{grid-template-columns:1fr;padding:30px}.folio-art{display:none}}
