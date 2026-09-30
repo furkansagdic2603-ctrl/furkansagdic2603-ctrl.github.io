@@ -442,3 +442,9 @@ html[data-category-design]:not([data-category-design=""]) .article-head a:hover{
 
 /* Contain editor-aligned images within the published article. */
 .yazi-icerik{display:flow-root}
+
+/* Public, password-protected admin entry in the top-right actions. */
+.admin-access{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;padding:8px 12px;border:1px solid var(--rule);border-radius:5px;font:600 12px/1.3 system-ui,sans-serif;text-decoration:none;color:var(--ink);background:var(--paper);white-space:nowrap}
+.admin-access:hover{border-color:var(--accent);color:var(--accent)}
+.admin-access:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+@media(max-width:700px){.topline .top-actions{flex-wrap:wrap;justify-content:flex-end}.admin-access{padding:7px 9px;font-size:11px}}
