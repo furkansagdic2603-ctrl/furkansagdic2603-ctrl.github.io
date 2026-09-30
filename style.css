@@ -439,3 +439,6 @@ html[data-category-design]:not([data-category-design=""]) .article-head a:hover{
   html[data-category-design]:not([data-category-design=""]) .page-head .back,
   html[data-category-design]:not([data-category-design=""]) .article-head .back{font-size:12px;line-height:1.4}
 }
+
+/* Contain editor-aligned images within the published article. */
+.yazi-icerik{display:flow-root}
