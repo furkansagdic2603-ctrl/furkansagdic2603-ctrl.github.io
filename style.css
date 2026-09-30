@@ -178,17 +178,17 @@ html[data-script="ottoman"] .header-search,html[data-script="ottoman"] .search-f
 /* Generated article covers */
 .entry-cover{display:block;margin:0 0 22px;overflow:hidden;border:1px solid var(--rule)}.entry-cover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}.article-cover{max-width:750px;margin:-8px auto 38px}.article-cover img{display:block;width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;border:1px solid var(--rule)}
 
-/* Compact chapter index for Gündelik Hayat Tenkidleri. */
-.chapter-strips{display:block;margin:34px 0 0;border-top:1px solid var(--gold)}
-.chapter-strips .entry{position:relative;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:24px;row-gap:4px;align-items:center;padding:19px 24px 20px 30px;border-bottom:1px solid var(--rule);background:var(--surface);transition:background .2s ease,box-shadow .2s ease}
-.chapter-strips .entry:nth-child(even){background:color-mix(in srgb,var(--surface) 93%,var(--gold))}
-.chapter-strips .entry:hover,.chapter-strips .entry:focus-within{background:color-mix(in srgb,var(--surface) 85%,var(--gold));box-shadow:inset 3px 0 var(--accent)}
-.chapter-strips .entry:before{content:"";float:none;position:absolute;left:0;top:18px;bottom:18px;width:2px;background:var(--gold)}
-.chapter-strips .eyebrow{grid-column:1;grid-row:1;font-size:12px;letter-spacing:.08em;color:var(--tile)}
-.chapter-strips h3{grid-column:1;grid-row:2;margin:0;font:normal clamp(22px,2.5vw,30px)/1.25 var(--serif);letter-spacing:-.025em}
-.chapter-strips h3 a{text-decoration:none}
-.chapter-strips h3 a:focus-visible,.chapter-strips .read:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-.chapter-strips p{grid-column:1;grid-row:3;margin:0;color:var(--muted);font-size:14px;line-height:1.5}
-.chapter-strips .read{grid-column:2;grid-row:1/4;white-space:nowrap;text-decoration:none;font-size:14px;color:var(--accent);border:1px solid var(--gold);padding:8px 14px}
-.chapter-strips .read:hover{background:var(--accent);border-color:var(--accent);color:var(--surface)}
-@media(max-width:700px){.chapter-strips{margin-top:24px}.chapter-strips .entry{grid-template-columns:minmax(0,1fr);padding:18px 18px 19px 22px}.chapter-strips .read{grid-column:1;grid-row:4;justify-self:start;margin-top:8px}.chapter-strips h3{font-size:23px}}
+/* Kademeli içindekiler: Gündelik Hayat Tenkidleri. */
+.chapter-index{margin:36px 0 0}
+.chapter-index ol{list-style:none;counter-reset:chapter;margin:0;padding:0}
+.chapter-index li{counter-increment:chapter;display:flex;gap:18px;align-items:baseline;padding:16px 8px;border-bottom:1px solid var(--rule)}
+.chapter-index li:first-child{border-top:1px solid var(--gold)}
+.chapter-index li:nth-child(2){padding-left:36px}
+.chapter-index li:nth-child(3){padding-left:64px}
+.chapter-index li:nth-child(4){padding-left:92px}
+.chapter-index li:before{content:"BÖLÜM " counter(chapter, upper-roman);flex:0 0 100px;color:var(--accent);font:600 12px/1.4 system-ui,sans-serif;letter-spacing:.1em}
+.chapter-index .chapter-title{min-width:0;color:var(--ink);font:normal clamp(20px,2.3vw,27px)/1.3 var(--serif);text-decoration:none}
+.chapter-index .chapter-read{margin-left:auto;white-space:nowrap;color:var(--accent);font:500 14px/1.5 system-ui,sans-serif;text-decoration:none}
+.chapter-index a:hover{text-decoration:underline;text-underline-offset:4px}
+.chapter-index a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+@media(max-width:700px){.chapter-index{margin-top:24px}.chapter-index li{display:block;padding:15px 6px}.chapter-index li:before{display:block;margin-bottom:4px}.chapter-index li:nth-child(2){padding-left:18px}.chapter-index li:nth-child(3){padding-left:30px}.chapter-index li:nth-child(4){padding-left:42px}.chapter-index .chapter-title{display:block;font-size:21px}.chapter-index .chapter-read{display:inline-block;margin-top:5px}}
