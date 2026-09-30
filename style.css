@@ -323,51 +323,51 @@ html[data-hero="tezhip"] .heritage-hero .heritage-feature-copy h2{font-size:24px
 /* Distinct Ottoman category identities, including inherited subcategories. */
 
 html[data-category-design="kitap-notlari"] main{--category-ink:#123c50;--category-paper:#f8f0df;--category-gold:#b8964f}
-html[data-category-design="kitap-notlari"] .page-head,html[data-category-design="kitap-notlari"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:0% 0%;background-repeat:no-repeat;color:#123c50}
+html[data-category-design="kitap-notlari"] .page-head,html[data-category-design="kitap-notlari"] .article-head{background-image:url('/assets/category-headers/kitap-notlari.webp');color:#123c50}
 
 
 html[data-category-design="makaleler"] main{--category-ink:#6e2122;--category-paper:#faf3e5;--category-gold:#9b5b44}
-html[data-category-design="makaleler"] .page-head,html[data-category-design="makaleler"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:100% 0%;background-repeat:no-repeat;color:#6e2122}
+html[data-category-design="makaleler"] .page-head,html[data-category-design="makaleler"] .article-head{background-image:url('/assets/category-headers/makaleler.webp');color:#fff2cf}
 
 
 html[data-category-design="notlar"] main{--category-ink:#46563c;--category-paper:#f6f0df;--category-gold:#a69366}
-html[data-category-design="notlar"] .page-head,html[data-category-design="notlar"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:0% 20%;background-repeat:no-repeat;color:#46563c}
+html[data-category-design="notlar"] .page-head,html[data-category-design="notlar"] .article-head{background-image:url('/assets/category-headers/notlar.webp');color:#34442c}
 
 
 html[data-category-design="sinema-tahlilleri"] main{--category-ink:#f7e6bc;--category-paper:#142238;--category-gold:#c4a268}
-html[data-category-design="sinema-tahlilleri"] .page-head,html[data-category-design="sinema-tahlilleri"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:100% 20%;background-repeat:no-repeat;color:#f5e5b8}
+html[data-category-design="sinema-tahlilleri"] .page-head,html[data-category-design="sinema-tahlilleri"] .article-head{background-image:url('/assets/category-headers/sinema-tahlilleri.webp');color:#fff2cf}
 html[data-category-design="sinema-tahlilleri"] main:has(.page-head){background:#142238;color:#f5e5b8;--ink:#f5e5b8;--muted:#c0c7cd;--accent:#e1bd7b;--rule:#796746;--surface:#142238}
 
 html[data-category-design="iktibas-alintilar"] main{--category-ink:#18565d;--category-paper:#f7f0df;--category-gold:#b59655}
-html[data-category-design="iktibas-alintilar"] .page-head,html[data-category-design="iktibas-alintilar"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:0% 40%;background-repeat:no-repeat;color:#18565d}
+html[data-category-design="iktibas-alintilar"] .page-head,html[data-category-design="iktibas-alintilar"] .article-head{background-image:url('/assets/category-headers/iktibas-alintilar.webp');color:#fff2cf}
 
 
 html[data-category-design="felsefe"] main{--category-ink:#203b45;--category-paper:#f7f0df;--category-gold:#ad935e}
-html[data-category-design="felsefe"] .page-head,html[data-category-design="felsefe"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:100% 40%;background-repeat:no-repeat;color:#203b45}
+html[data-category-design="felsefe"] .page-head,html[data-category-design="felsefe"] .article-head{background-image:url('/assets/category-headers/felsefe.webp');color:#fff2cf}
 
 
 html[data-category-design="sanat"] main{--category-ink:#153f62;--category-paper:#fbf7eb;--category-gold:#b89957}
-html[data-category-design="sanat"] .page-head,html[data-category-design="sanat"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:0% 60%;background-repeat:no-repeat;color:#153f62}
+html[data-category-design="sanat"] .page-head,html[data-category-design="sanat"] .article-head{background-image:url('/assets/category-headers/sanat.webp');color:#fff2cf}
 
 
 html[data-category-design="din"] main{--category-ink:#174a3b;--category-paper:#fbf5e6;--category-gold:#b9954f}
-html[data-category-design="din"] .page-head,html[data-category-design="din"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:100% 60%;background-repeat:no-repeat;color:#174a3b}
+html[data-category-design="din"] .page-head,html[data-category-design="din"] .article-head{background-image:url('/assets/category-headers/din.webp');color:#fff2cf}
 
 
 html[data-category-design="mitoloji"] main{--category-ink:#743e28;--category-paper:#fbefdd;--category-gold:#b37c43}
-html[data-category-design="mitoloji"] .page-head,html[data-category-design="mitoloji"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:0% 80%;background-repeat:no-repeat;color:#743e28}
+html[data-category-design="mitoloji"] .page-head,html[data-category-design="mitoloji"] .article-head{background-image:url('/assets/category-headers/mitoloji.webp');color:#fff2cf}
 
 
 html[data-category-design="sosyoloji"] main{--category-ink:#20465c;--category-paper:#f7f2e7;--category-gold:#b99e6a}
-html[data-category-design="sosyoloji"] .page-head,html[data-category-design="sosyoloji"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:100% 80%;background-repeat:no-repeat;color:#20465c}
+html[data-category-design="sosyoloji"] .page-head,html[data-category-design="sosyoloji"] .article-head{background-image:url('/assets/category-headers/sosyoloji.webp');color:#fff2cf}
 
 
 html[data-category-design="psikoloji"] main{--category-ink:#2e584d;--category-paper:#f6f2e6;--category-gold:#aba075}
-html[data-category-design="psikoloji"] .page-head,html[data-category-design="psikoloji"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:0% 100%;background-repeat:no-repeat;color:#2e584d}
+html[data-category-design="psikoloji"] .page-head,html[data-category-design="psikoloji"] .article-head{background-image:url('/assets/category-headers/psikoloji.webp');color:#34442c}
 
 
 html[data-category-design="bilim"] main{--category-ink:#f5e5b8;--category-paper:#f8f2e5;--category-gold:#b49553}
-html[data-category-design="bilim"] .page-head,html[data-category-design="bilim"] .article-head{background-image:url('/assets/category-headers.webp');background-size:200% 600%;background-position:100% 100%;background-repeat:no-repeat;color:#f5e5b8}
+html[data-category-design="bilim"] .page-head,html[data-category-design="bilim"] .article-head{background-image:url('/assets/category-headers/bilim.webp');color:#fff2cf}
 
 
 html[data-category-design]:not([data-category-design=""]) .page-head,
@@ -403,4 +403,39 @@ html[data-category-design="makaleler"] .entries .entry{grid-template-columns:min
 html[data-category-design="makaleler"] .entries .entry h3{grid-column:1;grid-row:1}
 html[data-category-design="makaleler"] .entries .entry .eyebrow{grid-column:1;grid-row:2;max-width:none;border:0;padding:0}
 html[data-category-design="makaleler"] .entries .entry .read{grid-column:2;grid-row:1 / 3}
+}
+
+html[data-category-design="tarih"] main{--category-gold:#b8964f;--category-paper:#faf3e5;--category-ink:#3d2a1a}
+html[data-category-design="tarih"] .page-head,html[data-category-design="tarih"] .article-head{background-image:url('/assets/category-headers/tarih.webp');color:#3d2a1a}
+
+html[data-category-design="edebiyat"] main{--category-gold:#b8964f;--category-paper:#faf3e5;--category-ink:#fff2cf}
+html[data-category-design="edebiyat"] .page-head,html[data-category-design="edebiyat"] .article-head{background-image:url('/assets/category-headers/edebiyat.webp');color:#fff2cf}
+
+/* Individual full-resolution banners: retain the entire ornamental frame. */
+html[data-category-design]:not([data-category-design=""]) .page-head,
+html[data-category-design]:not([data-category-design=""]) .article-head{
+  background-size:100% 100%;background-position:center;background-repeat:no-repeat;
+  aspect-ratio:3 / 1;min-height:240px;padding:32px 28%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  border:0;border-radius:3px;gap:4px;
+}
+html[data-category-design]:not([data-category-design=""]) .page-head h1,
+html[data-category-design]:not([data-category-design=""]) .article-head h1{
+  color:inherit;margin:8px 0;font-size:clamp(28px,4vw,52px);line-height:1.15;
+}
+html[data-category-design]:not([data-category-design=""]) .page-head p{margin:0;font-size:15px}
+html[data-category-design]:not([data-category-design=""]) .page-head .eyebrow{font-size:11px;letter-spacing:.1em}
+html[data-category-design]:not([data-category-design=""]) .page-head a:hover,
+html[data-category-design]:not([data-category-design=""]) .article-head a:hover{color:inherit;text-decoration:underline}
+@media(max-width:600px){
+  html[data-category-design]:not([data-category-design=""]) .page-head,
+  html[data-category-design]:not([data-category-design=""]) .article-head{
+    aspect-ratio:auto;min-height:190px;padding:25px 25%;
+  }
+  html[data-category-design]:not([data-category-design=""]) .page-head h1,
+  html[data-category-design]:not([data-category-design=""]) .article-head h1{font-size:clamp(22px,6vw,32px)}
+  html[data-category-design]:not([data-category-design=""]) .page-head .eyebrow{display:none}
+  html[data-category-design]:not([data-category-design=""]) .page-head p,
+  html[data-category-design]:not([data-category-design=""]) .page-head .back,
+  html[data-category-design]:not([data-category-design=""]) .article-head .back{font-size:12px;line-height:1.4}
 }

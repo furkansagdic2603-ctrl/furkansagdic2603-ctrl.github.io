@@ -1,5 +1,13 @@
 // Apply the reader's choice before CSS paints to avoid a light flash during navigation.
 (() => {
+  // Resolve the closest category identity before the first paint, including
+  // pages created by the editor and nested book-note categories.
+  const designs = new Set(['kitap-notlari', 'makaleler', 'notlar', 'sinema-tahlilleri', 'iktibas-alintilar', 'felsefe', 'sanat', 'din', 'mitoloji', 'sosyoloji', 'psikoloji', 'bilim', 'tarih', 'edebiyat']);
+  const parts = location.pathname.split('/').filter(Boolean);
+  let design = designs.has(parts[0]) ? parts[0] : '';
+  if (parts[0] === 'kitap-notlari' && designs.has(parts[1])) design = parts[1];
+  if (parts[0] === 'kitap-notlari' && parts[1] === 'sinema') design = 'sinema-tahlilleri';
+  document.documentElement.dataset.categoryDesign = design;
   const key = 'furkan-color-mode-v1';
   let mode = 'light';
   try { if (localStorage.getItem(key) === 'dark') mode = 'dark'; } catch { /* Private browsing may block storage. */ }
