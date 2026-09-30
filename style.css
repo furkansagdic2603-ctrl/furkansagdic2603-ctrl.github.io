@@ -327,7 +327,7 @@ html[data-category-design="kitap-notlari"] .page-head,html[data-category-design=
 
 
 html[data-category-design="makaleler"] main{--category-ink:#6e2122;--category-paper:#faf3e5;--category-gold:#9b5b44}
-html[data-category-design="makaleler"] .page-head,html[data-category-design="makaleler"] .article-head{background-image:url('/assets/category-headers/makaleler.webp');color:#fff2cf}
+html[data-category-design="makaleler"] .page-head,html[data-category-design="makaleler"] .article-head{background-image:url('/assets/category-headers/makaleler-no-mosque.webp');color:#fff2cf}
 
 
 html[data-category-design="notlar"] main{--category-ink:#46563c;--category-paper:#f6f0df;--category-gold:#a69366}
@@ -335,7 +335,7 @@ html[data-category-design="notlar"] .page-head,html[data-category-design="notlar
 
 
 html[data-category-design="sinema-tahlilleri"] main{--category-ink:#f7e6bc;--category-paper:#142238;--category-gold:#c4a268}
-html[data-category-design="sinema-tahlilleri"] .page-head,html[data-category-design="sinema-tahlilleri"] .article-head{background-image:url('/assets/category-headers/sinema-tahlilleri.webp');color:#fff2cf}
+html[data-category-design="sinema-tahlilleri"] .page-head,html[data-category-design="sinema-tahlilleri"] .article-head{background-image:url('/assets/category-headers/sinema-tahlilleri-no-mosque.webp');color:#fff2cf}
 html[data-category-design="sinema-tahlilleri"] main:has(.page-head){background:#142238;color:#f5e5b8;--ink:#f5e5b8;--muted:#c0c7cd;--accent:#e1bd7b;--rule:#796746;--surface:#142238}
 
 html[data-category-design="iktibas-alintilar"] main{--category-ink:#18565d;--category-paper:#f7f0df;--category-gold:#b59655}
@@ -351,7 +351,7 @@ html[data-category-design="sanat"] .page-head,html[data-category-design="sanat"]
 
 
 html[data-category-design="din"] main{--category-ink:#174a3b;--category-paper:#fbf5e6;--category-gold:#b9954f}
-html[data-category-design="din"] .page-head,html[data-category-design="din"] .article-head{background-image:url('/assets/category-headers/din.webp');color:#fff2cf}
+html[data-category-design="din"] .page-head,html[data-category-design="din"] .article-head{background-image:url('/assets/category-headers/din-no-mosque.webp');color:#fff2cf}
 
 
 html[data-category-design="mitoloji"] main{--category-ink:#743e28;--category-paper:#fbefdd;--category-gold:#b37c43}
@@ -359,7 +359,7 @@ html[data-category-design="mitoloji"] .page-head,html[data-category-design="mito
 
 
 html[data-category-design="sosyoloji"] main{--category-ink:#20465c;--category-paper:#f7f2e7;--category-gold:#b99e6a}
-html[data-category-design="sosyoloji"] .page-head,html[data-category-design="sosyoloji"] .article-head{background-image:url('/assets/category-headers/sosyoloji.webp');color:#fff2cf}
+html[data-category-design="sosyoloji"] .page-head,html[data-category-design="sosyoloji"] .article-head{background-image:url('/assets/category-headers/sosyoloji-no-mosque.webp');color:#fff2cf}
 
 
 html[data-category-design="psikoloji"] main{--category-ink:#2e584d;--category-paper:#f6f2e6;--category-gold:#aba075}
@@ -406,7 +406,7 @@ html[data-category-design="makaleler"] .entries .entry .read{grid-column:2;grid-
 }
 
 html[data-category-design="tarih"] main{--category-gold:#b8964f;--category-paper:#faf3e5;--category-ink:#3d2a1a}
-html[data-category-design="tarih"] .page-head,html[data-category-design="tarih"] .article-head{background-image:url('/assets/category-headers/tarih.webp');color:#3d2a1a}
+html[data-category-design="tarih"] .page-head,html[data-category-design="tarih"] .article-head{background-image:url('/assets/category-headers/tarih-no-mosque.webp');color:#3d2a1a}
 
 html[data-category-design="edebiyat"] main{--category-gold:#b8964f;--category-paper:#faf3e5;--category-ink:#fff2cf}
 html[data-category-design="edebiyat"] .page-head,html[data-category-design="edebiyat"] .article-head{background-image:url('/assets/category-headers/edebiyat.webp');color:#fff2cf}
