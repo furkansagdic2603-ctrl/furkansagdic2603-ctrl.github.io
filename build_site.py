@@ -21,7 +21,7 @@ FOLIO_ART = {"kaynakca":"<svg class=\"folio-art\" viewBox=\"0 0 220 280\" aria-h
 
 def doc(title, main, active='', description='Furkan Sağdıç’ın yazıları ve notları.'):
     folio = active if active in FOLIO_ART else ''
-    folio_css = '<link rel="stylesheet" href="/folio-pages.css?v=20260930-1">' if folio else ''
+    folio_css = '<link rel="stylesheet" href="/folio-pages.css?v=20260930-art4">' if folio else ''
     folio_body = f' data-folio="{folio}"' if folio else ''
     if folio:
         main = main.replace('<section class="page-head">', '<section class="page-head folio-head"><div class="folio-heading">', 1)
