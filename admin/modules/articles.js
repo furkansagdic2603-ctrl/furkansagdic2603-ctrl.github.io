@@ -36,6 +36,7 @@ export function createArticles({ $, callAdmin, feedback }) {
     if (($('title').value || $('editor').textContent.trim()) && !confirm('Editördeki yazıyı kapatıp yeni yazı açmak istiyor musun?')) return;
     resetEditor();
     feedback('Yeni yazı açıldı.');
+    document.dispatchEvent(new CustomEvent('admin:editor-open'));
   });
   $('delete-article').addEventListener('click', async () => {
     if (!editing) return;
@@ -51,6 +52,7 @@ export function createArticles({ $, callAdmin, feedback }) {
       filterArticles();
       $('article-status').textContent = `“${name}” silindi. Site listelerinin güncellenmesi birkaç dakika sürebilir.`;
       feedback('Yazı silindi.');
+      document.dispatchEvent(new CustomEvent('admin:article-deleted'));
     } catch (err) { $('article-status').textContent = err.message; }
     finally { button.disabled = !editing; }
   });
@@ -82,7 +84,7 @@ export function createArticles({ $, callAdmin, feedback }) {
       $('delete-article').disabled = false;
       $('delete-article').textContent = 'Bu yazıyı sil';
       $('article-status').textContent = 'Yazı açıldı; değiştirip kaydedebilirsin.';
-      $('editor-heading').scrollIntoView({ behavior: 'smooth' });
+      document.dispatchEvent(new CustomEvent('admin:editor-open'));
     } catch (err) { $('article-status').textContent = err.message; }
     finally { button.disabled = false; }
   });

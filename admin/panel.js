@@ -1,13 +1,15 @@
 import { createAuth } from './modules/auth.js';
 import { createCategories } from './modules/categories.js';
-import { createArticles } from './modules/articles.js';
+import { createArticles } from './modules/articles.js?v=20260930-panel1';
 import { createComments } from './modules/comments.js';
 import { createStats } from './modules/stats.js';
 import { createTheme } from './modules/theme.js';
 import { initImages } from './modules/images.js';
 import { initQuotePhotos } from './modules/quote-photos.js';
+import { initNavigation } from './modules/navigation.js?v=20260930-panel1';
 
 const $ = id => document.getElementById(id);
+const navigation = initNavigation();
 const feedback = message => { $('feedback').textContent = message; };
 const auth = createAuth(window.COMMENTS_CONFIG);
 const callAdmin = auth.callAdmin;
@@ -24,6 +26,8 @@ async function showPanel() {
   await theme.loadTheme();
   await categories.loadCategories();
   await articles.loadArticles();
+  navigation.updateCounts();
+  navigation.showView('overview', false);
   $('admin-login').hidden = true;
   $('admin-panel').hidden = false;
   comments.fetchComments(true).catch(err => { $('comment-admin-status').textContent = err.message; });
