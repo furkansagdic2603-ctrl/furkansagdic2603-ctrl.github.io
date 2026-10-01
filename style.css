@@ -448,3 +448,10 @@ html[data-category-design]:not([data-category-design=""]) .article-head a:hover{
 .admin-access:hover{border-color:var(--accent);color:var(--accent)}
 .admin-access:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(max-width:700px){.topline .top-actions{flex-wrap:wrap;justify-content:flex-end}.admin-access{padding:7px 9px;font-size:11px}}
+
+/* Simplified masthead and home introduction. */
+.masthead:before,body:has(.heritage-hero) .masthead:before{content:none;display:none}
+.heritage-hero .heritage-feature{display:none}
+.heritage-hero,html[data-hero="tezhip"] .heritage-hero{grid-template-columns:minmax(0,1fr)}
+.heritage-hero .heritage-intro{text-align:center;justify-self:center}
+.heritage-hero .heritage-rule,.heritage-hero .heritage-description{margin-left:auto;margin-right:auto}
