@@ -455,3 +455,57 @@ html[data-category-design]:not([data-category-design=""]) .article-head a:hover{
 .heritage-hero,html[data-hero="tezhip"] .heritage-hero{grid-template-columns:minmax(0,1fr)}
 .heritage-hero .heritage-intro{text-align:center;justify-self:center}
 .heritage-hero .heritage-rule,.heritage-hero .heritage-description{margin-left:auto;margin-right:auto}
+
+/* Phone layout: readable type and uncropped image proportions. */
+@media(max-width:700px){
+  html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+  body{font-size:15px}
+  main{padding-left:16px;padding-right:16px}
+  .topline{padding:16px;gap:12px}
+  .brand .brand-name{font-size:22px}
+  .topline .top-actions{width:100%;justify-content:flex-start;gap:8px}
+  .header-search{width:100%;max-width:none;flex-basis:100%}
+  .page-head h1,.article-head h1{font-size:28px;line-height:1.25;overflow-wrap:break-word}
+  .section-heading h2{font-size:26px}
+  .section-heading{flex-wrap:wrap}
+  .entry h3,.entries .entry h3{font-size:20px;line-height:1.35}
+  .entry p{font-size:15px}
+  .prose:not(.docx-content){font-size:16px;line-height:1.75;padding:22px 14px}
+  .prose h2{font-size:24px}.prose h3{font-size:20px}
+  .chapter-index .chapter-title,.chapter-row{font-size:18px}
+  .resume-reading a{font-size:22px}
+  .topic-grid{grid-template-columns:1fr}
+  .topic-grid a{font-size:17px;padding:15px}
+  .entries .entry:has(.entry-cover){grid-template-columns:64px minmax(0,1fr)}
+  .entries .entry .entry-cover{width:64px;align-self:start}
+  .entries .entry .entry-cover img{height:auto;aspect-ratio:auto;object-fit:contain}
+  .entries .entry:has(.entry-cover) .read{grid-column:2;grid-row:auto;margin-top:5px}
+  .article-cover img{height:auto;aspect-ratio:auto;object-fit:contain}
+  .prose img,.yazi-icerik img{max-width:100%!important;height:auto!important;object-fit:contain}
+  html[data-category-design]:not([data-category-design=""]) .page-head,
+  html[data-category-design]:not([data-category-design=""]) .article-head{
+    aspect-ratio:auto;min-height:0;
+    background-size:100% auto;background-position:center top;
+    padding:calc((100vw - 32px) / 3 + 14px) 14px 20px;
+    color:var(--ink);gap:6px;
+  }
+  html[data-category-design]:not([data-category-design=""]) .page-head h1,
+  html[data-category-design]:not([data-category-design=""]) .article-head h1{
+    font-size:26px;line-height:1.25;margin:4px 0;overflow-wrap:break-word;
+  }
+  html[data-category-design]:not([data-category-design=""]) .page-head p{font-size:14px}
+  html[data-category-design]:not([data-category-design=""]) .article-head .back{margin-bottom:4px}
+  html[data-hero="tezhip"] .heritage-hero{
+    background-size:100% auto;background-position:center top;
+    padding:calc((100vw - 32px) / 3 + 18px) 16px 26px;
+    min-height:0;gap:0;
+  }
+  html[data-hero="tezhip"] .heritage-hero .heritage-intro h1{font-size:32px;line-height:1.15}
+  html[data-hero="tezhip"] .heritage-hero .heritage-lead{font-size:17px}
+}
+
+@media(max-width:700px){
+  html[data-category-design="makaleler"] .entries .entry{grid-template-columns:minmax(0,1fr) auto}
+  html[data-category-design="makaleler"] .entries .entry .read{grid-column:2}
+  .docx-content{padding:16px 12px}
+}
