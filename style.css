@@ -347,7 +347,7 @@ html[data-category-design="felsefe"] .page-head,html[data-category-design="felse
 
 
 html[data-category-design="sanat"] main{--category-ink:#153f62;--category-paper:#fbf7eb;--category-gold:#b89957}
-html[data-category-design="sanat"] .page-head,html[data-category-design="sanat"] .article-head{background-image:url('/assets/category-headers/sanat.webp');color:#fff2cf}
+html[data-category-design="sanat"] .page-head,html[data-category-design="sanat"] .article-head{background-image:url('/assets/category-headers/sanat.svg');color:#fff2cf}
 
 
 html[data-category-design="din"] main{--category-ink:#174a3b;--category-paper:#fbf5e6;--category-gold:#b9954f}
@@ -397,8 +397,6 @@ html[data-category-design="makaleler"] .entries .entry .read{grid-column:3}
 html[data-category-design="makaleler"] .entries .entry .entry-cover{display:none}
 html[data-category-design="notlar"] .entries .entry h3:before{content:"❧";color:#71805d;margin-right:12px}
 @media(max-width:600px){
-html[data-category-design]:not([data-category-design=""]) .page-head,html[data-category-design]:not([data-category-design=""]) .article-head{padding:25px 18%;min-height:150px}
-html[data-category-design]:not([data-category-design=""]) .page-head h1{font-size:32px}
 html[data-category-design="makaleler"] .entries .entry{grid-template-columns:minmax(0,1fr) auto;gap:5px 12px}
 html[data-category-design="makaleler"] .entries .entry h3{grid-column:1;grid-row:1}
 html[data-category-design="makaleler"] .entries .entry .eyebrow{grid-column:1;grid-row:2;max-width:none;border:0;padding:0}
@@ -427,18 +425,7 @@ html[data-category-design]:not([data-category-design=""]) .page-head p{margin:0;
 html[data-category-design]:not([data-category-design=""]) .page-head .eyebrow{font-size:11px;letter-spacing:.1em}
 html[data-category-design]:not([data-category-design=""]) .page-head a:hover,
 html[data-category-design]:not([data-category-design=""]) .article-head a:hover{color:inherit;text-decoration:underline}
-@media(max-width:600px){
-  html[data-category-design]:not([data-category-design=""]) .page-head,
-  html[data-category-design]:not([data-category-design=""]) .article-head{
-    aspect-ratio:auto;min-height:190px;padding:25px 25%;
-  }
-  html[data-category-design]:not([data-category-design=""]) .page-head h1,
-  html[data-category-design]:not([data-category-design=""]) .article-head h1{font-size:clamp(22px,6vw,32px)}
-  html[data-category-design]:not([data-category-design=""]) .page-head .eyebrow{display:none}
-  html[data-category-design]:not([data-category-design=""]) .page-head p,
-  html[data-category-design]:not([data-category-design=""]) .page-head .back,
-  html[data-category-design]:not([data-category-design=""]) .article-head .back{font-size:12px;line-height:1.4}
-}
+
 
 /* Contain editor-aligned images within the published article. */
 .yazi-icerik{display:flow-root}
@@ -456,10 +443,15 @@ html[data-category-design]:not([data-category-design=""]) .article-head a:hover{
 .heritage-hero .heritage-intro{text-align:center;justify-self:center}
 .heritage-hero .heritage-rule,.heritage-hero .heritage-description{margin-left:auto;margin-right:auto}
 
+/* Full category paths stay available on wide screens and to screen readers. */
+.back-short{display:none}
+
 /* Phone layout: readable type and uncropped image proportions. */
 @media(max-width:700px){
   html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
   body{font-size:15px}
+  .back .back-full{display:none}
+  .back .back-short{display:inline}
   main{padding-left:16px;padding-right:16px}
   .topline{padding:16px;gap:12px}
   .brand .brand-name{font-size:22px}
@@ -482,39 +474,61 @@ html[data-category-design]:not([data-category-design=""]) .article-head a:hover{
   .entries .entry:has(.entry-cover) .read{grid-column:2;grid-row:auto;margin-top:5px}
   .article-cover img{height:auto;aspect-ratio:auto;object-fit:contain}
   .prose img,.yazi-icerik img{max-width:100%!important;height:auto!important;object-fit:contain}
+  /* Let text grow independently of the decorative image on phones. */
   html[data-category-design]:not([data-category-design=""]) .page-head,
-  html[data-category-design]:not([data-category-design=""]) .article-head{
-    aspect-ratio:3 / 1;min-height:0;
-    background-size:100% auto;background-position:center;
-    padding:8px 20%;gap:3px;
+  html[data-category-design]:not([data-category-design=""]) .article-head,
+  html[data-hero="tezhip"] .heritage-hero{
+    aspect-ratio:auto;min-height:0;min-width:0;
+    background-size:0 0;background-repeat:no-repeat;
+    background-color:var(--surface);color:var(--ink);
+    border:1px solid var(--gold);padding:0 16px 20px;gap:8px;
+  }
+  html[data-category-design]:not([data-category-design=""]) .page-head::before,
+  html[data-category-design]:not([data-category-design=""]) .article-head::before,
+  html[data-hero="tezhip"] .heritage-hero::before{
+    content:"";display:block;position:static;inset:auto;z-index:auto;
+    width:calc(100% + 32px);height:auto;aspect-ratio:3 / 1;
+    flex:none;align-self:center;margin:0 -16px 8px;padding:0;
+    transform:none;background-image:inherit;background-size:contain;
+    background-position:center;background-repeat:no-repeat;
+    pointer-events:none;
   }
   html[data-category-design]:not([data-category-design=""]) .page-head h1,
   html[data-category-design]:not([data-category-design=""]) .article-head h1{
-    font-size:clamp(17px,5vw,26px);line-height:1.15;margin:2px 0;overflow-wrap:break-word;
+    font-size:clamp(22px,5vw,30px);line-height:1.3;
+    margin:0;max-width:100%;overflow-wrap:anywhere;
   }
-  html[data-category-design]:not([data-category-design=""]) .page-head p{font-size:12px;line-height:1.2}
-  html[data-category-design]:not([data-category-design=""]) .article-head .back{margin-bottom:4px}
-  html[data-hero="tezhip"] .heritage-hero{
-    background-size:100% auto;background-position:center;
-    aspect-ratio:3 / 1;padding:8px 18%;
-    min-height:0;gap:0;
+  html[data-category-design]:not([data-category-design=""]) .page-head p{
+    font-size:14px;line-height:1.5;color:var(--muted);
   }
-  html[data-hero="tezhip"] .heritage-hero .heritage-intro h1{font-size:clamp(20px,5.5vw,30px);line-height:1.1;margin:3px 0}
-  html[data-hero="tezhip"] .heritage-hero .heritage-lead{font-size:12px;line-height:1.25;margin:4px 0}
-}
-
-@media(max-width:700px){
+  html[data-category-design]:not([data-category-design=""]) .page-head .back,
+  html[data-category-design]:not([data-category-design=""]) .article-head .back{
+    display:inline-flex;align-items:center;min-height:44px;
+    font-size:14px;line-height:1.5;margin:0;max-width:100%;
+    overflow-wrap:anywhere;color:var(--accent);
+  }
+  html[data-category-design]:not([data-category-design=""]) .article-head .eyebrow{
+    display:block;font-size:12px;line-height:1.5;letter-spacing:.04em;
+    max-width:100%;overflow-wrap:anywhere;color:var(--muted);
+  }
+  html[data-category-design]:not([data-category-design=""]) .article-head .reading-time{
+    display:block;font-size:14px;line-height:1.5;margin:0;color:var(--muted);
+  }
+  html[data-hero="tezhip"] .heritage-hero{gap:0}
+  html[data-hero="tezhip"] .heritage-hero .heritage-intro{width:100%}
+  html[data-hero="tezhip"] .heritage-hero .heritage-intro>.eyebrow{display:none}
+  html[data-hero="tezhip"] .heritage-hero .heritage-intro h1{
+    font-size:clamp(26px,6vw,34px);line-height:1.2;margin:8px 0;
+    overflow-wrap:anywhere;color:var(--ink);
+  }
+  html[data-hero="tezhip"] .heritage-hero .heritage-lead{
+    font-size:16px;line-height:1.5;margin:8px 0;color:var(--ink);
+  }
+  html[data-hero="tezhip"] .heritage-hero .heritage-explore{
+    font-size:16px;line-height:1.5;min-height:44px;gap:8px;
+    max-width:100%;overflow-wrap:anywhere;color:var(--accent);
+  }
   html[data-category-design="makaleler"] .entries .entry{grid-template-columns:minmax(0,1fr) auto}
   html[data-category-design="makaleler"] .entries .entry .read{grid-column:2}
   .docx-content{padding:16px 12px}
-}
-
-/* Keep mobile lettering inside the proportional illuminated frame. */
-@media(max-width:700px){
-  html[data-hero="tezhip"] .heritage-hero .heritage-intro>.eyebrow{display:none}
-  html[data-hero="tezhip"] .heritage-hero .heritage-explore{font-size:12px;padding-bottom:1px;gap:8px}
-  html[data-category-design]:not([data-category-design=""]) .article-head .eyebrow,
-  html[data-category-design]:not([data-category-design=""]) .article-head .reading-time{display:none}
-  html[data-category-design]:not([data-category-design=""]) .article-head h1{font-size:clamp(14px,4vw,22px)}
-  html[data-category-design]:not([data-category-design=""]) .article-head .back{font-size:10px;line-height:1.1}
 }

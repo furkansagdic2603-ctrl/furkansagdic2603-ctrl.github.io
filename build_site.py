@@ -4,6 +4,9 @@ from lxml import html, etree
 import json, re
 from html import escape
 from math import ceil
+from functools import lru_cache
+from urllib.parse import unquote, urlsplit
+from PIL import Image
 
 ROOT = Path(__file__).parent
 CATEGORY_ROWS = json.loads((ROOT/'data/categories.json').read_text(encoding='utf-8'))
@@ -31,12 +34,61 @@ def doc(title, main, active='', description='Furkan Sağdıç’ın yazıları v
     visible_categories = ((slug, name) for slug, name in CATS.items() if slug not in HOME_HIDDEN_CATEGORIES)
     nav = ''.join(f'<a {"aria-current=\"page\"" if active == slug else ""} href="/{slug}/">{escape(name)}</a>' for slug,name in visible_categories)
     nav += ''.join(f'<a {"aria-current=\"page\"" if active == slug else ""} href="/{slug}/">{name}</a>' for slug,name in EXTRAS.items())
-    return f'''<!doctype html><html lang="tr" data-hero="{hero_design()}" data-category-design="{escape(active if active in CATS else '', quote=True)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} | Furkan Sağdıç</title><meta name="description" content="{escape(description,quote=True)}"><link rel="icon" href="/brand-mark.svg?v=2" type="image/svg+xml"><script src="/theme.js?v=20260930-hd14"></script><link rel="stylesheet" href="/style.css?v=20260930-admin-access">{folio_css}</head><body{folio_body}><header class="masthead"><div class="topline"><a class="brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=2" alt="" width="42" height="42"><span class="brand-name">Furkan Sağdıç<small>Yazılar &amp; notlar</small></span></a><form class="header-search" action="/arama/" method="get" role="search"><label class="sr-only" for="header-query">Yazılarda ara</label><input id="header-query" name="q" type="search" placeholder="Yazılarda ara…" autocomplete="off"><button type="submit" aria-label="Ara"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 5 5"/></svg></button></form><div class="top-actions"><a class="admin-access" href="/admin/" aria-label="Admin paneline git">İdare</a><button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">☾ Koyu</button><button id="menu-buton" class="menu-buton" aria-expanded="false" aria-controls="ana-menu">Menü</button></div></div><nav id="ana-menu" class="main-nav" aria-label="Ana menü">{nav}</nav></header><main id="icerik">{main}</main><footer class="footer"><span>© Furkan Sağdıç</span><a href="/arsiv/">Yazı arşivi</a></footer><script src="/publication-dates.js?v=1" defer></script><script src="/script.js" defer></script><script src="/comments-config.js" defer></script><script src="/analytics.js" defer></script></body></html>'''
+    return f'''<!doctype html><html lang="tr" data-hero="{hero_design()}" data-category-design="{escape(active if active in CATS else '', quote=True)}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{escape(title)} | Furkan Sağdıç</title><meta name="description" content="{escape(description,quote=True)}"><link rel="icon" href="/brand-mark.svg?v=2" type="image/svg+xml"><script src="/theme.js?v=20260930-hd14"></script><link rel="stylesheet" href="/style.css?v=20261002-mobile2">{folio_css}</head><body{folio_body}><header class="masthead"><div class="topline"><a class="brand" href="/"><img class="brand-mark" src="/brand-mark.svg?v=2" alt="" width="42" height="42"><span class="brand-name">Furkan Sağdıç<small>Yazılar &amp; notlar</small></span></a><form class="header-search" action="/arama/" method="get" role="search"><label class="sr-only" for="header-query">Yazılarda ara</label><input id="header-query" name="q" type="search" placeholder="Yazılarda ara…" autocomplete="off"><button type="submit" aria-label="Ara"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 5 5"/></svg></button></form><div class="top-actions"><a class="admin-access" href="/admin/" aria-label="Admin paneline git">İdare</a><button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false">☾ Koyu</button><button id="menu-buton" class="menu-buton" aria-expanded="false" aria-controls="ana-menu">Menü</button></div></div><nav id="ana-menu" class="main-nav" aria-label="Ana menü">{nav}</nav></header><main id="icerik">{main}</main><footer class="footer"><span>© Furkan Sağdıç</span><a href="/arsiv/">Yazı arşivi</a></footer><script src="/publication-dates.js?v=1" defer></script><script src="/script.js?v=20261002-images" defer></script><script src="/comments-config.js" defer></script><script src="/analytics.js" defer></script></body></html>'''
+
+@lru_cache(maxsize=512)
+def image_size(src, page_path='index.html'):
+    url = urlsplit(src)
+    if url.scheme or url.netloc or not url.path:
+        return None
+    source = unquote(url.path)
+    file = (ROOT / source.lstrip('/') if source.startswith('/') else ROOT / page_path).resolve()
+    if not source.startswith('/'):
+        file = (file.parent / source).resolve()
+    if not file.is_relative_to(ROOT.resolve()) or not file.is_file():
+        return None
+    try:
+        with Image.open(file) as image:
+            return image.size
+    except (OSError, ValueError):
+        return None
+
+def optimize_images(text, page_path):
+    # Append attributes without reserializing Word paragraphs or inline formatting.
+    def optimize(match):
+        tag = match.group(0)
+        image = html.fragment_fromstring(tag)
+        additions = {}
+        size = image_size(image.get('src', ''), str(page_path))
+        if size:
+            width, height = size
+            old_width, old_height = image.get('width'), image.get('height')
+            if not old_width and not old_height:
+                additions.update(width=str(width), height=str(height))
+            elif old_width and not old_height and old_width.isdigit():
+                additions['height'] = str(max(1, round(int(old_width) * height / width)))
+            elif old_height and not old_width and old_height.isdigit():
+                additions['width'] = str(max(1, round(int(old_height) * width / height)))
+        if image.get('loading') is None and 'brand-mark' not in image.get('class', '').split():
+            additions['loading'] = 'lazy'
+        if image.get('decoding') is None:
+            additions['decoding'] = 'async'
+        attrs = ''.join(f' {key}="{value}"' for key, value in additions.items())
+        return re.sub(r'\s*/?>$', lambda end: attrs + end.group(0), tag) if attrs else tag
+    return re.sub(r'''<img\b(?:[^>"']|"[^"]*"|'[^']*')*>''', optimize, text, flags=re.IGNORECASE)
+
+def back_link(url, label):
+    parts = [part.strip() for part in label.split(' · ')]
+    if len(parts) == 1:
+        return f'<a class="back" href="{escape(url, quote=True)}">← {escape(label)}</a>'
+    return (f'<a class="back" href="{escape(url, quote=True)}" aria-label="{escape(label, quote=True)} bölümüne dön">'
+            f'<span class="back-full">← {escape(label)}</span>'
+            f'<span class="back-short" aria-hidden="true">← {escape(parts[-1])}</span></a>')
 
 def write(path, text):
     file = ROOT / path
     file.parent.mkdir(parents=True,exist_ok=True)
-    file.write_text(text,encoding='utf-8')
+    file.write_text(optimize_images(text, path) if str(path).endswith('.html') else text,encoding='utf-8')
 
 # The palette must load as render-blocking CSS, before the page is first painted.
 theme = json.loads((ROOT/'data/theme.json').read_text(encoding='utf-8'))
@@ -65,7 +117,8 @@ def article_body(path):
     return title,date,(desc[0] if desc else ''),body,category_override,cover
 
 def card(a):
-    cover = f'<a class="entry-cover" href="{a["url"]}"><img src="{escape(a["cover"], quote=True)}" alt="" loading="lazy" width="640" height="360"></a>' if a.get('cover') else ''
+    width, height = image_size(a.get('cover', '')) or (640, 360)
+    cover = f'<a class="entry-cover" href="{a["url"]}"><img src="{escape(a["cover"], quote=True)}" alt="" loading="lazy" width="{width}" height="{height}"></a>' if a.get('cover') else ''
     return f'<article class="entry">{cover}<div class="eyebrow">{escape(CATS[a["category"]])} <span>·</span> {escape(a["date"])}</div><h3><a href="{a["url"]}">{escape(a["title"])}</a></h3><p>{escape(a["description"])}</p><a class="read" href="{a["url"]}">Yazıyı oku →</a></article>'
 
 articles=[]
@@ -83,7 +136,9 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     category_path = category_override if category_override in CATEGORY_PATHS else next((key for key in sorted(CATEGORY_PATHS, key=len, reverse=True) if original_path == key or original_path.startswith(key+'/')), parts[0])
     category=category_path.split('/')[0]; url='/'+'/'.join(parts[:-1])+'/'
     if not description: description=title
-    articles.append(dict(title=title,date=date,description=description,category=category,categoryPath=category_path,url=url,**({'cover':cover} if cover else {})))
+    size = image_size(cover)
+    cover_data = {'cover':cover, **({'coverWidth':size[0], 'coverHeight':size[1]} if size else {})} if cover else {}
+    articles.append(dict(title=title,date=date,description=description,category=category,categoryPath=category_path,url=url,**cover_data))
     # Retain the original article body, including supplied images and formatting.
     # New editor-created pages are also normalized on the next GitHub build.
     label = ' · '.join(CATEGORY_PATHS['/'.join(category_path.split('/')[:i])] for i in range(1, len(category_path.split('/'))+1) if '/'.join(category_path.split('/')[:i]) in CATEGORY_PATHS)
@@ -104,9 +159,10 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     comments = '''<section class="comments" aria-labelledby="comments-title" hidden><h2 id="comments-title">Yorumlar</h2><div id="comments-list" aria-live="polite"></div><form id="comment-form" hidden><div class="comment-fields"><label>Ad<input name="first_name" autocomplete="given-name" maxlength="60" required></label><label>Soyad<input name="last_name" autocomplete="family-name" maxlength="60" required></label></div><label>Yorum<textarea name="body" rows="5" maxlength="2000" required></textarea></label><div class="comment-trap" aria-hidden="true"><label>Website<input name="website" tabindex="-1" autocomplete="off"></label></div><button type="submit">Yorumu gönder</button><p id="comment-status" role="status"></p></form></section><script src="/comments.js" defer></script>'''
     word_count = len(re.findall(r'\b\w+\b', html.fromstring(f'<div>{body}</div>').text_content(), re.UNICODE))
     minutes = max(1, ceil(word_count / 200))
-    cover_html = f'<figure class="article-cover"><img src="{escape(cover, quote=True)}" alt="{escape(title, quote=True)} için oluşturulmuş kapak görseli" width="1200" height="675"></figure>' if cover else ''
+    width, height = size or (1200, 675)
+    cover_html = f'<figure class="article-cover"><img src="{escape(cover, quote=True)}" alt="{escape(title, quote=True)} için oluşturulmuş kapak görseli" width="{width}" height="{height}" loading="eager" decoding="async"></figure>' if cover else ''
     cover_attribute = f' data-cover="{escape(cover, quote=True)}"' if cover else ''
-    content=f'<div class="article-head"><a class="back" href="{parent_url}">← {escape(label)}</a><div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1><p class="reading-time">Yaklaşık {minutes} dk okuma · {format(word_count, ",").replace(",", ".")} kelime</p></div>{cover_html}{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true" data-category="{escape(category_path, quote=True)}"{cover_attribute}>{body}</article>{chapter_navigation}<div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
+    content=f'<div class="article-head">{back_link(parent_url, label)}<div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1><p class="reading-time">Yaklaşık {minutes} dk okuma · {format(word_count, ",").replace(",", ".")} kelime</p></div>{cover_html}{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true" data-category="{escape(category_path, quote=True)}"{cover_attribute}>{body}</article>{chapter_navigation}<div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
     write(path.relative_to(ROOT),doc(title,content,category,description))
 
 book_url = '/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/'
