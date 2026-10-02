@@ -110,7 +110,9 @@
     "category": "kitap-notlari",
     "categoryPath": "kitap-notlari/tarih",
     "url": "/kitap-notlari/tarih/mevlana/",
-    "cover": "/assets/covers/2026-09-30/6d455479-432f-441b-a5bb-5376851f3a4c.jpg"
+    "cover": "/assets/covers/2026-09-30/6d455479-432f-441b-a5bb-5376851f3a4c.jpg",
+    "coverWidth": 1024,
+    "coverHeight": 1024
   },
   {
     "title": "Felsefe ve Edebiyat",
