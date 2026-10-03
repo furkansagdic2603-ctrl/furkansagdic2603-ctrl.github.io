@@ -1,4 +1,4 @@
-import { createBookCovers } from './book-covers.js?v=20261003-booknotes2';
+import { createBookCovers } from './book-covers.js?v=20261003-booknotes3';
 // Published article picker and create/edit/delete actions.
 export function createArticles({ $, callAdmin, feedback }) {
   const bookCovers = createBookCovers({ $, callAdmin, feedback });
