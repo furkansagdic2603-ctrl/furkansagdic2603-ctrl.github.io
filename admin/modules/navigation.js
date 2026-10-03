@@ -2,6 +2,7 @@ const screens = {
   overview: ['Genel bakış', 'Paneline hoş geldin. Yapmak istediğin işlemi seç.'],
   articles: ['Yazılar', 'Yayımlanmış yazılarını bul, aç ve düzenle.'],
   editor: ['Yazı editörü', 'Yazını hazırla, biçimlendir ve yayımla.'],
+  books: ['Kitaplar', 'Yeni kitap oluştur, kapak ve temel kitap bilgilerini kaydet.'],
   categories: ['Kategoriler', 'Ana ve alt kategorilerini tek yerden yönet.'],
   media: ['Görseller', 'İktibas / Alıntılar bölümüne fotoğraf ekle.'],
   comments: ['Yorumlar', 'Okuyucuların yorumlarını incele ve yönet.'],
