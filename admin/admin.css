@@ -166,3 +166,5 @@ html[data-theme="dark"] .admin-body{--admin-bg:#14211f;--admin-gold:#d2b578;back
 .book-note-choice-cover[data-fallback="teal"],.book-note-cover[data-fallback="teal"]{background:#315e5b}
 .book-note-choice-cover[data-fallback="ochre"],.book-note-cover[data-fallback="ochre"]{background:#8a6b31}
 .book-note-choice-cover[data-fallback="ink"],.book-note-cover[data-fallback="ink"]{background:#34444a}
+
+.book-note-choice-cover img,.book-note-cover img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit}
