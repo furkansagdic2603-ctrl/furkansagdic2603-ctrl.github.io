@@ -148,3 +148,21 @@ html[data-theme="dark"] .admin-body{--admin-bg:#14211f;--admin-gold:#d2b578;back
 /* Cover texture mapping: accepts any source aspect ratio without broken IMG state */
 .book-cover-admin-preview .book-cover-texture{width:130px;aspect-ratio:2/3;max-height:195px;flex:0 0 auto;border-radius:4px;background-color:var(--admin-surface);background-repeat:no-repeat;background-position:50% 50%;background-size:cover;box-shadow:0 10px 25px #0002;overflow:hidden}
 @media(max-width:760px){.book-cover-admin-preview .book-cover-texture{width:110px;max-height:165px}}
+
+
+/* Existing-book picker used while writing book notes */
+.book-note-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:16px 0}
+.book-note-choice{display:flex;align-items:center;gap:12px;width:100%;padding:10px;text-align:left;border:1px solid var(--admin-line);border-radius:10px;background:var(--admin-surface);color:var(--admin-ink);cursor:pointer}
+.book-note-choice:hover,.book-note-choice.is-selected{border-color:var(--admin-gold);box-shadow:0 5px 18px #173d2b0c}
+.book-note-choice.is-selected{outline:2px solid color-mix(in srgb,var(--admin-gold) 35%,transparent)}
+.book-note-choice-cover,.book-note-cover{display:flex;align-items:center;justify-content:center;flex:0 0 auto;background-position:center;background-size:cover;background-repeat:no-repeat;color:#f8edcf;text-align:center;font:11px/1.15 Georgia,serif;overflow:hidden}
+.book-note-choice-cover{width:48px;aspect-ratio:2/3;border-radius:3px;box-shadow:0 4px 10px #0002}
+.book-note-choice-text{display:grid;gap:4px;min-width:0}.book-note-choice-text strong{font-family:Georgia,serif}.book-note-choice-text small{color:var(--admin-muted)}
+.book-note-selected{display:flex;align-items:center;gap:16px;margin:16px 0;padding:14px;border:1px solid var(--admin-line);border-radius:10px;background:var(--admin-soft)}
+.book-note-cover{width:72px;aspect-ratio:2/3;border-radius:4px;box-shadow:0 7px 18px #0002}
+.book-note-selected>div:last-child{display:grid;gap:4px}.book-note-selected small,.book-note-selected span{color:var(--admin-muted)}
+.book-note-selected strong{font:600 18px/1.2 Georgia,serif}
+.book-note-choice-cover[data-fallback="burgundy"],.book-note-cover[data-fallback="burgundy"]{background:#7d342e}
+.book-note-choice-cover[data-fallback="teal"],.book-note-cover[data-fallback="teal"]{background:#315e5b}
+.book-note-choice-cover[data-fallback="ochre"],.book-note-cover[data-fallback="ochre"]{background:#8a6b31}
+.book-note-choice-cover[data-fallback="ink"],.book-note-cover[data-fallback="ink"]{background:#34444a}
