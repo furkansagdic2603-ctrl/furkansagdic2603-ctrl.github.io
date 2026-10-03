@@ -1,51 +1,84 @@
-// Book information travels with the note through the existing publishing API.
-export function createBookCovers({ $, callAdmin, feedback }) {
-  let cover = '';
-  let loading = false;
-  function preview() {
-    $('book-cover-preview').hidden = !cover;
-    $('book-cover-preview').src = cover;
+// Connect an article/note to a previously created book.
+export function createBookCovers({ $, feedback }) {
+  let books = [];
+  let selectedId = '';
+  const esc = value => String(value || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+  async function fetchBooks() {
+    try {
+      const res = await fetch('/data/site-books.json', { cache: 'no-store' });
+      books = res.ok ? await res.json() : [];
+    } catch { books = []; }
+    render();
+  }
+  function currentCategory() { return $('category').value || ''; }
+  function relevantBooks() {
+    const category = currentCategory();
+    if (!category.startsWith('kitap-notlari/')) return [];
+    return books.filter(book => book.category === category || category.startsWith(book.category + '/') || book.category.startsWith(category + '/'));
+  }
+  function renderSelected() {
+    const book = books.find(item => item.id === selectedId);
+    $('book-id').value = selectedId;
+    $('book-note-selected').hidden = !book;
+    if (!book) return;
+    $('book-note-title').textContent = book.title || '';
+    $('book-note-author').textContent = book.author || '';
+    const cover = $('book-note-cover');
+    cover.style.backgroundImage = book.cover ? `url("${book.cover}")` : 'none';
+    cover.dataset.fallback = book.fallback || 'burgundy';
+    cover.textContent = book.cover ? '' : (book.title || 'Kitap');
+  }
+  function select(id) {
+    selectedId = id || '';
+    render();
+    renderSelected();
+    localStorage.setItem('furkan-book-note-id-v1', selectedId);
+  }
+  function render() {
+    const list = relevantBooks();
+    const grid = $('book-note-grid');
+    grid.replaceChildren(...list.map(book => {
+      const button = document.createElement('button');
+      button.type = 'button'; button.className = 'book-note-choice';
+      button.dataset.bookId = book.id;
+      if (book.id === selectedId) button.classList.add('is-selected');
+      const cover = document.createElement('span'); cover.className = 'book-note-choice-cover';
+      if (book.cover) cover.style.backgroundImage = `url("${book.cover}")`;
+      else { cover.dataset.fallback = book.fallback || 'burgundy'; cover.textContent = book.title || 'Kitap'; }
+      const text = document.createElement('span'); text.className = 'book-note-choice-text';
+      const strong = document.createElement('strong'); strong.textContent = book.title || 'İsimsiz kitap';
+      const small = document.createElement('small'); small.textContent = book.author || 'Yazar belirtilmemiş';
+      text.append(strong, small); button.append(cover, text);
+      button.addEventListener('click', () => select(book.id));
+      return button;
+    }));
+    $('book-note-empty').hidden = list.length > 0;
+    if (selectedId && !list.some(book => book.id === selectedId)) selectedId = '';
+    renderSelected();
   }
   function load(article) {
-    loading = true;
-    const metadata = article?.querySelector('[data-book-title]');
-    $('book-title').value = metadata?.dataset.bookTitle || '';
-    $('book-author').value = metadata?.dataset.bookAuthor || '';
-    cover = metadata?.dataset.bookCover || '';
-    metadata?.remove(); preview(); loading = false; persist();
+    const metadata = article?.querySelector('[data-book-id], [data-book-title]');
+    selectedId = metadata?.dataset.bookId || '';
+    if (!selectedId && metadata?.dataset.bookTitle) {
+      const title = metadata.dataset.bookTitle;
+      selectedId = books.find(book => book.title === title)?.id || '';
+    }
+    metadata?.remove();
+    render(); renderSelected();
   }
-  function persist() {
-    if (!loading) localStorage.setItem('furkan-book-draft-v1', JSON.stringify({title:$('book-title').value,author:$('book-author').value,cover}));
-  }
-  try {
-    const draft = JSON.parse(localStorage.getItem('furkan-book-draft-v1') || '{}');
-    $('book-title').value = draft.title || ''; $('book-author').value = draft.author || '';
-    cover = draft.cover || ''; preview();
-  } catch {}
-  $('book-title').addEventListener('input',persist);
-  $('book-author').addEventListener('input',persist);
-  const esc = value => value.replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   function body(content) {
-    const title = $('book-title').value.trim();
-    if (!title || !$('category').value.startsWith('kitap-notlari/felsefe')) return content;
-    return `<div hidden data-book-title="${esc(title)}" data-book-author="${esc($('book-author').value.trim())}" data-book-cover="${esc(cover)}"></div>${content}`;
+    if (!currentCategory().startsWith('kitap-notlari/')) return content;
+    const book = books.find(item => item.id === selectedId);
+    if (!book) throw new Error('Bu notun ait olduğu kitabı seç.');
+    return `<div hidden data-book-id="${esc(book.id)}" data-book-title="${esc(book.title)}" data-book-author="${esc(book.author)}" data-book-cover="${esc(book.cover)}"></div>${content}`;
   }
-  $('book-cover-file').addEventListener('change', async e => {
-    const file = e.target.files[0]; e.target.value = ''; if (!file) return;
-    if (file.size > 2*1024*1024 || !['image/jpeg','image/png','image/webp','image/gif'].includes(file.type)) { feedback('JPEG, PNG, WebP veya GIF kapak seç; en fazla 2 MB.'); return; }
-    $('publish').disabled = true;
-    feedback('Kitap kapağı yükleniyor…');
-    try {
-      const data = await new Promise((resolve,reject) => { const r = new FileReader(); r.onload = () => resolve(r.result.split(',')[1]); r.onerror = () => reject(new Error('Kapak okunamadı.')); r.readAsDataURL(file); });
-      const result = await callAdmin('upload_image', {filename:file.name,mime:file.type,data});
-      cover = result.url; preview(); persist();
-      feedback('Kapak yüklendi. Kitap adını girip yazıyı kaydet; aynı adlı bölümler tek kitapta toplanır.');
-    } catch(err) { feedback(err.message); }
-    finally { $('publish').disabled = false; }
-  });
-  $('book-cover-remove').onclick = () => { cover = ''; preview(); persist(); };
-  const updateVisibility = () => { $('book-fields').hidden = !$('category').value.startsWith('kitap-notlari/felsefe'); };
-  $('category').addEventListener('change',updateVisibility);
-  document.addEventListener('admin:editor-open',updateVisibility);
-  return {load,body,updateVisibility};
+  const updateVisibility = () => {
+    $('book-fields').hidden = !currentCategory().startsWith('kitap-notlari/');
+    render();
+  };
+  $('category').addEventListener('change', updateVisibility);
+  document.addEventListener('admin:editor-open', () => { fetchBooks(); updateVisibility(); });
+  fetchBooks();
+  return { load, body, updateVisibility, fetchBooks };
 }
