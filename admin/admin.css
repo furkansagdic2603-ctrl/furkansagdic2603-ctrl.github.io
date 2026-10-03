@@ -135,7 +135,10 @@ html[data-theme="dark"] .admin-body{--admin-bg:#14211f;--admin-gold:#d2b578;back
 .book-create-card .fields small{display:block;margin:4px 0 8px;color:var(--admin-muted);font-weight:400}
 .book-cover-admin-preview{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin:18px 0 22px;padding:18px;border:1px dashed var(--admin-line);border-radius:12px;background:var(--admin-soft)}
 .book-cover-admin-preview img,.book-cover-fallback{width:130px;height:195px;border-radius:4px;box-shadow:0 10px 25px #0002}
-.book-cover-admin-preview img{object-fit:cover;background:var(--admin-surface)}
+.book-cover-admin-preview img{display:block;object-fit:cover;object-position:50% 50%;background:var(--admin-surface);aspect-ratio:2/3;overflow:hidden}
+.book-cover-admin-preview{--book-cover-ratio:2/3}
+.book-cover-admin-preview img,.book-cover-fallback{aspect-ratio:var(--book-cover-ratio);height:auto;max-height:195px}
+.book-cover-admin-preview img{image-rendering:auto}
 .book-cover-fallback{box-sizing:border-box;padding:18px 13px;display:flex;flex-direction:column;justify-content:space-between;text-align:center;color:#f8edcf;background:linear-gradient(145deg,#7d342e,#3d5c58);border:2px solid #b89552;font-family:Georgia,serif}
 .book-cover-fallback span,.book-cover-fallback i{font-size:10px;letter-spacing:.08em;opacity:.82}.book-cover-fallback i{font-style:normal}.book-cover-fallback strong{font-size:17px;line-height:1.15;overflow-wrap:anywhere}
 #book-create-status{font-size:13px;color:var(--admin-muted)}
