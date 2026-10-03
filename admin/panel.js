@@ -5,7 +5,6 @@ import { createComments } from './modules/comments.js';
 import { createStats } from './modules/stats.js';
 import { createTheme } from './modules/theme.js';
 import { initImages } from './modules/images.js';
-import { initBooks } from './modules/books.js?v=20261003-adminfix1';
 import { initQuotePhotos } from './modules/quote-photos.js';
 import { initNavigation } from './modules/navigation.js?v=20260930-panel1';
 
@@ -20,15 +19,12 @@ const comments = createComments({ $, callAdmin, getArticles: articles.getArticle
 const stats = createStats({ $, callAdmin, getArticles: articles.getArticles });
 const theme = createTheme({ $, callAdmin });
 initImages({ $, callAdmin, feedback });
-const books = initBooks({ $, callAdmin, feedback });
 initQuotePhotos({ $, callAdmin });
 
 async function showPanel() {
   await callAdmin('whoami');
   await theme.loadTheme();
   await categories.loadCategories();
-  await books.loadCategories();
-  await books.loadLibrary();
   await articles.loadArticles();
   navigation.updateCounts();
   navigation.showView('overview', false);
