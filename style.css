@@ -702,3 +702,18 @@ html[data-hero="tezhip"] .heritage-hero::before{content:none;display:none}
 .cinema-book.is-settling{animation:bookPhysicalSettle .72s cubic-bezier(.18,.82,.22,1)}
 .cinema-book.is-active .cinema-cover{transform:translateZ(11px)}
 @media(prefers-reduced-motion:reduce){.cinema-book.is-settling{animation:none}}
+
+
+/* Active-book opening: hinged cover plus staggered paper leaves. */
+.cinema-cover{transform-origin:0 50%;transition:transform .82s cubic-bezier(.18,.74,.18,1),box-shadow .5s ease}
+.cinema-pages{position:absolute;inset:5px 4px 5px 7px;z-index:-1;transform-style:preserve-3d;transform:translateZ(2px);pointer-events:none}
+.cinema-pages>i{position:absolute;inset:0;display:block;background:linear-gradient(90deg,#d4c59f 0,#f8f0dc 4%,#fffaf0 50%,#eadfc3 100%);border:1px solid rgba(117,91,52,.2);border-radius:1px 5px 5px 1px;box-shadow:inset -7px 0 10px rgba(95,70,38,.07);transform-origin:0 50%;transition:transform .7s cubic-bezier(.2,.72,.2,1)}
+.cinema-pages>i:nth-child(1){transform:translateZ(3px)}
+.cinema-pages>i:nth-child(2){transform:translateZ(1px)}
+.cinema-pages>i:nth-child(3){transform:translateZ(-1px)}
+.cinema-book.is-open .cinema-cover{transform:translateZ(11px) rotateY(-42deg);box-shadow:12px 22px 34px rgba(48,34,18,.2)}
+.cinema-book.is-open .cinema-pages>i:nth-child(1){transform:translateZ(4px) rotateY(-24deg);transition-delay:.08s}
+.cinema-book.is-open .cinema-pages>i:nth-child(2){transform:translateZ(2px) rotateY(-15deg);transition-delay:.15s}
+.cinema-book.is-open .cinema-pages>i:nth-child(3){transform:translateZ(0) rotateY(-7deg);transition-delay:.21s}
+@media(max-width:700px){.cinema-book.is-open .cinema-cover{transform:translateZ(9px) rotateY(-34deg)}}
+@media(prefers-reduced-motion:reduce){.cinema-cover,.cinema-pages>i{transition:none}}
