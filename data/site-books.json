@@ -19,5 +19,16 @@
     "fallback": "teal",
     "createdAt": "2026-10-03T19:57:42.870Z",
     "updatedAt": "2026-10-03T19:57:42.870Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/estetik-felsefesi/siir-denemem",
+    "title": "CEMİL SENA - ESTETİK (1931)",
+    "author": "CEMİL SENA",
+    "description": "",
+    "category": "kitap-notlari/felsefe",
+    "cover": "/assets/uploads/2026-10-03/6a8ee1d6-4f74-4505-bbcc-d94773f021da.png",
+    "fallback": "ochre",
+    "createdAt": "2026-10-03T19:58:58.090Z",
+    "updatedAt": "2026-10-03T19:58:58.090Z"
   }
 ]
