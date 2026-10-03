@@ -1,5 +1,7 @@
+import { createBookCovers } from './book-covers.js?v=1';
 // Published article picker and create/edit/delete actions.
 export function createArticles({ $, callAdmin, feedback }) {
+  const bookCovers = createBookCovers({ $, callAdmin, feedback });
   let articles = [];
   let editing = null;
   async function loadArticles() {
@@ -20,6 +22,7 @@ export function createArticles({ $, callAdmin, feedback }) {
   $('article-search').addEventListener('input', filterArticles);
   function resetEditor() {
     editing = null;
+    bookCovers.load(null);
     $('title').value = '';
     $('description').value = '';
     $('editor').innerHTML = '';
@@ -76,6 +79,7 @@ export function createArticles({ $, callAdmin, feedback }) {
       $('category').disabled = false;
       $('title').value = title.textContent.trim();
       $('description').value = page.querySelector('meta[name="description"]')?.content || '';
+      bookCovers.load(article);
       $('editor').innerHTML = article.innerHTML;
       $('editor-heading').textContent = 'Yazıyı düzenle';
       $('publish').textContent = 'Değişiklikleri kaydet';
@@ -89,7 +93,7 @@ export function createArticles({ $, callAdmin, feedback }) {
     finally { button.disabled = false; }
   });
   $('publish').addEventListener('click', async () => {
-    const title = $('title').value.trim(), body = $('editor').innerHTML.trim();
+    const title = $('title').value.trim(), body = bookCovers.body($('editor').innerHTML.trim());
     if (!title || !$('editor').textContent.trim()) { feedback('Başlık ve yazı içeriği gerekli.'); return; }
     const category = $('category').value;
     const description = $('description').value.trim() || $('editor').textContent.trim().slice(0, 160);
