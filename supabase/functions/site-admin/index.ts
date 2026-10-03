@@ -189,6 +189,30 @@ Deno.serve(async req => {
       await putFile(token, 'data/categories.json', JSON.stringify(categories, null, 2) + '\n', `Add category: ${name}`, sha);
       return result({ path, categories });
     }
+    if (input.action === 'add_book') {
+      const title = String(input.title || '').trim();
+      const author = String(input.author || '').trim();
+      const description = String(input.description || '').trim();
+      const category = String(input.category || '').trim();
+      const cover = String(input.cover || '').trim();
+      if (!title || title.length > 160 || author.length > 160 || description.length > 500) return result({ error: 'Kitap bilgileri geçersiz.' }, 400);
+      const { categories } = await getCategories(token);
+      if (!category.startsWith('kitap-notlari/') || !categories.some(item => categoryPath(item) === category)) return result({ error: 'Kitap Notları altında geçerli bir kategori seç.' }, 400);
+      if (cover && !/^\/assets\/uploads\/[a-zA-Z0-9_./-]+$/.test(cover)) return result({ error: 'Kapak yolu geçersiz.' }, 400);
+      const path = 'data/site-books.json';
+      const existing = await fetch(ghUrl(path), { headers: ghHeaders(token) });
+      let books: any[] = [], sha: string | undefined;
+      if (existing.ok) { const file = await existing.json(); sha = file.sha; books = JSON.parse(decode(file.content)); }
+      else if (existing.status !== 404) throw new Error('Kitap kataloğu okunamadı.');
+      const bookSlug = slug(title);
+      const id = category + '/' + bookSlug;
+      if (!bookSlug || books.some(book => book.id === id)) return result({ error: 'Bu kitap bu kategoride zaten var.' }, 409);
+      const fallback = ['burgundy','teal','ochre','ink'][books.length % 4];
+      const book = { id, title, author, description, category, cover: cover || '', fallback, createdAt: new Date().toISOString() };
+      books.push(book);
+      await putFile(token, path, JSON.stringify(books, null, 2) + '\n', 'Add book: ' + title, sha);
+      return result({ book });
+    }
     if (input.action === 'upload_image') {
       const filename = String(input.filename || '');
       const type = String(input.mime || '');
