@@ -1,11 +1,14 @@
 export function initBooks({ $, callAdmin, feedback }) {
   let cover = '';
+  let localPreview = '';
   const allowed = ['image/jpeg','image/png','image/webp','image/gif'];
   const preview = () => {
-    $('new-book-cover-preview').hidden = !cover;
-    $('new-book-cover-fallback').hidden = Boolean(cover);
-    $('new-book-cover-remove').hidden = !cover;
-    if (cover) $('new-book-cover-preview').src = cover;
+    const source = localPreview || cover;
+    $('new-book-cover-preview').hidden = !source;
+    $('new-book-cover-fallback').hidden = Boolean(source);
+    $('new-book-cover-remove').hidden = !source;
+    if (source) $('new-book-cover-preview').src = source;
+    else $('new-book-cover-preview').removeAttribute('src');
   };
   async function loadCategories() {
     const res = await fetch('/data/categories.json', { cache: 'no-store' });
@@ -25,6 +28,9 @@ export function initBooks({ $, callAdmin, feedback }) {
     const file = event.target.files[0]; event.target.value = '';
     if (!file) return;
     if (file.size > 2*1024*1024 || !allowed.includes(file.type)) { feedback('JPEG, PNG, WebP veya GIF kapak seç; en fazla 2 MB.'); return; }
+    if (localPreview) URL.revokeObjectURL(localPreview);
+    localPreview = URL.createObjectURL(file);
+    preview();
     const button = $('create-book'); button.disabled = true; feedback('Kitap kapağı yükleniyor…');
     try {
       const data = await new Promise((resolve,reject)=>{ const reader=new FileReader(); reader.onload=()=>resolve(reader.result.split(',')[1]); reader.onerror=()=>reject(new Error('Kapak okunamadı.')); reader.readAsDataURL(file); });
@@ -33,7 +39,7 @@ export function initBooks({ $, callAdmin, feedback }) {
     } catch(err) { feedback(err.message); }
     finally { button.disabled=false; }
   });
-  $('new-book-cover-remove').addEventListener('click',()=>{ cover=''; preview(); feedback('Kapak kaldırıldı. Otomatik estetik kapak kullanılacak.'); });
+  $('new-book-cover-remove').addEventListener('click',()=>{ cover=''; if(localPreview){URL.revokeObjectURL(localPreview);localPreview='';} preview(); feedback('Kapak kaldırıldı. Otomatik estetik kapak kullanılacak.'); });
   $('create-book').addEventListener('click', async ()=>{
     const title=$('new-book-title').value.trim();
     if(!title){ feedback('Kitap adını yaz.'); $('new-book-title').focus(); return; }
@@ -43,7 +49,7 @@ export function initBooks({ $, callAdmin, feedback }) {
       const result=await callAdmin('add_book',{title,author:$('new-book-author').value.trim(),description:$('new-book-description').value.trim(),category:$('new-book-category').value,cover});
       $('book-create-status').textContent='“'+result.book.title+'” oluşturuldu. Sitede görünmesi birkaç dakika sürebilir.';
       feedback('Kitap başarıyla oluşturuldu.');
-      $('new-book-title').value=''; $('new-book-author').value=''; $('new-book-description').value=''; cover=''; $('new-book-fallback-title').textContent='Kitap adı'; preview();
+      $('new-book-title').value=''; $('new-book-author').value=''; $('new-book-description').value=''; cover=''; if(localPreview){URL.revokeObjectURL(localPreview);localPreview='';} $('new-book-fallback-title').textContent='Kitap adı'; preview();
     }catch(err){ $('book-create-status').textContent=err.message; feedback(err.message); }
     finally{ button.disabled=false; }
   });
