@@ -99,7 +99,7 @@ const search=document.getElementById('site-search');if(search){const initial=new
   function move(dir){active=(active+dir+books.length)%books.length;render();settle();openActive()}
   stage.querySelector('.book-cinema-prev')?.addEventListener('click',()=>move(-1));
   stage.querySelector('.book-cinema-next')?.addEventListener('click',()=>move(1));
-  books.forEach((book,i)=>book.addEventListener('click',e=>{if(i!==active){e.preventDefault();active=i;render();settle();openActive()}}));
+  books.forEach((book,i)=>book.addEventListener('click',e=>{if(i!==active || book.getAttribute('href')==='#'){e.preventDefault();if(i!==active){active=i;render();settle();openActive()}}}));
   stage.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();move(-1)}if(e.key==='ArrowRight'){e.preventDefault();move(1)}});
   stage.addEventListener('pointerdown',e=>{downX=e.clientX});
   stage.addEventListener('pointerup',e=>{if(downX===null)return;const dx=e.clientX-downX;downX=null;if(Math.abs(dx)>35)move(dx<0?1:-1)});
