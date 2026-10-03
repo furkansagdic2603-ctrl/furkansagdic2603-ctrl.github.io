@@ -1,6 +1,6 @@
 import { createAuth } from './modules/auth.js';
 import { createCategories } from './modules/categories.js';
-import { createArticles } from './modules/articles.js?v=20261003-booknotes1';
+import { createArticles } from './modules/articles.js?v=20261003-booknotes2';
 import { createComments } from './modules/comments.js';
 import { createStats } from './modules/stats.js';
 import { createTheme } from './modules/theme.js';
