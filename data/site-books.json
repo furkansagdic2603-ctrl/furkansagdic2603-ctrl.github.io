@@ -1,15 +1,5 @@
 [
   {
-    "id": "kitap-notlari/felsefe/felsefe-yapma",
-    "title": "Felsefe Yapma",
-    "author": "Ceylan Taş",
-    "description": "Sıcak bir yaz sabahı, günlerden pazar, horoz sesiyle gözlerimi aralıyorum ama bu bir köy romanı değil.",
-    "category": "kitap-notlari/felsefe",
-    "cover": "/assets/uploads/2026-10-03/1b84dbee-de9e-436c-b20e-a188dcc7650b.jpg",
-    "fallback": "burgundy",
-    "createdAt": "2026-10-03T17:56:17.726Z"
-  },
-  {
     "id": "kitap-notlari/felsefe/bir-birey-nasil-yasayabilir",
     "title": "Bir birey nasıl yaşayabilir?",
     "author": "",
@@ -86,4 +76,4 @@
     "createdAt": "2026-10-03T20:02:53.169Z",
     "updatedAt": "2026-10-03T20:29:28.259Z"
   }
-]
+]\n
