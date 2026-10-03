@@ -13,9 +13,8 @@ export function createBookCovers({ $, feedback }) {
   }
   function currentCategory() { return $('category').value || ''; }
   function relevantBooks() {
-    const category = currentCategory();
-    if (!category.startsWith('kitap-notlari/')) return [];
-    return books.filter(book => book.category === category || category.startsWith(book.category + '/') || book.category.startsWith(category + '/'));
+    if (!currentCategory().startsWith('kitap-notlari')) return [];
+    return books;
   }
   function renderSelected() {
     const book = books.find(item => item.id === selectedId);
@@ -38,6 +37,8 @@ export function createBookCovers({ $, feedback }) {
   }
   function select(id) {
     selectedId = id || '';
+    const book = books.find(item => item.id === selectedId);
+    if (book?.category && Array.from($('category').options).some(option => option.value === book.category)) $('category').value = book.category;
     render();
     renderSelected();
     localStorage.setItem('furkan-book-note-id-v1', selectedId);
@@ -81,13 +82,13 @@ export function createBookCovers({ $, feedback }) {
     render(); renderSelected();
   }
   function body(content) {
-    if (!currentCategory().startsWith('kitap-notlari/')) return content;
+    if (!currentCategory().startsWith('kitap-notlari')) return content;
     const book = books.find(item => item.id === selectedId);
     if (!book) throw new Error('Bu notun ait olduğu kitabı seç.');
     return `<div hidden data-book-id="${esc(book.id)}" data-book-title="${esc(book.title)}" data-book-author="${esc(book.author)}" data-book-cover="${esc(book.cover)}"></div>${content}`;
   }
   const updateVisibility = () => {
-    $('book-fields').hidden = !currentCategory().startsWith('kitap-notlari/');
+    $('book-fields').hidden = !currentCategory().startsWith('kitap-notlari');
     render();
   };
   $('category').addEventListener('change', updateVisibility);
