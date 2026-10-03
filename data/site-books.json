@@ -74,5 +74,16 @@
     "fallback": "ochre",
     "createdAt": "2026-10-03T20:02:28.693Z",
     "updatedAt": "2026-10-03T20:02:28.693Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/klasikler/schopenhauer/olumun-anlami",
+    "title": "Ölümün Anlamı",
+    "author": "",
+    "description": "",
+    "category": "kitap-notlari/felsefe",
+    "cover": "",
+    "fallback": "ink",
+    "createdAt": "2026-10-03T20:02:53.169Z",
+    "updatedAt": "2026-10-03T20:02:53.169Z"
   }
 ]
