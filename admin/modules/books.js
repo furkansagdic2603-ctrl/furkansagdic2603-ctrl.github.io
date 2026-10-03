@@ -37,7 +37,7 @@ export function initBooks({ $, callAdmin, feedback }) {
         discovered = Array.from(doc.querySelectorAll('.cinema-book')).map(el => ({
           id: el.dataset.url && el.dataset.url !== '#' && !el.dataset.url.startsWith('#') ? el.dataset.url.replace(/^\//,'').replace(/\/$/,'') : 'kitap-notlari/felsefe/' + String(el.dataset.title||'kitap').toLocaleLowerCase('tr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''),
           title: el.dataset.title || 'Kitap', author: el.dataset.author || '', description: '', category:'kitap-notlari/felsefe',
-          cover: el.querySelector('.book-front img')?.getAttribute('src') || '', fallback:'burgundy', discovered:true
+          cover: el.querySelector('.book-front img')?.getAttribute('src') || '', fallback:'burgundy', discovered:true, sourcePath: el.dataset.url && el.dataset.url.startsWith('/') && !el.dataset.url.startsWith('/#') ? el.dataset.url.replace(/^\\//,'').replace(/\\/$/,'') : ''
         }));
       }
     } catch {}
@@ -91,6 +91,19 @@ export function initBooks({ $, callAdmin, feedback }) {
       const result=await callAdmin('update_book',{id,title,author:$('edit-book-author').value.trim(),description:$('edit-book-description').value.trim(),category,cover:editCover});
       $('edit-book-status').textContent='“'+result.book.title+'” güncellendi. Site birkaç dakika içinde yeni kapağı kullanacak.';
       feedback('Kitap güncellendi.'); await loadLibrary();
+    }catch(err){$('edit-book-status').textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
+  });
+  $('delete-book').addEventListener('click',async()=>{
+    const id=$('edit-book-id').value; const book=libraryBooks.find(item=>item.id===id);
+    if(!book)return;
+    const ok=confirm('“'+book.title+'” kitabını ve bu kitaba bağlı BÜTÜN notları/bölümleri kalıcı olarak silmek istiyor musun? Bu işlem geri alınamaz.');
+    if(!ok)return;
+    const second=confirm('Son onay: “'+book.title+'” tamamen silinecek. Devam edilsin mi?');
+    if(!second)return;
+    const button=$('delete-book'); button.disabled=true; $('edit-book-status').textContent='Kitap ve içindekiler siliniyor…'; feedback('Kitap tamamen siliniyor…');
+    try{
+      const result=await callAdmin('delete_book',{id:book.id,title:book.title,cover:book.cover||'',sourcePath:book.sourcePath||''});
+      $('edit-book-card').hidden=true; feedback('“'+book.title+'” ve bağlı '+result.deleted+' içerik silindi.'); await loadLibrary();
     }catch(err){$('edit-book-status').textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
   });
   $('new-book-title').addEventListener('input', () => { $('new-book-fallback-title').textContent = $('new-book-title').value.trim() || 'Kitap adı'; });
