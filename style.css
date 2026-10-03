@@ -690,3 +690,15 @@ html[data-hero="tezhip"] .heritage-hero::before{content:none;display:none}
 .cinema-book.is-active .cinema-cover:before{box-shadow:inset 8px 0 14px rgba(0,0,0,.16),inset -2px 0 3px rgba(255,255,255,.2),0 29px 48px rgba(62,44,22,.28)}
 .book-cinema-stage:after{opacity:.45;bottom:28px}
 @media(max-width:700px){.book-cinema-stage{perspective:760px}.cinema-book::after{bottom:-22px;height:22px}}
+
+
+/* Inertial settle for the active physical book. */
+@keyframes bookPhysicalSettle{
+  0%{translate:0 0;rotate:0deg}
+  58%{translate:0 -7px;rotate:-.45deg}
+  78%{translate:0 2px;rotate:.18deg}
+  100%{translate:0 0;rotate:0deg}
+}
+.cinema-book.is-settling{animation:bookPhysicalSettle .72s cubic-bezier(.18,.82,.22,1)}
+.cinema-book.is-active .cinema-cover{transform:translateZ(11px)}
+@media(prefers-reduced-motion:reduce){.cinema-book.is-settling{animation:none}}
