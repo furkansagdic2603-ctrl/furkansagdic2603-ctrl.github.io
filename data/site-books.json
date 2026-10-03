@@ -52,5 +52,16 @@
     "fallback": "burgundy",
     "createdAt": "2026-10-03T20:00:47.582Z",
     "updatedAt": "2026-10-03T20:00:47.582Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri",
+    "title": "Gündelik Hayat Tenkidleri",
+    "author": "",
+    "description": "",
+    "category": "kitap-notlari/felsefe",
+    "cover": "",
+    "fallback": "teal",
+    "createdAt": "2026-10-03T20:01:56.627Z",
+    "updatedAt": "2026-10-03T20:01:56.627Z"
   }
 ]
