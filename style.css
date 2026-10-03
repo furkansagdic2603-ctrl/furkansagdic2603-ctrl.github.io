@@ -676,3 +676,17 @@ html[data-hero="tezhip"] .heritage-hero::before{content:none;display:none}
 .book-cinema-prev,.book-cinema-next{position:absolute;top:50%;z-index:10;width:46px;height:46px;margin-top:-23px;border:1px solid var(--gold);border-radius:50%;background:color-mix(in srgb,var(--surface) 88%,transparent);color:var(--accent);font:30px/1 var(--serif);box-shadow:0 5px 18px rgba(60,44,25,.1)}.book-cinema-prev{left:10px}.book-cinema-next{right:10px}.book-cinema-caption{text-align:center;min-height:30px;font:20px/1.4 var(--serif);color:var(--accent)}
 @media(max-width:700px){.book-cinema{margin:30px -16px 48px;padding-left:16px;padding-right:16px}.book-cinema-stage{height:350px;perspective:900px}.cinema-book{width:154px;height:231px;margin:-115px 0 0 -77px}.cinema-cover{padding:18px 15px;box-shadow:-5px 2px 0 -2px #e5d7b7,-8px 3px 0 -4px #b8a77f,0 18px 28px rgba(52,39,25,.22)}.cinema-cover strong{font-size:21px}.book-cinema-prev,.book-cinema-next{width:40px;height:40px;margin-top:-20px}.book-cinema-caption{font-size:17px}}
 @media(prefers-reduced-motion:reduce){.cinema-book{transition:none}}
+
+
+/* Book showcase realism pass: physical thickness, spine, page block and tighter lens. */
+.book-cinema-stage{perspective:920px;perspective-origin:50% 43%}
+.cinema-book{transform-origin:50% 55%;transition:transform .88s cubic-bezier(.16,.78,.18,1),filter .68s ease,opacity .68s ease}
+.cinema-cover{overflow:visible;box-shadow:none;border:0}
+.cinema-cover:before{border-radius:2px 6px 6px 2px;box-shadow:inset 8px 0 14px rgba(0,0,0,.17),inset -2px 0 3px rgba(255,255,255,.16),0 23px 35px rgba(62,44,22,.22)}
+.cinema-cover:after{left:-10px;top:3px;bottom:3px;width:12px;background:linear-gradient(90deg,rgba(25,18,13,.55),rgba(255,255,255,.12) 45%,rgba(0,0,0,.22));border-radius:3px 0 0 3px;box-shadow:inset -1px 0 rgba(255,255,255,.14)}
+.cinema-book::before{content:"";position:absolute;z-index:-1;left:5px;right:-9px;top:7px;bottom:-7px;border-radius:2px 5px 5px 2px;background:repeating-linear-gradient(0deg,#eee4cc 0 1px,#d8c9a7 1px 2px);transform:translateZ(-8px);box-shadow:7px 8px 15px rgba(45,31,17,.16)}
+.cinema-book::after{content:"";position:absolute;z-index:-2;left:8%;right:2%;bottom:-28px;height:27px;border-radius:50%;background:radial-gradient(ellipse,rgba(45,31,16,.36),rgba(45,31,16,.11) 46%,transparent 72%);filter:blur(6px);transform:rotateX(76deg) translateZ(-25px);opacity:.8}
+.cinema-book.is-active::after{height:34px;bottom:-34px;opacity:.95}
+.cinema-book.is-active .cinema-cover:before{box-shadow:inset 8px 0 14px rgba(0,0,0,.16),inset -2px 0 3px rgba(255,255,255,.2),0 29px 48px rgba(62,44,22,.28)}
+.book-cinema-stage:after{opacity:.45;bottom:28px}
+@media(max-width:700px){.book-cinema-stage{perspective:760px}.cinema-book::after{bottom:-22px;height:22px}}
