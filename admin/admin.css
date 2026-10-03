@@ -143,3 +143,8 @@ html[data-theme="dark"] .admin-body{--admin-bg:#14211f;--admin-gold:#d2b578;back
 .book-cover-fallback span,.book-cover-fallback i{font-size:10px;letter-spacing:.08em;opacity:.82}.book-cover-fallback i{font-style:normal}.book-cover-fallback strong{font-size:17px;line-height:1.15;overflow-wrap:anywhere}
 #book-create-status{font-size:13px;color:var(--admin-muted)}
 @media(max-width:760px){.book-cover-admin-preview{align-items:flex-start}.book-cover-admin-preview img,.book-cover-fallback{width:110px;height:165px}}
+
+
+/* Cover texture mapping: accepts any source aspect ratio without broken IMG state */
+.book-cover-admin-preview .book-cover-texture{width:130px;aspect-ratio:2/3;max-height:195px;flex:0 0 auto;border-radius:4px;background-color:var(--admin-surface);background-repeat:no-repeat;background-position:50% 50%;background-size:cover;box-shadow:0 10px 25px #0002;overflow:hidden}
+@media(max-width:760px){.book-cover-admin-preview .book-cover-texture{width:110px;max-height:165px}}
