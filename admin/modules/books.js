@@ -7,8 +7,7 @@ export function initBooks({ $, callAdmin, feedback }) {
     $('new-book-cover-preview').hidden = !source;
     $('new-book-cover-fallback').hidden = Boolean(source);
     $('new-book-cover-remove').hidden = !source;
-    if (source) $('new-book-cover-preview').src = source;
-    else $('new-book-cover-preview').removeAttribute('src');
+    $('new-book-cover-preview').style.backgroundImage = source ? `url("${source}")` : 'none';
   };
   async function loadCategories() {
     const res = await fetch('/data/categories.json', { cache: 'no-store' });
