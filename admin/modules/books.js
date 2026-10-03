@@ -37,7 +37,7 @@ export function initBooks({ $, callAdmin, feedback }) {
         discovered = Array.from(doc.querySelectorAll('.cinema-book')).map(el => ({
           id: el.dataset.url && el.dataset.url !== '#' && !el.dataset.url.startsWith('#') ? el.dataset.url.replace(/^\//,'').replace(/\/$/,'') : 'kitap-notlari/felsefe/' + String(el.dataset.title||'kitap').toLocaleLowerCase('tr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''),
           title: el.dataset.title || 'Kitap', author: el.dataset.author || '', description: '', category:'kitap-notlari/felsefe',
-          cover: el.querySelector('.book-front img')?.getAttribute('src') || '', fallback:'burgundy', discovered:true, sourcePath: el.dataset.url && el.dataset.url.startsWith('/') && !el.dataset.url.startsWith('/#') ? el.dataset.url.replace(/^\\//,'').replace(/\\/$/,'') : ''
+          cover: el.querySelector('.book-front img')?.getAttribute('src') || '', fallback:'burgundy', discovered:true, sourcePath: el.dataset.url && el.dataset.url.startsWith('/') && !el.dataset.url.startsWith('/#') ? el.dataset.url.slice(1).replace(/\/$/,'') : ''
         }));
       }
     } catch {}
