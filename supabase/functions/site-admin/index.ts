@@ -236,6 +236,54 @@ Deno.serve(async req => {
       await putFile(token, path, JSON.stringify(books, null, 2) + '\n', 'Update book: ' + title, sha);
       return result({ book });
     }
+    if (input.action === 'delete_book') {
+      const id = String(input.id || '').trim();
+      const sourcePath = String(input.sourcePath || '').trim().replace(/^\\/+|\\/+$/g, '');
+      if (!/^kitap-notlari\\/[a-z0-9-]+(?:\\/[a-z0-9-]+){1,5}$/.test(id)) return result({ error: 'Kitap kimliği geçersiz.' }, 400);
+      if (sourcePath && !/^kitap-notlari\\/[a-z0-9-]+(?:\\/[a-z0-9-]+){1,6}$/.test(sourcePath)) return result({ error: 'Kitap yolu geçersiz.' }, 400);
+      const catalogPath = 'data/site-books.json';
+      const existing = await fetch(ghUrl(catalogPath), { headers: ghHeaders(token) });
+      let books: any[] = [], catalogSha: string | undefined;
+      if (existing.ok) { const file = await existing.json(); catalogSha = file.sha; books = JSON.parse(decode(file.content)); }
+      else if (existing.status !== 404) throw new Error('Kitap kataloğu okunamadı.');
+      const catalogBook = books.find(book => book.id === id);
+      const cover = String(catalogBook?.cover || input.cover || '');
+      const treeRes = await fetch('https://api.github.com/repos/' + REPOSITORY + '/git/trees/main?recursive=1', { headers: ghHeaders(token) });
+      if (!treeRes.ok) throw new Error('Site dosyaları taranamadı.');
+      const tree = await treeRes.json();
+      const candidates = (tree.tree || []).filter((item: any) => item.type === 'blob' && /^kitap-notlari\\/.+\\/index\\.html$/.test(item.path));
+      const deletePaths = new Set<string>();
+      for (const item of candidates) {
+        if (sourcePath && (item.path === sourcePath + '/index.html' || item.path.startsWith(sourcePath + '/'))) deletePaths.add(item.path);
+        const raw = await fetch(ghUrl(item.path), { headers: { ...ghHeaders(token), Accept: 'application/vnd.github.raw+json' } });
+        if (raw.ok) {
+          const html = await raw.text();
+          if (html.includes('data-book-id="' + id + '"') || html.includes("data-book-id='" + id + "'")) deletePaths.add(item.path);
+        }
+      }
+      let deleted = 0;
+      for (const path of deletePaths) {
+        const meta = await fetch(ghUrl(path), { headers: ghHeaders(token) });
+        if (!meta.ok) continue;
+        const file = await meta.json();
+        const del = await fetch(ghUrl(path), { method: 'DELETE', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'Delete book content: ' + id, sha: file.sha }) });
+        if (!del.ok) throw new Error('Kitap içeriği silinemedi (' + del.status + ').');
+        deleted++;
+      }
+      if (catalogBook) {
+        books = books.filter(book => book.id !== id);
+        await putFile(token, catalogPath, JSON.stringify(books, null, 2) + '\\n', 'Delete book: ' + catalogBook.title, catalogSha);
+      }
+      if (/^\\/assets\\/uploads\\/[a-zA-Z0-9_./-]+$/.test(cover) && !books.some(book => book.cover === cover)) {
+        const coverPath = cover.slice(1);
+        const meta = await fetch(ghUrl(coverPath), { headers: ghHeaders(token) });
+        if (meta.ok) {
+          const file = await meta.json();
+          await fetch(ghUrl(coverPath), { method: 'DELETE', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' }, body: JSON.stringify({ message: 'Delete book cover: ' + id, sha: file.sha }) });
+        }
+      }
+      return result({ ok: true, deleted, title: catalogBook?.title || String(input.title || 'Kitap') });
+    }
     if (input.action === 'upload_image') {
       const filename = String(input.filename || '');
       const type = String(input.mime || '');
