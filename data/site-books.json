@@ -41,5 +41,16 @@
     "fallback": "ink",
     "createdAt": "2026-10-03T20:00:03.061Z",
     "updatedAt": "2026-10-03T20:00:03.061Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/gorme-bicimleri",
+    "title": "Görme Biçimleri",
+    "author": "",
+    "description": "",
+    "category": "kitap-notlari/felsefe",
+    "cover": "/assets/uploads/2026-10-03/f5a64749-e554-48bd-8ddc-2952c6fc2a19.jpg",
+    "fallback": "burgundy",
+    "createdAt": "2026-10-03T20:00:47.582Z",
+    "updatedAt": "2026-10-03T20:00:47.582Z"
   }
 ]
