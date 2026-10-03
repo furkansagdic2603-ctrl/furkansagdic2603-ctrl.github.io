@@ -25,9 +25,16 @@ export function createBookCovers({ $, feedback }) {
     $('book-note-title').textContent = book.title || '';
     $('book-note-author').textContent = book.author || '';
     const cover = $('book-note-cover');
-    cover.style.backgroundImage = book.cover ? `url("${book.cover}")` : 'none';
+    cover.replaceChildren();
     cover.dataset.fallback = book.fallback || 'burgundy';
-    cover.textContent = book.cover ? '' : (book.title || 'Kitap');
+    if (book.cover) {
+      const img = document.createElement('img');
+      img.src = book.cover + '?v=' + encodeURIComponent(book.createdAt || '1');
+      img.alt = book.title + ' kapağı';
+      img.loading = 'eager';
+      img.addEventListener('error', () => { img.remove(); cover.textContent = book.title || 'Kitap'; });
+      cover.append(img);
+    } else cover.textContent = book.title || 'Kitap';
   }
   function select(id) {
     selectedId = id || '';
@@ -44,8 +51,14 @@ export function createBookCovers({ $, feedback }) {
       button.dataset.bookId = book.id;
       if (book.id === selectedId) button.classList.add('is-selected');
       const cover = document.createElement('span'); cover.className = 'book-note-choice-cover';
-      if (book.cover) cover.style.backgroundImage = `url("${book.cover}")`;
-      else { cover.dataset.fallback = book.fallback || 'burgundy'; cover.textContent = book.title || 'Kitap'; }
+      cover.dataset.fallback = book.fallback || 'burgundy';
+      if (book.cover) {
+        const img = document.createElement('img');
+        img.src = book.cover + '?v=' + encodeURIComponent(book.createdAt || '1');
+        img.alt = book.title + ' kapağı'; img.loading = 'eager';
+        img.addEventListener('error', () => { img.remove(); cover.textContent = book.title || 'Kitap'; });
+        cover.append(img);
+      } else cover.textContent = book.title || 'Kitap';
       const text = document.createElement('span'); text.className = 'book-note-choice-text';
       const strong = document.createElement('strong'); strong.textContent = book.title || 'İsimsiz kitap';
       const small = document.createElement('small'); small.textContent = book.author || 'Yazar belirtilmemiş';
