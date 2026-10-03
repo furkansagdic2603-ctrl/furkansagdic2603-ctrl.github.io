@@ -65,7 +65,7 @@ const search=document.getElementById('site-search');if(search){const initial=new
   const stage=document.querySelector('.book-cinema-stage');
   if(!stage) return;
   const books=[...stage.querySelectorAll('.cinema-book')], caption=document.querySelector('.book-cinema-caption');
-  let active=Math.min(2,books.length-1), downX=null;
+  let active=Math.min(2,books.length-1), downX=null, openTimer=null;
   const mobile=()=>matchMedia('(max-width:700px)').matches;
   function render(){
     const step=mobile()?92:132;
@@ -82,6 +82,12 @@ const search=document.getElementById('site-search');if(search){const initial=new
     });
     caption.textContent=books[active]?.dataset.title||'';
   }
+  function openActive(){
+    clearTimeout(openTimer);
+    books.forEach(b=>b.classList.remove('is-open'));
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    openTimer=setTimeout(()=>books[active]?.classList.add('is-open'),420);
+  }
   function settle(){
     const book=books[active];
     if(!book || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -90,13 +96,14 @@ const search=document.getElementById('site-search');if(search){const initial=new
     book.classList.add('is-settling');
     setTimeout(()=>book.classList.remove('is-settling'),760);
   }
-  function move(dir){active=(active+dir+books.length)%books.length;render();settle()}
+  function move(dir){active=(active+dir+books.length)%books.length;render();settle();openActive()}
   stage.querySelector('.book-cinema-prev')?.addEventListener('click',()=>move(-1));
   stage.querySelector('.book-cinema-next')?.addEventListener('click',()=>move(1));
-  books.forEach((book,i)=>book.addEventListener('click',e=>{if(i!==active){e.preventDefault();active=i;render();settle()}}));
+  books.forEach((book,i)=>book.addEventListener('click',e=>{if(i!==active){e.preventDefault();active=i;render();settle();openActive()}}));
   stage.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();move(-1)}if(e.key==='ArrowRight'){e.preventDefault();move(1)}});
   stage.addEventListener('pointerdown',e=>{downX=e.clientX});
   stage.addEventListener('pointerup',e=>{if(downX===null)return;const dx=e.clientX-downX;downX=null;if(Math.abs(dx)>35)move(dx<0?1:-1)});
   addEventListener('resize',render,{passive:true});
   render();
+  openActive();
 })();
