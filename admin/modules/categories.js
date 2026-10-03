@@ -19,6 +19,7 @@ export function createCategories({ $, callAdmin, feedback }) {
     deleteSelect.replaceChildren(new Option('Silinecek kategoriyi seç', ''), ...options.map(option => option.cloneNode(true)));
     if (names.has(previous)) select.value = previous;
     if (names.has(previousParent)) parentSelect.value = previousParent;
+    select.dispatchEvent(new Event('change'));
   }
   async function loadCategories() {
     const res = await fetch('/data/categories.json', { cache: 'no-store' });
