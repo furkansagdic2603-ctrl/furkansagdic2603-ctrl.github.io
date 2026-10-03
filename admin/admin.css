@@ -168,3 +168,12 @@ html[data-theme="dark"] .admin-body{--admin-bg:#14211f;--admin-gold:#d2b578;back
 .book-note-choice-cover[data-fallback="ink"],.book-note-cover[data-fallback="ink"]{background:#34444a}
 
 .book-note-choice-cover img,.book-note-cover img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit}
+
+
+.admin-book-library{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;margin-top:18px}
+.admin-book-card{display:flex;align-items:center;gap:12px;text-align:left;padding:10px;border:1px solid var(--admin-line);border-radius:11px;background:var(--admin-surface);color:var(--admin-ink);cursor:pointer}
+.admin-book-card:hover{border-color:var(--admin-gold);transform:translateY(-1px)}
+.admin-book-card-cover{width:58px;aspect-ratio:2/3;flex:0 0 auto;border-radius:4px;background-position:center;background-size:cover;background-repeat:no-repeat;box-shadow:0 5px 13px #0002}
+.admin-book-card-cover.is-missing,.book-edit-card .book-cover-texture.is-missing{display:grid;place-items:center;padding:6px;box-sizing:border-box;text-align:center;background:linear-gradient(145deg,#7d342e,#315e5b);color:#f8edcf;border:1px solid #b89552;font:11px Georgia,serif}
+.admin-book-card>span:last-child{display:grid;gap:5px;min-width:0}.admin-book-card strong{font:600 15px/1.2 Georgia,serif}.admin-book-card small{color:var(--admin-muted)}
+.book-edit-card{margin-top:18px}.book-edit-card .book-cover-texture{width:130px;aspect-ratio:2/3;background-position:center;background-size:cover;background-repeat:no-repeat}
