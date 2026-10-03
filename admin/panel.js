@@ -26,6 +26,16 @@ async function showPanel() {
   await theme.loadTheme();
   await categories.loadCategories();
   await articles.loadArticles();
+  try {
+    const { initBooks } = await import('./modules/books.js?v=20261003-safe2');
+    const books = initBooks({ $, callAdmin, feedback });
+    await books.loadCategories();
+    await books.loadLibrary();
+  } catch (err) {
+    console.error('Kitap yönetimi yüklenemedi:', err);
+    const status = $('book-create-status');
+    if (status) status.textContent = 'Kitap yönetimi yüklenemedi: ' + err.message;
+  }
   navigation.updateCounts();
   navigation.showView('overview', false);
   $('admin-login').hidden = true;
