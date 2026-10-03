@@ -5,7 +5,7 @@ import { createComments } from './modules/comments.js';
 import { createStats } from './modules/stats.js';
 import { createTheme } from './modules/theme.js';
 import { initImages } from './modules/images.js';
-import { initBooks } from './modules/books.js?v=20261003-bookedit1';
+import { initBooks } from './modules/books.js?v=20261003-bookdelete1';
 import { initQuotePhotos } from './modules/quote-photos.js';
 import { initNavigation } from './modules/navigation.js?v=20260930-panel1';
 
