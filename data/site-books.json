@@ -63,5 +63,16 @@
     "fallback": "teal",
     "createdAt": "2026-10-03T20:01:56.627Z",
     "updatedAt": "2026-10-03T20:01:56.627Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/osmanlica-felsefe/hayat-ve-mevt",
+    "title": "Hayat Ve Mevt",
+    "author": "",
+    "description": "",
+    "category": "kitap-notlari/felsefe",
+    "cover": "",
+    "fallback": "ochre",
+    "createdAt": "2026-10-03T20:02:28.693Z",
+    "updatedAt": "2026-10-03T20:02:28.693Z"
   }
 ]
