@@ -68,13 +68,13 @@ const search=document.getElementById('site-search');if(search){const initial=new
   let active=Math.min(2,books.length-1), downX=null;
   const mobile=()=>matchMedia('(max-width:700px)').matches;
   function render(){
-    const step=mobile()?108:158;
+    const step=mobile()?92:132;
     books.forEach((book,i)=>{
       const d=i-active, ad=Math.abs(d);
       book.style.setProperty('--x',(d*step)+'px');
-      book.style.setProperty('--z',(ad===0?75:-70-ad*52)+'px');
-      book.style.setProperty('--ry',(d===0?0:(d<0?34:-34))+'deg');
-      book.style.setProperty('--scale',String(ad===0?1:Math.max(.72,1-ad*.08)));
+      book.style.setProperty('--z',(ad===0?105:-58-ad*58)+'px');
+      book.style.setProperty('--ry',(d===0?-2:(d<0?46:-46))+'deg');
+      book.style.setProperty('--scale',String(ad===0?1.035:Math.max(.68,.94-ad*.075)));
       book.style.zIndex=String(20-ad);
       book.classList.toggle('is-active',d===0);
       book.setAttribute('aria-current',d===0?'true':'false');
