@@ -4,6 +4,7 @@ export function initBooks({ $, callAdmin, feedback }) {
   let libraryBooks = [];
   let editCover = '';
   let editLocalPreview = '';
+  let editUploadPending = false;
   const allowed = ['image/jpeg','image/png','image/webp','image/gif'];
   const preview = () => {
     const source = localPreview || cover;
@@ -74,23 +75,29 @@ export function initBooks({ $, callAdmin, feedback }) {
   $('edit-book-cover-file').addEventListener('change',async e=>{
     const file=e.target.files[0]; e.target.value=''; if(!file)return;
     if(file.size>2*1024*1024||!allowed.includes(file.type)){feedback('JPEG, PNG, WebP veya GIF kapak seç; en fazla 2 MB.');return;}
+    const saveButton=$('save-book'); editUploadPending=true; saveButton.disabled=true; $('edit-book-status').textContent='Kapak yükleniyor…';
     try{
       const dataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result));r.onerror=()=>reject(new Error('Kapak okunamadı.'));r.readAsDataURL(file);});
       editLocalPreview=dataUrl; editPreview(); feedback('Yeni kapak yükleniyor…');
       const result=await callAdmin('upload_image',{filename:file.name,mime:file.type,data:dataUrl.slice(dataUrl.indexOf(',')+1)});
-      editCover=result.url; feedback('Kapak hazır. Değişiklikleri kaydet.');
-    }catch(err){feedback(err.message);}
+      if(!result.url) throw new Error('Kapak yükleme tamamlanamadı.');
+      editCover=result.url; editLocalPreview=''; editPreview(); $('edit-book-status').textContent='Kapak hazır. Şimdi değişiklikleri kaydedebilirsin.'; feedback('Kapak hazır. Değişiklikleri kaydet.');
+    }catch(err){editLocalPreview='';editPreview();$('edit-book-status').textContent=err.message;feedback(err.message);}
+    finally{editUploadPending=false;saveButton.disabled=false;}
   });
   $('edit-book-cover-remove').addEventListener('click',()=>{editCover='';editLocalPreview='';editPreview();});
   $('cancel-book-edit').addEventListener('click',()=>{$('edit-book-card').hidden=true;});
   $('save-book').addEventListener('click',async()=>{
     const id=$('edit-book-id').value,title=$('edit-book-title').value.trim(),category=$('edit-book-category').value;
+    if(editUploadPending){feedback('Kapak yüklemesi henüz bitmedi. Birkaç saniye bekle.');return;}
     if(!id||!title||!category){feedback('Kitap adı ve kategori gerekli.');return;}
     const button=$('save-book');button.disabled=true;$('edit-book-status').textContent='Kaydediliyor…';
     try{
       const result=await callAdmin('update_book',{id,title,author:$('edit-book-author').value.trim(),description:$('edit-book-description').value.trim(),category,cover:editCover});
-      $('edit-book-status').textContent='“'+result.book.title+'” güncellendi. Site birkaç dakika içinde yeni kapağı kullanacak.';
-      feedback('Kitap güncellendi.'); await loadLibrary();
+      if(editCover && result.book.cover!==editCover) throw new Error('Kapak kitap kaydına bağlanamadı. Tekrar dene.');
+      editCover=result.book.cover||''; editLocalPreview=''; editPreview();
+      $('edit-book-status').textContent='“'+result.book.title+'” güncellendi'+(result.book.cover?' ve kapak kaydedildi.':' ancak kapak seçilmedi.')+' Site birkaç dakika içinde güncellenecek.';
+      feedback(result.book.cover?'Kitap ve kapak kaydedildi.':'Kitap güncellendi.'); await loadLibrary();
     }catch(err){$('edit-book-status').textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
   });
   $('delete-book').addEventListener('click',async()=>{
