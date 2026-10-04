@@ -5,6 +5,20 @@ import json
 
 def build_cinematic(root, articles, categories, doc, write):
     prefix = 'kitap-notlari/felsefe'
+    # The admin stores the authoritative book cover in data/site-books.json.
+    # Article metadata can be stale after a cover edit, so the catalog must win.
+    catalog = []
+    catalog_path = root / 'data/site-books.json'
+    if catalog_path.is_file():
+        try:
+            raw = catalog_path.read_text(encoding='utf-8').rstrip()
+            if raw.endswith(r'\n'):
+                raw = raw[:-2]
+            catalog = json.loads(raw)
+        except Exception:
+            catalog = []
+    catalog_by_id = {str(b.get('id','')).strip('/'): b for b in catalog if b.get('id')}
+    catalog_by_title = {str(b.get('title','')).strip().casefold(): b for b in catalog if b.get('title')}
     groups = {}
     for a in articles:
         if not a.get('categoryPath', '').startswith(prefix):
@@ -31,6 +45,17 @@ def build_cinematic(root, articles, categories, doc, write):
         if cover: b['cover'] = cover
         if tree.xpath('//article[contains(@class,"yazi-icerik")]'):
             b['chapters'].append(dict(title=a['title'], url=a['url']))
+    # Overlay admin catalog data after discovering the notes. This preserves the
+    # generated chapter grouping while making edited covers/authors authoritative.
+    for b in groups.values():
+        record = catalog_by_id.get(str(b.get('url','')).strip('/')) or catalog_by_title.get(str(b.get('title','')).strip().casefold())
+        if not record:
+            continue
+        saved_cover = str(record.get('cover','')).strip()
+        if saved_cover.startswith('/assets/') and '..' not in saved_cover:
+            b['cover'] = saved_cover
+        if record.get('author'):
+            b['author'] = str(record['author'])
     books = list(groups.values())
     books.sort(key=lambda b: ('bir birey' not in b['title'].lower(), b['title'].lower()))
     e = lambda s: escape(str(s), quote=True)
@@ -53,5 +78,5 @@ def build_cinematic(root, articles, categories, doc, write):
     links = ''.join(f'<a href="/{e(k)}/">{e(v)}</a>' for k,v in categories.items() if k.rsplit('/',1)[0] == prefix)
     lower = '<section class="cinema-list" id="kitap-listesi"><h2>Kategoriler ve Kitaplar</h2><nav class="cinema-categories" aria-label="Felsefe alt kategorileri">'+links+'</nav><div class="book-direct-list">'+''.join(rows)+'</div></section>'
     page = doc('Felsefe', hero+lower, 'kitap-notlari')
-    page = page.replace('<body>', '<body class="cinema-page">').replace('</head>', '<link rel="stylesheet" href="/cinematic-books.css?v=1"></head>').replace('</body>', '<script src="/cinematic-books.js?v=1" defer></script></body>')
+    page = page.replace('<body>', '<body class="cinema-page">').replace('</head>', '<link rel="stylesheet" href="/cinematic-books.css?v=20261004-catalog1"></head>').replace('</body>', '<script src="/cinematic-books.js?v=20261004-catalog1" defer></script></body>')
     write(prefix+'/index.html', page)
