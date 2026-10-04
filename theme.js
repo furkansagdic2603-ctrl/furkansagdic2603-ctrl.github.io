@@ -141,7 +141,7 @@
       .auto-reader label{display:flex;align-items:center;gap:8px}
       .auto-reader input{width:110px;accent-color:var(--accent)}
       .auto-reader output{min-width:30px;font-variant-numeric:tabular-nums}
-      .auto-reader-rate{flex-basis:100%;color:var(--muted);font-size:12px}
+      .auto-reader .auto-reader-rate{display:block;margin-top:6px;color:var(--ink);font:12px/1.5 system-ui,sans-serif;white-space:normal}
       .auto-reader-status{display:block;color:var(--muted);font-size:12px;margin-top:6px}
       @media(max-width:600px){.auto-reader{right:12px;bottom:calc(12px + env(safe-area-inset-bottom));padding:6px 10px}.auto-reader-controls{gap:6px}.auto-reader input{width:90px}}
     `;
@@ -150,7 +150,7 @@
     panel.className = 'auto-reader';
     panel.setAttribute('aria-label', 'Otomatik kaydırma');
     panel.setAttribute('data-script-exempt', '');
-    panel.innerHTML = '<button type="button" class="auto-reader-toggle" aria-expanded="false" aria-controls="auto-reader-controls">Otomatik kaydır</button><div id="auto-reader-controls" class="auto-reader-controls" hidden><button type="button" class="auto-reader-play" aria-pressed="false">▶ Başlat</button><label for="auto-reader-speed">Hız <input id="auto-reader-speed" type="range" min="1" max="5" step="0.5" value="2"><output for="auto-reader-speed">2×</output></label><span class="auto-reader-rate" title="Yazının kelime sayısı ve ekrandaki yüksekliğine göre ortalama tahmindir."></span></div><span class="auto-reader-status" role="status" hidden></span>';
+    panel.innerHTML = '<button type="button" class="auto-reader-toggle" aria-expanded="false" aria-controls="auto-reader-controls">Otomatik kaydır</button><div id="auto-reader-controls" class="auto-reader-controls" hidden><button type="button" class="auto-reader-play" aria-pressed="false">▶ Başlat</button><label for="auto-reader-speed">Hız <input id="auto-reader-speed" type="range" min="1" max="5" step="0.5" value="2"><output for="auto-reader-speed">2×</output></label></div><span class="auto-reader-rate" title="Yazının kelime sayısı ve ekrandaki yüksekliğine göre ortalama tahmindir."></span><span class="auto-reader-status" role="status" hidden></span>';
     document.body.append(panel);
     const toggle = panel.querySelector('.auto-reader-toggle');
     const controls = panel.querySelector('.auto-reader-controls');
@@ -171,7 +171,7 @@
       output.value = speed.value + '×';
       const height = article.getBoundingClientRect().height || article.scrollHeight;
       const wordsPerMinute = height > 0 ? Math.max(10, Math.round(wordCount / height * Number(speed.value) * 12 * 60 / 10) * 10) : 0;
-      rate.textContent = wordsPerMinute ? '≈ ' + wordsPerMinute + ' kelime/dk · Ortalama' : 'Ortalama hız hesaplanıyor…';
+      rate.textContent = wordsPerMinute ? speed.value + '× · ≈ ' + wordsPerMinute + ' kelime/dk (ortalama)' : 'Ortalama hız hesaplanıyor…';
       speed.setAttribute('aria-valuetext', speed.value + ' kat, yaklaşık ' + wordsPerMinute + ' kelime/dakika');
     };
     if (typeof ResizeObserver !== 'undefined') new ResizeObserver(showSpeed).observe(article);
