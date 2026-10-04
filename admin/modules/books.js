@@ -61,10 +61,19 @@ export function initBooks({ $, callAdmin, feedback }) {
     $('book-library-empty').hidden=libraryBooks.length>0;
   }
   function editPreview() {
-    const source=editLocalPreview||editCover; const face=$('edit-book-cover');
-    face.style.backgroundImage=source?`url("${source}")`:'none';
-    face.classList.toggle('is-missing',!source); face.textContent=source?'':'Kapak yok';
-    $('edit-book-cover-note').textContent=source?'Kapak kayıtlı. İstersen yenisini seçebilirsin.':'Bu kitapta kapak yok. Yukarıdan bir görsel seç.';
+    const source=editLocalPreview||editCover;
+    const face=$('edit-book-cover');
+    const img=$('edit-book-cover-preview-img');
+    face.style.backgroundImage='none';
+    face.classList.toggle('is-missing',!source);
+    if (img) {
+      img.hidden=!source;
+      if (source) img.src=source;
+      else img.removeAttribute('src');
+    }
+    Array.from(face.childNodes).filter(node=>node.nodeType===Node.TEXT_NODE).forEach(node=>node.remove());
+    if(!source) face.append(document.createTextNode('Kapak yok'));
+    $('edit-book-cover-note').textContent=source?(editLocalPreview?'Yeni kapak önizlemesi hazır. Yükleme tamamlanınca kaydedebilirsin.':'Kapak kayıtlı. İstersen yenisini seçebilirsin.'):'Bu kitapta kapak yok. Yukarıdan bir görsel seç.';
   }
   function openEdit(book) {
     $('edit-book-id').value=book.id; $('edit-book-title').value=book.title||''; $('edit-book-author').value=book.author||'';
@@ -81,7 +90,7 @@ export function initBooks({ $, callAdmin, feedback }) {
       editLocalPreview=dataUrl; editPreview(); feedback('Yeni kapak yükleniyor…');
       const result=await callAdmin('upload_image',{filename:file.name,mime:file.type,data:dataUrl.slice(dataUrl.indexOf(',')+1)});
       if(!result.url) throw new Error('Kapak yükleme tamamlanamadı.');
-      editCover=result.url; editLocalPreview=''; editPreview(); $('edit-book-status').textContent='Kapak hazır. Şimdi değişiklikleri kaydedebilirsin.'; feedback('Kapak hazır. Değişiklikleri kaydet.');
+      editCover=result.url; editPreview(); $('edit-book-status').textContent='Kapak hazır. Şimdi değişiklikleri kaydedebilirsin.'; feedback('Kapak hazır. Değişiklikleri kaydet.');
     }catch(err){editLocalPreview='';editPreview();$('edit-book-status').textContent=err.message;feedback(err.message);}
     finally{editUploadPending=false;saveButton.disabled=false;}
   });
