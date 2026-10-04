@@ -125,3 +125,101 @@
     updateProgress();
   });
 })();
+
+// Optional reader-controlled scrolling. Never start automatically on navigation.
+(() => {
+  document.addEventListener('DOMContentLoaded', () => {
+    const article = document.querySelector('article.yazi-icerik');
+    if (!article) return;
+    const style = document.createElement('style');
+    style.textContent = `
+      .auto-reader{position:fixed;right:20px;bottom:20px;z-index:900;max-width:calc(100vw - 24px);padding:10px 12px;border:1px solid var(--rule);border-radius:14px;background:var(--paper);color:var(--ink);box-shadow:0 4px 20px #0002;font:14px/1.4 system-ui,sans-serif;direction:ltr}
+      .auto-reader button{min-height:44px;padding:8px 12px;border:1px solid var(--rule);border-radius:9px;background:var(--paper);color:var(--ink);font:inherit}
+      .auto-reader button:focus-visible,.auto-reader input:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+      .auto-reader-controls{display:flex;align-items:center;gap:10px;margin-top:8px;flex-wrap:wrap}
+      .auto-reader-controls[hidden]{display:none}
+      .auto-reader label{display:flex;align-items:center;gap:8px}
+      .auto-reader input{width:110px;accent-color:var(--accent)}
+      .auto-reader output{min-width:30px;font-variant-numeric:tabular-nums}
+      .auto-reader-status{display:block;color:var(--muted);font-size:12px;margin-top:6px}
+      @media(max-width:600px){.auto-reader{right:12px;bottom:calc(12px + env(safe-area-inset-bottom));padding:6px 10px}.auto-reader-controls{gap:6px}.auto-reader input{width:90px}}
+    `;
+    document.head.append(style);
+    const panel = document.createElement('section');
+    panel.className = 'auto-reader';
+    panel.setAttribute('aria-label', 'Otomatik kaydırma');
+    panel.setAttribute('data-script-exempt', '');
+    panel.innerHTML = '<button type="button" class="auto-reader-toggle" aria-expanded="false" aria-controls="auto-reader-controls">Otomatik kaydır</button><div id="auto-reader-controls" class="auto-reader-controls" hidden><button type="button" class="auto-reader-play" aria-pressed="false">▶ Başlat</button><label for="auto-reader-speed">Hız <input id="auto-reader-speed" type="range" min="1" max="5" step="0.5" value="2"><output for="auto-reader-speed">2×</output></label></div><span class="auto-reader-status" role="status" hidden></span>';
+    document.body.append(panel);
+    const toggle = panel.querySelector('.auto-reader-toggle');
+    const controls = panel.querySelector('.auto-reader-controls');
+    const play = panel.querySelector('.auto-reader-play');
+    const speed = panel.querySelector('input');
+    const output = panel.querySelector('output');
+    const status = panel.querySelector('.auto-reader-status');
+    const key = 'furkan-auto-scroll-speed-v1';
+    try {
+      const saved = Number(localStorage.getItem(key));
+      if (Number.isFinite(saved) && saved >= 1 && saved <= 5) speed.value = String(Math.round(saved * 2) / 2);
+    } catch { /* Controls also work when storage is unavailable. */ }
+    const showSpeed = () => { output.value = speed.value + '×'; speed.setAttribute('aria-valuetext', speed.value + ' kat'); };
+    showSpeed();
+    let running = false, frame = 0, last = null, position = 0;
+    function pause(message = 'Duraklatıldı') {
+      running = false;
+      cancelAnimationFrame(frame);
+      last = null;
+      play.textContent = '▶ Devam';
+      play.setAttribute('aria-pressed', 'false');
+      status.textContent = message;
+      status.hidden = false;
+    }
+    function endPosition() {
+      return Math.max(0, Math.min(document.documentElement.scrollHeight - innerHeight,
+        scrollY + article.getBoundingClientRect().bottom - innerHeight + panel.offsetHeight + 24));
+    }
+    function tick(now) {
+      if (!running) return;
+      const end = endPosition();
+      if (scrollY >= end - 1) { pause('Yazının sonuna geldin'); return; }
+      if (last !== null) {
+        position = Math.min(end, position + Math.min(now - last, 64) / 1000 * Number(speed.value) * 12);
+        window.scrollTo({ top: position, behavior: 'instant' });
+      }
+      last = now;
+      frame = requestAnimationFrame(tick);
+    }
+    toggle.addEventListener('click', () => {
+      const open = controls.hidden;
+      controls.hidden = !open;
+      toggle.setAttribute('aria-expanded', String(open));
+      toggle.textContent = open ? 'Otomatik kaydır · Kapat' : 'Otomatik kaydır';
+      if (!open) { pause(); status.hidden = true; }
+    });
+    play.addEventListener('click', () => {
+      if (running) { pause(); return; }
+      running = true;
+      position = scrollY;
+      last = null;
+      play.textContent = '⏸ Duraklat';
+      play.setAttribute('aria-pressed', 'true');
+      status.textContent = 'Kaydırılıyor';
+      status.hidden = false;
+      frame = requestAnimationFrame(tick);
+    });
+    speed.addEventListener('input', () => {
+      showSpeed();
+      try { localStorage.setItem(key, speed.value); } catch { /* Keep the current speed. */ }
+    });
+    const manual = event => { if (running && !panel.contains(event.target)) pause('Elle kaydırma nedeniyle duraklatıldı'); };
+    window.addEventListener('wheel', manual, { passive: true });
+    window.addEventListener('touchstart', manual, { passive: true });
+    window.addEventListener('pointerdown', manual, { passive: true });
+    window.addEventListener('keydown', event => {
+      if (['ArrowDown','ArrowUp','PageDown','PageUp','Home','End',' '].includes(event.key)) manual(event);
+    });
+    document.addEventListener('visibilitychange', () => { if (document.hidden && running) pause(); });
+    window.addEventListener('pagehide', () => { if (running) pause(); });
+    window.addEventListener('resize', () => { position = scrollY; last = null; }, { passive: true });
+  });
+})();
