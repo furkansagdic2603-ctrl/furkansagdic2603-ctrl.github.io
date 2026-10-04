@@ -27,7 +27,7 @@ async function showPanel() {
   await categories.loadCategories();
   await articles.loadArticles();
   try {
-    const { initBooks } = await import('./modules/books.js?v=20261003-coverfix2');
+    const { initBooks } = await import('./modules/books.js?v=20261004-preview3');
     const books = initBooks({ $, callAdmin, feedback });
     await books.loadCategories();
     await books.loadLibrary();
