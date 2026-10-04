@@ -7,6 +7,8 @@ on:
       - 'build_site.py'
       - 'data/categories.json'
       - 'data/theme.json'
+      - 'data/site-books.json'
+      - 'cinematic_books.py'
       - 'iktibas-alintilar/fotograflar/**'
       - '!articles.json'
 permissions:
