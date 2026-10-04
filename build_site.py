@@ -261,4 +261,5 @@ write('robots.txt', 'User-agent: *\nAllow: /\nSitemap: https://furkansagdic.com.
 
 # Apply only to the philosophy selection page; note pages retain their reading layout.
 from cinematic_books import build_cinematic
-build_cinematic(ROOT, articles, CATEGORY_PATHS, doc, write)
+build_cinematic(ROOT, articles, CATEGORY_PATHS, doc, write, 'felsefe', 'Felsefe')
+build_cinematic(ROOT, articles, CATEGORY_PATHS, doc, write, 'sanat', 'Sanat')
