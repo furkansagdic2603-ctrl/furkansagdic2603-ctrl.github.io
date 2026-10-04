@@ -3,8 +3,8 @@ from html import escape
 from lxml import html
 import json
 
-def build_cinematic(root, articles, categories, doc, write):
-    prefix = 'kitap-notlari/felsefe'
+def build_cinematic(root, articles, categories, doc, write, topic='felsefe', heading='Felsefe'):
+    prefix = 'kitap-notlari/' + topic
     # The admin stores the authoritative book cover in data/site-books.json.
     # Article metadata can be stale after a cover edit, so the catalog must win.
     catalog = []
@@ -57,7 +57,7 @@ def build_cinematic(root, articles, categories, doc, write):
         if record.get('author'):
             b['author'] = str(record['author'])
     books = list(groups.values())
-    books.sort(key=lambda b: ('bir birey' not in b['title'].lower(), b['title'].lower()))
+    books.sort(key=lambda b: (('bir birey' not in b['title'].lower()) if topic == 'felsefe' else False, b['title'].lower()))
     e = lambda s: escape(str(s), quote=True)
     cards, rows = [], []
     for i, b in enumerate(books):
@@ -74,9 +74,9 @@ def build_cinematic(root, articles, categories, doc, write):
         if b['url'].startswith('#'):
             rows.append(f'<details id="book-chapters-{i}" class="book-chapter-links"><summary>{e(b["title"])} — bölümler</summary>'+''.join(f'<a href="{e(c["url"])}">{e(c["title"])}</a>' for c in b['chapters'])+'</details>')
     first = books[0] if books else dict(title='Henüz kitap eklenmedi', url='#kitap-listesi')
-    hero = '<section class="book-cinema" aria-labelledby="cinema-title"><a class="cinema-back" href="/kitap-notlari/">Kitap Notları / Felsefe</a><h1 id="cinema-title">Felsefe</h1><div class="book-stage">'+''.join(cards)+'</div><div class="cinema-controls"><button type="button" id="book-prev" aria-label="Önceki kitap">‹</button><div class="cinema-selection" aria-live="polite"><h2 id="book-selected-title">'+e(first['title'])+'</h2><p id="book-selected-meta"></p><a id="book-open" href="'+e(first['url'])+'">Notları Oku</a></div><button type="button" id="book-next" aria-label="Sonraki kitap">›</button></div><a class="cinema-down" href="#kitap-listesi">Kitap listesine geç ↓</a></section>'
+    hero = '<section class="book-cinema" aria-labelledby="cinema-title"><a class="cinema-back" href="/kitap-notlari/">Kitap Notları / '+e(heading)+'</a><h1 id="cinema-title">'+e(heading)+'</h1><div class="book-stage">'+''.join(cards)+'</div><div class="cinema-controls"><button type="button" id="book-prev" aria-label="Önceki kitap">‹</button><div class="cinema-selection" aria-live="polite"><h2 id="book-selected-title">'+e(first['title'])+'</h2><p id="book-selected-meta"></p><a id="book-open" href="'+e(first['url'])+'">Notları Oku</a></div><button type="button" id="book-next" aria-label="Sonraki kitap">›</button></div><a class="cinema-down" href="#kitap-listesi">Kitap listesine geç ↓</a></section>'
     links = ''.join(f'<a href="/{e(k)}/">{e(v)}</a>' for k,v in categories.items() if k.rsplit('/',1)[0] == prefix)
     lower = '<section class="cinema-list" id="kitap-listesi"><h2>Kategoriler ve Kitaplar</h2><nav class="cinema-categories" aria-label="Felsefe alt kategorileri">'+links+'</nav><div class="book-direct-list">'+''.join(rows)+'</div></section>'
-    page = doc('Felsefe', hero+lower, 'kitap-notlari')
+    page = doc(heading, hero+lower, 'kitap-notlari')
     page = page.replace('<body>', '<body class="cinema-page">').replace('</head>', '<link rel="stylesheet" href="/cinematic-books.css?v=20261004-catalog1"></head>').replace('</body>', '<script src="/cinematic-books.js?v=20261004-catalog1" defer></script></body>')
     write(prefix+'/index.html', page)
