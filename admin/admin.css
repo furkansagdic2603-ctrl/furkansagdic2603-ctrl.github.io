@@ -179,3 +179,5 @@ html[data-theme="dark"] .admin-body{--admin-bg:#14211f;--admin-gold:#d2b578;back
 .book-edit-card{margin-top:18px}.book-edit-card .book-cover-texture{width:130px;aspect-ratio:2/3;background-position:center;background-size:cover;background-repeat:no-repeat}
 
 .danger-action{margin-left:10px;border:1px solid #9f3f36!important;background:#7b2f2a!important;color:#fff8ed!important}.danger-action:hover{background:#922f29!important}.danger-action:disabled{opacity:.55;cursor:wait}
+
+.book-cover-admin-preview .book-cover-texture>img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:inherit}
