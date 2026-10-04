@@ -272,7 +272,7 @@ Deno.serve(async req => {
       }
       if (catalogBook) {
         books = books.filter(book => book.id !== id);
-        await putFile(token, catalogPath, JSON.stringify(books, null, 2) + '\\n', 'Delete book: ' + catalogBook.title, catalogSha);
+        await putFile(token, catalogPath, JSON.stringify(books, null, 2) + '\n', 'Delete book: ' + catalogBook.title, catalogSha);
       }
       if (/^\/assets\/uploads\/[a-zA-Z0-9_./-]+$/.test(cover) && !books.some(book => book.cover === cover)) {
         const coverPath = cover.slice(1);
