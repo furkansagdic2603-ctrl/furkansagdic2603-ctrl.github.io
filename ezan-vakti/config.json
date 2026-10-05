@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "revision": 1,
+  "title": "Ezan Vakti",
+  "tagline": "Sakin bir gün, vaktinde bir hatırlayış.",
+  "announcement": "",
+  "bannerUrl": "",
+  "calendarBundle": "https://furkansagdic.com.tr/ezan-vakti/vakitler.json",
+  "widgetAccent": "#EED38E",
+  "light": {
+    "primary": "#286B58",
+    "foreground": "#17251F",
+    "muted": "#61746A",
+    "surface": "#FFFFFF",
+    "background": "#F3F7F2",
+    "hero": "#D8EFE2"
+  },
+  "dark": {
+    "primary": "#A1D5BD",
+    "foreground": "#E0EAE2",
+    "muted": "#A8BBB0",
+    "surface": "#1E2B24",
+    "background": "#111B15",
+    "hero": "#274A3C"
+  }
+}
