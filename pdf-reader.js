@@ -23,7 +23,19 @@ export async function initPdfReaders() {
     status.setAttribute('role', 'status'); status.textContent = 'PDF sayfaları yükleniyor…';
     const pages = document.createElement('div');
     pages.style.cssText = 'display:grid;gap:16px;max-width:100%;clear:both';
-    link.closest('.pdf-document').append(status, pages);
+    const frame = document.createElement('iframe');
+    frame.src = blobUrl;
+    frame.title = link.download || 'Orijinal PDF';
+    frame.style.cssText = 'display:block;width:100%;height:85vh;min-height:480px;border:1px solid #aaa;background:white';
+    const fallback = document.createElement('details');
+    const summary = document.createElement('summary');
+    summary.textContent = 'PDF görünmüyorsa sayfaları burada göster';
+    fallback.append(summary, status, pages);
+    link.closest('.pdf-document').append(frame, fallback);
+    // The native PDF viewer opens the exact uploaded file. The page renderer is a fallback.
+    await new Promise(resolve => fallback.addEventListener('toggle', () => {
+      if (fallback.open) resolve();
+    }));
     try {
       const pdfjs = await loadEngine();
       const pdf = await pdfjs.getDocument({ data: bytes, isEvalSupported: false }).promise;

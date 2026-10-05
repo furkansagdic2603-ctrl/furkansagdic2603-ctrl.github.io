@@ -23,6 +23,38 @@ export function createArticles({ $, callAdmin, feedback }) {
   const documentFile = $('article-document-file');
   const documentStatus = $('article-document-status');
   const documentName = $('article-document-name');
+  const pdfPreview = document.createElement('section');
+  pdfPreview.className = 'article-pdf-preview';
+  pdfPreview.hidden = true;
+  $('editor').after(pdfPreview);
+  let previewUrl = null;
+  function refreshPdfPreview() {
+    if (previewUrl) URL.revokeObjectURL(previewUrl);
+    previewUrl = null;
+    pdfPreview.replaceChildren();
+    const link = $('editor').querySelector('a.pdf-original');
+    const source = link?.getAttribute('href') || '';
+    const isPdf = /^data:application\/pdf;base64,[A-Za-z0-9+/]+=*$/.test(source);
+    pdfPreview.hidden = !isPdf;
+    $('editor').hidden = isPdf;
+    $('editor').style.display = isPdf ? 'none' : '';
+    const toolbar = document.querySelector('.toolbar');
+    if (toolbar) { toolbar.hidden = isPdf; toolbar.style.display = isPdf ? 'none' : ''; }
+    if (!isPdf) return;
+    const data = atob(source.slice(source.indexOf(',') + 1));
+    previewUrl = URL.createObjectURL(new Blob([Uint8Array.from(data, c => c.charCodeAt(0))], { type: 'application/pdf' }));
+    const heading = document.createElement('h3');
+    heading.textContent = 'Orijinal PDF önizlemesi';
+    const frame = document.createElement('iframe');
+    frame.src = previewUrl;
+    frame.title = link.download || 'PDF önizlemesi';
+    frame.style.cssText = 'display:block;width:100%;height:75vh;min-height:480px;border:1px solid #aaa;background:white';
+    const open = document.createElement('a');
+    open.href = previewUrl; open.target = '_blank'; open.rel = 'noopener';
+    open.textContent = 'PDF’yi ayrı sekmede aç ↗';
+    pdfPreview.append(heading, open, frame);
+  }
+  refreshPdfPreview();
   function escapeImportHtml(value) {
     return String(value).replace(/[&<>"']/g, char => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[char]));
   }
@@ -73,6 +105,7 @@ export function createArticles({ $, callAdmin, feedback }) {
       const imported=isDocx?await importDocx(file):await importPdf(file);
       if(!imported||!imported.replace(/<[^>]*>/g,'').trim())throw new Error('Belgeden aktarılabilir metin bulunamadı.');
       $('editor').innerHTML=imported;
+      refreshPdfPreview();
       if (isPdf && !$('title').value.trim()) $('title').value=file.name.replace(/\.pdf$/i,'').slice(0,160);
       const firstHeading=$('editor').querySelector('h1,h2');
       if(!$('title').value.trim()&&firstHeading){
@@ -92,6 +125,7 @@ export function createArticles({ $, callAdmin, feedback }) {
     $('title').value = '';
     $('description').value = '';
     $('editor').innerHTML = '';
+    refreshPdfPreview();
     $('category').disabled = false;
     $('editor-heading').textContent = 'Yeni yazı';
     $('publish').textContent = 'Yayımla';
@@ -147,6 +181,7 @@ export function createArticles({ $, callAdmin, feedback }) {
       $('description').value = page.querySelector('meta[name="description"]')?.content || '';
       bookCovers.load(article);
       $('editor').innerHTML = article.innerHTML;
+      refreshPdfPreview();
       $('editor-heading').textContent = 'Yazıyı düzenle';
       $('publish').textContent = 'Değişiklikleri kaydet';
       $('cover-option').hidden = true;

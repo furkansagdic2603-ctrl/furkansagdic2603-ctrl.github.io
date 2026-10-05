@@ -110,5 +110,5 @@ const search=document.getElementById('site-search');if(search){const initial=new
 
 // Display original PDF documents without converting them to plain text.
 if (document.querySelector('article.yazi-icerik .pdf-original')) {
-  import('/pdf-reader.js?v=20261005-originalpdf1').then(module => module.initPdfReaders()).catch(console.error);
+  import('/pdf-reader.js?v=20261005-originalpdf2').then(module => module.initPdfReaders()).catch(console.error);
 }
