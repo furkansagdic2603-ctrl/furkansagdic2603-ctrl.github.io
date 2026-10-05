@@ -2,7 +2,7 @@ const SITE_ORIGIN = 'https://furkansagdic.com.tr';
 const PROJECT_URL = 'https://vdwioetyxlujrhqrzhwc.supabase.co';
 const PUBLIC_KEY = 'sb_publishable_4dB2-eRe_FEkJJfkzaLwoQ_UuzIF5WT';
 const REPOSITORY = 'furkansagdic2603-ctrl/furkansagdic2603-ctrl.github.io';
-const MAX_REQUEST_BYTES = 4 * 1024 * 1024;
+const MAX_REQUEST_BYTES = 32 * 1024 * 1024;
 const cors = {
   'Access-Control-Allow-Origin': SITE_ORIGIN,
   'Access-Control-Allow-Headers': 'authorization, apikey, content-type',
@@ -56,6 +56,26 @@ async function putFile(token: string, path: string, content: string, message: st
   if (!res.ok) throw new Error(`GitHub yayımlama hatası (${res.status}).`);
   const saved = await res.json();
   return saved.content.sha as string;
+}
+
+
+async function persistPdfAttachments(token: string, body: string) {
+  const matches = [...body.matchAll(/href="data:application\/pdf;base64,([A-Za-z0-9+/]+={0,2})"/g)];
+  for (const match of matches) {
+    const base64 = match[1];
+    const binary = atob(base64);
+    if (binary.length > 20 * 1024 * 1024 || !binary.slice(0, 1024).includes('%PDF-')) {
+      throw new Error('Geçerli bir PDF seç (en fazla 20 MB).');
+    }
+    const path = `assets/documents/${new Date().toISOString().slice(0, 10)}/${crypto.randomUUID()}.pdf`;
+    const response = await fetch(ghUrl(path), {
+      method: 'PUT', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: 'Upload original PDF', content: base64 }),
+    });
+    if (!response.ok) throw new Error(`PDF dosyası kaydedilemedi (${response.status}).`);
+    body = body.split(match[0]).join(`href="/${path}"`);
+  }
+  return body;
 }
 
 async function generateCover(token: string, title: string, description: string, body: string) {
@@ -131,9 +151,9 @@ Deno.serve(async req => {
     if (!auth.ok) return result({ error: 'Oturum geçersiz.' }, 401);
     const user = await auth.json();
     if (!user.email_confirmed_at || user.email?.toLowerCase() !== adminEmail) return result({ error: 'Bu hesap yönetici değil.' }, 403);
-    if (Number(req.headers.get('content-length') || 0) > MAX_REQUEST_BYTES) return result({ error: 'Yazı 4 MB sınırını aşıyor. Görselleri bağlantı olarak ekle veya yazıyı bölümlere ayır.' }, 413);
+    if (Number(req.headers.get('content-length') || 0) > MAX_REQUEST_BYTES) return result({ error: 'Yükleme 32 MB sınırını aşıyor. PDF dosyası en fazla 20 MB olabilir.' }, 413);
     const raw = await req.text();
-    if (new TextEncoder().encode(raw).length > MAX_REQUEST_BYTES) return result({ error: 'Yazı 4 MB sınırını aşıyor. Görselleri bağlantı olarak ekle veya yazıyı bölümlere ayır.' }, 413);
+    if (new TextEncoder().encode(raw).length > MAX_REQUEST_BYTES) return result({ error: 'Yükleme 32 MB sınırını aşıyor. PDF dosyası en fazla 20 MB olabilir.' }, 413);
     const input = JSON.parse(raw);
     if (input.action === 'whoami') return result({ ok: true });
     if (input.action === 'stats') {
@@ -324,11 +344,12 @@ Deno.serve(async req => {
         return result({ ok: true });
       }
       const title = String(input.title || '').trim(), description = String(input.description || '').trim();
-      const body = String(input.body || '').trim();
+      let body = String(input.body || '').trim();
       const category = String(input.category || '');
       if (!categories.some(item => categoryPath(item) === category)) return result({ error: 'Kategori geçersiz.' }, 400);
       if (!title || title.length > 160 || description.length > 500 || !body) return result({ error: 'Başlık veya yazı içeriği geçersiz.' }, 400);
       if (/<\s*(script|iframe|object|embed|form|base|link|meta)\b|\bon[a-z]+\s*=|javascript:/i.test(body)) return result({ error: 'Yazı içinde izin verilmeyen HTML var.' }, 400);
+      body = await persistPdfAttachments(token, body);
       const article = /(<article\b[^>]*\byazi-icerik\b[^>]*>)[\s\S]*?(<\/article>)/i;
       let updated = original.content;
       if (!/<div class="article-head">[\s\S]*?<h1>[\s\S]*?<\/h1>/.test(updated) || !/<meta name="description" content="[^"]*">/.test(updated) || !article.test(updated)) throw new Error('Yazının biçimi düzenleme için uygun değil.');
@@ -338,11 +359,12 @@ Deno.serve(async req => {
       updated = updated.replace(article, (_all, before, after) => `${before}${body}${after}`);
       updated = updated.replace(/(<article\b[^>]*\byazi-icerik\b[^>]*)(>)/i, (_all, before, after) => `${before.replace(/\sdata-category="[^"]*"/i, '')} data-category="${category}"${after}`);
       const sha = await putFile(token, path, updated, `Update article: ${title}`, original.sha);
-      return result({ url: `/${path.replace(/index\.html$/, '')}`, sha });
+      return result({ url: `/${path.replace(/index\.html$/, '')}`, sha, body });
     }
     if (input.action === 'publish') {
       const title = String(input.title || '').trim(), description = String(input.description || '').trim();
-      const body = String(input.body || '').trim(), category = String(input.category || '');
+      let body = String(input.body || '').trim();
+      const category = String(input.category || '');
       if (!title || title.length > 160 || description.length > 500 || !body) return result({ error: 'Başlık veya yazı içeriği geçersiz.' }, 400);
       if (/<\s*(script|iframe|object|embed|form|base|link|meta)\b|\bon[a-z]+\s*=|javascript:/i.test(body)) return result({ error: 'Yazı içinde izin verilmeyen HTML var.' }, 400);
       const { categories } = await getCategories(token);
@@ -355,13 +377,14 @@ Deno.serve(async req => {
       const existing = await fetch(ghUrl(path), { headers: ghHeaders(token) });
       if (existing.ok) return result({ error: 'Bu başlıkla bir yazı zaten var.' }, 409);
       if (existing.status !== 404) throw new Error('Yazı yolu kontrol edilemedi.');
+      body = await persistPdfAttachments(token, body);
       const cover = input.skipCover === true ? null : await generateCover(token, title, description, body);
       const date = new Intl.DateTimeFormat('tr-TR', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Istanbul' }).format(new Date());
       const coverHtml = cover ? `<figure class="article-cover"><img src="${cover}" alt="${escapeHtml(title)} için oluşturulmuş kapak görseli" width="1200" height="675"></figure>` : '';
       const coverAttr = cover ? ` data-cover="${cover}"` : '';
       const page = `<!doctype html><html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>${escapeHtml(title)} | Furkan Sağdıç</title><meta name="description" content="${escapeHtml(description)}"><link rel="stylesheet" href="/style.css"></head><body><header class="masthead"><div class="topline"><a class="brand" href="/">Furkan Sağdıç</a></div></header><main><div class="article-head"><a class="back" href="/${category}/">← ${escapeHtml(selected.name)}</a><div class="eyebrow">${escapeHtml(selected.name)} · ${date}</div><h1>${escapeHtml(title)}</h1></div>${coverHtml}<article class="prose yazi-icerik" data-article="true"${coverAttr}>${body}</article></main></body></html>`;
       await putFile(token, path, page, `Publish article: ${title}`);
-      return result({ url, coverConfigured: Boolean(cover) });
+      return result({ url, coverConfigured: Boolean(cover), body });
     }
     return result({ error: 'İşlem tanınmadı.' }, 400);
   } catch (error) {

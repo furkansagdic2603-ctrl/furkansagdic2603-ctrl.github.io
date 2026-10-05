@@ -9,10 +9,16 @@ export async function initPdfReaders() {
   });
   for (const link of links) {
     const source = link.getAttribute('href') || '';
-    if (!/^data:application\/pdf;base64,[A-Za-z0-9+/]+=*$/.test(source)) continue;
-    const binary = atob(source.slice(source.indexOf(',') + 1));
-    const bytes = Uint8Array.from(binary, char => char.charCodeAt(0));
-    const blobUrl = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+    const inlinePdf = /^data:application\/pdf;base64,[A-Za-z0-9+/]+=*$/.test(source);
+    const storedPdf = /^\/assets\/documents\/[a-zA-Z0-9_./-]+\.pdf$/.test(source);
+    if (!inlinePdf && !storedPdf) continue;
+    let bytes;
+    let blobUrl = source;
+    if (inlinePdf) {
+      const binary = atob(source.slice(source.indexOf(',') + 1));
+      bytes = Uint8Array.from(binary, char => char.charCodeAt(0));
+      blobUrl = URL.createObjectURL(new Blob([bytes], { type: 'application/pdf' }));
+    }
     link.href = blobUrl;
     const open = document.createElement('a');
     open.href = blobUrl; open.target = '_blank'; open.rel = 'noopener';
@@ -38,7 +44,7 @@ export async function initPdfReaders() {
     }));
     try {
       const pdfjs = await loadEngine();
-      const pdf = await pdfjs.getDocument({ data: bytes, isEvalSupported: false }).promise;
+      const pdf = await pdfjs.getDocument({ ...(bytes ? { data: bytes } : { url: source }), isEvalSupported: false }).promise;
       status.textContent = `${pdf.numPages} sayfa · Orijinal PDF`;
       // Render only pages near the viewport to keep long PDFs usable on phones.
       const observer = new IntersectionObserver(entries => {

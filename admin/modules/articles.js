@@ -34,15 +34,19 @@ export function createArticles({ $, callAdmin, feedback }) {
     pdfPreview.replaceChildren();
     const link = $('editor').querySelector('a.pdf-original');
     const source = link?.getAttribute('href') || '';
-    const isPdf = /^data:application\/pdf;base64,[A-Za-z0-9+/]+=*$/.test(source);
+    const inlinePdf = /^data:application\/pdf;base64,[A-Za-z0-9+/]+=*$/.test(source);
+    const storedPdf = /^\/assets\/documents\/[a-zA-Z0-9_./-]+\.pdf$/.test(source);
+    const isPdf = inlinePdf || storedPdf;
     pdfPreview.hidden = !isPdf;
     $('editor').hidden = isPdf;
     $('editor').style.display = isPdf ? 'none' : '';
     const toolbar = document.querySelector('.toolbar');
     if (toolbar) { toolbar.hidden = isPdf; toolbar.style.display = isPdf ? 'none' : ''; }
     if (!isPdf) return;
-    const data = atob(source.slice(source.indexOf(',') + 1));
-    previewUrl = URL.createObjectURL(new Blob([Uint8Array.from(data, c => c.charCodeAt(0))], { type: 'application/pdf' }));
+    if (inlinePdf) {
+      const data = atob(source.slice(source.indexOf(',') + 1));
+      previewUrl = URL.createObjectURL(new Blob([Uint8Array.from(data, c => c.charCodeAt(0))], { type: 'application/pdf' }));
+    } else previewUrl = source;
     const heading = document.createElement('h3');
     heading.textContent = 'Orijinal PDF önizlemesi';
     const frame = document.createElement('iframe');
@@ -204,6 +208,7 @@ export function createArticles({ $, callAdmin, feedback }) {
       const result = editing
         ? await callAdmin('update_article', { title, description, body, category, path: editing.path, sha: editing.sha })
         : await callAdmin('publish', { title, description, category, body, skipCover });
+      if (result.body) { $('editor').innerHTML = result.body; refreshPdfPreview(); $('editor').dispatchEvent(new Event('input', { bubbles: true })); }
       if (editing) editing.sha = result.sha;
       const link = document.createElement('a'); link.href = result.url; link.textContent = 'Yazıyı aç →';
       const message = editing ? 'Değişiklikler kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ' : result.coverConfigured ? 'Kapak görseliyle birlikte yazı kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ' : 'Yazı kapak görseli olmadan kaydedildi. Sitede görünmesi birkaç dakika sürebilir. ';

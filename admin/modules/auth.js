@@ -18,7 +18,7 @@ export function createAuth(config) {
   async function callAdmin(action, payload = {}) {
     const body = JSON.stringify({ action, ...payload });
     const bytes = new TextEncoder().encode(body).length;
-    if (bytes > 4 * 1024 * 1024) throw new Error(`Yazı ${(bytes / 1024 / 1024).toFixed(1)} MB. Üst sınır 4 MB; görselleri bağlantı olarak ekle veya yazıyı bölümlere ayır.`);
+    if (bytes > 32 * 1024 * 1024) throw new Error(`Yazı ${(bytes / 1024 / 1024).toFixed(1)} MB. Üst sınır 32 MB; PDF dosyası en fazla 20 MB olabilir.`);
     await refreshSession();
     let res;
     try {
