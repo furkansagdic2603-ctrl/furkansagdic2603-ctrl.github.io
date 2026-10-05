@@ -85,5 +85,15 @@
     "cover": "/assets/uploads/2026-10-04/d3b28414-8183-4368-b48a-8ca50ac6e528.png",
     "fallback": "ink",
     "createdAt": "2026-10-04T16:11:33.345Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/estetik-felsefesi/risale-i-nur-ekseninde-kur-an-estetigi",
+    "title": "Risale-i Nur Ekseninde Kur'an Estetiği",
+    "author": "Himmet Uç",
+    "description": "Kur’an’ın estetik kavramları, estetik yapısı ile ilgili çalışma yok gibi. Bu konuyu çalıştığımda Diyanet İşleri Başkanı Sayın Görmez’e bahsi açmıştım. O da, böyle bir araştırma ve etüdün ortaya çıkmasının çok önemli olacağını söyledi. Bediüzzaman‘ın Risale-i Nur’u, Kur’an’ın estetik bakışını en ideal şekilde veren bir külliye. İslam dünyası maalesef bir estetik terminoloji oluşturamamıştır. Çalışmamda, Batı estetiğinin terminolojisini benimsedikten sonra onunla Risale-i Nur estetiği ve Kur’an es",
+    "category": "kitap-notlari/felsefe/estetik-felsefesi",
+    "cover": "",
+    "fallback": "burgundy",
+    "createdAt": "2026-10-05T18:07:48.398Z"
   }
 ]
