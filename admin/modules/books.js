@@ -1,4 +1,6 @@
 export function initBooks({ $, callAdmin, feedback }) {
+  const uploadedPreviews = new Map();
+  const savedBooks = new Map();
   let cover = '';
   let localPreview = '';
   let libraryBooks = [];
@@ -7,7 +9,7 @@ export function initBooks({ $, callAdmin, feedback }) {
   let editUploadPending = false;
   const allowed = ['image/jpeg','image/png','image/webp','image/gif'];
   const preview = () => {
-    const source = localPreview || cover;
+    const source = localPreview || uploadedPreviews.get(cover) || cover;
     $('new-book-cover-preview').hidden = !source;
     $('new-book-cover-fallback').hidden = Boolean(source);
     $('new-book-cover-remove').hidden = !source;
@@ -44,6 +46,7 @@ export function initBooks({ $, callAdmin, feedback }) {
     } catch {}
     const map = new Map(discovered.map(b=>[b.id,b]));
     for (const b of catalog) map.set(b.id,{...map.get(b.id),...b,discovered:false});
+    for (const [id, book] of savedBooks) map.set(id, {...map.get(id), ...book, discovered:false});
     libraryBooks = Array.from(map.values());
     renderLibrary();
   }
@@ -52,7 +55,7 @@ export function initBooks({ $, callAdmin, feedback }) {
     host.replaceChildren(...libraryBooks.map(book=>{
       const button=document.createElement('button'); button.type='button'; button.className='admin-book-card';
       const face=document.createElement('span'); face.className='admin-book-card-cover';
-      if(book.cover) face.style.backgroundImage=`url("${book.cover}?v=${encodeURIComponent(book.updatedAt||book.createdAt||'1')}")`;
+      if(book.cover) face.style.backgroundImage=`url("${uploadedPreviews.get(book.cover) || (book.cover + '?v=' + encodeURIComponent(book.updatedAt||book.createdAt||'1'))}")`;
       else { face.classList.add('is-missing'); face.textContent='Kapak ekle'; }
       const info=document.createElement('span'); const strong=document.createElement('strong'); strong.textContent=book.title;
       const small=document.createElement('small'); small.textContent=book.author || (book.cover?'Kitabı düzenle':'Kapak yok · Kapak ekle');
@@ -61,7 +64,7 @@ export function initBooks({ $, callAdmin, feedback }) {
     $('book-library-empty').hidden=libraryBooks.length>0;
   }
   function editPreview() {
-    const source=editLocalPreview||editCover;
+    const source=editLocalPreview||uploadedPreviews.get(editCover)||editCover;
     const face=$('edit-book-cover');
     const img=$('edit-book-cover-preview-img');
     face.style.backgroundImage='none';
@@ -78,7 +81,7 @@ export function initBooks({ $, callAdmin, feedback }) {
   function openEdit(book) {
     $('edit-book-id').value=book.id; $('edit-book-title').value=book.title||''; $('edit-book-author').value=book.author||'';
     $('edit-book-description').value=book.description||''; $('edit-book-category').value=book.category||'kitap-notlari/felsefe';
-    editCover=book.cover||''; editLocalPreview=''; editPreview(); $('edit-book-card').hidden=false; $('edit-book-status').textContent='';
+    editCover=book.cover||''; editLocalPreview=uploadedPreviews.get(editCover)||''; editPreview(); $('edit-book-card').hidden=false; $('edit-book-status').textContent='';
     $('edit-book-card').scrollIntoView({behavior:'smooth',block:'start'});
   }
   $('edit-book-cover-file').addEventListener('change',async e=>{
@@ -90,7 +93,7 @@ export function initBooks({ $, callAdmin, feedback }) {
       editLocalPreview=dataUrl; editPreview(); feedback('Yeni kapak yükleniyor…');
       const result=await callAdmin('upload_image',{filename:file.name,mime:file.type,data:dataUrl.slice(dataUrl.indexOf(',')+1)});
       if(!result.url) throw new Error('Kapak yükleme tamamlanamadı.');
-      editCover=result.url; editPreview(); $('edit-book-status').textContent='Kapak hazır. Şimdi değişiklikleri kaydedebilirsin.'; feedback('Kapak hazır. Değişiklikleri kaydet.');
+      uploadedPreviews.set(result.url,dataUrl); editCover=result.url; editPreview(); $('edit-book-status').textContent='Kapak hazır. Şimdi değişiklikleri kaydedebilirsin.'; feedback('Kapak hazır. Değişiklikleri kaydet.');
     }catch(err){editLocalPreview='';editPreview();$('edit-book-status').textContent=err.message;feedback(err.message);}
     finally{editUploadPending=false;saveButton.disabled=false;}
   });
@@ -104,7 +107,8 @@ export function initBooks({ $, callAdmin, feedback }) {
     try{
       const result=await callAdmin('update_book',{id,title,author:$('edit-book-author').value.trim(),description:$('edit-book-description').value.trim(),category,cover:editCover});
       if(editCover && result.book.cover!==editCover) throw new Error('Kapak kitap kaydına bağlanamadı. Tekrar dene.');
-      editCover=result.book.cover||''; editLocalPreview=''; editPreview();
+      savedBooks.set(result.book.id,result.book);
+      editCover=result.book.cover||''; editLocalPreview=uploadedPreviews.get(editCover)||''; editPreview();
       $('edit-book-status').textContent='“'+result.book.title+'” güncellendi'+(result.book.cover?' ve kapak kaydedildi.':' ancak kapak seçilmedi.')+' Site birkaç dakika içinde güncellenecek.';
       feedback(result.book.cover?'Kitap ve kapak kaydedildi.':'Kitap güncellendi.'); await loadLibrary();
     }catch(err){$('edit-book-status').textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
@@ -138,7 +142,8 @@ export function initBooks({ $, callAdmin, feedback }) {
       preview();
       const data = dataUrl.slice(dataUrl.indexOf(',') + 1);
       const result = await callAdmin('upload_image',{filename:file.name,mime:file.type,data});
-      cover=result.url; preview(); feedback('Kapak hazır. Kitabı oluşturabilirsin.');
+      if(!result.url) throw new Error('Kapak yükleme tamamlanamadı.');
+      uploadedPreviews.set(result.url,dataUrl); cover=result.url; preview(); feedback('Kapak hazır. Kitabı oluşturabilirsin.');
     } catch(err) { feedback(err.message); }
     finally { button.disabled=false; }
   });
@@ -151,6 +156,7 @@ export function initBooks({ $, callAdmin, feedback }) {
     try{
       const result=await callAdmin('add_book',{title,author:$('new-book-author').value.trim(),description:$('new-book-description').value.trim(),category:$('new-book-category').value,cover});
       $('book-create-status').textContent='“'+result.book.title+'” oluşturuldu. Sitede görünmesi birkaç dakika sürebilir.';
+      savedBooks.set(result.book.id,result.book);
       feedback('Kitap başarıyla oluşturuldu.'); await loadLibrary();
       $('new-book-title').value=''; $('new-book-author').value=''; $('new-book-description').value=''; cover=''; localPreview=''; $('new-book-fallback-title').textContent='Kitap adı'; preview();
     }catch(err){ $('book-create-status').textContent=err.message; feedback(err.message); }
