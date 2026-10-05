@@ -107,3 +107,8 @@ const search=document.getElementById('site-search');if(search){const initial=new
   render();
   openActive();
 })();
+
+// Display original PDF documents without converting them to plain text.
+if (document.querySelector('article.yazi-icerik .pdf-original')) {
+  import('/pdf-reader.js?v=20261005-originalpdf1').then(module => module.initPdfReaders()).catch(console.error);
+}

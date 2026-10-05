@@ -47,25 +47,18 @@ export function createArticles({ $, callAdmin, feedback }) {
     return result.value;
   }
   async function importPdf(file) {
-    const pdfjs=await import('https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.min.mjs');
-    pdfjs.GlobalWorkerOptions.workerSrc='https://cdn.jsdelivr.net/npm/pdfjs-dist@4.10.38/build/pdf.worker.min.mjs';
-    const pdf=await pdfjs.getDocument({data:new Uint8Array(await file.arrayBuffer())}).promise;
-    const pages=[];
-    for(let pageNo=1;pageNo<=pdf.numPages;pageNo++){
-      documentStatus.textContent=`PDF okunuyor… ${pageNo}/${pdf.numPages}`;
-      const page=await pdf.getPage(pageNo);
-      const content=await page.getTextContent();
-      const items=content.items.filter(item=>item.str && item.str.trim());
-      const lines=[]; let current=[]; let lastY=null;
-      for(const item of items){
-        const y=Math.round(item.transform?.[5]||0);
-        if(lastY!==null && Math.abs(y-lastY)>3){ if(current.length) lines.push(current.join(' ')); current=[]; }
-        current.push(item.str.trim()); lastY=y;
-      }
-      if(current.length) lines.push(current.join(' '));
-      pages.push(lines.filter(Boolean).map(line=>`<p>${escapeImportHtml(line)}</p>`).join(''));
+    const bytes = new Uint8Array(await file.arrayBuffer());
+    if (!new TextDecoder().decode(bytes.slice(0, 1024)).includes('%PDF-')) {
+      throw new Error('Geçerli bir PDF dosyası seç.');
     }
-    return pages.join('<hr>');
+    const dataUrl = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = () => reject(new Error('PDF dosyası okunamadı.'));
+      reader.readAsDataURL(new Blob([bytes], { type: 'application/pdf' }));
+    });
+    const name = escapeImportHtml(file.name);
+    return `<div class="pdf-document" contenteditable="false"><p><strong>${name}</strong></p><p>PDF belgesi · Orijinal sayfa düzeni, görseller ve yazı tipleri korunur.</p><a class="pdf-original" href="${dataUrl}" download="${name}">Orijinal PDF’yi indir</a></div><p><br></p>`;
   }
   documentFile?.addEventListener('change',async event=>{
     const file=event.target.files?.[0]; if(!file)return;
@@ -74,18 +67,19 @@ export function createArticles({ $, callAdmin, feedback }) {
     const isDocx=/\.docx$/i.test(file.name), isPdf=/\.pdf$/i.test(file.name);
     if(!isDocx&&!isPdf){documentStatus.textContent='Yalnızca .docx veya .pdf seçebilirsin.';event.target.value='';return;}
     if($('editor').textContent.trim()&&!confirm('Dosya içeriği editördeki mevcut metnin yerine aktarılsın mı?')){event.target.value='';return;}
-    documentStatus.textContent=isDocx?'Word belgesi dönüştürülüyor…':'PDF okunuyor…';
+    documentStatus.textContent=isDocx?'Word belgesi dönüştürülüyor…':'Orijinal PDF ekleniyor…';
     documentFile.disabled=true;
     try{
       const imported=isDocx?await importDocx(file):await importPdf(file);
       if(!imported||!imported.replace(/<[^>]*>/g,'').trim())throw new Error('Belgeden aktarılabilir metin bulunamadı.');
       $('editor').innerHTML=imported;
+      if (isPdf && !$('title').value.trim()) $('title').value=file.name.replace(/\.pdf$/i,'').slice(0,160);
       const firstHeading=$('editor').querySelector('h1,h2');
       if(!$('title').value.trim()&&firstHeading){
         $('title').value=firstHeading.textContent.trim();
         firstHeading.remove();
       }
-      documentStatus.textContent=`${file.name} editöre aktarıldı. Yayımlamadan önce içeriği kontrol edebilirsin.`;
+      documentStatus.textContent=isPdf ? `${file.name} orijinal PDF olarak eklendi. Yayımlandığında sayfalar olduğu gibi görüntülenir.` : `${file.name} editöre aktarıldı. Yayımlamadan önce içeriği kontrol edebilirsin.`;
       feedback('Belge editöre aktarıldı.');
       $('editor').dispatchEvent(new Event('input',{bubbles:true}));
     }catch(err){documentStatus.textContent=err.message||'Belge aktarılamadı.';}
