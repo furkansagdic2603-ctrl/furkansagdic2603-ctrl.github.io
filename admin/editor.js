@@ -1,25 +1,10 @@
 const $ = id => document.getElementById(id);
-const fields = ['category', 'title', 'description'];
-const key = 'furkan-editor-draft-v1';
 const editor = $('editor');
-try {
-  const saved = JSON.parse(localStorage.getItem(key) || '{}');
-  fields.forEach(id => { if (saved[id]) $(id).value = saved[id]; });
-  editor.innerHTML = saved.body || '';
-} catch {}
-
-let timer;
-function save() {
-  clearTimeout(timer);
-  timer = setTimeout(() => {
-    const draft = Object.fromEntries(fields.map(id => [id, $(id).value]));
-    draft.body = editor.innerHTML;
-    try { localStorage.setItem(key, JSON.stringify(draft)); }
-    catch { $('feedback').textContent = 'Uzun yazı tarayıcı taslağına sığmadı. Kaydetmeden sekmeyi kapatma.'; }
-  }, 400);
-}
-fields.forEach(id => $(id).addEventListener('input', save));
-editor.addEventListener('input', save);
+// Remove drafts saved by older versions. New sessions start with an empty editor.
+try { localStorage.removeItem('furkan-editor-draft-v1'); } catch {}
+$('title').value = '';
+$('description').value = '';
+editor.innerHTML = '';
 
 let savedRange = null;
 let selectedImage = null;
