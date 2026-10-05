@@ -1,3 +1,4 @@
+import { enlargePdfViewer } from '/pdf-layout.js?v=20261005-widepdf';
 import { createBookCovers } from './book-covers.js?v=20261003-booknotes3';
 // Published article picker and create/edit/delete actions.
 export function createArticles({ $, callAdmin, feedback }) {
@@ -57,6 +58,7 @@ export function createArticles({ $, callAdmin, feedback }) {
     open.href = previewUrl; open.target = '_blank'; open.rel = 'noopener';
     open.textContent = 'PDF’yi ayrı sekmede aç ↗';
     pdfPreview.append(heading, open, frame);
+    enlargePdfViewer(frame, pdfPreview);
   }
   refreshPdfPreview();
   function escapeImportHtml(value) {

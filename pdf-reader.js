@@ -1,3 +1,4 @@
+import { enlargePdfViewer } from '/pdf-layout.js?v=20261005-widepdf';
 // PDF bytes remain in the saved article; rendered canvases are disposable.
 export async function initPdfReaders() {
   const links = [...document.querySelectorAll('article.yazi-icerik a.pdf-original')];
@@ -38,6 +39,7 @@ export async function initPdfReaders() {
     summary.textContent = 'PDF görünmüyorsa sayfaları burada göster';
     fallback.append(summary, status, pages);
     link.closest('.pdf-document').append(frame, fallback);
+    enlargePdfViewer(frame, link.closest('.pdf-document'), true);
     // The native PDF viewer opens the exact uploaded file. The page renderer is a fallback.
     await new Promise(resolve => fallback.addEventListener('toggle', () => {
       if (fallback.open) resolve();
