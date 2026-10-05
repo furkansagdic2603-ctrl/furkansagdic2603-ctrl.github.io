@@ -1,6 +1,7 @@
 export function initBooks({ $, callAdmin, feedback }) {
   const uploadedPreviews = new Map();
   const savedBooks = new Map();
+  const deletedBooks = new Set();
   let cover = '';
   let localPreview = '';
   let libraryBooks = [];
@@ -47,7 +48,7 @@ export function initBooks({ $, callAdmin, feedback }) {
     const map = new Map(discovered.map(b=>[b.id,b]));
     for (const b of catalog) map.set(b.id,{...map.get(b.id),...b,discovered:false});
     for (const [id, book] of savedBooks) map.set(id, {...map.get(id), ...book, discovered:false});
-    libraryBooks = Array.from(map.values());
+    libraryBooks = Array.from(map.values()).filter(book=>!deletedBooks.has(book.id));
     renderLibrary();
   }
   function renderLibrary() {
@@ -114,8 +115,6 @@ export function initBooks({ $, callAdmin, feedback }) {
     }catch(err){$('edit-book-status').textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
   });
   $('delete-book').addEventListener('click',async()=>{
-    feedback('Güvenlik için kitap silme geçici olarak kapalı.'); return;
-    /*
     const id=$('edit-book-id').value; const book=libraryBooks.find(item=>item.id===id);
     if(!book)return;
     const ok=confirm('“'+book.title+'” kitabını ve bu kitaba bağlı BÜTÜN notları/bölümleri kalıcı olarak silmek istiyor musun? Bu işlem geri alınamaz.');
@@ -125,10 +124,11 @@ export function initBooks({ $, callAdmin, feedback }) {
     const button=$('delete-book'); button.disabled=true; $('edit-book-status').textContent='Kitap ve içindekiler siliniyor…'; feedback('Kitap tamamen siliniyor…');
     try{
       const result=await callAdmin('delete_book',{id:book.id,title:book.title,cover:book.cover||'',sourcePath:book.sourcePath||''});
+      savedBooks.delete(book.id);
+      deletedBooks.add(book.id);
+      libraryBooks=libraryBooks.filter(item=>item.id!==book.id);
       $('edit-book-card').hidden=true; feedback('“'+book.title+'” ve bağlı '+result.deleted+' içerik silindi.'); await loadLibrary();
     }catch(err){$('edit-book-status').textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
-  });
-    */
   });
   $('new-book-title').addEventListener('input', () => { $('new-book-fallback-title').textContent = $('new-book-title').value.trim() || 'Kitap adı'; });
   $('new-book-cover').addEventListener('change', async event => {
