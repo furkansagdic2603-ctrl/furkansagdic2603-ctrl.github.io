@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-return'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
@@ -19,12 +19,46 @@
     const close = el('button','shelf-close','×'); close.type='button'; close.setAttribute('aria-label','Kitabı kapat');
     const spread=el('div','shelf-spread'), left=el('div','shelf-left'), right=el('div','shelf-right');
     spread.append(left,right); dialog.append(close,spread); document.body.append(dialog);
-    close.onclick=()=>dialog.close(); dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close();});
-    let opener, token=0;
-    dialog.addEventListener('close',()=>{ token++; document.body.classList.remove('shelf-reading'); opener?.focus(); });
+    let opener, token=0, closing=false;
+    async function returnToShelf() {
+      if (closing || !dialog.open) return;
+      closing=true;
+      const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!opener?.isConnected || reduced) {
+        dialog.close(); closing=false; return;
+      }
+      const cover=left.querySelector('.shelf-cover, .shelf-cover-fallback');
+      const from=(cover || left).getBoundingClientRect();
+      const ghost=el('div','shelf-return-book');
+      ghost.setAttribute('aria-hidden','true');
+      ghost.style.setProperty('--binding',opener.style.getPropertyValue('--binding'));
+      ghost.append(el('span','shelf-return-title',right.querySelector('h2')?.textContent || ''));
+      if(cover?.tagName==='IMG') { const image=cover.cloneNode(); image.removeAttribute('id'); ghost.prepend(image); }
+      Object.assign(ghost.style,{left:from.left+'px',top:from.top+'px',width:from.width+'px',height:from.height+'px'});
+      try {
+        await left.animate([{transform:'rotateY(0deg)'},{transform:'rotateY(75deg)'}],{duration:230,easing:'ease-in',fill:'forwards'}).finished;
+        document.body.append(ghost);
+        dialog.close();
+        opener.classList.add('is-returning');
+        const to=opener.getBoundingClientRect();
+        await ghost.animate([
+          {transform:'translate(0,0) scale(1)',opacity:1},
+          {transform:`translate(${to.left-from.left}px,${to.top-from.top-14}px) scale(${to.width/from.width},${to.height/from.height})`,opacity:1,offset:.86},
+          {transform:`translate(${to.left-from.left}px,${to.top-from.top}px) scale(${to.width/from.width},${to.height/from.height})`,opacity:1}
+        ],{duration:650,easing:'cubic-bezier(.4,0,.2,1)',fill:'forwards'}).finished;
+      } finally {
+        ghost.remove(); opener?.classList.remove('is-returning');
+        left.getAnimations().forEach(a=>a.cancel());
+        closing=false; opener?.focus({preventScroll:true});
+      }
+    }
+    close.onclick=returnToShelf;
+    dialog.addEventListener('cancel',e=>{e.preventDefault();returnToShelf();});
+    dialog.addEventListener('click',e=>{if(e.target===dialog)returnToShelf();});
+    dialog.addEventListener('close',()=>{ token++; document.body.classList.remove('shelf-reading'); if(!closing) opener?.focus({preventScroll:true}); });
     function link(title,url){const a=el('a','shelf-note-link',title+' →'); a.href=url; return a;}
     async function open(book,button){
-      opener=button; const current=++token; left.replaceChildren(); right.replaceChildren();
+      if(closing)return; opener=button; const current=++token; left.replaceChildren(); right.replaceChildren();
       left.append(el('span','shelf-exlibris','FURKAN SAĞDIÇ · OKUMA DEFTERİ'));
       if(safe(book.cover)){const img=el('img','shelf-cover');img.src=book.cover;img.alt=book.title+' kitap kapağı';img.onerror=()=>img.replaceWith(el('div','shelf-cover-fallback',book.title));left.append(img);} else left.append(el('div','shelf-cover-fallback',book.title));
       const title=el('h2','',book.title);title.id='shelf-book-title';right.append(el('span','shelf-kicker','KİTAP NOTLARI'),title);
