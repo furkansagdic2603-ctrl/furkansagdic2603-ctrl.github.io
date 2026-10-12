@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-physical'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-design-switch'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
@@ -109,7 +109,21 @@
       button.setAttribute('aria-label',book.title+' — kitabı aç');button.append(el('span','shelf-spine-title',book.title),el('span','shelf-spine-mark','✧'));button.onclick=()=>open(book,button);rack.append(button);
     });
     toggle.onclick=()=>{const list=section.classList.toggle('is-list');toggle.textContent=list?'Raf görünümü':'Liste görünümü';toggle.setAttribute('aria-pressed',String(list));};
-    main.querySelector('.page-head')?.after(section);
+    const heading=main.querySelector('.page-head');
+    const legacy=[...main.children].filter(n=>n!==heading);
+    const switcher=el('nav','library-design-switch');switcher.setAttribute('aria-label','Kitap Notları görünümü');
+    const modern=el('button','','3D Kitaplık'), classic=el('button','','Eski Tasarım');
+    modern.type=classic.type='button';switcher.append(modern,classic);
+    let selected='modern';try{selected=localStorage.getItem('library-design')||selected;}catch{}
+    function choose(value){
+      const old=value==='classic';section.hidden=old;
+      legacy.forEach(n=>n.hidden=!old);
+      modern.setAttribute('aria-pressed',String(!old));classic.setAttribute('aria-pressed',String(old));
+      try{localStorage.setItem('library-design',old?'classic':'modern');}catch{}
+    }
+    modern.onclick=()=>choose('modern');classic.onclick=()=>choose('classic');
+    if(heading)heading.after(switcher,section);else main.prepend(switcher,section);
+    choose(selected);
   }
   start().catch(()=>{/* Existing categories and notes stay usable. */});
 })();
