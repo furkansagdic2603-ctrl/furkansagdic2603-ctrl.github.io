@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-gentle-tilt'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-realistic-covers'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
@@ -80,9 +80,12 @@
       cover.style.setProperty('--binding',button.style.getPropertyValue('--binding'));
       cover.append(el('span','physical-cover-title',book.title));
       if(safe(book.cover)){const img=el('img');img.src=book.cover;img.alt='';cover.append(img);}
-      const spine=el('div','physical-spine',book.title);
+      const spine=el('div','physical-spine');
+      spine.append(el('span','physical-spine-title',book.title),el('span','physical-spine-author',book.author||'OKUMA DEFTERİ'));
+      cover.append(el('span','physical-board-edge'));
+      for(let band=0;band<4;band++){const rib=el('i','binding-rib');rib.style.setProperty('--rib-position',[12,23,77,88][band]+'%');spine.append(rib);}
       spine.style.setProperty('--binding',button.style.getPropertyValue('--binding'));
-      bookObject.append(el('div','physical-back'),el('div','physical-pages'),spine,cover);
+      bookObject.append(el('div','physical-shadow'),el('div','physical-back'),el('div','physical-pages'),spine,cover);
       bookObject.style.setProperty('--binding',button.style.getPropertyValue('--binding'));dialog.append(bookObject);
       dialog.showModal();document.body.classList.add('shelf-reading');button.classList.add('is-returning');close.focus();
       const p=poses(button);
@@ -108,6 +111,7 @@
       const button=el('button','shelf-book');button.type='button';button.style.setProperty('--binding',['#315b59','#704651','#746039','#404b68'][i%4]);button.style.setProperty('--book-height',(232+i%4*12)+'px');
       button.dataset.topic=book.category.split('/')[1];
       button.append(el('span','shelf-spine-author',book.author||'Kitap notları'));
+      for(let band=0;band<4;band++){const rib=el('i','binding-rib');rib.style.setProperty('--rib-position',[10,17,83,90][band]+'%');button.append(rib);}
       button.setAttribute('aria-label',book.title+' — kitabı aç');button.append(el('span','shelf-spine-title',book.title),el('span','shelf-spine-mark','✧'));button.onclick=()=>open(book,button);rack.append(button);
     });
     toggle.onclick=()=>{const list=section.classList.toggle('is-list');toggle.textContent=list?'Raf görünümü':'Liste görünümü';toggle.setAttribute('aria-pressed',String(list));};
