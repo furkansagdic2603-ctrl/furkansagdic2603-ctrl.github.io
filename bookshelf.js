@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-geometry-fix'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-gentle-tilt'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
@@ -36,7 +36,7 @@
       return [
         `translate3d(${x}px,${y}px,0) rotateX(0deg) rotateY(78deg) rotateZ(0deg)`,
         `translate3d(${x}px,${y}px,150px) rotateX(0deg) rotateY(78deg) rotateZ(0deg)`,
-        'translate3d(0,0,120px) rotateX(24deg) rotateY(-15deg) rotateZ(90deg)',
+        'translate3d(0,0,120px) rotateX(12deg) rotateY(-10deg) rotateZ(20deg)',
         'translate3d(0,0,0) rotateX(0deg) rotateY(0deg) rotateZ(0deg)'
       ];
     }
