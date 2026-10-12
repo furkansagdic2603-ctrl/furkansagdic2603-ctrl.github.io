@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-design-switch'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-thicker'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {

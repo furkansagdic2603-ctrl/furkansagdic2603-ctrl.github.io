@@ -20,3 +20,6 @@ html[data-theme=dark] .library-shelf{background:#292a27;color:#efe4ce}html[data-
 @media(prefers-reduced-motion:reduce){.shelf-spread{transition:none}}
 
 .library-design-switch{display:flex;gap:6px;flex-wrap:wrap;margin:20px 0;padding:5px;width:fit-content;border:1px solid #ad91664d;border-radius:28px}.library-design-switch button{padding:11px 22px;border:0;border-radius:22px;background:transparent;color:inherit;font:inherit;font-size:14px;cursor:pointer}.library-design-switch button[aria-pressed=true]{background:#705d43;color:#fff7e6}.library-design-switch button:focus-visible{outline:2px solid #ad9166;outline-offset:3px}main> [hidden],.library-shelf[hidden]{display:none!important}
+
+/* Keep the binding visible when the book is nearly edge-on. */
+.physical-book{--book-depth:52px}.physical-spine{left:calc(-1 * var(--book-depth));width:var(--book-depth);transform:rotateY(90deg);transform-origin:right;backface-visibility:visible}.physical-pages:before{right:calc(-1 * var(--book-depth));width:var(--book-depth)}.physical-pages:after{bottom:calc(-1 * var(--book-depth));height:var(--book-depth)}
