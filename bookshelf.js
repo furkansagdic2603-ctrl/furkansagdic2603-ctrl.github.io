@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-return'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-pickup'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
@@ -19,9 +19,10 @@
     const close = el('button','shelf-close','×'); close.type='button'; close.setAttribute('aria-label','Kitabı kapat');
     const spread=el('div','shelf-spread'), left=el('div','shelf-left'), right=el('div','shelf-right');
     spread.append(left,right); dialog.append(close,spread); document.body.append(dialog);
-    let opener, token=0, closing=false;
+    let opener, token=0, closing=false, taking=false;
     async function returnToShelf() {
       if (closing || !dialog.open) return;
+      if(taking) { token++; dialog.querySelectorAll('.shelf-take-book').forEach(g=>{g.getAnimations().forEach(a=>a.cancel());g.remove();}); dialog.classList.remove('is-taking'); opener?.classList.remove('is-returning'); taking=false; dialog.close(); return; }
       closing=true;
       const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
       if (!opener?.isConnected || reduced) {
@@ -58,7 +59,8 @@
     dialog.addEventListener('close',()=>{ token++; document.body.classList.remove('shelf-reading'); if(!closing) opener?.focus({preventScroll:true}); });
     function link(title,url){const a=el('a','shelf-note-link',title+' →'); a.href=url; return a;}
     async function open(book,button){
-      if(closing)return; opener=button; const current=++token; left.replaceChildren(); right.replaceChildren();
+      if(closing || taking || dialog.open)return; opener=button;
+      const source=button.getBoundingClientRect(); const current=++token; left.replaceChildren(); right.replaceChildren();
       left.append(el('span','shelf-exlibris','FURKAN SAĞDIÇ · OKUMA DEFTERİ'));
       if(safe(book.cover)){const img=el('img','shelf-cover');img.src=book.cover;img.alt=book.title+' kitap kapağı';img.onerror=()=>img.replaceWith(el('div','shelf-cover-fallback',book.title));left.append(img);} else left.append(el('div','shelf-cover-fallback',book.title));
       const title=el('h2','',book.title);title.id='shelf-book-title';right.append(el('span','shelf-kicker','KİTAP NOTLARI'),title);
@@ -67,7 +69,34 @@
       const notes=el('nav','shelf-notes');notes.setAttribute('aria-label','Kitabın notları');right.append(notes);
       const url='/'+book.id.replace(/^\/+|\/+$/g,'')+'/';
       if(safe(url)) notes.append(link('Notları oku',url));
+      const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if(!reduced)dialog.classList.add('is-taking');
       dialog.showModal(); document.body.classList.add('shelf-reading');close.focus();
+      if(!reduced) {
+        taking=true; button.classList.add('is-returning');
+        const target=(left.querySelector('.shelf-cover, .shelf-cover-fallback') || left).getBoundingClientRect();
+        const ghost=el('div','shelf-return-book shelf-take-book');ghost.setAttribute('aria-hidden','true');
+        ghost.style.setProperty('--binding',button.style.getPropertyValue('--binding'));
+        const face=el('div','shelf-take-face');face.append(el('span','shelf-return-title',book.title));
+        if(safe(book.cover)){const img=el('img');img.src=book.cover;img.alt='';face.prepend(img);}
+        ghost.append(face,el('span','shelf-take-spine',book.title));
+        Object.assign(ghost.style,{left:target.left+'px',top:target.top+'px',width:target.width+'px',height:target.height+'px'});
+        dialog.append(ghost);
+        const dx=source.left-target.left,dy=source.top-target.top;
+        try {
+          const flight=ghost.animate([
+            {transform:`translate(${dx}px,${dy}px) scale(${source.width/target.width},${source.height/target.height})`},
+            {transform:`translate(${dx}px,${dy-35}px) scale(${source.width/target.width*1.15},${source.height/target.height*1.03})`,offset:.25},
+            {transform:'translate(0,0) scale(1)'}
+          ],{duration:750,easing:'cubic-bezier(.3,0,.2,1)',fill:'forwards'});
+          face.animate([{opacity:0},{opacity:0,offset:.25},{opacity:1}],{duration:750,fill:'forwards'});
+          ghost.querySelector('.shelf-take-spine').animate([{opacity:1},{opacity:1,offset:.25},{opacity:0}],{duration:750,fill:'forwards'});
+          await flight.finished;
+        }catch{/* Closing during pickup cancels the flight. */}
+        finally{ghost.remove();button.classList.remove('is-returning');dialog.classList.remove('is-taking');taking=false;}
+        if(current!==token || !dialog.open)return;
+        left.animate([{transform:'rotateY(75deg)',opacity:.4},{transform:'rotateY(0deg)',opacity:1}],{duration:450,easing:'ease-out'});
+      }
       // Existing category pages retain the published grouping of notes into books.
       try{
         const category='/'+book.category.replace(/^\/+|\/+$/g,'').split('/').slice(0,2).join('/')+'/';
