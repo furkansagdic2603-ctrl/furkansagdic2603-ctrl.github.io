@@ -116,6 +116,6 @@ if (document.querySelector('article.yazi-icerik .pdf-original')) {
 /* Book Notes shelf: loaded only on its landing page, including regenerated pages. */
 if (location.pathname.replace(/\/$/, '') === '/kitap-notlari') {
   const shelfScript = document.createElement('script');
-  shelfScript.src = '/bookshelf.js?v=20261012-thicker';
+  shelfScript.src = '/bookshelf.js?v=20261012-geometry-fix';
   document.body.append(shelfScript);
 }

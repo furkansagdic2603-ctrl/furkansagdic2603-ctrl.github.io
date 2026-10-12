@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-thicker'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261012-geometry-fix'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
@@ -23,18 +23,19 @@
     const close = el('button','shelf-close','×'); close.type='button'; close.setAttribute('aria-label','Kitabı kapat');
     const spread=el('div','shelf-spread'), left=el('div','shelf-left'), right=el('div','shelf-right');
     spread.append(left,right); dialog.append(close,spread); document.body.append(dialog);
-    let opener, token=0, busy=false, flight=null, bookObject=null;
+    let opener, token=0, busy=false, bookObject=null;
     const reduced=()=>matchMedia('(prefers-reduced-motion: reduce)').matches;
     const motion = async (node, frames, duration) => {
       const animation=node.animate(frames,{duration:reduced()?1:duration,easing:'cubic-bezier(.22,.68,.2,1)',fill:'forwards'});
       await animation.finished; return animation;
     };
     function poses(button) {
-      const r=button.getBoundingClientRect(), d=bookObject.getBoundingClientRect();
+      const r=button.getBoundingClientRect(), bounds=dialog.getBoundingClientRect();
+      const d={left:bounds.left+bookObject.offsetLeft,top:bounds.top+bookObject.offsetTop,width:bookObject.offsetWidth,height:bookObject.offsetHeight};
       const x=r.left+r.width/2-(d.left+d.width/2), y=r.top+r.height/2-(d.top+d.height/2);
       return [
-        `translate3d(${x}px,${y}px,0) rotateX(0deg) rotateY(-78deg) rotateZ(0deg)`,
-        `translate3d(${x}px,${y}px,150px) rotateX(0deg) rotateY(-78deg) rotateZ(0deg)`,
+        `translate3d(${x}px,${y}px,0) rotateX(0deg) rotateY(78deg) rotateZ(0deg)`,
+        `translate3d(${x}px,${y}px,150px) rotateX(0deg) rotateY(78deg) rotateZ(0deg)`,
         'translate3d(0,0,120px) rotateX(24deg) rotateY(-15deg) rotateZ(90deg)',
         'translate3d(0,0,0) rotateX(0deg) rotateY(0deg) rotateZ(0deg)'
       ];
@@ -81,13 +82,14 @@
       if(safe(book.cover)){const img=el('img');img.src=book.cover;img.alt='';cover.append(img);}
       const spine=el('div','physical-spine',book.title);
       spine.style.setProperty('--binding',button.style.getPropertyValue('--binding'));
-      bookObject.append(el('div','physical-pages'),spine,cover);dialog.append(bookObject);
+      bookObject.append(el('div','physical-back'),el('div','physical-pages'),spine,cover);
+      bookObject.style.setProperty('--binding',button.style.getPropertyValue('--binding'));dialog.append(bookObject);
       dialog.showModal();document.body.classList.add('shelf-reading');button.classList.add('is-returning');close.focus();
       const p=poses(button);
       try {
         await motion(bookObject,[{transform:p[0]},{transform:p[1],offset:.3},{transform:p[2],offset:.75},{transform:p[3]}],1150);
-        dialog.classList.add('is-open-book');
         await motion(cover,[{transform:'rotateY(0deg)'},{transform:'rotateY(-165deg)'}],650);
+        dialog.classList.add('is-open-book');
       }finally{busy=false;close.disabled=false;}
       // Existing category pages retain the published grouping of notes into books.
       try{
