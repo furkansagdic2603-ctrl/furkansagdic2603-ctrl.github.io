@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261013-horizontal'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261013-list-grid'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
@@ -110,6 +110,7 @@
     books.filter(b=>b.id?.startsWith('kitap-notlari/') && b.title).forEach((book,i)=>{
       const button=el('button','shelf-book');button.type='button';button.style.setProperty('--binding',['#315b59','#704651','#746039','#404b68'][i%4]);button.style.setProperty('--book-height',(232+i%4*12)+'px');
       button.dataset.topic=book.category.split('/')[1];
+      if(safe(book.cover)){const thumb=el('img','list-book-cover');thumb.src=book.cover;thumb.alt=book.title+' kitap kapağı';thumb.loading='lazy';thumb.decoding='async';button.append(thumb);}
       button.append(el('span','shelf-spine-author',book.author||'Kitap notları'));
       for(let band=0;band<4;band++){const rib=el('i','binding-rib');rib.style.setProperty('--rib-position',[10,17,83,90][band]+'%');button.append(rib);}
       button.setAttribute('aria-label',book.title+' — kitabı aç');button.append(el('span','shelf-spine-title',book.title),el('span','shelf-spine-mark','✧'));button.onclick=()=>open(book,button);rack.append(button);
@@ -133,16 +134,19 @@
       const visible=carouselBooks.filter(item=>!item.filtered);if(!visible.length)return;
       currentCover=(index+visible.length)%visible.length;
       carouselBooks.forEach(item=>{const i=visible.indexOf(item);let offset=i-currentCover;if(offset>visible.length/2)offset-=visible.length;if(offset< -visible.length/2)offset+=visible.length;
-        item.card.hidden=item.filtered;item.card.style.setProperty('--offset',offset);item.card.style.setProperty('--distance',Math.abs(offset));item.card.style.zIndex=String(10-Math.abs(offset));item.card.classList.toggle('is-selected',i===currentCover);item.card.setAttribute('aria-pressed',String(i===currentCover));item.card.tabIndex=item.card.hidden?-1:0;
+        item.card.hidden=item.filtered||Math.abs(offset)>2;item.card.style.setProperty('--offset',offset);item.card.style.setProperty('--distance',Math.abs(offset));item.card.style.zIndex=String(10-Math.abs(offset));item.card.classList.toggle('is-selected',i===currentCover);item.card.setAttribute('aria-pressed',String(i===currentCover));item.card.tabIndex=item.card.hidden?-1:0;
       });
-      const active=visible[currentCover];
-      requestAnimationFrame(()=>{if(!carousel.hidden)stage.scrollTo({left:Math.max(0,active.card.offsetLeft-stage.clientWidth/2+active.card.offsetWidth/2),behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'});});
-      selectedTitle.textContent=active.book.title;selectedAuthor.textContent=active.book.author||'Kitap notları';read.onclick=()=>open(active.book,active.card);prev.disabled=next.disabled=visible.length<2;
+      const active=visible[currentCover];selectedTitle.textContent=active.book.title;selectedAuthor.textContent=active.book.author||'Kitap notları';read.onclick=()=>open(active.book,active.card);prev.disabled=next.disabled=visible.length<2;
     }
     prev.onclick=()=>renderCarousel(currentCover-1);next.onclick=()=>renderCarousel(currentCover+1);
     stage.addEventListener('keydown',e=>{if(['ArrowLeft','ArrowRight'].includes(e.key)){e.preventDefault();renderCarousel(currentCover+(e.key==='ArrowRight'?1:-1));carouselBooks.filter(b=>!b.filtered)[currentCover].card.focus();}});
+    let dragStart=null,moved=false;
+    stage.addEventListener('pointerdown',e=>{dragStart=e.clientX;moved=false;});
+    stage.addEventListener('pointerup',e=>{if(dragStart!==null&&Math.abs(e.clientX-dragStart)>40){moved=true;renderCarousel(currentCover+(e.clientX<dragStart?1:-1));}dragStart=null;});
+    stage.addEventListener('pointercancel',()=>{dragStart=null;});
+    stage.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
     function setList(list){section.classList.toggle('is-list',list);rack.hidden=!list;carousel.hidden=list;toggle.textContent=list?'Kaydırmalı kitaplar':'Liste görünümü';toggle.setAttribute('aria-pressed',String(list));}
-    toggle.onclick=()=>{setList(!section.classList.contains('is-list'));renderCarousel(currentCover);};setList(false);renderCarousel(0);
+    toggle.onclick=()=>setList(!section.classList.contains('is-list'));setList(false);renderCarousel(0);
     const heading=main.querySelector('.page-head');
     const legacy=[...main.children].filter(n=>n!==heading);
     const switcher=el('nav','library-design-switch');switcher.setAttribute('aria-label','Kitap Notları görünümü');
