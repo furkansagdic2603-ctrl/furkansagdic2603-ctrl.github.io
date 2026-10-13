@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261013-list-grid'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261013-third-shelf'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
@@ -12,7 +12,7 @@
     if (!Array.isArray(books) || !books.length) return;
     const section = el('section','library-shelf'); section.setAttribute('aria-label','Animasyonlu kitaplık');
     const toolbar = el('div','shelf-toolbar'); toolbar.append(el('h2','','Kitaplığım'));
-    const toggle = el('button','shelf-toggle','Liste görünümü'); toggle.type='button'; toggle.setAttribute('aria-pressed','false'); toolbar.append(toggle);
+    const modeTabs=el('nav','library-mode-tabs');modeTabs.setAttribute('aria-label','Kitaplık modu');toolbar.append(modeTabs);
     section.append(toolbar,el('p','shelf-hint','Kapakları kaydırarak bir kitap seç veya liste görünümüne geç.'));
     const stats=el('div','shelf-stats');stats.append(el('span','',books.length+' kitap'),el('span','',new Set(books.map(b=>b.category.split('/')[1])).size+' konu'));section.append(stats);
     const filters=el('nav','shelf-filters');filters.setAttribute('aria-label','Kitap kategorileri');section.append(filters);
@@ -145,8 +145,16 @@
     stage.addEventListener('pointerup',e=>{if(dragStart!==null&&Math.abs(e.clientX-dragStart)>40){moved=true;renderCarousel(currentCover+(e.clientX<dragStart?1:-1));}dragStart=null;});
     stage.addEventListener('pointercancel',()=>{dragStart=null;});
     stage.addEventListener('click',e=>{if(moved){e.preventDefault();e.stopPropagation();moved=false;}},true);
-    function setList(list){section.classList.toggle('is-list',list);rack.hidden=!list;carousel.hidden=list;toggle.textContent=list?'Kaydırmalı kitaplar':'Liste görünümü';toggle.setAttribute('aria-pressed',String(list));}
-    toggle.onclick=()=>setList(!section.classList.contains('is-list'));setList(false);renderCarousel(0);
+    const modes=[['covers','Kapaklar'],['list','Liste'],['shelf','Raf']];
+    function setMode(mode){
+      section.classList.toggle('is-list',mode==='list');section.classList.toggle('is-shelf',mode==='shelf');
+      rack.hidden=mode==='covers';carousel.hidden=mode!=='covers';
+      modeTabs.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.mode===mode)));
+      try{localStorage.setItem('library-book-mode',mode);}catch{}
+    }
+    modes.forEach(([mode,label])=>{const button=el('button','',label);button.type='button';button.dataset.mode=mode;button.onclick=()=>{setMode(mode);if(mode==='covers')renderCarousel(currentCover);};modeTabs.append(button);});
+    let initialMode='covers';try{const saved=localStorage.getItem('library-book-mode');if(modes.some(([mode])=>mode===saved))initialMode=saved;}catch{}
+    setMode(initialMode);renderCarousel(0);
     const heading=main.querySelector('.page-head');
     const legacy=[...main.children].filter(n=>n!==heading);
     const switcher=el('nav','library-design-switch');switcher.setAttribute('aria-label','Kitap Notları görünümü');
