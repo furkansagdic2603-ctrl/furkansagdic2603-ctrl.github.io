@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261013-third-shelf'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261013-mode-switch'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
@@ -12,7 +12,7 @@
     if (!Array.isArray(books) || !books.length) return;
     const section = el('section','library-shelf'); section.setAttribute('aria-label','Animasyonlu kitaplık');
     const toolbar = el('div','shelf-toolbar'); toolbar.append(el('h2','','Kitaplığım'));
-    const modeTabs=el('nav','library-mode-tabs');modeTabs.setAttribute('aria-label','Kitaplık modu');toolbar.append(modeTabs);
+    const modeTabs=el('div','library-mode-tabs');modeTabs.setAttribute('role','radiogroup');modeTabs.setAttribute('aria-label','Kitaplık görünümü');toolbar.append(modeTabs);
     section.append(toolbar,el('p','shelf-hint','Kapakları kaydırarak bir kitap seç veya liste görünümüne geç.'));
     const stats=el('div','shelf-stats');stats.append(el('span','',books.length+' kitap'),el('span','',new Set(books.map(b=>b.category.split('/')[1])).size+' konu'));section.append(stats);
     const filters=el('nav','shelf-filters');filters.setAttribute('aria-label','Kitap kategorileri');section.append(filters);
@@ -149,10 +149,12 @@
     function setMode(mode){
       section.classList.toggle('is-list',mode==='list');section.classList.toggle('is-shelf',mode==='shelf');
       rack.hidden=mode==='covers';carousel.hidden=mode!=='covers';
-      modeTabs.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.mode===mode)));
+      modeTabs.dataset.selected=mode;
+      modeTabs.querySelectorAll('button').forEach(button=>{const active=button.dataset.mode===mode;button.setAttribute('aria-checked',String(active));button.tabIndex=active?0:-1;});
       try{localStorage.setItem('library-book-mode',mode);}catch{}
     }
-    modes.forEach(([mode,label])=>{const button=el('button','',label);button.type='button';button.dataset.mode=mode;button.onclick=()=>{setMode(mode);if(mode==='covers')renderCarousel(currentCover);};modeTabs.append(button);});
+    modes.forEach(([mode,label])=>{const button=el('button','',label);button.type='button';button.dataset.mode=mode;button.setAttribute('role','radio');button.onclick=()=>{setMode(mode);if(mode==='covers')renderCarousel(currentCover);};modeTabs.append(button);});
+    modeTabs.addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight','Home','End'].includes(e.key))return;e.preventDefault();let index=modes.findIndex(([mode])=>mode===modeTabs.dataset.selected);index=e.key==='Home'?0:e.key==='End'?2:(index+(e.key==='ArrowRight'?1:-1)+3)%3;setMode(modes[index][0]);if(index===0)renderCarousel(currentCover);modeTabs.querySelectorAll('button')[index].focus();});
     let initialMode='covers';try{const saved=localStorage.getItem('library-book-mode');if(modes.some(([mode])=>mode===saved))initialMode=saved;}catch{}
     setMode(initialMode);renderCarousel(0);
     const heading=main.querySelector('.page-head');
