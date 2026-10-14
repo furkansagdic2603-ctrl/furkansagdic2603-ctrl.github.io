@@ -125,4 +125,4 @@ if(document.querySelector('article[data-article="true"]') && location.pathname.s
   const seriesScript=document.createElement('script');seriesScript.src='/series-navigation.js?v=20261014';document.body.append(seriesScript);
 }
 
-{const deskScript=document.createElement('script');deskScript.src='/reading-desk.js?v=20261014';document.body.append(deskScript);}
+{const deskScript=document.createElement('script');deskScript.src='/reading-desk.js?v=20261014-headers';document.body.append(deskScript);}

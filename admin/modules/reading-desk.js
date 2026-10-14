@@ -1,4 +1,7 @@
 export async function initReadingDesk({$,callAdmin}){
+ const designStatus=$('desk-design-status');
+ $('desk-design-save').onclick=async()=>{const button=$('desk-design-save');button.disabled=true;designStatus.textContent='Görsel kaydediliyor…';try{const design=document.querySelector('input[name="desk-design"]:checked').value;await callAdmin('save_reading_desk_design',{design});designStatus.textContent='Görsel kaydedildi. Siteye yansıması birkaç dakika sürebilir.';}catch(e){designStatus.textContent=e.message;}finally{button.disabled=false;}};
+ try{const res=await fetch('/data/reading-desk-design.json',{cache:'no-store'});if(res.ok){const saved=await res.json();const option=document.querySelector('input[name="desk-design"][value="'+(saved.design==='study'?'study':'tezhip')+'"]');if(option)option.checked=true;}}catch{}
  const category='kitap-notlari/su-an-masada';let books=[],busy=false;
  const status=$('desk-admin-status'),form=$('desk-admin-form'),list=$('desk-admin-list');
  async function load(){const r=await fetch('/data/site-books.json',{cache:'no-store'});if(!r.ok)throw Error('Kitaplar yüklenemedi.');books=(await r.json()).filter(b=>b.category===category);render();}

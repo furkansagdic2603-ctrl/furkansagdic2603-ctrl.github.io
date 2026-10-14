@@ -184,6 +184,17 @@ Deno.serve(async req => {
       if (!(await res.json()).length) return result({ error: 'Yorum bulunamadı veya zaten silinmiş.' }, 404);
       return result({ ok: true });
     }
+    if (input.action === 'save_reading_desk_design') {
+      const design = String(input.design || '');
+      if (!['tezhip', 'study'].includes(design)) return result({ error: 'Geçerli bir okuma masası tasarımı seç.' }, 400);
+      const path = 'data/reading-desk-design.json';
+      const existing = await fetch(ghUrl(path), { headers: ghHeaders(token) });
+      let sha: string | undefined;
+      if (existing.ok) sha = (await existing.json()).sha;
+      else if (existing.status !== 404) throw new Error('Tasarım ayarı okunamadı.');
+      await putFile(token, path, JSON.stringify({ design }, null, 2) + '\n', 'Update reading desk header design', sha);
+      return result({ ok: true, design });
+    }
     if (input.action === 'save_theme') {
       const theme = input.theme || {};
       const validColor = (value: unknown) => typeof value === 'string' && /^#[0-9a-fA-F]{6}$/.test(value);

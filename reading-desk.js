@@ -2,7 +2,14 @@
   const nav=document.querySelector('.main-nav');if(nav&&!nav.querySelector('a[href="/su-an-masada/"]')){const a=document.createElement('a');a.href='/su-an-masada/';a.textContent='Şu An Masada';nav.prepend(a);}
   const path=location.pathname.replace(/\/$/,'');if(path!==''&&path!=='/su-an-masada')return;
   const el=(tag,cls,text)=>{const n=document.createElement(tag);n.className=cls||'';if(text)n.textContent=text;return n;};
-  const css=el('link');css.rel='stylesheet';css.href='/reading-desk.css?v=20261014';document.head.append(css);
+  const css=el('link');css.rel='stylesheet';css.href='/reading-desk.css?v=20261014-headers';document.head.append(css);
+  async function applyHeader(){
+    if(path!=='/su-an-masada')return;
+    const hero=document.querySelector('.page-head');if(!hero)return;
+    hero.classList.add('desk-hero');hero.dataset.deskDesign='tezhip';
+    try{const response=await fetch('/data/reading-desk-design.json',{cache:'no-store'});if(response.ok){const config=await response.json();if(['tezhip','study'].includes(config.design))hero.dataset.deskDesign=config.design;}}catch{}
+  }
+  applyHeader();
   async function start(){
     const main=document.querySelector('main');if(!main)return;
     const section=el('section','reading-desk');section.setAttribute('aria-label','Şu an okuduğum kitaplar');
