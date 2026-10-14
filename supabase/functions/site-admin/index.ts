@@ -186,7 +186,7 @@ Deno.serve(async req => {
     }
     if (input.action === 'save_reading_desk_design') {
       const design = String(input.design || '');
-      if (!['tezhip', 'study'].includes(design)) return result({ error: 'Geçerli bir okuma masası tasarımı seç.' }, 400);
+      if (!['tezhip', 'study', 'iznik', 'emerald', 'watercolor', 'manuscript'].includes(design)) return result({ error: 'Geçerli bir okuma masası tasarımı seç.' }, 400);
       const path = 'data/reading-desk-design.json';
       const existing = await fetch(ghUrl(path), { headers: ghHeaders(token) });
       let sha: string | undefined;

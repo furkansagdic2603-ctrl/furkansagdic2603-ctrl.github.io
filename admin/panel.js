@@ -36,7 +36,7 @@ async function showPanel() {
     const status = $('book-create-status');
     if (status) status.textContent = 'Kitap yönetimi yüklenemedi: ' + err.message;
   }
-  try{const {initReadingDesk}=await import('./modules/reading-desk.js?v=20261014-design');await initReadingDesk({$,callAdmin});}catch(e){$('desk-admin-status').textContent=e.message;}
+  try{const {initReadingDesk}=await import('./modules/reading-desk.js?v=20261014-six-designs');await initReadingDesk({$,callAdmin});}catch(e){$('desk-admin-status').textContent=e.message;}
   navigation.updateCounts();
   navigation.showView('overview', false);
   $('admin-login').hidden = true;
