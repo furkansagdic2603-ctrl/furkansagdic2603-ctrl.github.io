@@ -1,0 +1,79 @@
+[
+  {
+    "id": "kitap-notlari/felsefe/bir-birey-nasil-yasayabilir",
+    "title": "Bir birey nasıl yaşayabilir?",
+    "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/",
+    "chapters": [
+      {
+        "title": "Bölüm 1",
+        "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-1/"
+      },
+      {
+        "title": "Bölüm 2",
+        "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-2/"
+      },
+      {
+        "title": "Bölüm 3",
+        "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-3/"
+      },
+      {
+        "title": "Bölüm 4",
+        "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-4/"
+      },
+      {
+        "title": "Bölüm 5",
+        "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-5/"
+      }
+    ]
+  },
+  {
+    "id": "kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri",
+    "title": "Gündelik Hayat Tenkidleri",
+    "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/",
+    "chapters": [
+      {
+        "title": "1- MUKADDİME",
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/1-mukaddime/"
+      },
+      {
+        "title": "2-DADA VE SÜRREALİZM",
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/2-dada-ve-surrealizm/"
+      },
+      {
+        "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/"
+      },
+      {
+        "title": "4-Henri Lefebvre: Sıradanın Filozofu",
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/"
+      }
+    ]
+  },
+  {
+    "id": "kitap-notlari/sinema/sinemanin-kokleri",
+    "title": "Sinemanın Kökleri",
+    "url": "/kitap-notlari/sinema/sinemanin-kokleri/",
+    "chapters": [
+      {
+        "title": "Bölüm 1 · Mukaddime",
+        "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-1/"
+      },
+      {
+        "title": "Bölüm 2 · Mukaddime",
+        "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-2/"
+      },
+      {
+        "title": "Bölüm 3 · Filmlere Neden İhtiyacımız Var? Neden Film İzleriz?",
+        "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-3/"
+      },
+      {
+        "title": "Bölüm 4 · İmge, Sanat Gelenekleri ve Sinemaya Giriş",
+        "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-4/"
+      },
+      {
+        "title": "Bölüm 5 · Kayıp Hikmetin Peşinde",
+        "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-5/"
+      }
+    ]
+  }
+]

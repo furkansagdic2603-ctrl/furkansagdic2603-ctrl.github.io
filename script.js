@@ -119,3 +119,8 @@ if (location.pathname.replace(/\/$/, '') === '/kitap-notlari') {
   shelfScript.src = '/bookshelf.js?v=20261014-clean-switch';
   document.body.append(shelfScript);
 }
+
+/* Series navigation on published book-note chapters. */
+if(document.querySelector('article[data-article="true"]') && location.pathname.startsWith('/kitap-notlari/')){
+  const seriesScript=document.createElement('script');seriesScript.src='/series-navigation.js?v=20261014';document.body.append(seriesScript);
+}
