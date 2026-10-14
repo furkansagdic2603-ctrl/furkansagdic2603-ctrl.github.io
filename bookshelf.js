@@ -7,7 +7,7 @@
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
     const response = await fetch('/data/site-books.json', {cache:'no-cache'}); if (!response.ok) throw new Error('catalog');
-    const books = await response.json();
+    const books = (await response.json()).filter(book=>book.category!=='kitap-notlari/su-an-masada');
     if (Array.isArray(books) && !books.some(b=>b.id==='kitap-notlari/sinema/sinemanin-kokleri')) books.push({id:'kitap-notlari/sinema/sinemanin-kokleri',title:'Sinemanın Kökleri',author:'Enver Gülşen',category:'kitap-notlari/sinema'});
     if (!Array.isArray(books) || !books.length) return;
     const section = el('section','library-shelf'); section.setAttribute('aria-label','Animasyonlu kitaplık');

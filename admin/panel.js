@@ -6,7 +6,7 @@ import { createStats } from './modules/stats.js';
 import { createTheme } from './modules/theme.js';
 import { initImages } from './modules/images.js';
 import { initQuotePhotos } from './modules/quote-photos.js';
-import { initNavigation } from './modules/navigation.js?v=20260930-panel1';
+import { initNavigation } from './modules/navigation.js?v=20261014-desk';
 
 const $ = id => document.getElementById(id);
 const navigation = initNavigation();
@@ -36,6 +36,7 @@ async function showPanel() {
     const status = $('book-create-status');
     if (status) status.textContent = 'Kitap yönetimi yüklenemedi: ' + err.message;
   }
+  try{const {initReadingDesk}=await import('./modules/reading-desk.js?v=20261014');await initReadingDesk({$,callAdmin});}catch(e){$('desk-admin-status').textContent=e.message;}
   navigation.updateCounts();
   navigation.showView('overview', false);
   $('admin-login').hidden = true;

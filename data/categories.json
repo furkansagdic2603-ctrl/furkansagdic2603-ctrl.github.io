@@ -1,5 +1,9 @@
 [
   {
+    "slug": "su-an-masada",
+    "name": "Şu An Masada"
+  },
+  {
     "slug": "kitap-notlari",
     "name": "Kitap Notları"
   },
@@ -165,6 +169,11 @@
   {
     "slug": "sirat-i-mustakim-sebil-rresad-mecmuasi",
     "name": "Sırat-ı Müstakim / Sebilûrreşad Mecmuası",
+    "parent": "kitap-notlari"
+  },
+  {
+    "slug": "su-an-masada",
+    "name": "Şu An Masada",
     "parent": "kitap-notlari"
   }
 ]

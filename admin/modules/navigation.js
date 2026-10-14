@@ -1,4 +1,5 @@
 const screens = {
+  reading: ['Şu An Masada', 'Okuduğun kitapları ve çalışma notlarını ziyaretçilerinle paylaş.'],
   overview: ['Genel bakış', 'Paneline hoş geldin. Yapmak istediğin işlemi seç.'],
   articles: ['Yazılar', 'Yayımlanmış yazılarını bul, aç ve düzenle.'],
   editor: ['Yazı editörü', 'Yazını hazırla, biçimlendir ve yayımla.'],

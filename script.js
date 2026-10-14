@@ -116,7 +116,7 @@ if (document.querySelector('article.yazi-icerik .pdf-original')) {
 /* Book Notes shelf: loaded only on its landing page, including regenerated pages. */
 if (location.pathname.replace(/\/$/, '') === '/kitap-notlari') {
   const shelfScript = document.createElement('script');
-  shelfScript.src = '/bookshelf.js?v=20261014-clean-switch';
+  shelfScript.src = '/bookshelf.js?v=20261014-desk';
   document.body.append(shelfScript);
 }
 
@@ -124,3 +124,5 @@ if (location.pathname.replace(/\/$/, '') === '/kitap-notlari') {
 if(document.querySelector('article[data-article="true"]') && location.pathname.startsWith('/kitap-notlari/')){
   const seriesScript=document.createElement('script');seriesScript.src='/series-navigation.js?v=20261014';document.body.append(seriesScript);
 }
+
+{const deskScript=document.createElement('script');deskScript.src='/reading-desk.js?v=20261014';document.body.append(deskScript);}

@@ -267,3 +267,6 @@ build_cinematic(ROOT, articles, CATEGORY_PATHS, doc, write, 'sanat', 'Sanat')
 # Refresh series navigation whenever published chapters are rebuilt.
 from series_navigation import build_series_navigation
 build_series_navigation(ROOT)
+
+# Current-reading landing page; book records are managed by the existing admin API.
+write('su-an-masada/index.html',doc('Şu An Masada','<section class="page-head"><span class="eyebrow">OKUMA MASAM</span><h1>Şu An Masada</h1><p>Kitaplarla, notlarla ve sorularla devam eden bir çalışma.</p></section>','su-an-masada'))
