@@ -126,3 +126,11 @@ if(document.querySelector('article[data-article="true"]') && location.pathname.s
 }
 
 {const deskScript=document.createElement('script');deskScript.src='/reading-desk.js?v=20261014-six-designs';document.body.append(deskScript);}
+
+/* Copyright notice on existing pages and generated footers. */
+{
+  const copyright = document.querySelector('.footer > span');
+  if (copyright && !copyright.textContent.includes('Her hakkı mahfuzdur')) {
+    copyright.append(document.createTextNode(' · Her hakkı mahfuzdur.'));
+  }
+}
