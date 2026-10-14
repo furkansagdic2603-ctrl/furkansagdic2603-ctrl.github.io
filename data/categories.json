@@ -175,5 +175,10 @@
     "slug": "su-an-masada",
     "name": "Şu An Masada",
     "parent": "kitap-notlari"
+  },
+  {
+    "slug": "estetigin-cagdas-retorikleri",
+    "name": "Estetiğin Çağdaş Retorikleri",
+    "parent": "kitap-notlari/felsefe/estetik-felsefesi"
   }
 ]
