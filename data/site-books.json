@@ -96,5 +96,15 @@
     "fallback": "teal",
     "createdAt": "2026-10-05T18:11:00.498Z",
     "updatedAt": "2026-10-05T18:14:18.704Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/estetik-felsefesi/estetigin-cagdas-retorikleri",
+    "title": "Estetiğin Çağdaş Retorikleri",
+    "author": "Necmi Karkın",
+    "description": "Modern yüzyıl Duchamp'ın \"kaçınılması gereken en büyük zevk estetik zevktir\" deyimiyle sanat ve estetik arasındaki yol ayrımını belirleyen bir yüzyıldır. Bu bakımdan Modern yüzyılın belirleyici bir kavşak noktası olması önemlidir. Çağdaş yüzyıl, mantığı ve içeriği öngörülen kavramlar, nesneler, metalar ve enformatik durumlar nedeniyle estetiğin asal değerlerinden uzaklaştığı süreçtir. Bu süreçte, estetik bir anlam üretmekten çok, bilgi ve kavramın öne çıktığını göstermekte ve estetik değer yargı",
+    "category": "kitap-notlari/felsefe/estetik-felsefesi",
+    "cover": "/assets/uploads/2026-10-14/bf5a723a-26ec-4ecb-a4a2-1fc43e152956.jpg",
+    "fallback": "teal",
+    "createdAt": "2026-10-14T18:34:22.548Z"
   }
 ]
