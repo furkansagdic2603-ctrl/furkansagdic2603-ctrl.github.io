@@ -2,7 +2,7 @@
   if (location.pathname.replace(/\/$/, '') !== '/kitap-notlari') return;
   const main = document.querySelector('main');
   if (!main) return;
-  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261013-mode-switch'; document.head.append(css);
+  const css = document.createElement('link'); css.rel = 'stylesheet'; css.href = '/bookshelf.css?v=20261014-clean-switch'; document.head.append(css);
   const el = (tag, cls, text) => { const n = document.createElement(tag); n.className = cls || ''; if (text) n.textContent = text; return n; };
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
@@ -159,19 +159,8 @@
     setMode(initialMode);renderCarousel(0);
     const heading=main.querySelector('.page-head');
     const legacy=[...main.children].filter(n=>n!==heading);
-    const switcher=el('nav','library-design-switch');switcher.setAttribute('aria-label','Kitap Notları görünümü');
-    const modern=el('button','','Kitaplık'), classic=el('button','','Eski Tasarım');
-    modern.type=classic.type='button';switcher.append(modern,classic);
-    let selected='modern';try{selected=localStorage.getItem('library-design')||selected;}catch{}
-    function choose(value){
-      const old=value==='classic';section.hidden=old;
-      legacy.forEach(n=>n.hidden=!old);
-      modern.setAttribute('aria-pressed',String(!old));classic.setAttribute('aria-pressed',String(old));
-      try{localStorage.setItem('library-design',old?'classic':'modern');}catch{}
-    }
-    modern.onclick=()=>choose('modern');classic.onclick=()=>choose('classic');
-    if(heading)heading.after(switcher,section);else main.prepend(switcher,section);
-    choose(selected);
+    legacy.forEach(node=>node.hidden=true);
+    if(heading)heading.after(section);else main.prepend(section);
   }
   start().catch(()=>{/* Existing categories and notes stay usable. */});
 })();
