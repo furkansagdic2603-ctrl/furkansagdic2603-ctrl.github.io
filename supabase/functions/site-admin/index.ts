@@ -13,6 +13,17 @@ const cors = {
 const result = (data: object, status = 200) => new Response(JSON.stringify(data), { status, headers: cors });
 const slug = (s: string) => s.toLocaleLowerCase('tr').replace(/[ıİ]/g, 'i').replace(/ğ/g, 'g').replace(/ü/g, 'u').replace(/ş/g, 's').replace(/ö/g, 'o').replace(/ç/g, 'c').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
 const escapeHtml = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
+const sanitizeArticleHtml = (value: string) => {
+  let html = String(value || '');
+  // Strip executable/document-level elements commonly carried by rich clipboard HTML.
+  html = html.replace(/<\\s*(script|iframe|object|embed|form|base|link|meta)\\b[^>]*>[\\s\\S]*?<\\s*\\/\\s*\\1\\s*>/gi, '');
+  html = html.replace(/<\\s*(script|iframe|object|embed|form|base|link|meta)\\b[^>]*\\/?>/gi, '');
+  // Strip inline event handlers and dangerous URL schemes while retaining normal formatting.
+  html = html.replace(/\\s+on[a-z0-9_-]+\\s*=\\s*(?:"[^"]*"|'[^']*'|[^\\s>]+)/gi, '');
+  html = html.replace(/\\s+(href|src|xlink:href|formaction)\\s*=\\s*(["'])\\s*javascript:[\\s\\S]*?\\2/gi, '');
+  html = html.replace(/\\s+srcdoc\\s*=\\s*(?:"[^"]*"|'[^']*'|[^\\s>]+)/gi, '');
+  return html;
+};
 type Category = { slug: string; name: string; parent?: string };
 const categoryPath = (item: Category) => `${item.parent ? item.parent + '/' : ''}${item.slug}`;
 const ghUrl = (path: string) => `https://api.github.com/repos/${REPOSITORY}/contents/${path.split('/').map(encodeURIComponent).join('/')}`;
@@ -359,7 +370,7 @@ Deno.serve(async req => {
       const category = String(input.category || '');
       if (!categories.some(item => categoryPath(item) === category)) return result({ error: 'Kategori geçersiz.' }, 400);
       if (!title || title.length > 160 || description.length > 500 || !body) return result({ error: 'Başlık veya yazı içeriği geçersiz.' }, 400);
-      if (/<\s*(script|iframe|object|embed|form|base|link|meta)\b|\bon[a-z]+\s*=|javascript:/i.test(body)) return result({ error: 'Yazı içinde izin verilmeyen HTML var.' }, 400);
+      body = sanitizeArticleHtml(body);
       body = await persistPdfAttachments(token, body);
       const article = /(<article\b[^>]*\byazi-icerik\b[^>]*>)[\s\S]*?(<\/article>)/i;
       let updated = original.content;
@@ -377,7 +388,7 @@ Deno.serve(async req => {
       let body = String(input.body || '').trim();
       const category = String(input.category || '');
       if (!title || title.length > 160 || description.length > 500 || !body) return result({ error: 'Başlık veya yazı içeriği geçersiz.' }, 400);
-      if (/<\s*(script|iframe|object|embed|form|base|link|meta)\b|\bon[a-z]+\s*=|javascript:/i.test(body)) return result({ error: 'Yazı içinde izin verilmeyen HTML var.' }, 400);
+      body = sanitizeArticleHtml(body);
       const { categories } = await getCategories(token);
       const selected = categories.find(item => categoryPath(item) === category);
       if (!selected) return result({ error: 'Kategori geçersiz.' }, 400);
