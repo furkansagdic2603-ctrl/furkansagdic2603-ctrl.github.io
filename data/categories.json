@@ -180,5 +180,9 @@
     "slug": "estetigin-cagdas-retorikleri",
     "name": "Estetiğin Çağdaş Retorikleri",
     "parent": "kitap-notlari/felsefe/estetik-felsefesi"
+  },
+  {
+    "slug": "mecmua-yazilari",
+    "name": "MECMUA YAZILARI"
   }
 ]
