@@ -126,5 +126,15 @@
     "cover": "/assets/uploads/2026-10-17/163919b8-a9ea-4e24-b933-e951e5d5a407.jpg",
     "fallback": "ink",
     "createdAt": "2026-10-17T06:47:40.920Z"
+  },
+  {
+    "id": "kitap-notlari/sehirlerin-dili-ozel-sayisi",
+    "title": "Şehirlerin Dili Özel Sayısı",
+    "author": "müşterek",
+    "description": "",
+    "category": "kitap-notlari",
+    "cover": "",
+    "fallback": "burgundy",
+    "createdAt": "2026-10-17T07:21:01.746Z"
   }
 ]
