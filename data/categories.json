@@ -190,10 +190,5 @@
     "slug": "hecelerin-dili",
     "name": "HECELERİN DİLİ",
     "parent": "kitap-notlari/mecmualar"
-  },
-  {
-    "slug": "sehirlerin-dili",
-    "name": "Şehirlerin Dili",
-    "parent": "kitap-notlari"
   }
 ]
