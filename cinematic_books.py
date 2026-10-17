@@ -61,8 +61,12 @@ def build_cinematic(root, articles, categories, doc, write, topic='felsefe', hea
         # must open the page that lists its attached notes, not just one note.
         record_category = str(record.get('category','')).strip('/')
         record_id = str(record.get('id','')).strip('/')
-        if record_category and record_id.startswith(record_category + '/') and record_id.rsplit('/', 1)[-1] == record_category.rsplit('/', 1)[-1]:
-            b['url'] = '/' + record_category + '/'
+        # When the book is stored inside its own nested category, that category
+        # is the canonical landing page containing all attached notes.
+        if record_category and record_id.startswith(record_category + '/'):
+            category_page = root / record_category / 'index.html'
+            if category_page.is_file():
+                b['url'] = '/' + record_category + '/'
     books = list(groups.values())
     books.sort(key=lambda b: (('bir birey' not in b['title'].lower()) if topic == 'felsefe' else False, b['title'].lower()))
     e = lambda s: escape(str(s), quote=True)
