@@ -22,7 +22,11 @@ export function initBooks({ $, callAdmin, feedback }) {
     const categories = await res.json();
     const pathOf = item => (item.parent ? item.parent + '/' : '') + item.slug;
     const names = new Map(categories.map(item => [pathOf(item), item.name]));
-    const options = categories.filter(item => pathOf(item).startsWith('kitap-notlari/')).map(item => {
+    const bookRoots = new Set(['kitap-notlari', 'mecmua-yazilari']);
+    const options = categories.filter(item => {
+      const path = pathOf(item);
+      return Array.from(bookRoots).some(root => path === root || path.startsWith(root + '/'));
+    }).map(item => {
       const path = pathOf(item);
       const label = path.split('/').map((part,i,parts)=>names.get(parts.slice(0,i+1).join('/'))||part).join(' → ');
       return new Option(label, path);
