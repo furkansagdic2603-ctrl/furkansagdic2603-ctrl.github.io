@@ -112,6 +112,12 @@ def article_body(path):
     body = ''.join(etree.tostring(child,encoding='unicode',method='html') for child in art)
     if art.text: body = escape(art.text) + body
     category_override = art.get('data-category', '')
+    if not category_override:
+        rel_parts = path.relative_to(ROOT).parts
+        if len(rel_parts) >= 4:
+            inferred_parent = '/'.join(rel_parts[:-2])
+            if inferred_parent in CATEGORY_PATHS:
+                category_override = inferred_parent
     cover = art.get('data-cover', '')
     if not re.fullmatch(r'/assets/covers/[0-9]{4}-[0-9]{2}-[0-9]{2}/[0-9a-f-]+\.(?:png|jpg|webp)', cover): cover = ''
     return title,date,(desc[0] if desc else ''),body,category_override,cover
