@@ -180,5 +180,10 @@
     "slug": "estetigin-cagdas-retorikleri",
     "name": "Estetiğin Çağdaş Retorikleri",
     "parent": "kitap-notlari/felsefe/estetik-felsefesi"
+  },
+  {
+    "slug": "sehirlerin-dili",
+    "name": "ŞEHİRLERİN DİLİ",
+    "parent": "kitap-notlari"
   }
 ]
