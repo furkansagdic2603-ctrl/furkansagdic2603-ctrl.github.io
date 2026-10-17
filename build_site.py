@@ -192,6 +192,11 @@ for slug,name in CATS.items():
     if children and slug != 'kitap-notlari':
         links=''.join(f'<a href="/{escape(key)}/"><span>{escape(value)}</span><span>↗</span></a>' for key,value in children)
         inner=inner.replace('<section class="entries">','<div class="topic-grid">'+links+'</div><section class="entries">',1)
+    if slug == 'notlar':
+        note_count = len(matched)
+        inner = f'''<section class="page-head"><span class="eyebrow">FİKİR DEFTERİ</span><h1>Notlar</h1><p>Kısa sözlerden gelişmekte olan düşüncelere uzanan kişisel not defteri.</p></section><section class="notes-hub" aria-label="Not kategorileri"><a class="notes-hub-card quotes" href="/notlar/sozler/"><span class="note-mark">“</span><h2>Sözler</h2><p>Kısa cümleler, aforizmalar ve zihinde iz bırakan düşünce kırıntıları.</p><strong>Sözlere git →</strong></a><a class="notes-hub-card essays" href="/notlar/dusunce-notlari/"><span class="note-mark">✦</span><h2>Düşünce Notları</h2><p>Bir fikri birkaç paragrafta açan, makaleye dönüşmek zorunda olmayan düşünce yazıları.</p><strong>Notlara git →</strong></a></section>'''
+        if matched:
+            inner += '<section class="listing"><div class="section-heading"><h2>Son notlar</h2></div><div class="entries">'+''.join(card(a) for a in matched)+'</div></section>'
     if slug == 'kitap-notlari':
         links=''.join(f'<a href="/kitap-notlari/{key}/"><span>{value}</span><span>↗</span></a>' for key,value in BOOK_TOPICS.items())
         inner='<section class="page-head"><span class="eyebrow">OKUMA DEFTERİ</span><h1>Kitap Notları</h1><p>Okuduğum kitaplardan notlar, alıntılar ve değerlendirmeler.</p></section><div class="topic-grid">'+links+'</div><section class="listing"><div class="section-heading"><h2>Son kitap notları</h2></div><div class="entries">'+(''.join(card(a) for a in matched) if matched else '<p class="empty">Henüz kitap notu yayımlanmadı.</p>')+'</div></section>'
