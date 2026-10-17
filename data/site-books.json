@@ -126,5 +126,15 @@
     "cover": "/assets/uploads/2026-10-17/163919b8-a9ea-4e24-b933-e951e5d5a407.jpg",
     "fallback": "ink",
     "createdAt": "2026-10-17T06:47:40.920Z"
+  },
+  {
+    "id": "kitap-notlari/mecmualar/sehirlerin-dili/sehirlerin-dili",
+    "title": "Şehirlerin Dili",
+    "author": "Müşterek",
+    "description": "",
+    "category": "kitap-notlari/mecmualar/sehirlerin-dili",
+    "cover": "/assets/uploads/2026-10-17/138c283a-66e3-478d-b431-9a354a8a3bd1.jpg",
+    "fallback": "burgundy",
+    "createdAt": "2026-10-17T07:24:13.307Z"
   }
 ]
