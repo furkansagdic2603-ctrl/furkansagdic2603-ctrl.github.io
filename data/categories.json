@@ -190,5 +190,15 @@
     "slug": "sehirlerin-dili",
     "name": "Şehirlerin Dili",
     "parent": "kitap-notlari/mecmualar"
+  },
+  {
+    "slug": "sozler",
+    "name": "Sözler",
+    "parent": "notlar"
+  },
+  {
+    "slug": "dusunce-notlari",
+    "name": "Düşünce Notları",
+    "parent": "notlar"
   }
 ]
