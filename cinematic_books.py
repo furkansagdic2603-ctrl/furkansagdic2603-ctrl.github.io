@@ -56,6 +56,13 @@ def build_cinematic(root, articles, categories, doc, write, topic='felsefe', hea
             b['cover'] = saved_cover
         if record.get('author'):
             b['author'] = str(record['author'])
+        # A nested category can itself be the book landing page. This is used by
+        # collections such as Mecmualar > Şehirlerin Dili: clicking the book
+        # must open the page that lists its attached notes, not just one note.
+        record_category = str(record.get('category','')).strip('/')
+        record_id = str(record.get('id','')).strip('/')
+        if record_category and record_id.startswith(record_category + '/') and record_id.rsplit('/', 1)[-1] == record_category.rsplit('/', 1)[-1]:
+            b['url'] = '/' + record_category + '/'
     books = list(groups.values())
     books.sort(key=lambda b: (('bir birey' not in b['title'].lower()) if topic == 'felsefe' else False, b['title'].lower()))
     e = lambda s: escape(str(s), quote=True)
