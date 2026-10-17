@@ -215,7 +215,14 @@ for path, name in CATEGORY_PATHS.items():
     inner=f'<section class="page-head"><a class="back" href="/{parent}/">← {escape(CATEGORY_PATHS.get(parent, CATS.get(parent, parent)))}</a><h1>{escape(name)}</h1><p>{len(matched)} yazı</p></section>'
     if links: inner+='<div class="topic-grid">'+links+'</div>'
     is_chapter_index = path == 'kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri'
-    if is_chapter_index and matched:
+    is_words_page = path == 'notlar/sozler'
+    if is_words_page:
+        word_cards = ''.join(
+            f'<article class="soz-card"><span class="soz-quote" aria-hidden="true">“</span><p class="soz-text">{escape(a["description"] or a["title"])}</p><footer><div><span>NOTLAR · SÖZLER</span><small>{escape(a["date"])}</small></div><a href="{escape(a["url"], quote=True)}">Yazıyı oku →</a></footer></article>'
+            for a in matched
+        )
+        inner = f'<section class="page-head sozler-head"><a class="back" href="/notlar/">← Notlar</a><h1>Sözler</h1><p>Kısa düşünceler, notlar ve zihnime düşen sözler…</p><small>{len(matched)} yazı</small></section><section class="sozler-toolbar"><label><span aria-hidden="true">⌕</span><input id="soz-search" type="search" placeholder="Sözlerde ara…" aria-label="Sözlerde ara"></label><span>{len(matched)} söz</span></section><section class="sozler-grid">{word_cards if word_cards else "<p class=empty>Henüz söz yayımlanmadı.</p>"}</section><script>document.addEventListener("DOMContentLoaded",()=>{const q=document.getElementById("soz-search");if(!q)return;q.addEventListener("input",()=>{const s=q.value.toLocaleLowerCase("tr");document.querySelectorAll(".soz-card").forEach(c=>c.hidden=!c.textContent.toLocaleLowerCase("tr").includes(s))})})</script>'
+    elif is_chapter_index and matched:
         chapter_items = ''.join(
             f'<li><a class="chapter-title" href="{escape(a["url"], quote=True)}">{escape(re.sub(r"^\s*\d+\s*[-–.]\s*", "", a["title"]))}</a>'
             f'<a class="chapter-read" href="{escape(a["url"], quote=True)}" aria-label="{escape(a["title"], quote=True)} yazısını oku">Oku →</a></li>'
