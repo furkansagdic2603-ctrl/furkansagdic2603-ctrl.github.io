@@ -794,3 +794,12 @@ html[data-theme="dark"] .sozler-head:after{mix-blend-mode:normal;opacity:.09}
 .sozler-grid[style*="--soz-cols: 3"] .soz-card{padding-right:88px}
 .sozler-grid[style*="--soz-cols: 3"] .soz-card:after{width:68px;height:138px;right:8px}
 @media(max-width:760px){.soz-card{padding-right:88px}.soz-card:after{width:64px;height:126px;right:8px;top:14px;opacity:.45}.soz-card:nth-child(3n+2):after,.soz-card:nth-child(3n):after{opacity:.43}}
+
+/* Sözler: show every word, let cards grow with content */
+.soz-card{height:auto!important;min-height:0!important}
+.soz-text{display:block!important;-webkit-line-clamp:unset!important;-webkit-box-orient:initial!important;overflow:visible!important;text-overflow:clip!important;white-space:normal!important}
+.soz-card .soz-text{font-size:clamp(19px,1.45vw,26px)!important;line-height:1.48!important}
+.sozler-grid[style*="--soz-cols: 1"] .soz-card .soz-text{font-size:clamp(22px,1.65vw,28px)!important}
+.sozler-grid[style*="--soz-cols: 3"] .soz-card .soz-text{font-size:clamp(17px,1.15vw,21px)!important;line-height:1.5!important}
+.soz-card:has(.soz-text:nth-child(n)){align-self:start}
+@media(max-width:760px){.soz-card .soz-text{font-size:20px!important;line-height:1.5!important;display:block!important;overflow:visible!important}}
