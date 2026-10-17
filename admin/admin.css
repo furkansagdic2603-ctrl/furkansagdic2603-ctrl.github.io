@@ -185,3 +185,17 @@ html[data-theme="dark"] .admin-body{--admin-bg:#14211f;--admin-gold:#d2b578;back
 .document-importer{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px 18px;align-items:center;margin:18px 0;padding:16px 18px;border:1px solid var(--admin-line);border-radius:12px;background:var(--admin-soft)}
 .document-importer strong{display:block;font-family:Georgia,serif;font-size:17px}.document-importer p{margin:4px 0 0;color:var(--admin-muted);font-size:13px;line-height:1.45}.document-import-button{display:inline-flex;align-items:center;justify-content:center;padding:10px 15px;border:1px solid var(--admin-line);border-radius:8px;background:var(--admin-surface);font-weight:700;cursor:pointer}.document-import-button input{position:absolute;inline-size:1px;block-size:1px;opacity:0;pointer-events:none}.document-importer>span{font-size:12px;color:var(--admin-muted);overflow-wrap:anywhere}.document-importer>#article-document-status{grid-column:1/-1;margin:0}
 @media(max-width:700px){.document-importer{grid-template-columns:1fr}.document-import-button{justify-self:start}.document-importer>#article-document-status{grid-column:auto}}
+
+/* Quick Notlar composer */
+.notes-admin-intro{padding:24px 26px;margin-bottom:18px;border:1px solid var(--admin-line);border-radius:16px;background:linear-gradient(135deg,var(--admin-soft),var(--admin-surface))}
+.notes-admin-intro>span,.note-compose-card small{font-size:11px;font-weight:800;letter-spacing:.14em;color:var(--admin-gold)}
+.notes-admin-intro h2{margin:7px 0 5px;font:600 clamp(22px,3vw,32px)/1.15 Georgia,serif}.notes-admin-intro p{margin:0;color:var(--admin-muted)}
+.notes-admin-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);gap:18px}
+.note-compose-card{position:relative;display:grid;align-content:start;gap:15px;padding:24px;border:1px solid var(--admin-line);border-radius:16px;background:var(--admin-surface);overflow:hidden}
+.note-compose-card h2{margin:3px 0 5px;font:600 23px/1.15 Georgia,serif}.note-compose-card p{margin:0;color:var(--admin-muted);line-height:1.55}
+.note-compose-icon{position:absolute;right:18px;top:8px;font:72px/1 Georgia,serif;color:var(--admin-gold);opacity:.16;pointer-events:none}
+.note-compose-card textarea,.note-compose-card input{width:100%;box-sizing:border-box;border:1px solid var(--admin-line);border-radius:10px;background:var(--admin-soft);color:var(--admin-ink);padding:13px 14px;font:inherit}
+.quote-compose textarea{font:20px/1.7 Georgia,serif}.thought-compose textarea{line-height:1.7}
+.note-compose-card textarea:focus,.note-compose-card input:focus{outline:2px solid color-mix(in srgb,var(--admin-gold) 40%,transparent);border-color:var(--admin-gold)}
+.note-compose-actions{display:flex;gap:9px;flex-wrap:wrap}.note-compose-actions button{margin:0}
+@media(max-width:820px){.notes-admin-grid{grid-template-columns:1fr}.note-compose-card{padding:20px}}
