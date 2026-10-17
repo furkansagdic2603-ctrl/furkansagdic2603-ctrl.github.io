@@ -125,6 +125,43 @@ export function createArticles({ $, callAdmin, feedback }) {
     finally{documentFile.disabled=false;event.target.value='';}
   });
 
+  // Clean rich HTML copied from Word/web pages before it reaches the server.
+  // Formatting such as headings, lists, tables and images is preserved, while
+  // executable/document-level HTML is removed.
+  function sanitizeEditorHtml(html) {
+    const template = document.createElement('template');
+    template.innerHTML = String(html || '');
+    template.content.querySelectorAll('script,iframe,object,embed,form,base,link,meta').forEach(node => node.remove());
+    template.content.querySelectorAll('*').forEach(node => {
+      for (const attr of [...node.attributes]) {
+        const name = attr.name.toLowerCase();
+        const value = attr.value.trim();
+        if (name.startsWith('on')) node.removeAttribute(attr.name);
+        else if ((name === 'href' || name === 'src' || name === 'xlink:href' || name === 'formaction') && /^\\s*javascript:/i.test(value)) node.removeAttribute(attr.name);
+        else if (name === 'srcdoc') node.removeAttribute(attr.name);
+      }
+    });
+    return template.innerHTML;
+  }
+
+  $('editor').addEventListener('paste', event => {
+    const html = event.clipboardData?.getData('text/html');
+    if (!html) return;
+    event.preventDefault();
+    const clean = sanitizeEditorHtml(html);
+    if (document.queryCommandSupported?.('insertHTML')) document.execCommand('insertHTML', false, clean);
+    else {
+      const selection = window.getSelection();
+      if (!selection?.rangeCount) return;
+      const range = selection.getRangeAt(0);
+      range.deleteContents();
+      const fragment = range.createContextualFragment(clean);
+      range.insertNode(fragment);
+      range.collapse(false);
+    }
+    $('editor').dispatchEvent(new Event('input', { bubbles: true }));
+  });
+
   function resetEditor() {
     editing = null;
     bookCovers.load(null);
@@ -200,7 +237,10 @@ export function createArticles({ $, callAdmin, feedback }) {
     finally { button.disabled = false; }
   });
   $('publish').addEventListener('click', async () => {
-    const title = $('title').value.trim(), body = bookCovers.body($('editor').innerHTML.trim());
+    const title = $('title').value.trim();
+    const cleanedEditorHtml = sanitizeEditorHtml($('editor').innerHTML.trim());
+    if (cleanedEditorHtml !== $('editor').innerHTML.trim()) $('editor').innerHTML = cleanedEditorHtml;
+    const body = bookCovers.body(cleanedEditorHtml);
     if (!title || !$('editor').textContent.trim()) { feedback('Başlık ve yazı içeriği gerekli.'); return; }
     const category = $('category').value;
     const description = $('description').value.trim() || $('editor').textContent.trim().slice(0, 160);
