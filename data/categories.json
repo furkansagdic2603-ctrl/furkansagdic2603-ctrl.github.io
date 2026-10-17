@@ -185,5 +185,10 @@
     "slug": "mecmualar",
     "name": "Mecmualar",
     "parent": "kitap-notlari"
+  },
+  {
+    "slug": "sehirlerin-dili",
+    "name": "Şehirlerin Dili",
+    "parent": "kitap-notlari/mecmualar"
   }
 ]
