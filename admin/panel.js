@@ -1,6 +1,6 @@
 import { createAuth } from './modules/auth.js?v=20261005-widepdf';
 import { createCategories } from './modules/categories.js?v=20261003-booknotes3';
-import { createArticles } from './modules/articles.js?v=20261005-widepdf';
+import { createArticles } from './modules/articles.js?v=20261017-pastefix1';
 import { createComments } from './modules/comments.js';
 import { createStats } from './modules/stats.js';
 import { createTheme } from './modules/theme.js';
