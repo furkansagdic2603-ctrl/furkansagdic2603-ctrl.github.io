@@ -50,6 +50,9 @@ def build_cinematic(root, articles, categories, doc, write, topic='felsefe', hea
     for b in groups.values():
         record = catalog_by_id.get(str(b.get('url','')).strip('/')) or catalog_by_title.get(str(b.get('title','')).strip().casefold())
         if not record:
+            book_url = str(b.get('url','')).strip('/')
+            record = next((item for item in catalog if book_url and str(item.get('id','')).strip('/').startswith(book_url.rsplit('/', 1)[0] + '/')), None)
+        if not record:
             continue
         saved_cover = str(record.get('cover','')).strip()
         if saved_cover.startswith('/assets/') and '..' not in saved_cover:
@@ -64,6 +67,9 @@ def build_cinematic(root, articles, categories, doc, write, topic='felsefe', hea
         # When the book is stored inside its own nested category, that category
         # is the canonical landing page containing all attached notes.
         if record_category and record_id.startswith(record_category + '/'):
+            # Prefer the real category landing page whenever it exists. This
+            # also fixes catalog-only book ids such as
+            # .../siratimustakim-ve-sebilurresad whose own folder was never created.
             category_page = root / record_category / 'index.html'
             if category_page.is_file():
                 b['url'] = '/' + record_category + '/'
