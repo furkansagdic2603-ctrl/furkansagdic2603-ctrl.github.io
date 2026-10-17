@@ -769,3 +769,17 @@ html[data-hero="tezhip"] .heritage-hero::before{content:none;display:none}
 .sozler-grid[style*="--soz-cols: 3"] .soz-card{padding:24px 22px 18px}
 .sozler-grid[style*="--soz-cols: 3"] .soz-text{font-size:clamp(18px,1.35vw,23px)!important;max-width:100%}
 @media(max-width:760px){.soz-view-controls button[data-cols="2"],.soz-view-controls button[data-cols="3"]{display:none}.soz-view-controls>span{display:none}.sozler-grid{grid-template-columns:1fr!important}}
+
+/* Sözler tezhip layer: illuminated-manuscript atmosphere */
+html[data-category-design="notlar"] body{background-image:radial-gradient(circle at 50% 0,color-mix(in srgb,var(--gold) 8%,transparent),transparent 34%)}
+html[data-category-design="notlar"] .sozler-head{position:relative;isolation:isolate;overflow:hidden}
+html[data-category-design="notlar"] .sozler-head:after{content:"";position:absolute;inset:8px;z-index:-1;pointer-events:none;background:url('/assets/tezhip-frame.webp') center/100% 100% no-repeat;opacity:.13;mix-blend-mode:multiply}
+.sozler-grid{position:relative;padding:20px 24px 28px}
+.sozler-grid:before,.sozler-grid:after{content:"";position:absolute;top:0;bottom:0;width:17px;pointer-events:none;opacity:.38;background:linear-gradient(90deg,transparent 0 18%,color-mix(in srgb,var(--gold) 75%,transparent) 19% 25%,transparent 26% 38%,color-mix(in srgb,var(--accent) 68%,transparent) 39% 46%,transparent 47% 59%,color-mix(in srgb,var(--gold) 62%,transparent) 60% 66%,transparent 67%),repeating-linear-gradient(45deg,transparent 0 8px,color-mix(in srgb,var(--accent) 18%,transparent) 9px 10px,transparent 11px 17px)}
+.sozler-grid:before{left:0}.sozler-grid:after{right:0;transform:scaleX(-1)}
+.soz-card{border-color:color-mix(in srgb,var(--gold) 68%,var(--rule));background:linear-gradient(145deg,color-mix(in srgb,var(--surface) 94%,#ead59d),var(--surface))}
+.soz-card:before{content:"";position:absolute;inset:8px;border:1px solid color-mix(in srgb,var(--gold) 28%,transparent);border-radius:8px;pointer-events:none}
+.soz-card:after{width:92px;height:132px;right:10px;top:8px;opacity:.16;background:radial-gradient(circle at 50% 22%,var(--gold) 0 3px,transparent 4px),radial-gradient(ellipse at 50% 60%,var(--accent) 0 3px,transparent 4px),repeating-conic-gradient(from 15deg at 50% 55%,color-mix(in srgb,var(--gold) 72%,transparent) 0 7deg,transparent 7deg 24deg);clip-path:polygon(46% 0,56% 0,58% 32%,88% 47%,65% 58%,88% 79%,58% 72%,52% 100%,45% 72%,13% 80%,37% 58%,10% 47%,43% 32%)}
+.soz-quote{color:color-mix(in srgb,var(--accent) 68%,var(--gold))}
+@media(max-width:760px){.sozler-grid{padding:12px 12px 20px}.sozler-grid:before,.sozler-grid:after{width:8px;opacity:.28}.soz-card:after{width:66px;height:96px;opacity:.12}}
+html[data-theme="dark"] .sozler-head:after{mix-blend-mode:normal;opacity:.09}
