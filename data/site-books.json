@@ -116,5 +116,15 @@
     "cover": "/assets/uploads/2026-10-17/284d6cf4-510d-4ede-9d22-fe5828406fdb.jpg",
     "fallback": "ochre",
     "createdAt": "2026-10-17T06:40:34.680Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/gunumuzde-felsefe-disiplinleri",
+    "title": "Günümüzde Felsefe Disiplinleri",
+    "author": "Doğan Özlem",
+    "description": "Bu kitapta, bu tür iki kitaptan seçilmiş yazıların çevirileri yer almaktadır. 15 ila 35 sayfalık bu yazılar, sadece felsefe disiplinlerini tanıtma amacına da yönelik değildir ve yazarların kendi bakış açılarından o disiplinle ilgili görüş ve eleştirilerini de içermektedir.",
+    "category": "kitap-notlari/felsefe",
+    "cover": "/assets/uploads/2026-10-17/163919b8-a9ea-4e24-b933-e951e5d5a407.jpg",
+    "fallback": "ink",
+    "createdAt": "2026-10-17T06:47:40.920Z"
   }
 ]
