@@ -783,3 +783,14 @@ html[data-category-design="notlar"] .sozler-head:after{content:"";position:absol
 .soz-quote{color:color-mix(in srgb,var(--accent) 68%,var(--gold))}
 @media(max-width:760px){.sozler-grid{padding:12px 12px 20px}.sozler-grid:before,.sozler-grid:after{width:8px;opacity:.28}.soz-card:after{width:66px;height:96px;opacity:.12}}
 html[data-theme="dark"] .sozler-head:after{mix-blend-mode:normal;opacity:.09}
+
+/* Illustrated tezhip flowers inside Sözler cards */
+.soz-card{padding-right:126px}
+.soz-card:after{content:"";position:absolute;right:12px;top:18px;width:94px;height:174px;background:url('/assets/ornaments/tezhip-tulip.svg') center/contain no-repeat;clip-path:none;opacity:.58;filter:saturate(.82);pointer-events:none}
+.soz-card:nth-child(3n+2):after{background-image:url('/assets/ornaments/tezhip-blue-flower.svg');opacity:.55}
+.soz-card:nth-child(3n):after{background-image:url('/assets/ornaments/tezhip-saz.svg');opacity:.56}
+.soz-card .soz-text{max-width:100%}
+.soz-card footer{position:relative;z-index:1}
+.sozler-grid[style*="--soz-cols: 3"] .soz-card{padding-right:88px}
+.sozler-grid[style*="--soz-cols: 3"] .soz-card:after{width:68px;height:138px;right:8px}
+@media(max-width:760px){.soz-card{padding-right:88px}.soz-card:after{width:64px;height:126px;right:8px;top:14px;opacity:.45}.soz-card:nth-child(3n+2):after,.soz-card:nth-child(3n):after{opacity:.43}}
