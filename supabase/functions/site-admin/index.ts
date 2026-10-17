@@ -15,13 +15,16 @@ const slug = (s: string) => s.toLocaleLowerCase('tr').replace(/[ıİ]/g, 'i').re
 const escapeHtml = (s: string) => s.replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]!);
 const sanitizeArticleHtml = (value: string) => {
   let html = String(value || '');
-  // Strip executable/document-level elements commonly carried by rich clipboard HTML.
-  html = html.replace(/<\\s*(script|iframe|object|embed|form|base|link|meta)\\b[^>]*>[\\s\\S]*?<\\s*\\/\\s*\\1\\s*>/gi, '');
-  html = html.replace(/<\\s*(script|iframe|object|embed|form|base|link|meta)\\b[^>]*\\/?>/gi, '');
-  // Strip inline event handlers and dangerous URL schemes while retaining normal formatting.
-  html = html.replace(/\\s+on[a-z0-9_-]+\\s*=\\s*(?:"[^"]*"|'[^']*'|[^\\s>]+)/gi, '');
-  html = html.replace(/\\s+(href|src|xlink:href|formaction)\\s*=\\s*(["'])\\s*javascript:[\\s\\S]*?\\2/gi, '');
-  html = html.replace(/\\s+srcdoc\\s*=\\s*(?:"[^"]*"|'[^']*'|[^\\s>]+)/gi, '');
+  const blocked = ['script','iframe','object','embed','form','base','link','meta'];
+  for (const tag of blocked) {
+    const paired = new RegExp('<' + tag + '\\b[^>]*>[\\s\\S]*?<\\/' + tag + '\\s*>', 'gi');
+    const single = new RegExp('<' + tag + '\\b[^>]*\\/?>', 'gi');
+    html = html.replace(paired, '').replace(single, '');
+  }
+  html = html.replace(/\s+on[a-z0-9_-]+\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
+  html = html.replace(/\s+(href|src|xlink:href|formaction)\s*=\s*"\s*javascript:[^"]*"/gi, '');
+  html = html.replace(/\s+(href|src|xlink:href|formaction)\s*=\s*'\s*javascript:[^']*'/gi, '');
+  html = html.replace(/\s+srcdoc\s*=\s*(?:"[^"]*"|'[^']*'|[^\s>]+)/gi, '');
   return html;
 };
 type Category = { slug: string; name: string; parent?: string };
