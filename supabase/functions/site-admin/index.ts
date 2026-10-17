@@ -242,7 +242,7 @@ Deno.serve(async req => {
       const cover = String(input.cover || '').trim();
       if (!title || title.length > 160 || author.length > 160 || description.length > 500) return result({ error: 'Kitap bilgileri geçersiz.' }, 400);
       const { categories } = await getCategories(token);
-      if (!category.startsWith('kitap-notlari/') || !categories.some(item => categoryPath(item) === category)) return result({ error: 'Kitap Notları altında geçerli bir kategori seç.' }, 400);
+      if (!/^(kitap-notlari|mecmua-yazilari)(?:\/|$)/.test(category) || !categories.some(item => categoryPath(item) === category)) return result({ error: 'Kitap için geçerli bir kategori seç.' }, 400);
       if (cover && !/^\/assets\/uploads\/[a-zA-Z0-9_./-]+$/.test(cover)) return result({ error: 'Kapak yolu geçersiz.' }, 400);
       const path = 'data/site-books.json';
       const existing = await fetch(ghUrl(path), { headers: ghHeaders(token) });
@@ -267,7 +267,7 @@ Deno.serve(async req => {
       const cover = String(input.cover || '').trim();
       if (!id || !title || title.length > 160 || author.length > 160 || description.length > 500) return result({ error: 'Kitap bilgileri geçersiz.' }, 400);
       const { categories } = await getCategories(token);
-      if (!category.startsWith('kitap-notlari/') || !categories.some(item => categoryPath(item) === category)) return result({ error: 'Kitap Notları altında geçerli bir kategori seç.' }, 400);
+      if (!/^(kitap-notlari|mecmua-yazilari)(?:\/|$)/.test(category) || !categories.some(item => categoryPath(item) === category)) return result({ error: 'Kitap için geçerli bir kategori seç.' }, 400);
       if (cover && !/^\/assets\/uploads\/[a-zA-Z0-9_./-]+$/.test(cover)) return result({ error: 'Kapak yolu geçersiz.' }, 400);
       const path = 'data/site-books.json';
       const existing = await fetch(ghUrl(path), { headers: ghHeaders(token) });
@@ -284,8 +284,8 @@ Deno.serve(async req => {
     if (input.action === 'delete_book') {
       const id = String(input.id || '').trim();
       const sourcePath = String(input.sourcePath || '').trim().replace(/^\/+|\/+$/g, '');
-      if (!/^kitap-notlari\/[a-z0-9-]+(?:\/[a-z0-9-]+){1,5}$/.test(id)) return result({ error: 'Kitap kimliği geçersiz.' }, 400);
-      if (sourcePath && !/^kitap-notlari\/[a-z0-9-]+(?:\/[a-z0-9-]+){1,6}$/.test(sourcePath)) return result({ error: 'Kitap yolu geçersiz.' }, 400);
+      if (!/^(?:kitap-notlari|mecmua-yazilari)\/[a-z0-9-]+(?:\/[a-z0-9-]+){0,5}$/.test(id)) return result({ error: 'Kitap kimliği geçersiz.' }, 400);
+      if (sourcePath && !/^(?:kitap-notlari|mecmua-yazilari)\/[a-z0-9-]+(?:\/[a-z0-9-]+){0,6}$/.test(sourcePath)) return result({ error: 'Kitap yolu geçersiz.' }, 400);
       const catalogPath = 'data/site-books.json';
       const existing = await fetch(ghUrl(catalogPath), { headers: ghHeaders(token) });
       let books: any[] = [], catalogSha: string | undefined;
@@ -296,7 +296,7 @@ Deno.serve(async req => {
       const treeRes = await fetch('https://api.github.com/repos/' + REPOSITORY + '/git/trees/main?recursive=1', { headers: ghHeaders(token) });
       if (!treeRes.ok) throw new Error('Site dosyaları taranamadı.');
       const tree = await treeRes.json();
-      const candidates = (tree.tree || []).filter((item: any) => item.type === 'blob' && /^kitap-notlari\/.+\/index\.html$/.test(item.path));
+      const candidates = (tree.tree || []).filter((item: any) => item.type === 'blob' && /^(?:kitap-notlari|mecmua-yazilari)\/.+\/index\.html$/.test(item.path));
       const deletePaths = new Set<string>();
       for (const item of candidates) {
         if (sourcePath && (item.path === sourcePath + '/index.html' || item.path.startsWith(sourcePath + '/'))) deletePaths.add(item.path);
