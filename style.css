@@ -717,3 +717,14 @@ html[data-hero="tezhip"] .heritage-hero::before{content:none;display:none}
 .cinema-book.is-open .cinema-pages>i:nth-child(3){transform:translateZ(0) rotateY(-7deg);transition-delay:.21s}
 @media(max-width:700px){.cinema-book.is-open .cinema-cover{transform:translateZ(9px) rotateY(-34deg)}}
 @media(prefers-reduced-motion:reduce){.cinema-cover,.cinema-pages>i{transition:none}}
+
+/* Notlar: personal notebook hub */
+.notes-hub{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:28px 0 42px}
+.notes-hub-card{position:relative;display:block;min-height:230px;padding:30px;border:1px solid color-mix(in srgb,var(--ink) 16%,transparent);border-radius:18px;background:color-mix(in srgb,var(--paper) 94%,var(--accent));text-decoration:none;overflow:hidden;transition:transform .2s ease,border-color .2s ease}
+.notes-hub-card:hover{transform:translateY(-4px);border-color:var(--accent)}
+.notes-hub-card .note-mark{display:block;font-family:Georgia,serif;font-size:54px;line-height:.8;color:var(--accent);opacity:.7;margin-bottom:25px}
+.notes-hub-card h2{font-family:Georgia,serif;font-size:clamp(1.55rem,3vw,2.25rem);margin:0 0 12px;color:var(--ink)}
+.notes-hub-card p{max-width:42ch;margin:0;color:color-mix(in srgb,var(--ink) 72%,transparent);line-height:1.7}
+.notes-hub-card strong{display:inline-block;margin-top:24px;color:var(--accent);font-size:.9rem;letter-spacing:.04em}
+.notes-hub-card.quotes:after{content:"“";position:absolute;right:18px;bottom:-52px;font-family:Georgia,serif;font-size:190px;color:var(--accent);opacity:.07}
+@media(max-width:700px){.notes-hub{grid-template-columns:1fr}.notes-hub-card{min-height:190px;padding:24px}}
