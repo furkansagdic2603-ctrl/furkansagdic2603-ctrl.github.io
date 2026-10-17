@@ -106,5 +106,15 @@
     "cover": "/assets/uploads/2026-10-14/bf5a723a-26ec-4ecb-a4a2-1fc43e152956.jpg",
     "fallback": "teal",
     "createdAt": "2026-10-14T18:34:22.548Z"
+  },
+  {
+    "id": "kitap-notlari/sinema/sinemanin-kokleri",
+    "title": "Sinemanın Kökleri",
+    "author": "Enver Gülşen",
+    "description": "Sinemanın Kökleri, temel derdi eskimeyende yeni bir söz söylemek olan bir yürüyüşün ara duraklarından birisidir. Film sanatının imkânlarını, diğer sanatlardan da alınan ilhamla keşfedip hem diğer sanatların, hem de film sanatının hakikatini anlama çabasıdır.\n \n \"Batı düşüncesi ve sanatının kriz noktasında ortaya çıkmış bir sanat olarak sinema, insanlığın ‘yeni söz’ arayışının, yani karanlığın zirvesinde gerçekleşmiş bir doğum ânının ismi olarak, bir yandan içinden çıktığı karanlığın unsurlarını",
+    "category": "kitap-notlari/sinema",
+    "cover": "/assets/uploads/2026-10-17/284d6cf4-510d-4ede-9d22-fe5828406fdb.jpg",
+    "fallback": "ochre",
+    "createdAt": "2026-10-17T06:40:34.680Z"
   }
 ]
