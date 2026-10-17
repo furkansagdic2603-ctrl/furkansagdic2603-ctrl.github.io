@@ -136,5 +136,15 @@
     "cover": "/assets/uploads/2026-10-17/138c283a-66e3-478d-b431-9a354a8a3bd1.jpg",
     "fallback": "burgundy",
     "createdAt": "2026-10-17T07:24:13.307Z"
+  },
+  {
+    "id": "kitap-notlari/sirat-i-mustakim-sebil-rresad-mecmuasi/siratimustakim-ve-sebilurresad",
+    "title": "Sıratımüstakim ve Sebilürreşad",
+    "author": "Müşterek",
+    "description": "",
+    "category": "kitap-notlari/sirat-i-mustakim-sebil-rresad-mecmuasi",
+    "cover": "",
+    "fallback": "teal",
+    "createdAt": "2026-10-17T07:36:13.126Z"
   }
 ]
