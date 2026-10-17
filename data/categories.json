@@ -185,5 +185,10 @@
     "slug": "mecmualar",
     "name": "MECMUALAR",
     "parent": "kitap-notlari"
+  },
+  {
+    "slug": "hecelerin-dili",
+    "name": "HECELERİN DİLİ",
+    "parent": "kitap-notlari/mecmualar"
   }
 ]
