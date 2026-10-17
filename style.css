@@ -759,3 +759,13 @@ html[data-hero="tezhip"] .heritage-hero::before{content:none;display:none}
  .soz-text{max-width:100%;font-size:20px!important;-webkit-line-clamp:7}
  .soz-card footer{align-items:center}.soz-card footer small{font-size:9px}
 }
+
+/* Reader-controlled Sözler grid density */
+.sozler-grid{grid-template-columns:repeat(var(--soz-cols,2),minmax(0,1fr))}
+.soz-view-controls{display:flex;align-items:center;gap:5px;margin-left:auto}
+.soz-view-controls>span{margin-right:4px;font-size:11px;letter-spacing:.08em;color:var(--muted)}
+.soz-view-controls button{display:grid;place-items:center;width:32px;height:32px;padding:0;border:1px solid var(--rule);border-radius:7px;background:var(--surface);color:var(--muted);font:700 12px/1 var(--sans);cursor:pointer}
+.soz-view-controls button:hover,.soz-view-controls button[aria-pressed="true"]{border-color:var(--gold);background:color-mix(in srgb,var(--surface) 88%,var(--gold));color:var(--accent)}
+.sozler-grid[style*="--soz-cols: 3"] .soz-card{padding:24px 22px 18px}
+.sozler-grid[style*="--soz-cols: 3"] .soz-text{font-size:clamp(18px,1.35vw,23px)!important;max-width:100%}
+@media(max-width:760px){.soz-view-controls button[data-cols="2"],.soz-view-controls button[data-cols="3"]{display:none}.soz-view-controls>span{display:none}.sozler-grid{grid-template-columns:1fr!important}}
