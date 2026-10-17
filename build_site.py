@@ -263,6 +263,7 @@ write('robots.txt', 'User-agent: *\nAllow: /\nSitemap: https://furkansagdic.com.
 from cinematic_books import build_cinematic
 build_cinematic(ROOT, articles, CATEGORY_PATHS, doc, write, 'felsefe', 'Felsefe')
 build_cinematic(ROOT, articles, CATEGORY_PATHS, doc, write, 'sanat', 'Sanat')
+build_cinematic(ROOT, articles, CATEGORY_PATHS, doc, write, 'mecmualar', 'Mecmualar')
 
 # Refresh series navigation whenever published chapters are rebuilt.
 from series_navigation import build_series_navigation
