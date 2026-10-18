@@ -258,3 +258,5 @@ html[data-theme="dark"] .admin-body{--admin-bg:#14211f;--admin-gold:#d2b578;back
 .admin-metrics>div{border-radius:14px!important;box-shadow:0 8px 20px rgba(54,43,29,.045)}
 .admin-shortcuts button{border-radius:14px!important}
 @media(max-width:900px){.admin-welcome{grid-template-columns:1fr!important}.admin-welcome-art{min-height:180px!important}.admin-welcome-copy{padding:30px 26px!important}}
+
+.quote-admin-tool .fields{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.quote-admin-tool .fields .wide{grid-column:1/-1}.quote-admin-tool textarea{width:100%;resize:vertical}.quote-admin-list{display:grid;gap:10px;margin-top:20px}.quote-admin-list article{display:flex;justify-content:space-between;gap:20px;padding:14px 16px;border:1px solid #ded7c8;border-radius:12px;background:#fffdf7}.quote-admin-list article div{min-width:0}.quote-admin-list small{display:block;opacity:.58;margin:3px 0 7px}.quote-admin-list p{margin:0;white-space:pre-wrap}.quote-admin-list button{align-self:center}@media(max-width:750px){.quote-admin-tool .fields{grid-template-columns:1fr}.quote-admin-tool .fields .wide{grid-column:auto}}
