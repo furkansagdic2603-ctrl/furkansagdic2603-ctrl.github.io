@@ -2,8 +2,8 @@
   const KEY='furkan-site-music';
   const state={volume:.12,muted:false,playing:false,source:'',title:'Sükûnet',track:0,position:0,startedAt:0,ctx:null,timer:null,audio:null};
   try{Object.assign(state,JSON.parse(localStorage.getItem(KEY)||'{}'));}catch{}
-  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify({volume:state.volume,muted:state.muted,track:state.track,position:currentPosition(),playing:state.playing,savedAt:Date.now()}))}catch{}};
   const currentPosition=()=>{if(state.source&&state.audio)return state.audio.currentTime||0;if(state.playing&&state.startedAt)return state.position+(performance.now()-state.startedAt)/1000;return state.position||0;};
+  const save=()=>{try{localStorage.setItem(KEY,JSON.stringify({volume:state.volume,muted:state.muted,track:state.track,position:currentPosition(),playing:state.playing,savedAt:Date.now()}))}catch{}};
   const clamp=n=>Math.max(0,Math.min(1,Number(n)||0));
   const root=document.createElement('aside');root.className='site-music';root.setAttribute('aria-label','Site müziği');
   root.innerHTML='<button class="site-music-main" type="button" aria-label="Müziği aç veya durdur"><span class="site-music-disc" aria-hidden="true"><i>♪</i></span><span class="site-music-copy"><small>MECLİSİN SESİ</small><strong>Sükûnet</strong></span><span class="site-music-bars" aria-hidden="true"><i></i><i></i><i></i></span></button><div class="site-music-panel"><button class="site-music-prev" type="button" aria-label="Önceki müzik">‹</button><button class="site-music-next" type="button" aria-label="Sonraki müzik">›</button><button class="site-music-mute" type="button" aria-label="Sesi kapat">♬</button><input class="site-music-volume" type="range" min="0" max="100" value="12" aria-label="Müzik sesi"><output>12%</output></div>';
