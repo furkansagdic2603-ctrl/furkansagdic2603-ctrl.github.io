@@ -134,3 +134,7 @@ if(document.querySelector('article[data-article="true"]') && location.pathname.s
     copyright.append(document.createTextNode(' · Her hakkı mahfuzdur.'));
   }
 }
+
+
+/* Soft site music control. */
+{const musicScript=document.createElement('script');musicScript.src='/site-music.js?v=20261018-1';document.body.append(musicScript);}
