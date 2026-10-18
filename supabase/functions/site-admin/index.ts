@@ -329,6 +329,59 @@ Deno.serve(async req => {
       }
       return result({ ok: true, deleted, title: catalogBook?.title || String(input.title || 'Kitap') });
     }
+    if (input.action === 'set_book_cover') {
+      const id = String(input.id || '').trim();
+      const filename = String(input.filename || '');
+      const type = String(input.mime || '');
+      const base64 = String(input.data || '');
+      const formats: Record<string, { ext: string; magic: number[] }> = {
+        'image/jpeg': { ext: 'jpg', magic: [0xff, 0xd8, 0xff] },
+        'image/png': { ext: 'png', magic: [0x89, 0x50, 0x4e, 0x47] },
+        'image/gif': { ext: 'gif', magic: [0x47, 0x49, 0x46, 0x38] },
+        'image/webp': { ext: 'webp', magic: [0x52, 0x49, 0x46, 0x46] },
+      };
+      const format = formats[type];
+      if (!id || !format || !filename || filename.length > 120 || /[\\/\r\n]/.test(filename) || !/^[A-Za-z0-9+/]+={0,2}$/.test(base64) || base64.length > 2_800_000) return result({ error: 'Geçerli bir kitap ve en fazla 2 MB JPEG, PNG, GIF veya WebP kapak seç.' }, 400);
+      const binary = atob(base64);
+      if (binary.length > 2 * 1024 * 1024 || !format.magic.every((byte, index) => binary.charCodeAt(index) === byte) || (type === 'image/webp' && binary.slice(8, 12) !== 'WEBP')) return result({ error: 'Kapak görselinin biçimi veya boyutu geçersiz.' }, 400);
+
+      // Upload and catalog binding happen in one server request. The client can no
+      // longer finish the upload while silently losing the book-cover association.
+      const coverPath = `assets/uploads/${new Date().toISOString().slice(0, 10)}/${crypto.randomUUID()}.${format.ext}`;
+      const upload = await fetch(ghUrl(coverPath), {
+        method: 'PUT', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' },
+        body: JSON.stringify({ message: `Upload book cover: ${filename}`, content: base64 }),
+      });
+      if (!upload.ok) throw new Error(`Kapak yükleme hatası (${upload.status}).`);
+
+      const catalogPath = 'data/site-books.json';
+      for (let attempt = 0; attempt < 3; attempt++) {
+        const existing = await fetch(ghUrl(catalogPath), { headers: ghHeaders(token), cache: 'no-store' });
+        if (!existing.ok) throw new Error('Kitap kataloğu okunamadı.');
+        const file = await existing.json();
+        const books: any[] = JSON.parse(decode(file.content));
+        const index = books.findIndex(book => book.id === id);
+        if (index < 0) throw new Error('Kapak bağlanacak kitap bulunamadı.');
+        const cover = '/' + coverPath;
+        books[index] = { ...books[index], cover, updatedAt: new Date().toISOString() };
+        const save = await fetch(ghUrl(catalogPath), {
+          method: 'PUT', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' },
+          body: JSON.stringify({ message: 'Set book cover: ' + books[index].title, content: encode(JSON.stringify(books, null, 2) + '\\n'), sha: file.sha }),
+        });
+        if (save.ok) {
+          const verify = await fetch(ghUrl(catalogPath), { headers: ghHeaders(token), cache: 'no-store' });
+          if (!verify.ok) throw new Error('Kapak kaydı doğrulanamadı.');
+          const verifiedFile = await verify.json();
+          const verifiedBooks: any[] = JSON.parse(decode(verifiedFile.content));
+          const book = verifiedBooks.find(item => item.id === id);
+          if (!book || book.cover !== cover) throw new Error('Kapak yüklendi fakat kitap kaydı doğrulanamadı.');
+          return result({ book, url: cover });
+        }
+        if (save.status !== 409 && save.status !== 422) throw new Error(`Kapak kitap kaydına bağlanamadı (${save.status}).`);
+        await new Promise(resolve => setTimeout(resolve, 250 * (attempt + 1)));
+      }
+      throw new Error('Kitap kataloğu aynı anda değişti. Kapak kaydı güvenli biçimde tamamlanamadı; tekrar dene.');
+    }
     if (input.action === 'upload_image') {
       const filename = String(input.filename || '');
       const type = String(input.mime || '');
