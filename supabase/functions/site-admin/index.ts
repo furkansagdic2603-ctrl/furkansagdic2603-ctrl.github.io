@@ -172,7 +172,27 @@ async function googleBooksLookup(query:string){
  if(!r.ok)return[];
  const data=await r.json();return (Array.isArray(data.items)?data.items:[]).map((x:any)=>{const d=x.volumeInfo||{},ids=Array.isArray(d.industryIdentifiers)?d.industryIdentifiers:[],found=isbn||String(ids.find((z:any)=>z.type==='ISBN_13')?.identifier||ids.find((z:any)=>z.type==='ISBN_10')?.identifier||'');let cover=String(d.imageLinks?.extraLarge||d.imageLinks?.large||d.imageLinks?.medium||d.imageLinks?.thumbnail||'').replace(/^http:/,'https:');return{title:String(d.title||'').slice(0,160),author:String(d.authors?.join(', ')||'').slice(0,160),description:String(d.description||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,500),cover,publisher:String(d.publisher||'').slice(0,160),isbn:found.slice(0,40),pages:String(d.pageCount||''),publishDate:String(d.publishedDate||''),sourceUrl:String(d.infoLink||''),source:'Google Books'};}).filter((x:any)=>x.title);
 }
-async function fallbackBookLookup(query:string){const g=await googleBooksLookup(query);if(g.length)return g;return await openLibraryLookup(query);}
+async function trBookLookup(query:string){
+ const raw=query.replace(/^https?:\/\/\S+$/i,'').trim();if(!raw)return[];
+ const sources=[
+  {name:'1000Kitap',url:'https://1000kitap.com/arama?q='+encodeURIComponent(raw),host:'1000kitap.com'},
+  {name:'BKM Kitap',url:'https://www.bkmkitap.com/arama?q='+encodeURIComponent(raw),host:'bkmkitap.com'},
+  {name:'D&R',url:'https://www.dr.com.tr/search?q='+encodeURIComponent(raw),host:'dr.com.tr'},
+  {name:'idefix',url:'https://www.idefix.com/search?q='+encodeURIComponent(raw),host:'idefix.com'}
+ ];
+ const results:any[]=[];
+ for(const src of sources){
+  try{
+   const r=await fetch(src.url,{headers:{'User-Agent':'Mozilla/5.0 (compatible; FurkanSagdicBookAdmin/1.0)','Accept':'text/html,application/xhtml+xml','Accept-Language':'tr-TR,tr;q=0.9'},redirect:'follow',signal:AbortSignal.timeout(9000)});
+   if(!r.ok)continue;const html=await r.text();const links=new Set<string>();
+   for(const m of html.matchAll(/href=["']([^"'#]+)["']/gi)){try{const u=new URL(m[1],src.url);if((u.hostname===src.host||u.hostname.endsWith('.'+src.host))&&/(kitap|book|urun|product)/i.test(u.pathname)){links.add(u.href);if(links.size>=5)break;}}catch{}}
+   for(const url of [...links].slice(0,3)){try{const p=await fetch(url,{headers:{'User-Agent':'Mozilla/5.0 (compatible; FurkanSagdicBookAdmin/1.0)','Accept':'text/html','Accept-Language':'tr-TR,tr;q=0.9'},redirect:'follow',signal:AbortSignal.timeout(7000)});if(!p.ok)continue;const h=await p.text(),title=kyMeta(h,'og:title').replace(/\s*[|–-].*$/,'').trim(),cover=kyMeta(h,'og:image'),description=kyMeta(h,'og:description');if(title&&title.toLocaleLowerCase('tr').includes(raw.toLocaleLowerCase('tr').split(/\s+/)[0]))results.push({title:title.slice(0,160),author:'',description:description.slice(0,500),cover,publisher:'',isbn:'',pages:'',publishDate:'',sourceUrl:url,source:src.name});}catch{}}
+  }catch{}
+  if(results.length>=6)break;
+ }
+ return results;
+}
+async function fallbackBookLookup(query:string){const g=await googleBooksLookup(query);if(g.length)return g;const o=await openLibraryLookup(query);if(o.length)return o;return await trBookLookup(query);}
 async function openLibraryLookup(query:string){
  const isbn=(query.match(/(?:97[89][\s-]?)?(?:\d[\s-]?){9}[\dXx]/)||[])[0]?.replace(/[\s-]/g,'')||'';
  const q=isbn?('isbn:'+isbn):query.replace(/^https?:\/\/\S+$/i,'').trim();
@@ -188,7 +208,7 @@ function kyProduct(html:string,sourceUrl:string){
  const field=(label:string)=>{const pos=html.toLocaleLowerCase('tr').indexOf(label.toLocaleLowerCase('tr'));if(pos<0)return'';return kyClean(html.slice(pos,pos+350)).replace(new RegExp('^.*?'+label+'\\s*:?\\s*','i'),'').slice(0,100);};isbn||=field('ISBN').split(' ')[0];pages||=field('Sayfa Sayısı').split(' ')[0];publishDate||=field('Yayın Tarihi').split(' ')[0];
  return{title:title.slice(0,160),author:author.slice(0,160),description:description.slice(0,500),cover,publisher:publisher.slice(0,160),isbn:isbn.slice(0,40),pages:pages.slice(0,30),publishDate:publishDate.slice(0,40),sourceUrl};
 }
-async function kySaveCover(token:string,remoteUrl:string){const u=new URL(remoteUrl);if(!/(^|\.)(?:kitapyurdu\.(?:com|net)|covers\.openlibrary\.org|books\.googleusercontent\.com|googleusercontent\.com)$/i.test(u.hostname))throw new Error('Kapak adresi izin verilen kitap kaynağında değil.');const r=await fetch(u.href,{headers:{'User-Agent':'Mozilla/5.0',Referer:'https://www.kitapyurdu.com/'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error('Kitapyurdu kapağı indirilemedi.');const bytes=new Uint8Array(await r.arrayBuffer());if(!bytes.length||bytes.length>2*1024*1024)throw new Error('Kitapyurdu kapağı çok büyük veya boş.');const ct=(r.headers.get('content-type')||'').toLowerCase(),ext=ct.includes('png')?'png':ct.includes('webp')?'webp':ct.includes('gif')?'gif':'jpg';let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));const path='assets/uploads/'+new Date().toISOString().slice(0,10)+'/'+crypto.randomUUID()+'.'+ext;const put=await fetch(ghUrl(path),{method:'PUT',headers:{...ghHeaders(token),'Content-Type':'application/json'},body:JSON.stringify({message:'Import Kitapyurdu book cover',content:btoa(binary)})});if(!put.ok)throw new Error('Kitapyurdu kapağı siteye kaydedilemedi ('+put.status+').');return'/'+path;}
+async function kySaveCover(token:string,remoteUrl:string){const u=new URL(remoteUrl);if(!/(^|\.)(?:kitapyurdu\.(?:com|net)|covers\.openlibrary\.org|books\.googleusercontent\.com|googleusercontent\.com|1000kitap\.com|bkmkitap\.com|dr\.com\.tr|idefix\.com)$/i.test(u.hostname))throw new Error('Kapak adresi izin verilen kitap kaynağında değil.');const r=await fetch(u.href,{headers:{'User-Agent':'Mozilla/5.0',Referer:'https://www.kitapyurdu.com/'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error('Kitapyurdu kapağı indirilemedi.');const bytes=new Uint8Array(await r.arrayBuffer());if(!bytes.length||bytes.length>2*1024*1024)throw new Error('Kitapyurdu kapağı çok büyük veya boş.');const ct=(r.headers.get('content-type')||'').toLowerCase(),ext=ct.includes('png')?'png':ct.includes('webp')?'webp':ct.includes('gif')?'gif':'jpg';let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));const path='assets/uploads/'+new Date().toISOString().slice(0,10)+'/'+crypto.randomUUID()+'.'+ext;const put=await fetch(ghUrl(path),{method:'PUT',headers:{...ghHeaders(token),'Content-Type':'application/json'},body:JSON.stringify({message:'Import Kitapyurdu book cover',content:btoa(binary)})});if(!put.ok)throw new Error('Kitapyurdu kapağı siteye kaydedilemedi ('+put.status+').');return'/'+path;}
 
 Deno.serve(async req => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: cors });
