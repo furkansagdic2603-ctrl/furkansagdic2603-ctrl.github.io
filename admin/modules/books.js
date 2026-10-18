@@ -164,8 +164,8 @@ export function initBooks({ $, callAdmin, feedback }) {
     }));
   };
   $('ky-book-search').addEventListener('click',async()=>{
-    const query=$('ky-book-query').value.trim();if(!query){kyStatus.textContent='Kitap adı, ISBN veya Kitapyurdu bağlantısı yaz.';return;}
-    const button=$('ky-book-search');button.disabled=true;kyStatus.textContent='Kitapyurdu aranıyor…';kyResults.replaceChildren();
+    const query=$('ky-book-query').value.trim();if(!query){kyStatus.textContent='ISBN-10 veya ISBN-13 numarasını yaz.';return;}
+    const button=$('ky-book-search');button.disabled=true;kyStatus.textContent='ISBN kitap kaynaklarında aranıyor…';kyResults.replaceChildren();
     try{const data=await callAdmin('kitapyurdu_lookup',{query});const items=Array.isArray(data.results)?data.results:[];renderKyResults(items);kyStatus.textContent=data.message||(items.length?items.length+' sonuç bulundu. Doğru kitabı seç.':'Sonuç bulunamadı. Kitap adı veya ISBN ile tekrar deneyebilirsin.');}
     catch(err){kyStatus.textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
   });
