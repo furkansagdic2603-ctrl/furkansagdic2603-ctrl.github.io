@@ -96,21 +96,17 @@ export function initBooks({ $, callAdmin, feedback }) {
     try{
       const dataUrl=await new Promise((resolve,reject)=>{const r=new FileReader();r.onload=()=>resolve(String(r.result));r.onerror=()=>reject(new Error('Kapak okunamadı.'));r.readAsDataURL(file);});
       editLocalPreview=dataUrl; editPreview(); feedback('Yeni kapak yükleniyor…');
-      const result=await callAdmin('upload_image',{filename:file.name,mime:file.type,data:dataUrl.slice(dataUrl.indexOf(',')+1)});
-      if(!result.url) throw new Error('Kapak yükleme tamamlanamadı.');
-      uploadedPreviews.set(result.url,dataUrl); editCover=result.url; editPreview();
-      // Editing an existing book: bind the uploaded cover immediately so it cannot
-      // be lost if the user leaves before pressing the general save button.
-      const id=$('edit-book-id').value, title=$('edit-book-title').value.trim(), category=$('edit-book-category').value;
-      if(id && title && category){
-        $('edit-book-status').textContent='Kapak kitaba bağlanıyor…';
-        const saved=await callAdmin('update_book',{id,title,author:$('edit-book-author').value.trim(),description:$('edit-book-description').value.trim(),category,cover:editCover});
-        if(saved.book?.cover!==editCover) throw new Error('Kapak kitap kaydına bağlanamadı.');
-        savedBooks.set(saved.book.id,saved.book);
-        editCover=saved.book.cover||editCover;
-        await loadLibrary();
-      }
-      editPreview(); $('edit-book-status').textContent='Kapak yüklendi ve kitaba kaydedildi.'; feedback('Kapak kitaba kaydedildi.');
+      const id=$('edit-book-id').value;
+      if(!id) throw new Error('Kapak bağlanacak kitap seçili değil.');
+      const result=await callAdmin('set_book_cover',{id,filename:file.name,mime:file.type,data:dataUrl.slice(dataUrl.indexOf(',')+1)});
+      if(!result.url || result.book?.cover!==result.url) throw new Error('Kapak yükleme ve kitap eşleştirmesi tamamlanamadı.');
+      uploadedPreviews.set(result.url,dataUrl);
+      editCover=result.url;
+      savedBooks.set(result.book.id,result.book);
+      editPreview();
+      await loadLibrary();
+      $('edit-book-status').textContent='Kapak yüklendi, kitaba bağlandı ve doğrulandı.';
+      feedback('Kapak kitaba kaydedildi ve doğrulandı.');
     }catch(err){editLocalPreview='';editPreview();$('edit-book-status').textContent=err.message;feedback(err.message);}
     finally{editUploadPending=false;saveButton.disabled=false;}
   });
