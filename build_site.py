@@ -212,7 +212,10 @@ for slug,name in CATS.items():
             notes=[a for a in matched if a.get('categoryPath','').startswith('kitap-notlari/'+key)]
             topic='<section class="page-head"><a class="back" href="/kitap-notlari/">← Kitap Notları</a><h1>'+value+'</h1><p>'+str(len(notes))+' kitap notu</p></section><section class="entries">'+(''.join(card(a) for a in notes) if notes else '<p class="empty">Bu kategoride henüz kitap notu yayımlanmadı.</p>')+'</section>'
             write(f'kitap-notlari/{key}/index.html',doc(value+' — Kitap Notları',topic,slug))
-    write(f'{slug}/index.html',doc(name,inner,slug))
+    page_html=doc(name,inner,slug)
+    if slug == 'iktibas-alintilar':
+        page_html=page_html.replace('</body>','<script src="/quote-lab.js?v=20261018-admin3" defer></script></body>')
+    write(f'{slug}/index.html',page_html)
 # Show nested categories at every level, including existing philosophy pages.
 for path, name in CATEGORY_PATHS.items():
     if '/' not in path: continue
