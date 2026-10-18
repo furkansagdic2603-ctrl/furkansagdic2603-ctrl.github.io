@@ -151,6 +151,20 @@ async function getArticle(token: string, path: string, categories: Category[]) {
   return { content, sha: file.sha as string };
 }
 
+
+const kyClean=(v:string)=>v.replace(/<br\s*\/?>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&#39;|&apos;/gi,"'").replace(/\s+/g,' ').trim();
+const kyMeta=(html:string,key:string)=>{for(const tag of html.match(/<meta\b[^>]*>/gi)||[]){if(tag.toLowerCase().includes(key.toLowerCase())){const m=tag.match(/content=["']([^"']*)["']/i);if(m)return kyClean(m[1]);}}return'';};
+const kySafeUrl=(v:string)=>{try{const u=new URL(v);return /(^|\.)kitapyurdu\.com$/i.test(u.hostname)?u.href:'';}catch{return'';}};
+async function kyFetch(url:string){const r=await fetch(url,{headers:{'User-Agent':'Mozilla/5.0 (compatible; FurkanBookImporter/1.0)','Accept-Language':'tr-TR,tr;q=0.9'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error('Kitapyurdu sayfası alınamadı ('+r.status+').');return await r.text();}
+function kyProduct(html:string,sourceUrl:string){
+ let title=kyMeta(html,'og:title').replace(/\s*Fiyatı,.*$/i,'').trim(),description=kyMeta(html,'og:description'),cover=kyMeta(html,'og:image'),author='',publisher='',isbn='',pages='',publishDate='';
+ for(const m of html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)){try{const root=JSON.parse(m[1]);const walk=(o:any)=>{if(!o||typeof o!=='object')return;const t=String(o['@type']||'').toLowerCase();if(t==='product'||t==='book'){title||=String(o.name||'');description||=kyClean(String(o.description||''));const im=Array.isArray(o.image)?o.image[0]:o.image;cover||=typeof im==='string'?im:String(im?.url||'');const a=Array.isArray(o.author)?o.author[0]:o.author;author||=typeof a==='string'?a:String(a?.name||'');const p=Array.isArray(o.publisher)?o.publisher[0]:o.publisher;publisher||=typeof p==='string'?p:String(p?.name||o.brand?.name||'');isbn||=String(o.isbn||'');pages||=String(o.numberOfPages||'');publishDate||=String(o.datePublished||'');}for(const v of Object.values(o)){if(Array.isArray(v))v.forEach(walk);else if(v&&typeof v==='object')walk(v);}};(Array.isArray(root)?root:[root]).forEach(walk);}catch{}}
+ const h1=html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);title||=h1?kyClean(h1[1]):'';const am=html.match(/<a[^>]+href=["'][^"']*(?:yazar|manufacturer)[^"']*["'][^>]*>([\s\S]*?)<\/a>/i);author||=am?kyClean(am[1]):'';
+ const field=(label:string)=>{const pos=html.toLocaleLowerCase('tr').indexOf(label.toLocaleLowerCase('tr'));if(pos<0)return'';return kyClean(html.slice(pos,pos+350)).replace(new RegExp('^.*?'+label+'\\s*:?\\s*','i'),'').slice(0,100);};isbn||=field('ISBN').split(' ')[0];pages||=field('Sayfa Sayısı').split(' ')[0];publishDate||=field('Yayın Tarihi').split(' ')[0];
+ return{title:title.slice(0,160),author:author.slice(0,160),description:description.slice(0,500),cover,publisher:publisher.slice(0,160),isbn:isbn.slice(0,40),pages:pages.slice(0,30),publishDate:publishDate.slice(0,40),sourceUrl};
+}
+async function kySaveCover(token:string,remoteUrl:string){const u=new URL(remoteUrl);if(!/(^|\.)kitapyurdu\.(?:com|net)$/i.test(u.hostname))throw new Error('Kapak adresi Kitapyurdu alanında değil.');const r=await fetch(u.href,{headers:{'User-Agent':'Mozilla/5.0',Referer:'https://www.kitapyurdu.com/'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error('Kitapyurdu kapağı indirilemedi.');const bytes=new Uint8Array(await r.arrayBuffer());if(!bytes.length||bytes.length>2*1024*1024)throw new Error('Kitapyurdu kapağı çok büyük veya boş.');const ct=(r.headers.get('content-type')||'').toLowerCase(),ext=ct.includes('png')?'png':ct.includes('webp')?'webp':ct.includes('gif')?'gif':'jpg';let binary='';for(let i=0;i<bytes.length;i+=8192)binary+=String.fromCharCode(...bytes.subarray(i,i+8192));const path='assets/uploads/'+new Date().toISOString().slice(0,10)+'/'+crypto.randomUUID()+'.'+ext;const put=await fetch(ghUrl(path),{method:'PUT',headers:{...ghHeaders(token),'Content-Type':'application/json'},body:JSON.stringify({message:'Import Kitapyurdu book cover',content:btoa(binary)})});if(!put.ok)throw new Error('Kitapyurdu kapağı siteye kaydedilemedi ('+put.status+').');return'/'+path;}
+
 Deno.serve(async req => {
   if (req.method === 'OPTIONS') return new Response(null, { headers: cors });
   if (req.headers.get('Origin') !== SITE_ORIGIN) return result({ error: 'Bu kaynağa izin verilmedi.' }, 403);
@@ -329,6 +343,15 @@ Deno.serve(async req => {
       }
       return result({ ok: true, deleted, title: catalogBook?.title || String(input.title || 'Kitap') });
     }
+
+    if(input.action==='kitapyurdu_lookup'){
+      const query=String(input.query||'').trim();if(!query||query.length>300)return result({error:'Kitap adı, ISBN veya Kitapyurdu bağlantısı yaz.'},400);
+      const direct=kySafeUrl(query);if(direct&&/\/kitap\//i.test(new URL(direct).pathname))return result({results:[kyProduct(await kyFetch(direct),direct)]});
+      const html=await kyFetch('https://www.kitapyurdu.com/index.php?route=product/search&filter_name='+encodeURIComponent(query));const found=new Map<string,string>();
+      for(const m of html.matchAll(/<a[^>]+href=["'](https?:\/\/www\.kitapyurdu\.com\/kitap\/[^"'?#]+\/\d+\.html[^"']*)["'][^>]*>([\s\S]*?)<\/a>/gi)){const url=m[1].replace(/&amp;/g,'&'),title=kyClean(m[2]);if(title&&!found.has(url))found.set(url,title);if(found.size>=8)break;}
+      const detailed:any[]=[];for(const url of Array.from(found.keys()).slice(0,5)){try{detailed.push(kyProduct(await kyFetch(url),url));}catch{}}return result({results:detailed});
+    }
+    if(input.action==='kitapyurdu_import_cover'){const remoteUrl=String(input.url||'').trim();if(!remoteUrl)return result({error:'Kitapyurdu kapak adresi bulunamadı.'},400);return result({url:await kySaveCover(token,remoteUrl)});}
     if (input.action === 'set_book_cover') {
       const id = String(input.id || '').trim();
       const filename = String(input.filename || '');
