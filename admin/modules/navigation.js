@@ -6,6 +6,7 @@ const screens = {
   notes: ['Notlar', 'Sözlerini ve düşünce notlarını hızlıca yazıp paylaş.'],
   books: ['Kitaplar', 'Yeni kitap oluştur, kapak ve temel kitap bilgilerini kaydet.'],
   categories: ['Kategoriler', 'Ana ve alt kategorilerini tek yerden yönet.'],
+  quotes: ['Alıntılar', 'İnteraktif alıntı kitabını, etiketleri ve zaman çizelgesini yönet.'],
   media: ['Görseller', 'İktibas / Alıntılar bölümüne fotoğraf ekle.'],
   comments: ['Yorumlar', 'Okuyucuların yorumlarını incele ve yönet.'],
   stats: ['İstatistikler', 'Okunma sayılarını ve öne çıkan yazıları gör.'],
