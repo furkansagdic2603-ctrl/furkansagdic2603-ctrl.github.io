@@ -11,10 +11,10 @@
   const sync=()=>{range.value=String(Math.round(state.volume*100));out.textContent=Math.round(state.volume*100)+'%';root.classList.toggle('is-playing',state.playing&&!state.muted);root.classList.toggle('is-muted',state.muted);mute.textContent=state.muted?'♩':'♬';if(state.audio){state.audio.volume=state.muted?0:state.volume;}};
   function stopProcedural(){if(state.timer){clearTimeout(state.timer);state.timer=null;}if(state.ctx){state.ctx.close().catch(()=>{});state.ctx=null;}}
   function tone(freq,when,duration,gain){const ctx=state.ctx;if(!ctx)return;const osc=ctx.createOscillator(),g=ctx.createGain(),filter=ctx.createBiquadFilter();osc.type='sine';osc.frequency.value=freq;filter.type='lowpass';filter.frequency.value=1200;g.gain.setValueAtTime(.0001,when);g.gain.exponentialRampToValueAtTime(Math.max(.0002,gain),when+.35);g.gain.exponentialRampToValueAtTime(.0001,when+duration);osc.connect(filter).connect(g).connect(ctx.destination);osc.start(when);osc.stop(when+duration+.1);}
-  function schedule(){if(!state.ctx||!state.playing)return;const now=state.ctx.currentTime+.08,base=(state.muted?0:state.volume)*.045;[[293.66,0,4.8,.7],[440,1.7,4.2,.35],[369.99,4.4,5,.55],[329.63,7.8,4.8,.42],[493.88,10.8,4.5,.28],[369.99,13.8,5.5,.45]].forEach(([f,t,d,g])=>tone(f,now+t,d,base*g));state.timer=setTimeout(schedule,17500);}
+  function schedule(){if(!state.ctx||!state.playing)return;const now=state.ctx.currentTime+.08,base=(state.muted?0:state.volume)*.16;[[293.66,0,4.8,.7],[440,1.7,4.2,.35],[369.99,4.4,5,.55],[329.63,7.8,4.8,.42],[493.88,10.8,4.5,.28],[369.99,13.8,5.5,.45]].forEach(([f,t,d,g])=>tone(f,now+t,d,base*g));state.timer=setTimeout(schedule,17500);}
   async function play(){
     if(state.source){if(!state.audio){state.audio=new Audio(state.source);state.audio.loop=true;state.audio.preload='auto';}state.audio.volume=state.muted?0:state.volume;await state.audio.play();}
-    else{if(!state.ctx){state.ctx=new (window.AudioContext||window.webkitAudioContext)();schedule();}if(state.ctx.state==='suspended')await state.ctx.resume();}
+    else{if(!state.ctx){state.ctx=new (window.AudioContext||window.webkitAudioContext)();}if(state.ctx.state==='suspended')await state.ctx.resume();state.playing=true;schedule();sync();return;}
     state.playing=true;sync();
   }
   function pause(){state.playing=false;if(state.audio)state.audio.pause();stopProcedural();sync();}
