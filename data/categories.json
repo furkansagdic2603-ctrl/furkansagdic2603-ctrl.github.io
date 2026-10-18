@@ -205,5 +205,10 @@
     "slug": "dil-felsefesi",
     "name": "Dil Felsefesi",
     "parent": "kitap-notlari/felsefe"
+  },
+  {
+    "slug": "sanat-saadettin-ustaosmanoglu",
+    "name": "SANAT - Saadettin Ustaosmanoğlu",
+    "parent": "kitap-notlari/sanat"
   }
 ]
