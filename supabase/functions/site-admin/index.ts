@@ -348,7 +348,7 @@ Deno.serve(async req => {
       const query=String(input.query||'').trim();if(!query||query.length>300)return result({error:'Kitap adı, ISBN veya Kitapyurdu bağlantısı yaz.'},400);
       const direct=kySafeUrl(query);if(direct&&/\/kitap\//i.test(new URL(direct).pathname))return result({results:[kyProduct(await kyFetch(direct),direct)]});
       const html=await kyFetch('https://www.kitapyurdu.com/index.php?route=product/search&filter_name='+encodeURIComponent(query));const found=new Map<string,string>();
-      for(const m of html.matchAll(/<a[^>]+href=["'](https?:\/\/www\.kitapyurdu\.com\/kitap\/[^"'?#]+\/\d+\.html[^"']*)["'][^>]*>([\s\S]*?)<\/a>/gi)){const url=m[1].replace(/&amp;/g,'&'),title=kyClean(m[2]);if(title&&!found.has(url))found.set(url,title);if(found.size>=8)break;}
+      for(const m of html.matchAll(/<a[^>]+href=["']((?:https?:\/\/www\.kitapyurdu\.com)?\/kitap\/[^"'?#]+\/\d+\.html[^"']*)["'][^>]*>([\s\S]*?)<\/a>/gi)){let url=m[1].replace(/&amp;/g,'&');if(url.startsWith('/'))url='https://www.kitapyurdu.com'+url;const title=kyClean(m[2]);if(title&&!found.has(url))found.set(url,title);if(found.size>=8)break;}
       const detailed:any[]=[];for(const url of Array.from(found.keys()).slice(0,5)){try{detailed.push(kyProduct(await kyFetch(url),url));}catch{}}return result({results:detailed});
     }
     if(input.action==='kitapyurdu_import_cover'){const remoteUrl=String(input.url||'').trim();if(!remoteUrl)return result({error:'Kitapyurdu kapak adresi bulunamadı.'},400);return result({url:await kySaveCover(token,remoteUrl)});}
