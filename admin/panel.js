@@ -76,7 +76,7 @@ async function showPanel() {
   await categories.loadCategories();
   await articles.loadArticles();
   try {
-    const { initBooks } = await import('./modules/books.js?v=20261017-coverautosave1');
+    const { initBooks } = await import('./modules/books.js?v=20261018-atomiccover1');
     const books = initBooks({ $, callAdmin, feedback });
     await books.loadCategories();
     await books.loadLibrary();
