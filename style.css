@@ -819,3 +819,5 @@ html[data-theme="dark"] .sozler-head:after{mix-blend-mode:normal;opacity:.09}
 @media(prefers-reduced-motion:reduce){.site-music-disc,.site-music-bars i{animation:none!important}}
 
 .site-music-prev,.site-music-next{width:27px;height:27px;border:1px solid rgba(133,95,52,.14);border-radius:50%;background:rgba(133,95,52,.08);color:inherit;display:grid;place-items:center;font:20px/1 Georgia,serif;cursor:pointer;transition:.18s}.site-music-prev:hover,.site-music-next:hover{background:rgba(133,95,52,.17);transform:translateY(-1px)}
+
+.site-music-copy em.site-music-mood{font:normal 9px/1.25 system-ui,sans-serif;letter-spacing:.02em;opacity:.62;white-space:nowrap;max-width:150px;overflow:hidden;text-overflow:ellipsis}.site-music:hover .site-music-copy{min-width:128px}
