@@ -137,4 +137,4 @@ if(document.querySelector('article[data-article="true"]') && location.pathname.s
 
 
 /* Soft site music control. */
-{const musicScript=document.createElement('script');musicScript.src='/site-music.js?v=20261018-3';document.body.append(musicScript);}
+{const musicScript=document.createElement('script');musicScript.src='/site-music.js?v=20261018-4';document.body.append(musicScript);}
