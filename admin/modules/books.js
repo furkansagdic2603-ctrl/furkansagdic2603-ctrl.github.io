@@ -142,6 +142,34 @@ export function initBooks({ $, callAdmin, feedback }) {
       $('edit-book-card').hidden=true; feedback('“'+book.title+'” ve bağlı '+result.deleted+' içerik silindi.'); await loadLibrary();
     }catch(err){$('edit-book-status').textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
   });
+
+  const kyResults=$('ky-book-results'),kyStatus=$('ky-book-status');
+  const renderKyResults=items=>{
+    kyResults.replaceChildren(...items.map(item=>{
+      const card=document.createElement('button');card.type='button';card.className='ky-result-card';
+      if(item.cover){const img=document.createElement('img');img.src=item.cover;img.alt='';img.loading='lazy';card.append(img);}
+      const info=document.createElement('span'),strong=document.createElement('strong'),small=document.createElement('small'),meta=document.createElement('i');
+      strong.textContent=item.title||'Adsız kitap';small.textContent=item.author||item.publisher||'Yazar bilgisi yok';
+      meta.textContent=[item.publisher,item.isbn&&('ISBN '+item.isbn),item.pages&&item.pages+' sayfa'].filter(Boolean).join(' · ');
+      info.append(strong,small,meta);card.append(info);
+      card.addEventListener('click',async()=>{
+        $('new-book-title').value=item.title||'';$('new-book-author').value=item.author||'';$('new-book-description').value=(item.description||'').slice(0,500);$('new-book-fallback-title').textContent=item.title||'Kitap adı';
+        kyStatus.textContent='Bilgiler forma aktarıldı. Kapak siteye kopyalanıyor…';feedback('Kitapyurdu bilgileri getirildi.');
+        if(item.cover){
+          try{const imported=await callAdmin('kitapyurdu_import_cover',{url:item.cover});if(!imported.url)throw new Error('Kapak alınamadı.');cover=imported.url;localPreview=item.cover;uploadedPreviews.set(cover,item.cover);preview();kyStatus.textContent='Bilgiler ve kapak hazır. Kategoriyi seçip kitabı oluştur.';}
+          catch(err){kyStatus.textContent='Bilgiler geldi ancak kapak alınamadı: '+err.message;}
+        }else kyStatus.textContent='Bilgiler hazır. Bu kayıtta kapak bulunamadı.';
+        kyResults.replaceChildren();
+      });return card;
+    }));
+  };
+  $('ky-book-search').addEventListener('click',async()=>{
+    const query=$('ky-book-query').value.trim();if(!query){kyStatus.textContent='Kitap adı, ISBN veya Kitapyurdu bağlantısı yaz.';return;}
+    const button=$('ky-book-search');button.disabled=true;kyStatus.textContent='Kitapyurdu aranıyor…';kyResults.replaceChildren();
+    try{const data=await callAdmin('kitapyurdu_lookup',{query});const items=Array.isArray(data.results)?data.results:[];renderKyResults(items);kyStatus.textContent=items.length?items.length+' sonuç bulundu. Doğru kitabı seç.':'Sonuç bulunamadı. ISBN veya ürün bağlantısıyla tekrar deneyebilirsin.';}
+    catch(err){kyStatus.textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
+  });
+  $('ky-book-query').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('ky-book-search').click();}});
   $('new-book-title').addEventListener('input', () => { $('new-book-fallback-title').textContent = $('new-book-title').value.trim() || 'Kitap adı'; });
   $('new-book-cover').addEventListener('change', async event => {
     const file = event.target.files[0]; event.target.value = '';
