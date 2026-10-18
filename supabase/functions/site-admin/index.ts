@@ -405,6 +405,31 @@ Deno.serve(async req => {
       }
       throw new Error('Kitap kataloğu aynı anda değişti. Kapak kaydı güvenli biçimde tamamlanamadı; tekrar dene.');
     }
+
+    if (input.action === 'save_site_music') {
+      const title = String(input.title || 'Sükûnet').trim().slice(0,80) || 'Sükûnet';
+      const defaultVolume = Math.max(0, Math.min(0.5, Number(input.defaultVolume) || 0.12));
+      const filename = String(input.filename || '');
+      const type = String(input.mime || '');
+      const base64 = String(input.data || '');
+      let src = String(input.currentSrc || '').trim();
+      if (base64) {
+        const formats: Record<string,string> = { 'audio/mpeg':'mp3','audio/mp3':'mp3','audio/ogg':'ogg','audio/wav':'wav','audio/x-wav':'wav','audio/mp4':'m4a','audio/x-m4a':'m4a' };
+        const ext = formats[type];
+        if (!ext || !filename || filename.length > 120 || /[\\/\r\n]/.test(filename) || !/^[A-Za-z0-9+/]+={0,2}$/.test(base64) || base64.length > 11_500_000) return result({ error: 'MP3, OGG, WAV veya M4A seç; en fazla 8 MB.' }, 400);
+        const binary = atob(base64); if (binary.length > 8*1024*1024) return result({ error: 'Müzik dosyası en fazla 8 MB olabilir.' }, 400);
+        const path = 'assets/audio/' + new Date().toISOString().slice(0,10) + '/' + crypto.randomUUID() + '.' + ext;
+        const upload = await fetch(ghUrl(path), { method:'PUT', headers:{...ghHeaders(token),'Content-Type':'application/json'}, body:JSON.stringify({message:'Upload site music: '+filename,content:base64}) });
+        if (!upload.ok) throw new Error('Müzik yüklenemedi ('+upload.status+').');
+        src = '/' + path;
+      }
+      if (src && !/^\/assets\/audio\/[a-zA-Z0-9_./-]+$/.test(src)) return result({ error:'Müzik yolu geçersiz.' },400);
+      const path='data/site-music.json'; const existing=await fetch(ghUrl(path),{headers:ghHeaders(token)});
+      let sha:string|undefined;if(existing.ok){sha=(await existing.json()).sha;}else if(existing.status!==404)throw new Error('Müzik ayarları okunamadı.');
+      const config={title,src,defaultVolume};
+      await putFile(token,path,JSON.stringify(config,null,2)+'\n','Update site music',sha);
+      return result({config});
+    }
     if (input.action === 'upload_image') {
       const filename = String(input.filename || '');
       const type = String(input.mime || '');
