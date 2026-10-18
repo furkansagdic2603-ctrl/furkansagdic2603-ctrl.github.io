@@ -157,5 +157,15 @@
     "cover": "/assets/uploads/2026-10-17/a4c1b74b-91b7-4c42-8424-930c612b685e.jpg",
     "fallback": "ochre",
     "createdAt": "2026-10-17T18:58:57.640Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi",
+    "title": "50 Soruda Dil Felsefesi",
+    "author": "Atakan Altınörs",
+    "description": "Dilin mahiyetini/neliğini düşünce, kültür, varlık ile ilişkilerinde soruşturan yanıyla felsefeyi konu alan 50 Soruda Dil Felsefesi, “50 Soruda” dizisinin 14. kitabı. Yazarı Atakan Altınörs’ün Antikçağ’dan günümüze felsefe tarihinde dil hakkında ortaya konmuş başlıca görüşleri anlaşılır ve rahat okunan bir üslupla sunduğu kitapta yer alan bazı sorular şunlar:\n\nDil felsefesinin dilbilimden ayrılan yönü nedir? Hayvanlar arasındaki iletişim biçimleri bir dil meydana getirir mi? Dilin kökeni neden bi",
+    "category": "kitap-notlari/felsefe/dil-felsefesi",
+    "cover": "",
+    "fallback": "ink",
+    "createdAt": "2026-10-18T06:50:26.650Z"
   }
 ]
