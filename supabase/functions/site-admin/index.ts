@@ -155,7 +155,15 @@ async function getArticle(token: string, path: string, categories: Category[]) {
 const kyClean=(v:string)=>v.replace(/<br\s*\/?>/gi,' ').replace(/<[^>]+>/g,' ').replace(/&nbsp;/gi,' ').replace(/&amp;/gi,'&').replace(/&quot;/gi,'"').replace(/&#39;|&apos;/gi,"'").replace(/\s+/g,' ').trim();
 const kyMeta=(html:string,key:string)=>{for(const tag of html.match(/<meta\b[^>]*>/gi)||[]){if(tag.toLowerCase().includes(key.toLowerCase())){const m=tag.match(/content=["']([^"']*)["']/i);if(m)return kyClean(m[1]);}}return'';};
 const kySafeUrl=(v:string)=>{try{const u=new URL(v);return /(^|\.)kitapyurdu\.com$/i.test(u.hostname)?u.href:'';}catch{return'';}};
-async function kyFetch(url:string){const r=await fetch(url,{headers:{'User-Agent':'Mozilla/5.0 (compatible; FurkanBookImporter/1.0)','Accept-Language':'tr-TR,tr;q=0.9'},signal:AbortSignal.timeout(20000)});if(!r.ok)throw new Error('Kitapyurdu sayfası alınamadı ('+r.status+').');return await r.text();}
+async function kyFetch(url:string){
+ const headers={'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Safari/537.36','Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8','Accept-Language':'tr-TR,tr;q=0.9,en;q=0.7','Cache-Control':'no-cache','Pragma':'no-cache','Referer':'https://www.kitapyurdu.com/'};
+ const r=await fetch(url,{headers,redirect:'follow',signal:AbortSignal.timeout(20000)});
+ if(r.ok)return await r.text();
+ // Kitapyurdu sometimes refuses datacenter/server IPs with 403. Do not try to bypass
+ // their access controls; report it distinctly so the client can offer URL/manual fallback.
+ if(r.status===403)throw new Error('Kitapyurdu sunucu erişimini reddetti (403). Ürün bağlantısını doğrudan yapıştır veya bilgileri elle ekle.');
+ throw new Error('Kitapyurdu sayfası alınamadı ('+r.status+').');
+}
 function kyProduct(html:string,sourceUrl:string){
  let title=kyMeta(html,'og:title').replace(/\s*Fiyatı,.*$/i,'').trim(),description=kyMeta(html,'og:description'),cover=kyMeta(html,'og:image'),author='',publisher='',isbn='',pages='',publishDate='';
  for(const m of html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)){try{const root=JSON.parse(m[1]);const walk=(o:any)=>{if(!o||typeof o!=='object')return;const t=String(o['@type']||'').toLowerCase();if(t==='product'||t==='book'){title||=String(o.name||'');description||=kyClean(String(o.description||''));const im=Array.isArray(o.image)?o.image[0]:o.image;cover||=typeof im==='string'?im:String(im?.url||'');const a=Array.isArray(o.author)?o.author[0]:o.author;author||=typeof a==='string'?a:String(a?.name||'');const p=Array.isArray(o.publisher)?o.publisher[0]:o.publisher;publisher||=typeof p==='string'?p:String(p?.name||o.brand?.name||'');isbn||=String(o.isbn||'');pages||=String(o.numberOfPages||'');publishDate||=String(o.datePublished||'');}for(const v of Object.values(o)){if(Array.isArray(v))v.forEach(walk);else if(v&&typeof v==='object')walk(v);}};(Array.isArray(root)?root:[root]).forEach(walk);}catch{}}
@@ -347,7 +355,7 @@ Deno.serve(async req => {
     if(input.action==='kitapyurdu_lookup'){
       const query=String(input.query||'').trim();if(!query||query.length>300)return result({error:'Kitap adı, ISBN veya Kitapyurdu bağlantısı yaz.'},400);
       const direct=kySafeUrl(query);if(direct&&/\/kitap\//i.test(new URL(direct).pathname))return result({results:[kyProduct(await kyFetch(direct),direct)]});
-      const html=await kyFetch('https://www.kitapyurdu.com/index.php?route=product/search&filter_name='+encodeURIComponent(query));const found=new Map<string,string>();
+      let html='';try{html=await kyFetch('https://www.kitapyurdu.com/index.php?route=product/search&filter_name='+encodeURIComponent(query));}catch(err){if(String(err).includes('(403)')||String(err).includes('403'))return result({results:[],blocked:true,message:'Kitapyurdu arama isteğini sunucudan engelliyor. Kitapyurdu ürün bağlantısını doğrudan yapıştırmayı dene.'});throw err;}const found=new Map<string,string>();
       for(const m of html.matchAll(/<a[^>]+href=["']((?:https?:\/\/www\.kitapyurdu\.com)?\/kitap\/[^"'?#]+\/\d+\.html[^"']*)["'][^>]*>([\s\S]*?)<\/a>/gi)){let url=m[1].replace(/&amp;/g,'&');if(url.startsWith('/'))url='https://www.kitapyurdu.com'+url;const title=kyClean(m[2]);if(title&&!found.has(url))found.set(url,title);if(found.size>=8)break;}
       const detailed:any[]=[];for(const url of Array.from(found.keys()).slice(0,5)){try{detailed.push(kyProduct(await kyFetch(url),url));}catch{}}return result({results:detailed});
     }
