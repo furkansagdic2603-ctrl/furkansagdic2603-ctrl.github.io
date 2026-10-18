@@ -1,3 +1,10 @@
+const DASHBOARD_STYLE_KEY='furkan-admin-dashboard-style';
+function initDashboardStyle(){
+ const welcome=document.querySelector('.admin-welcome[data-dashboard-style]');if(!welcome)return;
+ let current='heritage';try{current=localStorage.getItem(DASHBOARD_STYLE_KEY)||current}catch{}
+ const apply=style=>{if(!['heritage','emerald','burgundy'].includes(style))style='heritage';welcome.dataset.dashboardStyle=style;welcome.querySelectorAll('[data-dashboard-theme]').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.dashboardTheme===style)));try{localStorage.setItem(DASHBOARD_STYLE_KEY,style)}catch{}};
+ welcome.querySelectorAll('[data-dashboard-theme]').forEach(b=>b.addEventListener('click',()=>apply(b.dataset.dashboardTheme)));apply(current);
+}
 import { createAuth } from './modules/auth.js?v=20261005-widepdf';
 import { createCategories } from './modules/categories.js?v=20261003-booknotes3';
 import { createArticles } from './modules/articles.js?v=20261017-pastefix1';
@@ -112,6 +119,7 @@ $('logout').addEventListener('click', () => {
   auth.clear();
   $('admin-panel').hidden = true; $('admin-login').hidden = false;
 });
-if (auth.signedIn) showPanel().catch(err => {
+if (auth.signedIn) initDashboardStyle();
+showPanel().catch(err => {
   auth.clear(); $('login-feedback').textContent = err.message;
 });
