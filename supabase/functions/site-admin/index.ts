@@ -476,6 +476,14 @@ Deno.serve(async req => {
       await putFile(token,path,JSON.stringify(config,null,2)+'\n','Update site music',sha);
       return result({config});
     }
+    if (input.action === 'save_quote_entry' || input.action === 'delete_quote_entry') {
+      const path='data/quotes.json'; const current=await fetch(ghUrl(path),{headers:ghHeaders(token)});let items:any[]=[];let sha:string|undefined;
+      if(current.ok){const data=await current.json();sha=data.sha;try{items=JSON.parse(decodeBase64Utf8(String(data.content||'').replace(/\n/g,'')));}catch{items=[];}}else if(current.status!==404)throw new Error('Alıntı verileri okunamadı.');
+      if(!Array.isArray(items))items=[];
+      if(input.action==='save_quote_entry'){const x=input.item||{},text=String(x.text||'').trim(),label=String(x.label||'').trim(),category=String(x.category||'idea'),chapter=String(x.chapter||'I'),color=String(x.color||'rose'),page=x.page?Number(x.page):null,id=String(x.id||crypto.randomUUID());if(!text||text.length>1200||label.length>100||!['idea','author','place','style','concept'].includes(category)||!['I','II','III','IV','V','VI','VII','VIII','IX'].includes(chapter)||!['rose','mint','blue','amber'].includes(color)||page!==null&&(!Number.isInteger(page)||page<1||page>9999))return result({error:'Alıntı bilgileri geçersiz.'},400);items.unshift({id,text,label,category,chapter,color,page,createdAt:new Date().toISOString()});}
+      else{const id=String(input.id||'');items=items.filter((x:any)=>String(x.id)!==id);}
+      await putFile(token,path,JSON.stringify(items,null,2)+'\n',input.action==='save_quote_entry'?'Add quotation':'Delete quotation',sha);return result({items});
+    }
     if (input.action === 'upload_image') {
       const filename = String(input.filename || '');
       const type = String(input.mime || '');
