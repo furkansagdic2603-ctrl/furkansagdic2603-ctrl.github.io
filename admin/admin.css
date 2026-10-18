@@ -199,3 +199,12 @@ html[data-theme="dark"] .admin-body{--admin-bg:#14211f;--admin-gold:#d2b578;back
 .note-compose-card textarea:focus,.note-compose-card input:focus{outline:2px solid color-mix(in srgb,var(--admin-gold) 40%,transparent);border-color:var(--admin-gold)}
 .note-compose-actions{display:flex;gap:9px;flex-wrap:wrap}.note-compose-actions button{margin:0}
 @media(max-width:820px){.notes-admin-grid{grid-template-columns:1fr}.note-compose-card{padding:20px}}
+
+/* Kitapyurdu book importer */
+.ky-importer{margin:18px 0 22px;padding:18px;border:1px solid color-mix(in srgb,var(--admin-accent,#8b2635) 28%,transparent);border-radius:18px;background:linear-gradient(135deg,rgba(255,250,239,.94),rgba(247,239,220,.72));box-shadow:0 12px 30px rgba(64,42,24,.06)}
+.ky-importer-head{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px}.ky-importer-head strong{display:block;font-size:17px}.ky-importer-head p{margin:4px 0 0;opacity:.72}
+.ky-badge{font-size:10px;font-weight:800;letter-spacing:.12em;padding:6px 8px;border-radius:999px;background:#8b2635;color:#fff}
+.ky-search-row{display:grid;grid-template-columns:1fr auto;gap:8px}.ky-search-row input{min-width:0}
+.ky-book-results{display:grid;gap:8px;margin-top:12px}.ky-result-card{display:grid;grid-template-columns:58px 1fr;gap:12px;text-align:left;align-items:center;width:100%;padding:10px;border:1px solid rgba(80,60,40,.14);border-radius:12px;background:rgba(255,255,255,.72);cursor:pointer}.ky-result-card:hover{transform:translateY(-1px);box-shadow:0 8px 20px rgba(60,40,20,.08)}.ky-result-card img{width:58px;height:82px;object-fit:cover;border-radius:5px}.ky-result-card span{display:grid;gap:3px}.ky-result-card strong{font-size:14px}.ky-result-card small{opacity:.78}.ky-result-card i{font-size:11px;opacity:.58;font-style:normal}
+#ky-book-status{margin:10px 0 0;font-size:13px}
+@media(max-width:640px){.ky-search-row{grid-template-columns:1fr}.ky-importer-head{display:grid}.ky-result-card{grid-template-columns:50px 1fr}.ky-result-card img{width:50px;height:72px}}
