@@ -154,7 +154,7 @@ export function initBooks({ $, callAdmin, feedback }) {
       info.append(strong,small,meta);card.append(info);
       card.addEventListener('click',async()=>{
         $('new-book-title').value=item.title||'';$('new-book-author').value=item.author||'';$('new-book-description').value=(item.description||'').slice(0,500);$('new-book-fallback-title').textContent=item.title||'Kitap adı';
-        kyStatus.textContent='Bilgiler forma aktarıldı. Kapak siteye kopyalanıyor…';feedback('Kitapyurdu bilgileri getirildi.');
+        kyStatus.textContent='Bilgiler forma aktarıldı. Kapak siteye kopyalanıyor…';feedback((item.source||'Kitap veritabanı')+' bilgileri getirildi.');
         if(item.cover){
           try{const imported=await callAdmin('kitapyurdu_import_cover',{url:item.cover});if(!imported.url)throw new Error('Kapak alınamadı.');cover=imported.url;localPreview=item.cover;uploadedPreviews.set(cover,item.cover);preview();kyStatus.textContent='Bilgiler ve kapak hazır. Kategoriyi seçip kitabı oluştur.';}
           catch(err){kyStatus.textContent='Bilgiler geldi ancak kapak alınamadı: '+err.message;}
@@ -166,7 +166,7 @@ export function initBooks({ $, callAdmin, feedback }) {
   $('ky-book-search').addEventListener('click',async()=>{
     const query=$('ky-book-query').value.trim();if(!query){kyStatus.textContent='Kitap adı, ISBN veya Kitapyurdu bağlantısı yaz.';return;}
     const button=$('ky-book-search');button.disabled=true;kyStatus.textContent='Kitapyurdu aranıyor…';kyResults.replaceChildren();
-    try{const data=await callAdmin('kitapyurdu_lookup',{query});const items=Array.isArray(data.results)?data.results:[];renderKyResults(items);kyStatus.textContent=items.length?items.length+' sonuç bulundu. Doğru kitabı seç.':'Sonuç bulunamadı. ISBN veya ürün bağlantısıyla tekrar deneyebilirsin.';}
+    try{const data=await callAdmin('kitapyurdu_lookup',{query});const items=Array.isArray(data.results)?data.results:[];renderKyResults(items);kyStatus.textContent=data.message||(items.length?items.length+' sonuç bulundu. Doğru kitabı seç.':'Sonuç bulunamadı. Kitap adı veya ISBN ile tekrar deneyebilirsin.');}
     catch(err){kyStatus.textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
   });
   $('ky-book-query').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('ky-book-search').click();}});
