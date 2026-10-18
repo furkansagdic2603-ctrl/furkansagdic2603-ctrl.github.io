@@ -94,7 +94,7 @@ async function showPanel() {
   }
   try{const {initReadingDesk}=await import('./modules/reading-desk.js?v=20261014-six-designs');await initReadingDesk({$,callAdmin});}catch(e){$('desk-admin-status').textContent=e.message;}
   try{const {initSiteMusic}=await import('./modules/site-music.js?v=20261018-1');await initSiteMusic({$,callAdmin,feedback});}catch(e){const s=$('site-music-status');if(s)s.textContent=e.message;}
-  try{const {initQuoteDesk}=await import('./modules/quote-desk.js?v=20261018-1');await initQuoteDesk({$,callAdmin,feedback});}catch(e){const s=$('quote-entry-status');if(s)s.textContent=e.message;}
+  try{const {initQuoteDesk}=await import('./modules/quote-desk.js?v=20261018-fix1');const quoteDesk=initQuoteDesk({$,callAdmin,feedback});await quoteDesk.load();}catch(e){const s=$('quote-entry-status');if(s)s.textContent=e.message;}
   navigation.updateCounts();
   navigation.showView('overview', false);
   $('admin-login').hidden = true;
