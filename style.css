@@ -1226,168 +1226,6 @@ html[data-theme="dark"] .sozler-head:after{mix-blend-mode:normal;opacity:.09}
 
 
 
-/* Book click opens a dedicated quotation-selection page */
-.quote-browser-open{overflow:hidden}
-.quote-browser{
-  position:fixed;
-  inset:0;
-  z-index:4000;
-  display:grid;
-  place-items:center;
-  padding:clamp(12px,3vw,42px);
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-  transition:opacity .28s ease,visibility .28s ease
-}
-.quote-browser.is-open{opacity:1;visibility:visible;pointer-events:auto}
-.quote-browser-backdrop{
-  position:absolute;
-  inset:0;
-  border:0;
-  padding:0;
-  background:rgba(35,29,22,.52);
-  backdrop-filter:blur(7px) saturate(.82);
-  cursor:default
-}
-.quote-browser-sheet{
-  position:relative;
-  z-index:1;
-  width:min(1120px,96vw);
-  max-height:min(850px,90vh);
-  overflow:hidden;
-  display:grid;
-  grid-template-rows:auto auto minmax(0,1fr);
-  background:
-    radial-gradient(circle at 16% 8%,rgba(166,128,75,.08),transparent 27%),
-    repeating-linear-gradient(0deg,rgba(85,64,38,.018) 0 1px,transparent 1px 4px),
-    linear-gradient(180deg,#fffaf0,#f2e9d8);
-  border:1px solid #cdbfa6;
-  border-radius:10px 18px 18px 10px;
-  box-shadow:0 38px 100px rgba(24,18,12,.34),inset 0 0 0 8px rgba(255,255,255,.22);
-  transform:translateY(22px) scale(.975);
-  transition:transform .42s cubic-bezier(.18,.72,.2,1)
-}
-.quote-browser.is-open .quote-browser-sheet{transform:translateY(0) scale(1)}
-.quote-browser-sheet:before{
-  content:"";
-  position:absolute;
-  left:0;top:0;bottom:0;width:14px;
-  background:linear-gradient(90deg,#7e2723,#a93b33 70%,#7c241f);
-  box-shadow:5px 0 14px rgba(71,34,21,.13);
-  z-index:3
-}
-.quote-browser-head{
-  display:flex;
-  justify-content:space-between;
-  gap:24px;
-  padding:30px 34px 20px 44px;
-  border-bottom:1px solid rgba(122,98,63,.16)
-}
-.quote-browser-kicker{display:block;margin-bottom:5px;font-size:10px;letter-spacing:.18em;color:#967f61}
-.quote-browser-head h2{margin:0 0 6px;font:normal clamp(28px,3vw,42px)/1.05 Georgia,serif;color:#342f27}
-.quote-browser-head p{margin:0;color:#776f62;font-size:14px}
-.quote-browser-close{
-  appearance:none;
-  flex:0 0 auto;
-  width:42px;height:42px;
-  border:1px solid #d9cdb8;
-  border-radius:50%;
-  background:#fffaf0;
-  font:28px/1 Georgia,serif;
-  cursor:pointer;
-  color:#7f342f;
-  box-shadow:0 5px 12px rgba(61,45,27,.08)
-}
-.quote-browser-tools{
-  display:grid;
-  grid-template-columns:minmax(260px,.9fr) 1.5fr;
-  gap:20px;
-  align-items:end;
-  padding:16px 34px 18px 44px;
-  border-bottom:1px solid rgba(122,98,63,.13)
-}
-.quote-browser-search{display:grid;gap:6px}
-.quote-browser-search span{font-size:10px;letter-spacing:.13em;color:#8b7b66}
-.quote-browser-search input{
-  width:100%;
-  height:42px;
-  border:1px solid #d7cbb7;
-  border-radius:4px;
-  background:#fffdf7;
-  padding:0 13px;
-  font:14px Georgia,serif;
-  color:#312d26;
-  outline:none
-}
-.quote-browser-search input:focus{border-color:#aa6b5c;box-shadow:0 0 0 3px rgba(170,107,92,.1)}
-.quote-browser-categories{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}
-.quote-browser-categories button{
-  appearance:none;
-  border:1px solid #d8cdb9;
-  background:#f7f0e2;
-  min-height:36px;
-  padding:6px 11px;
-  border-radius:3px;
-  cursor:pointer;
-  font-size:12px
-}
-.quote-browser-categories button.is-on{background:#92362f;color:#fff8eb;border-color:#7d2b27}
-.quote-browser-categories small{opacity:.62;margin-left:3px}
-.quote-browser-list{
-  min-height:0;
-  overflow:auto;
-  padding:22px 34px 32px 44px;
-  display:grid;
-  grid-template-columns:repeat(2,minmax(0,1fr));
-  gap:12px;
-  align-content:start
-}
-.quote-browser-card{
-  appearance:none;
-  display:grid;
-  gap:7px;
-  min-width:0;
-  padding:16px 17px 15px;
-  border:1px solid #ddd2bf;
-  border-radius:5px;
-  background:
-    linear-gradient(180deg,rgba(255,255,255,.48),rgba(255,255,255,0)),
-    #f8f1e4;
-  text-align:left;
-  cursor:pointer;
-  box-shadow:0 4px 10px rgba(65,48,29,.07);
-  animation:quoteChooserIn .4s ease both;
-  animation-delay:var(--delay,0ms);
-  transition:transform .18s ease,box-shadow .18s ease,border-color .18s ease
-}
-.quote-browser-card:hover{transform:translateY(-2px);box-shadow:0 10px 22px rgba(65,48,29,.12);border-color:#c9b89c}
-.quote-browser-card-meta{display:flex;align-items:center;gap:7px;font-size:10px;letter-spacing:.06em;color:#887b69}
-.quote-browser-dot{width:8px;height:8px;border-radius:50%;display:inline-block;background:#c87758}
-.quote-browser-dot.mint{background:#5b9875}.quote-browser-dot.blue{background:#668bad}.quote-browser-dot.amber{background:#ba9934}.quote-browser-dot.rose{background:#c87758}
-.quote-browser-card strong{font:normal 18px/1.2 Georgia,serif;color:#3f392f}
-.quote-browser-card-text{
-  display:-webkit-box;
-  -webkit-line-clamp:3;
-  -webkit-box-orient:vertical;
-  overflow:hidden;
-  font-size:13px;
-  line-height:1.48;
-  color:#635b4e
-}
-.quote-browser-card em{font-size:11px;color:#9a493f;margin-top:2px}
-.quote-browser-empty{grid-column:1/-1;padding:32px;border:1px dashed #cfbea4;background:#f8f0e2;color:#766c5d;text-align:center;font-style:italic}
-@keyframes quoteChooserIn{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}
-@media(max-width:760px){
-  .quote-browser{padding:0}
-  .quote-browser-sheet{width:100vw;height:100dvh;max-height:none;border-radius:0}
-  .quote-browser-head{padding:22px 18px 16px 30px}
-  .quote-browser-tools{grid-template-columns:1fr;padding:12px 18px 14px 30px;gap:12px}
-  .quote-browser-categories{justify-content:flex-start}
-  .quote-browser-list{grid-template-columns:1fr;padding:14px 18px 28px 30px}
-}
-
-
 /* 2026-10-20: realistic-scale book, matched more closely to the supplied reference video */
 .quote-lab{
   max-width:1680px;
@@ -1622,3 +1460,36 @@ html[data-theme="dark"] .sozler-head:after{mix-blend-mode:normal;opacity:.09}
   .book-cover-title strong{font-size:18px}
   .quote-timeline{margin-top:-18px}
 }
+
+
+/* 2026-10-20: ultra-realistic compact hardback book */
+.quote-lab-stage{grid-template-columns:minmax(340px,.7fr) minmax(620px,1.3fr);gap:clamp(34px,4vw,72px);min-height:540px}
+.quote-book-zone{padding-top:0}
+.quote-book-scene{height:375px;perspective:2500px;perspective-origin:48% 29%}
+.quote-book-scene:before{content:"";position:absolute;left:9%;top:70%;width:min(365px,72%);height:38px;border-radius:50%;background:radial-gradient(ellipse at center,rgba(36,27,19,.23) 0%,rgba(36,27,19,.11) 40%,transparent 72%);filter:blur(9px);transform:rotate(-7deg);transition:all .9s cubic-bezier(.18,.72,.18,1)}
+.quote-book{left:6%;top:84px;width:clamp(285px,23vw,365px);height:auto;aspect-ratio:1.48/1;transform-style:preserve-3d;transform:rotateX(calc(59deg + var(--tilt-x))) rotateZ(-8deg) rotateY(var(--tilt-y));transform-origin:46% 72%;filter:drop-shadow(0 5px 3px rgba(63,42,28,.08))}
+.book-shadow{inset:10% -5% -13% 7%;background:rgba(47,31,22,.18);filter:blur(13px);transform:translateZ(-38px);border-radius:14px}
+.book-bottom-cover{inset:13px -2px -10px 3px;transform:translateZ(-18px);border:1px solid #611c19;border-radius:5px 9px 10px 5px;background:linear-gradient(90deg,rgba(255,255,255,.07),transparent 18%),linear-gradient(180deg,#8d2925 0%,#74201e 100%);box-shadow:0 6px 10px rgba(62,34,24,.15),inset 0 -1px rgba(255,255,255,.05)}
+.book-page-block{inset:10px 4px 1px 7px;transform:translateZ(-9px);border-radius:3px 8px 8px 3px;border:1px solid #c9bda4;background:linear-gradient(90deg,rgba(135,112,77,.15),transparent 7%,transparent 93%,rgba(113,91,63,.08)),repeating-linear-gradient(180deg,#f6f1e7 0 1px,#e2d7c3 1px 2px,#f8f4eb 2px 4px);box-shadow:inset -6px 0 10px rgba(89,71,46,.08),inset 0 -5px 7px rgba(102,81,52,.07)}
+.book-page-block:after{content:"";position:absolute;right:5px;top:3px;bottom:3px;width:1px;background:rgba(113,91,63,.17);box-shadow:-2px 0 rgba(255,255,255,.42),-4px 0 rgba(113,91,63,.07)}
+.book-front-cover{transform:translateZ(6px) rotateY(0deg);border-radius:5px 10px 9px 5px;border:1px solid #641c19;background:radial-gradient(circle at 20% 24%,rgba(255,255,255,.055) 0 1px,transparent 1.4px),radial-gradient(circle at 72% 64%,rgba(0,0,0,.04) 0 1px,transparent 1.5px),linear-gradient(135deg,rgba(255,255,255,.045),transparent 31%),linear-gradient(180deg,#aa352f 0%,#9a302a 48%,#85251f 100%);background-size:7px 7px,9px 9px,auto,auto;box-shadow:0 11px 18px rgba(67,36,25,.22),inset 7px 0 10px rgba(75,17,15,.12),inset 0 0 0 1px rgba(255,255,255,.035);transition:transform 1.12s cubic-bezier(.16,.7,.16,1),box-shadow .9s ease}
+.book-front-cover:before{inset:15px;border-color:rgba(210,173,96,.72)}
+.book-front-cover:after{left:25px;right:25px;top:24px;bottom:24px;border-color:rgba(205,166,91,.24)}
+.book-spine-line{left:19px;background:rgba(221,184,102,.36)}
+.book-cover-title{width:67%}.book-cover-title small{font-size:7.5px;letter-spacing:.19em;margin-bottom:7px}.book-cover-title strong{font-size:clamp(17px,1.4vw,23px);letter-spacing:.08em}.book-cover-title em{font-size:9px;margin-top:8px}
+.book-open-spread{inset:-1px -1px -2px 0;grid-template-columns:1fr 1fr;opacity:0;transform:translateZ(2px) scale(.99)}
+.book-page{padding:20px 19px 25px;background:radial-gradient(circle at 32% 21%,rgba(145,121,81,.05),transparent 22%),repeating-linear-gradient(0deg,rgba(95,74,46,.014) 0 1px,transparent 1px 4px),linear-gradient(90deg,#e9dfcc 0%,#fbf7eb 17%,#f7efe0 100%);border-color:#cfc3aa;box-shadow:inset 0 0 17px rgba(82,65,42,.055)}
+.book-page-right{background:linear-gradient(90deg,#ece3d0 0%,#faf5e8 18%,#f5edde 100%)}.book-page-left{transform:rotateY(3.2deg)}.book-page-right{transform:rotateY(-2.7deg)}
+.book-page small{font-size:6.8px;margin-bottom:9px;letter-spacing:.11em}.book-page h3{font-size:11px;margin-bottom:8px}.book-page p{font-size:8.8px;line-height:1.55}.book-page .page-context{font-size:7.8px;line-height:1.52}.book-page b{bottom:8px;font-size:7px}.book-gutter{width:10px;opacity:.72}
+.quote-book.is-opening{animation:hardbackLift .72s cubic-bezier(.2,.7,.18,1) both}
+@keyframes hardbackLift{0%{transform:rotateX(59deg) rotateZ(-8deg) translateY(0)}45%{transform:rotateX(43deg) rotateZ(-5deg) translateY(-5px)}100%{transform:rotateX(22deg) rotateZ(-2deg) translateY(-4px)}}
+.quote-book.is-open{left:0;top:34px;width:clamp(340px,28vw,435px);aspect-ratio:1.52/1;transform:rotateX(20deg) rotateZ(-1.4deg) rotateY(0deg)}
+.quote-book.is-open .book-front-cover{transform:translateZ(4px) rotateY(-174deg);box-shadow:0 7px 14px rgba(60,32,21,.1)}
+.quote-book.is-open .book-open-spread{opacity:1;transform:translateZ(4px) scale(1)}.quote-book.is-open .book-page-block{opacity:.5}
+.quote-book-scene:has(.quote-book.is-open):before{left:3%;top:76%;width:min(445px,88%);transform:rotate(-1deg) scaleX(1.06);opacity:.7}
+.quote-book.is-turning .book-turn-sheet{animation:realPageTurn 1.02s cubic-bezier(.21,.7,.16,1)}
+@keyframes realPageTurn{0%{opacity:0;transform:rotateY(0deg) translateZ(1px)}7%{opacity:.55}30%{opacity:1;transform:rotateY(-48deg) translateZ(9px) skewY(-1deg);box-shadow:-9px 2px 15px rgba(55,38,24,.1)}58%{opacity:1;transform:rotateY(-103deg) translateZ(8px) skewY(.7deg);box-shadow:-15px 3px 20px rgba(55,38,24,.13)}82%{opacity:.65;transform:rotateY(-151deg) translateZ(3px)}100%{opacity:0;transform:rotateY(-178deg) translateZ(0)}}
+.quote-timeline{margin:-24px 4% 0 6%;min-height:116px}.quote-notes{padding-top:0;columns:2 260px;column-gap:30px}.quote-fragment{font-size:12.5px;line-height:1.23;padding:5px 8px 4px}.quote-tape{font-size:14px;padding:5px 11px}
+@media(max-width:1180px){.quote-lab-stage{grid-template-columns:minmax(315px,.74fr) minmax(500px,1.26fr);gap:30px}.quote-book{width:clamp(275px,26vw,345px)}.quote-book.is-open{width:clamp(330px,31vw,410px)}}
+@media(max-width:980px){.quote-lab-stage{grid-template-columns:1fr}.quote-book-scene{height:365px}.quote-book{left:50%;width:min(355px,70vw);transform:translateX(-50%) rotateX(calc(59deg + var(--tilt-x))) rotateZ(-8deg) rotateY(var(--tilt-y))}.quote-book.is-opening{animation:none}.quote-book.is-open{left:50%;width:min(425px,82vw);transform:translateX(-50%) rotateX(19deg) rotateZ(-1deg)}}
+@media(max-width:680px){.quote-book-scene{height:285px}.quote-book{top:62px;width:min(290px,78vw)}.quote-book.is-open{top:26px;width:min(345px,92vw)}.book-page{padding:14px 11px 18px}.book-page p{font-size:7.4px}.book-page .page-context{font-size:6.7px}.book-page h3{font-size:9px}.book-cover-title strong{font-size:16px}.quote-timeline{margin-top:-22px}}
