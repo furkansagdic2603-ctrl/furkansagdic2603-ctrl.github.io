@@ -1386,3 +1386,239 @@ html[data-theme="dark"] .sozler-head:after{mix-blend-mode:normal;opacity:.09}
   .quote-browser-categories{justify-content:flex-start}
   .quote-browser-list{grid-template-columns:1fr;padding:14px 18px 28px 30px}
 }
+
+
+/* 2026-10-20: realistic-scale book, matched more closely to the supplied reference video */
+.quote-lab{
+  max-width:1680px;
+  padding-top:18px;
+}
+.quote-lab-stage{
+  grid-template-columns:minmax(390px,.78fr) minmax(560px,1.22fr);
+  gap:clamp(26px,3.2vw,58px);
+  min-height:610px;
+}
+.quote-book-zone{
+  padding-top:6px;
+}
+.quote-book-scene{
+  height:445px;
+  perspective:2200px;
+  perspective-origin:46% 34%;
+}
+.quote-book-scene:after{
+  left:7%;
+  right:12%;
+  bottom:58px;
+  height:36px;
+  opacity:.46;
+  filter:blur(10px);
+  background:radial-gradient(ellipse at center,rgba(45,33,20,.24),rgba(45,33,20,0) 70%);
+}
+.quote-book{
+  left:3%;
+  top:92px;
+  width:clamp(380px,31vw,520px);
+  height:auto;
+  aspect-ratio:1.42 / 1;
+  transform-origin:48% 72%;
+  transform:
+    rotateX(calc(54deg + var(--tilt-x)))
+    rotateZ(-7.2deg)
+    rotateY(var(--tilt-y))
+    translateY(8px);
+  transition:
+    transform 1.05s cubic-bezier(.18,.74,.2,1),
+    top 1.05s cubic-bezier(.18,.74,.2,1),
+    left 1.05s cubic-bezier(.18,.74,.2,1),
+    width 1.05s cubic-bezier(.18,.74,.2,1);
+}
+.book-bottom-cover{
+  inset:16px -3px -12px 3px;
+  border-radius:6px 10px 10px 6px;
+  box-shadow:0 5px 9px rgba(56,28,22,.18);
+}
+.book-page-block{
+  inset:13px 5px 4px 7px;
+  border-radius:3px 9px 8px 4px;
+  background:
+    repeating-linear-gradient(180deg,#f4efe4 0 1px,#dfd5c2 1px 2px,#f8f4eb 2px 4px);
+  box-shadow:
+    inset -8px 0 12px rgba(109,91,60,.08),
+    inset 0 -4px 7px rgba(97,75,49,.08);
+}
+.book-front-cover{
+  border-radius:6px 11px 10px 6px;
+  box-shadow:
+    0 13px 21px rgba(62,32,24,.22),
+    inset 0 0 0 1px rgba(255,255,255,.045),
+    inset 8px 0 12px rgba(72,18,17,.13);
+  transition:
+    transform 1.08s cubic-bezier(.16,.72,.18,1),
+    box-shadow .82s ease;
+}
+.book-front-cover:before{
+  inset:18px;
+}
+.book-front-cover:after{
+  left:31px;
+  right:31px;
+  top:29px;
+  bottom:29px;
+}
+.book-cover-title{
+  width:70%;
+}
+.book-cover-title small{
+  font-size:9px;
+  margin-bottom:8px;
+}
+.book-cover-title strong{
+  font-size:clamp(20px,1.7vw,28px);
+  letter-spacing:.075em;
+}
+.book-cover-title em{
+  font-size:11px;
+  margin-top:9px;
+}
+.book-spine-line{
+  left:23px;
+}
+.book-open-spread{
+  inset:-3px -2px -3px 1px;
+  transform:translateZ(2px) scale(.985);
+}
+.book-page{
+  padding:26px 25px 31px;
+}
+.book-page small{
+  margin-bottom:13px;
+  font-size:8px;
+}
+.book-page h3{
+  font-size:14px;
+  margin-bottom:11px;
+}
+.book-page p{
+  font-size:11.5px;
+  line-height:1.62;
+}
+.book-page .page-context{
+  font-size:10px;
+  line-height:1.58;
+}
+.book-page b{
+  bottom:11px;
+  font-size:9px;
+}
+.book-page-left{
+  transform:rotateY(4.5deg);
+}
+.book-page-right{
+  transform:rotateY(-3.5deg);
+}
+.book-gutter{
+  width:14px;
+  opacity:.78;
+}
+.quote-book.is-open{
+  left:0;
+  top:38px;
+  width:clamp(430px,34vw,565px);
+  height:auto;
+  aspect-ratio:1.42 / 1;
+  transform:
+    rotateX(17deg)
+    rotateZ(-1.2deg)
+    rotateY(0deg)
+    translateY(0);
+}
+.quote-book.is-open .book-front-cover{
+  transform:translateZ(4px) rotateY(-171deg);
+  box-shadow:0 7px 16px rgba(60,32,21,.11);
+}
+.quote-book.is-open .book-open-spread{
+  opacity:1;
+  transform:translateZ(4px) scale(1);
+}
+.quote-book.is-open .book-page-block{
+  opacity:.42;
+}
+.quote-book.is-turning .book-turn-sheet{
+  animation:quotePageTurnRealistic .92s cubic-bezier(.24,.72,.18,1);
+}
+@keyframes quotePageTurnRealistic{
+  0%{opacity:0;transform:rotateY(0deg) skewY(0deg)}
+  8%{opacity:.8}
+  35%{opacity:1;transform:rotateY(-62deg) skewY(-1.4deg);box-shadow:-12px 2px 20px rgba(66,44,24,.13)}
+  68%{opacity:.9;transform:rotateY(-124deg) skewY(.8deg);box-shadow:-18px 3px 24px rgba(66,44,24,.15)}
+  100%{opacity:0;transform:rotateY(-178deg) skewY(0deg)}
+}
+.quote-timeline{
+  margin:-8px 4% 0 7%;
+  min-height:132px;
+}
+.quote-notes{
+  padding-top:10px;
+  columns:2 245px;
+  column-gap:28px;
+}
+.quote-fragment{
+  font-size:13px;
+  line-height:1.24;
+  padding:5px 8px 4px;
+}
+.quote-tape{
+  font-size:15px;
+  padding:6px 12px 5px;
+}
+
+@media(max-width:1180px){
+  .quote-lab-stage{
+    grid-template-columns:minmax(360px,.82fr) minmax(470px,1.18fr);
+    gap:28px;
+  }
+  .quote-book{
+    width:clamp(360px,34vw,470px);
+  }
+  .quote-book.is-open{
+    width:clamp(410px,38vw,520px);
+  }
+}
+@media(max-width:980px){
+  .quote-lab-stage{grid-template-columns:1fr}
+  .quote-book-zone{position:relative}
+  .quote-book-scene{height:430px}
+  .quote-book{
+    left:50%;
+    width:min(470px,76vw);
+    transform:
+      translateX(-50%)
+      rotateX(calc(54deg + var(--tilt-x)))
+      rotateZ(-7deg)
+      rotateY(var(--tilt-y));
+  }
+  .quote-book.is-open{
+    left:50%;
+    width:min(530px,86vw);
+    transform:translateX(-50%) rotateX(17deg) rotateZ(-1deg);
+  }
+}
+@media(max-width:680px){
+  .quote-book-scene{height:330px}
+  .quote-book{
+    top:68px;
+    width:min(360px,84vw);
+  }
+  .quote-book.is-open{
+    top:30px;
+    width:min(400px,94vw);
+    transform:translateX(-50%) rotateX(14deg) rotateZ(-.8deg);
+  }
+  .book-page{padding:17px 13px 23px}
+  .book-page p{font-size:9px;line-height:1.48}
+  .book-page .page-context{font-size:8px}
+  .book-page h3{font-size:10px}
+  .book-cover-title strong{font-size:18px}
+  .quote-timeline{margin-top:-18px}
+}
