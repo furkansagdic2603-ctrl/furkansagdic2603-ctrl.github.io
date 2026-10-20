@@ -15,13 +15,17 @@
     text:root.querySelector('#quote-page-text'),
     pageNo:root.querySelector('#quote-page-number'),
     rows:root.querySelector('#quote-timeline-rows'),
-    cursor:root.querySelector('#quote-timeline-cursor')
+    cursor:root.querySelector('#quote-timeline-cursor'),
+    browser:root.querySelector('#quote-browser'),
+    browserList:root.querySelector('#quote-browser-list'),
+    browserSearch:root.querySelector('#quote-browser-search'),
+    browserCategories:root.querySelector('#quote-browser-categories')
   };
   const names={all:'Tümü',idea:'Düşünce',author:'Müellif',place:'Mekân',style:'Üslup',concept:'Kavram'};
   const tone={idea:'rose',author:'mint',place:'blue',style:'amber',concept:'rose'};
   const toneHex={rose:'#c87758',mint:'#5b9875',blue:'#668bad',amber:'#ba9934'};
   const roman=['I','II','III','IV','V','VI','VII','VIII','IX'];
-  const state={items:[],label:'all',category:'all',selected:null};
+  const state={items:[],label:'all',category:'all',selected:null,browserCategory:'all',browserQuery:''};
 
   const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const colorFor=x=>x?.color||tone[x?.category]||'rose';
@@ -46,6 +50,40 @@
     }).join('');
     el.people.querySelectorAll('button').forEach(b=>b.onclick=()=>{state.label=b.dataset.label;renderAll(true)});
     el.modes.querySelectorAll('button').forEach(b=>b.onclick=()=>{state.category=b.dataset.category;renderAll(true)});
+  }
+
+  function renderBrowser(){
+    if(!el.browserList||!el.browserCategories)return;
+    const cats=['all','idea','author','place','style','concept'];
+    el.browserCategories.innerHTML=cats.map(k=>{
+      const n=k==='all'?state.items.length:state.items.filter(x=>x.category===k).length;
+      return '<button type="button" class="'+(state.browserCategory===k?'is-on':'')+'" data-browser-category="'+k+'">'+names[k]+' <small>'+n+'</small></button>';
+    }).join('');
+    el.browserCategories.querySelectorAll('[data-browser-category]').forEach(b=>b.onclick=()=>{state.browserCategory=b.dataset.browserCategory;renderBrowser();});
+    const q=state.browserQuery.trim().toLocaleLowerCase('tr');
+    const items=state.items.filter(x=>(state.browserCategory==='all'||x.category===state.browserCategory)&&(!q||[x.text,x.label,names[x.category],x.chapter,x.page].some(v=>String(v??'').toLocaleLowerCase('tr').includes(q))));
+    if(!items.length){el.browserList.innerHTML='<div class="quote-browser-empty">Bu seçimde alıntı bulunamadı.</div>';return;}
+    el.browserList.innerHTML=items.map((x,i)=>'<button type="button" class="quote-browser-card" data-browser-id="'+esc(x.id)+'" style="--delay:'+Math.min(i*26,260)+'ms"><span class="quote-browser-card-meta"><i class="quote-browser-dot '+esc(colorFor(x))+'"></i>'+esc(names[x.category]||'Alıntı')+' · '+esc(x.chapter||'I')+(x.page?' · s. '+esc(x.page):'')+'</span><strong>'+esc(x.label||'İktibas')+'</strong><span class="quote-browser-card-text">'+esc(x.text)+'</span><em>Kitapta aç →</em></button>').join('');
+    el.browserList.querySelectorAll('[data-browser-id]').forEach(b=>b.onclick=()=>{selectById(b.dataset.browserId,true);closeBrowser();});
+  }
+
+  function openBrowser(){
+    if(!el.browser)return;
+    state.browserQuery='';
+    if(el.browserSearch)el.browserSearch.value='';
+    renderBrowser();
+    el.browser.classList.add('is-open');
+    el.browser.setAttribute('aria-hidden','false');
+    document.documentElement.classList.add('quote-browser-open');
+    setTimeout(()=>el.browserSearch?.focus({preventScroll:true}),160);
+  }
+
+  function closeBrowser(){
+    if(!el.browser)return;
+    el.browser.classList.remove('is-open');
+    el.browser.setAttribute('aria-hidden','true');
+    document.documentElement.classList.remove('quote-browser-open');
+    el.book?.focus({preventScroll:true});
   }
 
   function grouped(items){
@@ -137,6 +175,7 @@
     renderFilters();
     renderNotes();
     renderTimeline();
+    renderBrowser();
     if(filterChanged){
       const vis=visibleItems();
       if(state.selected && !vis.some(x=>x.id===state.selected.id))state.selected=null;
@@ -159,8 +198,11 @@
     }
   }
 
-  el.book.addEventListener('click',()=>el.book.classList.toggle('is-open'));
-  el.book.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();el.book.classList.toggle('is-open')}});
+  el.book.addEventListener('click',openBrowser);
+  el.book.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();openBrowser();}});
+  root.querySelectorAll('[data-quote-browser-close]').forEach(b=>b.addEventListener('click',closeBrowser));
+  el.browserSearch?.addEventListener('input',()=>{state.browserQuery=el.browserSearch.value;renderBrowser();});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'&&el.browser?.classList.contains('is-open'))closeBrowser();});
   let raf=0;
   el.scene.addEventListener('pointermove',e=>{
     if(el.book.classList.contains('is-open')||matchMedia('(prefers-reduced-motion: reduce)').matches)return;
