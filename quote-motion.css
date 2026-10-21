@@ -72,3 +72,28 @@ html[data-theme="dark"] .quote-lab{background:#24231f;--ql-ink:#e2dac8;--ql-mute
 
 /* A CSS filter flattens 3D descendants; keep the book's depth intact. */
 .quote-book{filter:none}
+
+/* Continuous leather binding closes the hinge from the front to the back board. */
+.quote-book:before{
+ content:"";position:absolute;left:0;top:0;width:calc(var(--book-depth) + 16px);height:calc(100% + 5px);
+ transform-origin:left center;transform:translateZ(7px) rotateY(90deg);
+ background:linear-gradient(90deg,#78231e 0%,#ae3c32 15%,#8e2b25 48%,#651c19 88%,#83251f);
+ border:1px solid #682019;border-radius:3px;
+ box-shadow:inset 2px 0 3px #e19b6440,inset -3px 0 5px #3b110e66;
+ pointer-events:none;transition:opacity .65s;
+}
+.quote-book.is-open:before{opacity:0}
+/* Woven gold ribbon, tucked between leaves and hanging past the book's foot. */
+.quote-book:after{
+ content:"";position:absolute;left:13%;top:87%;width:12px;height:29%;z-index:12;
+ transform-origin:50% 0;transform:translateZ(-2px) rotateZ(-5deg);
+ background:repeating-linear-gradient(90deg,#fff1ba33 0 1px,transparent 1px 3px),
+ repeating-linear-gradient(0deg,#4e381822 0 1px,transparent 1px 3px),
+ linear-gradient(90deg,#806026,#d4b361 24%,#e5cd84 48%,#b48c40 77%,#795520);
+ border-left:1px solid #967237;border-right:1px solid #967237;
+ clip-path:polygon(0 0,100% 0,100% 100%,50% 92%,0 100%);
+ box-shadow:2px 3px 4px #39241444;pointer-events:none;
+ transition:left 1.1s,top 1.1s,height 1.1s,transform 1.1s;
+}
+.quote-book.is-open:after{left:-5px;top:6%;height:113%;transform:translateZ(9px) rotateZ(-2deg)}
+.quote-book.is-open .book-gutter{background:linear-gradient(90deg,#6b4d2622,#ddcda9 42%,#6c4c2a44);filter:none}
