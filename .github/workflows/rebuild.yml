@@ -38,7 +38,7 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install lxml==6.0.2 Pillow==12.3.0
-      - run: python build_site.py
+      - run: PYTHONDONTWRITEBYTECODE=1 python build_site.py
       - name: Commit updated pages
         run: |
           if ! git diff --quiet || [ -n "$(git ls-files --others --exclude-standard)" ]; then
