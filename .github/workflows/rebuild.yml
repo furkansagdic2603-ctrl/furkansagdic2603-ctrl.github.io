@@ -25,6 +25,9 @@ on:
       - '!articles.json'
 permissions:
   contents: write
+concurrency:
+  group: site-rebuild-main
+  cancel-in-progress: true
 jobs:
   build:
     if: github.actor != 'github-actions[bot]'
