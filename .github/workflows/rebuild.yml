@@ -11,6 +11,7 @@ on:
       - 'data/books.json'
       - 'data/quotes.json'
       - 'author_profiles.py'
+      - 'author-research.js'
       - 'bibliography_content.html'
       - 'bibliography.js'
       - 'cinematic_books.py'
