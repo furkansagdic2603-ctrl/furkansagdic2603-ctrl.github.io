@@ -1,0 +1,578 @@
+[
+  {
+    "name": "Eflatun",
+    "slug": "eflatun",
+    "birth": -427,
+    "death": -347,
+    "era": "Antik Yunan",
+    "count": 1
+  },
+  {
+    "name": "Platon",
+    "slug": "platon",
+    "birth": -427,
+    "death": -347,
+    "era": "Antik Yunan",
+    "count": 7
+  },
+  {
+    "name": "Aristoteles",
+    "slug": "aristoteles",
+    "birth": -384,
+    "death": -322,
+    "era": "Antik Yunan",
+    "count": 14
+  },
+  {
+    "name": "Quintus T. Cicero",
+    "slug": "quintus-t-cicero",
+    "birth": -106,
+    "death": -43,
+    "era": "Roma",
+    "count": 3
+  },
+  {
+    "name": "Seneca",
+    "slug": "seneca",
+    "birth": -4,
+    "death": 65,
+    "era": "Roma",
+    "count": 1
+  },
+  {
+    "name": "ST. AUGUSTINUS",
+    "slug": "st-augustinus",
+    "birth": 354,
+    "death": 430,
+    "era": "Geç Antik Çağ",
+    "count": 1
+  },
+  {
+    "name": "Farabi",
+    "slug": "farabi",
+    "birth": 872,
+    "death": 950,
+    "era": "İslâm düşüncesi",
+    "count": 4
+  },
+  {
+    "name": "İbn Sînâ",
+    "slug": "ibn-sina",
+    "birth": 980,
+    "death": 1037,
+    "era": "İslâm düşüncesi",
+    "count": 2
+  },
+  {
+    "name": "İMAM GAZALİ",
+    "slug": "imam-gazali",
+    "birth": 1058,
+    "death": 1111,
+    "era": "İslâm düşüncesi",
+    "count": 6
+  },
+  {
+    "name": "İmam Gazzâlî",
+    "slug": "imam-gazzali",
+    "birth": 1058,
+    "death": 1111,
+    "era": "İslâm düşüncesi",
+    "count": 3
+  },
+  {
+    "name": "İbn Rüşd",
+    "slug": "ibn-rusd",
+    "birth": 1126,
+    "death": 1198,
+    "era": "İslâm düşüncesi",
+    "count": 1
+  },
+  {
+    "name": "İbni Arabi (Eser Sahibi), Ekrem Demirli (Çevirmen)",
+    "slug": "ibni-arabi-eser-sahibi-ekrem-demirli-cevirmen",
+    "birth": 1165,
+    "death": 1240,
+    "era": "İslâm düşüncesi",
+    "count": 18
+  },
+  {
+    "name": "Sadreddin Konevî",
+    "slug": "sadreddin-konevi",
+    "birth": 1210,
+    "death": 1274,
+    "era": "İslâm düşüncesi",
+    "count": 5
+  },
+  {
+    "name": "İbn Haldun",
+    "slug": "ibn-haldun",
+    "birth": 1332,
+    "death": 1406,
+    "era": "İslâm düşüncesi",
+    "count": 2
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "slug": "niccolo-machiavelli",
+    "birth": 1469,
+    "death": 1527,
+    "era": "Rönesans",
+    "count": 2
+  },
+  {
+    "name": "FRANCIS BACON",
+    "slug": "francis-bacon",
+    "birth": 1561,
+    "death": 1626,
+    "era": "Erken modern",
+    "count": 4
+  },
+  {
+    "name": "Thomas Hobbes",
+    "slug": "thomas-hobbes",
+    "birth": 1588,
+    "death": 1679,
+    "era": "Erken modern",
+    "count": 1
+  },
+  {
+    "name": "Descartes",
+    "slug": "descartes",
+    "birth": 1596,
+    "death": 1650,
+    "era": "Erken modern",
+    "count": 8
+  },
+  {
+    "name": "John Locke",
+    "slug": "john-locke",
+    "birth": 1632,
+    "death": 1704,
+    "era": "Erken modern",
+    "count": 3
+  },
+  {
+    "name": "Spinoza",
+    "slug": "spinoza",
+    "birth": 1632,
+    "death": 1677,
+    "era": "Erken modern",
+    "count": 3
+  },
+  {
+    "name": "G. W. Leibniz",
+    "slug": "g-w-leibniz",
+    "birth": 1646,
+    "death": 1716,
+    "era": "Erken modern",
+    "count": 1
+  },
+  {
+    "name": "GOTTFRIED WILHELM LEIBNIZ",
+    "slug": "gottfried-wilhelm-leibniz",
+    "birth": 1646,
+    "death": 1716,
+    "era": "Erken modern",
+    "count": 1
+  },
+  {
+    "name": "LEİBNİZ",
+    "slug": "leibniz",
+    "birth": 1646,
+    "death": 1716,
+    "era": "Erken modern",
+    "count": 1
+  },
+  {
+    "name": "David Hume",
+    "slug": "david-hume",
+    "birth": 1711,
+    "death": 1776,
+    "era": "Aydınlanma",
+    "count": 3
+  },
+  {
+    "name": "J.J. Rousseau",
+    "slug": "j-j-rousseau",
+    "birth": 1712,
+    "death": 1778,
+    "era": "Aydınlanma",
+    "count": 1
+  },
+  {
+    "name": "Jean-Jacques Rousseau",
+    "slug": "jean-jacques-rousseau",
+    "birth": 1712,
+    "death": 1778,
+    "era": "Aydınlanma",
+    "count": 1
+  },
+  {
+    "name": "ROUSSEAU",
+    "slug": "rousseau",
+    "birth": 1712,
+    "death": 1778,
+    "era": "Aydınlanma",
+    "count": 1
+  },
+  {
+    "name": "Immanuel Kant",
+    "slug": "immanuel-kant",
+    "birth": 1724,
+    "death": 1804,
+    "era": "Aydınlanma",
+    "count": 13
+  },
+  {
+    "name": "G. W. F. Hegel",
+    "slug": "g-w-f-hegel",
+    "birth": 1770,
+    "death": 1831,
+    "era": "Alman idealizmi",
+    "count": 11
+  },
+  {
+    "name": "Arthur Schopenhauer",
+    "slug": "arthur-schopenhauer",
+    "birth": 1788,
+    "death": 1860,
+    "era": "19. yüzyıl",
+    "count": 18
+  },
+  {
+    "name": "AUGUSTE COMTE",
+    "slug": "auguste-comte",
+    "birth": 1798,
+    "death": 1857,
+    "era": "19. yüzyıl",
+    "count": 1
+  },
+  {
+    "name": "Søren Kierkegaard",
+    "slug": "s-ren-kierkegaard",
+    "birth": 1813,
+    "death": 1855,
+    "era": "19. yüzyıl",
+    "count": 9
+  },
+  {
+    "name": "KARL MARX",
+    "slug": "karl-marx",
+    "birth": 1818,
+    "death": 1883,
+    "era": "19. yüzyıl",
+    "count": 1
+  },
+  {
+    "name": "KARL MARX - FRIEDRICH ENGELS",
+    "slug": "karl-marx-friedrich-engels",
+    "birth": 1818,
+    "death": 1883,
+    "era": "19. yüzyıl",
+    "count": 1
+  },
+  {
+    "name": "Marx / Engels / Lenin",
+    "slug": "marx-engels-lenin",
+    "birth": 1818,
+    "death": 1883,
+    "era": "19. yüzyıl",
+    "count": 1
+  },
+  {
+    "name": "Tolstoy",
+    "slug": "tolstoy",
+    "birth": 1828,
+    "death": 1910,
+    "era": "Edebiyat",
+    "count": 1
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "slug": "friedrich-nietzsche",
+    "birth": 1844,
+    "death": 1900,
+    "era": "19. yüzyıl",
+    "count": 7
+  },
+  {
+    "name": "Georg Simmel",
+    "slug": "georg-simmel",
+    "birth": 1858,
+    "death": 1918,
+    "era": "Modern düşünce",
+    "count": 6
+  },
+  {
+    "name": "Edmund Husserl",
+    "slug": "edmund-husserl",
+    "birth": 1859,
+    "death": 1938,
+    "era": "Fenomenoloji",
+    "count": 2
+  },
+  {
+    "name": "Henri Bergson",
+    "slug": "henri-bergson",
+    "birth": 1859,
+    "death": 1941,
+    "era": "Modern düşünce",
+    "count": 2
+  },
+  {
+    "name": "Alfred Weber",
+    "slug": "alfred-weber",
+    "birth": 1864,
+    "death": 1920,
+    "era": "Modern düşünce",
+    "count": 2
+  },
+  {
+    "name": "MAX WEBER",
+    "slug": "max-weber",
+    "birth": 1864,
+    "death": 1920,
+    "era": "Modern düşünce",
+    "count": 3
+  },
+  {
+    "name": "Mehmet Akif Koç",
+    "slug": "mehmet-akif-koc",
+    "birth": 1873,
+    "death": 1936,
+    "era": "Edebiyat",
+    "count": 2
+  },
+  {
+    "name": "SAİD NURSİ",
+    "slug": "said-nursi",
+    "birth": 1877,
+    "death": 1960,
+    "era": "İslâm düşüncesi",
+    "count": 1
+  },
+  {
+    "name": "Martin Heidegger",
+    "slug": "martin-heidegger",
+    "birth": 1889,
+    "death": 1976,
+    "era": "20. yüzyıl",
+    "count": 6
+  },
+  {
+    "name": "Theodor W. Adorno, Georg Lukács, Ernst Bloch, Walter Benjamin, Bertolt Brecht",
+    "slug": "theodor-w-adorno-georg-lukacs-ernst-bloch-walter-benjamin-bertolt-brecht",
+    "birth": 1892,
+    "death": 1940,
+    "era": "20. yüzyıl",
+    "count": 2
+  },
+  {
+    "name": "Walter Benjamin",
+    "slug": "walter-benjamin",
+    "birth": 1892,
+    "death": 1940,
+    "era": "20. yüzyıl",
+    "count": 2
+  },
+  {
+    "name": "Max Horkheimer",
+    "slug": "max-horkheimer",
+    "birth": 1895,
+    "death": 1973,
+    "era": "Frankfurt Okulu",
+    "count": 1
+  },
+  {
+    "name": "Herbert Marcuse",
+    "slug": "herbert-marcuse",
+    "birth": 1898,
+    "death": 1979,
+    "era": "Frankfurt Okulu",
+    "count": 2
+  },
+  {
+    "name": "Ahmet Hamdi Tanpınar",
+    "slug": "ahmet-hamdi-tanpinar",
+    "birth": 1901,
+    "death": 1962,
+    "era": "Edebiyat",
+    "count": 1
+  },
+  {
+    "name": "hilmi ziya ülken",
+    "slug": "hilmi-ziya-ulken",
+    "birth": 1901,
+    "death": 1974,
+    "era": "Türk düşüncesi",
+    "count": 4
+  },
+  {
+    "name": "TANPINAR",
+    "slug": "tanpinar",
+    "birth": 1901,
+    "death": 1962,
+    "era": "Edebiyat",
+    "count": 1
+  },
+  {
+    "name": "Suut Kemal Yetkin",
+    "slug": "suut-kemal-yetkin",
+    "birth": 1903,
+    "death": 1980,
+    "era": "Türk düşüncesi",
+    "count": 4
+  },
+  {
+    "name": "Theodor W. Adorno",
+    "slug": "theodor-w-adorno",
+    "birth": 1903,
+    "death": 1969,
+    "era": "Frankfurt Okulu",
+    "count": 1
+  },
+  {
+    "name": "Jean Paul Sartre",
+    "slug": "jean-paul-sartre",
+    "birth": 1905,
+    "death": 1980,
+    "era": "Varoluşçuluk",
+    "count": 2
+  },
+  {
+    "name": "Nurettin Topçu",
+    "slug": "nurettin-topcu",
+    "birth": 1909,
+    "death": 1975,
+    "era": "Türk düşüncesi",
+    "count": 1
+  },
+  {
+    "name": "Albert Camus",
+    "slug": "albert-camus",
+    "birth": 1913,
+    "death": 1960,
+    "era": "Varoluşçuluk",
+    "count": 1
+  },
+  {
+    "name": "Cemil Meriç",
+    "slug": "cemil-meric",
+    "birth": 1916,
+    "death": 1987,
+    "era": "Türk düşüncesi",
+    "count": 7
+  },
+  {
+    "name": "İsmail Tunalı",
+    "slug": "ismail-tunali",
+    "birth": 1923,
+    "death": 2015,
+    "era": "Türk düşüncesi",
+    "count": 6
+  },
+  {
+    "name": "Gilles Deleuze",
+    "slug": "gilles-deleuze",
+    "birth": 1925,
+    "death": 1995,
+    "era": "Çağdaş düşünce",
+    "count": 2
+  },
+  {
+    "name": "Z. Bauman & D. Lyon",
+    "slug": "z-bauman-d-lyon",
+    "birth": 1925,
+    "death": 2017,
+    "era": "Çağdaş düşünce",
+    "count": 1
+  },
+  {
+    "name": "Z. Bauman & L. Donskis",
+    "slug": "z-bauman-l-donskis",
+    "birth": 1925,
+    "death": 2017,
+    "era": "Çağdaş düşünce",
+    "count": 2
+  },
+  {
+    "name": "Zygmunt Bauman",
+    "slug": "zygmunt-bauman",
+    "birth": 1925,
+    "death": 2017,
+    "era": "Çağdaş düşünce",
+    "count": 25
+  },
+  {
+    "name": "Zygmunt Bauman & Stanisław Obirek",
+    "slug": "zygmunt-bauman-stanis-aw-obirek",
+    "birth": 1925,
+    "death": 2017,
+    "era": "Çağdaş düşünce",
+    "count": 3
+  },
+  {
+    "name": "M. Foucault",
+    "slug": "m-foucault",
+    "birth": 1926,
+    "death": 1984,
+    "era": "Çağdaş düşünce",
+    "count": 1
+  },
+  {
+    "name": "Michel Foucault",
+    "slug": "michel-foucault",
+    "birth": 1926,
+    "death": 1984,
+    "era": "Çağdaş düşünce",
+    "count": 2
+  },
+  {
+    "name": "Jean Baudrillard",
+    "slug": "jean-baudrillard",
+    "birth": 1929,
+    "death": 2007,
+    "era": "Çağdaş düşünce",
+    "count": 2
+  },
+  {
+    "name": "Jürgen Habermas",
+    "slug": "jurgen-habermas",
+    "birth": 1929,
+    "death": null,
+    "era": "Çağdaş düşünce",
+    "count": 3
+  },
+  {
+    "name": "Jacques Derrida",
+    "slug": "jacques-derrida",
+    "birth": 1930,
+    "death": 2004,
+    "era": "Çağdaş düşünce",
+    "count": 2
+  },
+  {
+    "name": "Sezai Karakoç",
+    "slug": "sezai-karakoc",
+    "birth": 1933,
+    "death": 2021,
+    "era": "Türk düşüncesi",
+    "count": 8
+  },
+  {
+    "name": "Alain Badiou",
+    "slug": "alain-badiou",
+    "birth": 1937,
+    "death": null,
+    "era": "Çağdaş düşünce",
+    "count": 4
+  },
+  {
+    "name": "İsmet Özel",
+    "slug": "ismet-ozel",
+    "birth": 1944,
+    "death": null,
+    "era": "Türk düşüncesi",
+    "count": 9
+  }
+]

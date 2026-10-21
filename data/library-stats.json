@@ -1,0 +1,199 @@
+{
+  "totalBooks": 1266,
+  "totalAuthors": 683,
+  "totalPublishers": 457,
+  "translatedRecords": 2,
+  "categories": {
+    "Felsefe": 994,
+    "Din": 142,
+    "Tarih": 78,
+    "Sanat": 38,
+    "Edebiyat": 14
+  },
+  "topAuthors": [
+    {
+      "name": "MECMUA",
+      "slug": "mecmua",
+      "count": 25
+    },
+    {
+      "name": "Zygmunt Bauman",
+      "slug": "zygmunt-bauman",
+      "count": 25
+    },
+    {
+      "name": "CEMÎ",
+      "slug": "cemi",
+      "count": 20
+    },
+    {
+      "name": "Arthur Schopenhauer",
+      "slug": "arthur-schopenhauer",
+      "count": 18
+    },
+    {
+      "name": "İbni Arabi (Eser Sahibi), Ekrem Demirli (Çevirmen)",
+      "slug": "ibni-arabi-eser-sahibi-ekrem-demirli-cevirmen",
+      "count": 18
+    },
+    {
+      "name": "Kolektif",
+      "slug": "kolektif",
+      "count": 16
+    },
+    {
+      "name": "Aristoteles",
+      "slug": "aristoteles",
+      "count": 14
+    },
+    {
+      "name": "Kadir Mısıroğlu",
+      "slug": "kadir-misiroglu",
+      "count": 14
+    },
+    {
+      "name": "Immanuel Kant",
+      "slug": "immanuel-kant",
+      "count": 13
+    },
+    {
+      "name": "ZEYNÜ'D-DİN AHMED B.AHMED B.ABDİ'L-LATİF",
+      "slug": "zeynu-d-din-ahmed-b-ahmed-b-abdi-l-latif",
+      "count": 13
+    },
+    {
+      "name": "Ahmed bin Hanbel",
+      "slug": "ahmed-bin-hanbel",
+      "count": 12
+    },
+    {
+      "name": "G. W. F. Hegel",
+      "slug": "g-w-f-hegel",
+      "count": 11
+    },
+    {
+      "name": "İsmet Özel",
+      "slug": "ismet-ozel",
+      "count": 9
+    },
+    {
+      "name": "Søren Kierkegaard",
+      "slug": "s-ren-kierkegaard",
+      "count": 9
+    },
+    {
+      "name": "Descartes",
+      "slug": "descartes",
+      "count": 8
+    },
+    {
+      "name": "Salih Mirzabeyoğlu",
+      "slug": "salih-mirzabeyoglu",
+      "count": 8
+    },
+    {
+      "name": "Sezai Karakoç",
+      "slug": "sezai-karakoc",
+      "count": 8
+    },
+    {
+      "name": "Cemil Meriç",
+      "slug": "cemil-meric",
+      "count": 7
+    },
+    {
+      "name": "Friedrich Nietzsche",
+      "slug": "friedrich-nietzsche",
+      "count": 7
+    },
+    {
+      "name": "İsmail Hakkı Uzunçarşılı",
+      "slug": "ismail-hakki-uzuncarsili",
+      "count": 7
+    }
+  ],
+  "topPublishers": [
+    {
+      "name": "Say Yayınları",
+      "count": 52
+    },
+    {
+      "name": "ÇİZGİ",
+      "count": 33
+    },
+    {
+      "name": "BAĞCILAR BELEDİYESİ",
+      "count": 25
+    },
+    {
+      "name": "İz Yayıncılık",
+      "count": 22
+    },
+    {
+      "name": "SAY",
+      "count": 21
+    },
+    {
+      "name": "Ayrıntı Yayınları",
+      "count": 21
+    },
+    {
+      "name": "Alfa Yayınları",
+      "count": 19
+    },
+    {
+      "name": "Litera",
+      "count": 18
+    },
+    {
+      "name": "KÖPRÜ",
+      "count": 16
+    },
+    {
+      "name": "İŞ BANKASI /Hasan Ali Yücel",
+      "count": 16
+    },
+    {
+      "name": "Sebil Yayınevi",
+      "count": 15
+    },
+    {
+      "name": "DOĞUBATI",
+      "count": 14
+    },
+    {
+      "name": "Dergah Yayınları",
+      "count": 14
+    },
+    {
+      "name": "AYRINTI",
+      "count": 13
+    },
+    {
+      "name": "DİYANET İŞLERİ BAŞKANLIĞI YAYINLARI",
+      "count": 13
+    },
+    {
+      "name": "KETEBE",
+      "count": 12
+    },
+    {
+      "name": "BEKA",
+      "count": 12
+    },
+    {
+      "name": "METİS",
+      "count": 11
+    },
+    {
+      "name": "ÖTÜKEN",
+      "count": 11
+    },
+    {
+      "name": "İletişim Yayınları",
+      "count": 11
+    }
+  ],
+  "quoteCount": 1,
+  "articleCount": 54
+}

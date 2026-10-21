@@ -1,0 +1,3417 @@
+[
+  {
+    "name": "(Eğitim Serisi)",
+    "slug": "egitim-serisi",
+    "count": 4
+  },
+  {
+    "name": "(Görünmüyor)",
+    "slug": "gorunmuyor",
+    "count": 4
+  },
+  {
+    "name": "(Karakalem)",
+    "slug": "karakalem",
+    "count": 1
+  },
+  {
+    "name": "(Yazar/Derleyen)",
+    "slug": "yazar-derleyen",
+    "count": 1
+  },
+  {
+    "name": "(Çev: Ahmet Yıldız)",
+    "slug": "cev-ahmet-yildiz",
+    "count": 1
+  },
+  {
+    "name": "(Çeviren: Cafer Şimşek)",
+    "slug": "ceviren-cafer-simsek",
+    "count": 1
+  },
+  {
+    "name": "A. Adnan Adıvar",
+    "slug": "a-adnan-adivar",
+    "count": 1
+  },
+  {
+    "name": "A. J. ARBERRY",
+    "slug": "a-j-arberry",
+    "count": 1
+  },
+  {
+    "name": "A. Kadir Çüçen",
+    "slug": "a-kadir-cucen",
+    "count": 2
+  },
+  {
+    "name": "A. KADİR GÜCEN",
+    "slug": "a-kadir-gucen",
+    "count": 1
+  },
+  {
+    "name": "A. Zeki Velidi Togan",
+    "slug": "a-zeki-velidi-togan",
+    "count": 3
+  },
+  {
+    "name": "Abdi Tevfik",
+    "slug": "abdi-tevfik",
+    "count": 1
+  },
+  {
+    "name": "Abdullah Cevdet",
+    "slug": "abdullah-cevdet",
+    "count": 1
+  },
+  {
+    "name": "ABDULLAH İBN EBU GUDDE",
+    "slug": "abdullah-ibn-ebu-gudde",
+    "count": 1
+  },
+  {
+    "name": "ABDULLAH YEĞİN",
+    "slug": "abdullah-yegin",
+    "count": 1
+  },
+  {
+    "name": "Abdullah Şevki",
+    "slug": "abdullah-sevki",
+    "count": 2
+  },
+  {
+    "name": "ABDÜLBAKİ GÖLPINARLI",
+    "slug": "abdulbaki-golpinarli",
+    "count": 1
+  },
+  {
+    "name": "Abdülkahir el-Bağdâdî",
+    "slug": "abdulkahir-el-bagdadi",
+    "count": 1
+  },
+  {
+    "name": "Abdünnafi İffet Efendi",
+    "slug": "abdunnafi-iffet-efendi",
+    "count": 1
+  },
+  {
+    "name": "Adnan ACAR",
+    "slug": "adnan-acar",
+    "count": 2
+  },
+  {
+    "name": "Adnan Adıvar",
+    "slug": "adnan-adivar",
+    "count": 1
+  },
+  {
+    "name": "Adnan Erkuş",
+    "slug": "adnan-erkus",
+    "count": 1
+  },
+  {
+    "name": "Afet İnan",
+    "slug": "afet-inan",
+    "count": 1
+  },
+  {
+    "name": "Afşar Timuçin",
+    "slug": "afsar-timucin",
+    "count": 3
+  },
+  {
+    "name": "Afşar Timuçin/SABAHAT TÜRER",
+    "slug": "afsar-timucin-sabahat-turer",
+    "count": 2
+  },
+  {
+    "name": "Ahmed bin Hanbel",
+    "slug": "ahmed-bin-hanbel",
+    "count": 12
+  },
+  {
+    "name": "Ahmed Cevdet Paşa",
+    "slug": "ahmed-cevdet-pasa",
+    "count": 3
+  },
+  {
+    "name": "Ahmed Hamdi Şirvânî",
+    "slug": "ahmed-hamdi-sirvani",
+    "count": 1
+  },
+  {
+    "name": "AHMED HAMDİ TANPINAR",
+    "slug": "ahmed-hamdi-tanpinar",
+    "count": 1
+  },
+  {
+    "name": "Ahmed Midhat",
+    "slug": "ahmed-midhat",
+    "count": 4
+  },
+  {
+    "name": "Ahmed Yesevî",
+    "slug": "ahmed-yesevi",
+    "count": 1
+  },
+  {
+    "name": "Ahmed-i Dâî",
+    "slug": "ahmed-i-dai",
+    "count": 1
+  },
+  {
+    "name": "Ahmet Arslan",
+    "slug": "ahmet-arslan",
+    "count": 1
+  },
+  {
+    "name": "AHMET AYDOĞAN",
+    "slug": "ahmet-aydogan",
+    "count": 1
+  },
+  {
+    "name": "Ahmet Ayhan Çitil",
+    "slug": "ahmet-ayhan-citil",
+    "count": 2
+  },
+  {
+    "name": "Ahmet Cevdet Paşa",
+    "slug": "ahmet-cevdet-pasa",
+    "count": 4
+  },
+  {
+    "name": "Ahmet Cevizci",
+    "slug": "ahmet-cevizci",
+    "count": 6
+  },
+  {
+    "name": "Ahmet Dağ",
+    "slug": "ahmet-dag",
+    "count": 1
+  },
+  {
+    "name": "Ahmet Feyzi Korur",
+    "slug": "ahmet-feyzi-korur",
+    "count": 2
+  },
+  {
+    "name": "Ahmet Hamdi Tanpınar",
+    "slug": "ahmet-hamdi-tanpinar",
+    "count": 1
+  },
+  {
+    "name": "AHMET HAN",
+    "slug": "ahmet-han",
+    "count": 1
+  },
+  {
+    "name": "Ahmet Soysal",
+    "slug": "ahmet-soysal",
+    "count": 1
+  },
+  {
+    "name": "Ahmet Vefik Paşa",
+    "slug": "ahmet-vefik-pasa",
+    "count": 1
+  },
+  {
+    "name": "Aiskhylos",
+    "slug": "aiskhylos",
+    "count": 1
+  },
+  {
+    "name": "Ala E. Ersoy",
+    "slug": "ala-e-ersoy",
+    "count": 1
+  },
+  {
+    "name": "Alain Badiou",
+    "slug": "alain-badiou",
+    "count": 4
+  },
+  {
+    "name": "Alain Coulon",
+    "slug": "alain-coulon",
+    "count": 1
+  },
+  {
+    "name": "ALAİN",
+    "slug": "alain",
+    "count": 1
+  },
+  {
+    "name": "Alan Swingewood",
+    "slug": "alan-swingewood",
+    "count": 1
+  },
+  {
+    "name": "Alauddin el-Kâzerûnî",
+    "slug": "alauddin-el-kazeruni",
+    "count": 1
+  },
+  {
+    "name": "Albert Camus",
+    "slug": "albert-camus",
+    "count": 1
+  },
+  {
+    "name": "ALEV ERKİLET",
+    "slug": "alev-erkilet",
+    "count": 1
+  },
+  {
+    "name": "ALEXANDER KNYSCH",
+    "slug": "alexander-knysch",
+    "count": 1
+  },
+  {
+    "name": "Alexandre Kojève",
+    "slug": "alexandre-kojeve",
+    "count": 1
+  },
+  {
+    "name": "Alexis Bertrand (Çeviren: Salih Zeki)",
+    "slug": "alexis-bertrand-ceviren-salih-zeki",
+    "count": 1
+  },
+  {
+    "name": "Alexis Bertrand / Salih Zeki",
+    "slug": "alexis-bertrand-salih-zeki",
+    "count": 1
+  },
+  {
+    "name": "Alexis de Tocqueville",
+    "slug": "alexis-de-tocqueville",
+    "count": 2
+  },
+  {
+    "name": "Alfred Fouillée, Baha Tevfik, Ahmed Midhat",
+    "slug": "alfred-fouillee-baha-tevfik-ahmed-midhat",
+    "count": 1
+  },
+  {
+    "name": "Alfred Jules Ayer",
+    "slug": "alfred-jules-ayer",
+    "count": 1
+  },
+  {
+    "name": "Alfred North Whitehead",
+    "slug": "alfred-north-whitehead",
+    "count": 2
+  },
+  {
+    "name": "Alfred Weber",
+    "slug": "alfred-weber",
+    "count": 2
+  },
+  {
+    "name": "Alfred William Benn",
+    "slug": "alfred-william-benn",
+    "count": 1
+  },
+  {
+    "name": "Ali Ayten",
+    "slug": "ali-ayten",
+    "count": 1
+  },
+  {
+    "name": "Ali Bedir",
+    "slug": "ali-bedir",
+    "count": 1
+  },
+  {
+    "name": "Ali Budak",
+    "slug": "ali-budak",
+    "count": 1
+  },
+  {
+    "name": "Ali Eren",
+    "slug": "ali-eren",
+    "count": 2
+  },
+  {
+    "name": "Ali Fuad Başgeldi",
+    "slug": "ali-fuad-basgeldi",
+    "count": 1
+  },
+  {
+    "name": "Ali Fuad Türkgeldi",
+    "slug": "ali-fuad-turkgeldi",
+    "count": 1
+  },
+  {
+    "name": "Ali Osman Gündoğan",
+    "slug": "ali-osman-gundogan",
+    "count": 1
+  },
+  {
+    "name": "Ali Rıza Gelirli",
+    "slug": "ali-riza-gelirli",
+    "count": 1
+  },
+  {
+    "name": "Ali Sedad",
+    "slug": "ali-sedad",
+    "count": 1
+  },
+  {
+    "name": "Ali SUAVİ",
+    "slug": "ali-suavi",
+    "count": 1
+  },
+  {
+    "name": "ALIJA İZETBEGOVİÇ",
+    "slug": "alija-izetbegovic",
+    "count": 1
+  },
+  {
+    "name": "Alvin W. Gouldner",
+    "slug": "alvin-w-gouldner",
+    "count": 1
+  },
+  {
+    "name": "AMİRAN KURTKAN",
+    "slug": "amiran-kurtkan",
+    "count": 1
+  },
+  {
+    "name": "Andrew Bowie",
+    "slug": "andrew-bowie",
+    "count": 1
+  },
+  {
+    "name": "André Bazin",
+    "slug": "andre-bazin",
+    "count": 1
+  },
+  {
+    "name": "André Maurois",
+    "slug": "andre-maurois",
+    "count": 1
+  },
+  {
+    "name": "Annemarie Schimmel",
+    "slug": "annemarie-schimmel",
+    "count": 1
+  },
+  {
+    "name": "Anthony Giddens",
+    "slug": "anthony-giddens",
+    "count": 1
+  },
+  {
+    "name": "Antoni Casas Ros",
+    "slug": "antoni-casas-ros",
+    "count": 1
+  },
+  {
+    "name": "Arif Hikmet Par",
+    "slug": "arif-hikmet-par",
+    "count": 1
+  },
+  {
+    "name": "Aristoteles",
+    "slug": "aristoteles",
+    "count": 14
+  },
+  {
+    "name": "Arslan Topakkaya",
+    "slug": "arslan-topakkaya",
+    "count": 2
+  },
+  {
+    "name": "Arthur Asa Berger",
+    "slug": "arthur-asa-berger",
+    "count": 1
+  },
+  {
+    "name": "Arthur Schopenhauer",
+    "slug": "arthur-schopenhauer",
+    "count": 18
+  },
+  {
+    "name": "Asım Cüneydî Konak",
+    "slug": "asim-cuneydi-konak",
+    "count": 1
+  },
+  {
+    "name": "Atakan Altınörs",
+    "slug": "atakan-altinors",
+    "count": 2
+  },
+  {
+    "name": "Attila İlhan",
+    "slug": "attila-ilhan",
+    "count": 1
+  },
+  {
+    "name": "Attila Tokatlı",
+    "slug": "attila-tokatli",
+    "count": 1
+  },
+  {
+    "name": "AUGUSTE COMTE",
+    "slug": "auguste-comte",
+    "count": 1
+  },
+  {
+    "name": "Avner Ziss",
+    "slug": "avner-ziss",
+    "count": 2
+  },
+  {
+    "name": "Aysun Gür",
+    "slug": "aysun-gur",
+    "count": 1
+  },
+  {
+    "name": "AZİZ ÇALIŞLAR",
+    "slug": "aziz-calislar",
+    "count": 2
+  },
+  {
+    "name": "Azmzâde Refik Bey",
+    "slug": "azmzade-refik-bey",
+    "count": 1
+  },
+  {
+    "name": "B. V. Lunin",
+    "slug": "b-v-lunin",
+    "count": 1
+  },
+  {
+    "name": "Babanzâde Ahmed Naîm",
+    "slug": "babanzade-ahmed-naim",
+    "count": 3
+  },
+  {
+    "name": "Babanzâde İsmail Hakkı",
+    "slug": "babanzade-ismail-hakki",
+    "count": 1
+  },
+  {
+    "name": "Baha Tevfik",
+    "slug": "baha-tevfik",
+    "count": 3
+  },
+  {
+    "name": "BAHa Tevfik / AHMET NEBİL",
+    "slug": "baha-tevfik-ahmet-nebil",
+    "count": 1
+  },
+  {
+    "name": "Bahaeddin Sağlam",
+    "slug": "bahaeddin-saglam",
+    "count": 2
+  },
+  {
+    "name": "Barbara Bolt",
+    "slug": "barbara-bolt",
+    "count": 1
+  },
+  {
+    "name": "Baudelarie",
+    "slug": "baudelarie",
+    "count": 1
+  },
+  {
+    "name": "Bedrettin Cömert",
+    "slug": "bedrettin-comert",
+    "count": 4
+  },
+  {
+    "name": "Bekir Topaloğlu",
+    "slug": "bekir-topaloglu",
+    "count": 1
+  },
+  {
+    "name": "Bekir Topaloğlu, M. Nuri Yılmaz, Es-Sâbûnî",
+    "slug": "bekir-topaloglu-m-nuri-yilmaz-es-sabuni",
+    "count": 1
+  },
+  {
+    "name": "BENEDETTO CROCE",
+    "slug": "benedetto-croce",
+    "count": 2
+  },
+  {
+    "name": "BENSUCCAN LABİCA",
+    "slug": "bensuccan-labica",
+    "count": 1
+  },
+  {
+    "name": "Bereketzâde İsmail Hakkı",
+    "slug": "bereketzade-ismail-hakki",
+    "count": 3
+  },
+  {
+    "name": "Bernard Bosanquet",
+    "slug": "bernard-bosanquet",
+    "count": 2
+  },
+  {
+    "name": "Bernard Groethuysen",
+    "slug": "bernard-groethuysen",
+    "count": 1
+  },
+  {
+    "name": "Bertrand Russell",
+    "slug": "bertrand-russell",
+    "count": 5
+  },
+  {
+    "name": "Besim F. Dellaloğlu",
+    "slug": "besim-f-dellaloglu",
+    "count": 1
+  },
+  {
+    "name": "Beşir Fuad",
+    "slug": "besir-fuad",
+    "count": 1
+  },
+  {
+    "name": "BEŞİR AYVAZOĞLU",
+    "slug": "besir-ayvazoglu",
+    "count": 1
+  },
+  {
+    "name": "BİRSEN HEKİMOĞLU",
+    "slug": "birsen-hekimoglu",
+    "count": 1
+  },
+  {
+    "name": "Blaise Pascal",
+    "slug": "blaise-pascal",
+    "count": 1
+  },
+  {
+    "name": "BOTTOMORE",
+    "slug": "bottomore",
+    "count": 1
+  },
+  {
+    "name": "BRYAN TURNER",
+    "slug": "bryan-turner",
+    "count": 1
+  },
+  {
+    "name": "BÜLENT İPEKÇİOĞLU",
+    "slug": "bulent-ipekcioglu",
+    "count": 1
+  },
+  {
+    "name": "Bülent İplikçioğlu",
+    "slug": "bulent-iplikcioglu",
+    "count": 2
+  },
+  {
+    "name": "BÜŞRA ERSANLI BEHAR",
+    "slug": "busra-ersanli-behar",
+    "count": 1
+  },
+  {
+    "name": "C. Wright Mills",
+    "slug": "c-wright-mills",
+    "count": 2
+  },
+  {
+    "name": "Cahit Zarifoğlu",
+    "slug": "cahit-zarifoglu",
+    "count": 1
+  },
+  {
+    "name": "CARPENTER",
+    "slug": "carpenter",
+    "count": 1
+  },
+  {
+    "name": "Cağfer Karadaş",
+    "slug": "cagfer-karadas",
+    "count": 1
+  },
+  {
+    "name": "Celal Üster",
+    "slug": "celal-uster",
+    "count": 1
+  },
+  {
+    "name": "Celestin Bougle /  Mustafa Suphi",
+    "slug": "celestin-bougle-mustafa-suphi",
+    "count": 1
+  },
+  {
+    "name": "Celâl Esad Arseven",
+    "slug": "celal-esad-arseven",
+    "count": 1
+  },
+  {
+    "name": "CELÂLEDDİN ES-SUYÛTÎ",
+    "slug": "celaleddin-es-suyuti",
+    "count": 1
+  },
+  {
+    "name": "Cemal Yıldırım",
+    "slug": "cemal-yildirim",
+    "count": 1
+  },
+  {
+    "name": "Cemil Meriç",
+    "slug": "cemil-meric",
+    "count": 7
+  },
+  {
+    "name": "Cemil Sena",
+    "slug": "cemil-sena",
+    "count": 2
+  },
+  {
+    "name": "CEMÎ",
+    "slug": "cemi",
+    "count": 20
+  },
+  {
+    "name": "Cenap Şahabettin",
+    "slug": "cenap-sahabettin",
+    "count": 1
+  },
+  {
+    "name": "Cengiz İskender Özkan",
+    "slug": "cengiz-iskender-ozkan",
+    "count": 1
+  },
+  {
+    "name": "Cevad Memduh Altar",
+    "slug": "cevad-memduh-altar",
+    "count": 2
+  },
+  {
+    "name": "Charles Freeman",
+    "slug": "charles-freeman",
+    "count": 1
+  },
+  {
+    "name": "Charles Lalo",
+    "slug": "charles-lalo",
+    "count": 2
+  },
+  {
+    "name": "Charles Ramond",
+    "slug": "charles-ramond",
+    "count": 1
+  },
+  {
+    "name": "Christian Ruby",
+    "slug": "christian-ruby",
+    "count": 1
+  },
+  {
+    "name": "Claude Lévi-Strauss",
+    "slug": "claude-levi-strauss",
+    "count": 1
+  },
+  {
+    "name": "Cyril Lemieux",
+    "slug": "cyril-lemieux",
+    "count": 1
+  },
+  {
+    "name": "Cyril Mango",
+    "slug": "cyril-mango",
+    "count": 1
+  },
+  {
+    "name": "D. Kambouchner / J. F. Roussillon",
+    "slug": "d-kambouchner-j-f-roussillon",
+    "count": 1
+  },
+  {
+    "name": "D. Krech / R.S. Crutchfield",
+    "slug": "d-krech-r-s-crutchfield",
+    "count": 1
+  },
+  {
+    "name": "DABNEY TOWNSEND",
+    "slug": "dabney-townsend",
+    "count": 2
+  },
+  {
+    "name": "Dan Swain",
+    "slug": "dan-swain",
+    "count": 1
+  },
+  {
+    "name": "Dan Zahavi",
+    "slug": "dan-zahavi",
+    "count": 1
+  },
+  {
+    "name": "David Hume",
+    "slug": "david-hume",
+    "count": 3
+  },
+  {
+    "name": "David Ross",
+    "slug": "david-ross",
+    "count": 1
+  },
+  {
+    "name": "David West",
+    "slug": "david-west",
+    "count": 1
+  },
+  {
+    "name": "DENIS HUISMAN",
+    "slug": "denis-huisman",
+    "count": 2
+  },
+  {
+    "name": "Der Barry Lee",
+    "slug": "der-barry-lee",
+    "count": 1
+  },
+  {
+    "name": "Der. Zeki Özcan",
+    "slug": "der-zeki-ozcan",
+    "count": 1
+  },
+  {
+    "name": "Der: Kazım Berker - Tarih Vakfı",
+    "slug": "der-kazim-berker-tarih-vakfi",
+    "count": 1
+  },
+  {
+    "name": "Der: Veysel Atayman",
+    "slug": "der-veysel-atayman",
+    "count": 1
+  },
+  {
+    "name": "Derek Layder",
+    "slug": "derek-layder",
+    "count": 1
+  },
+  {
+    "name": "Derleyen: M. Çağatay Özdemir",
+    "slug": "derleyen-m-cagatay-ozdemir",
+    "count": 2
+  },
+  {
+    "name": "Derleyen: Recep Alpyağıl",
+    "slug": "derleyen-recep-alpyagil",
+    "count": 4
+  },
+  {
+    "name": "Derleyen: Zeki Özcan",
+    "slug": "derleyen-zeki-ozcan",
+    "count": 1
+  },
+  {
+    "name": "Descartes",
+    "slug": "descartes",
+    "count": 8
+  },
+  {
+    "name": "Donald Macrae",
+    "slug": "donald-macrae",
+    "count": 1
+  },
+  {
+    "name": "Douglas J. Soccio",
+    "slug": "douglas-j-soccio",
+    "count": 1
+  },
+  {
+    "name": "Doç. Dr. Şahin Uçar",
+    "slug": "doc-dr-sahin-ucar",
+    "count": 1
+  },
+  {
+    "name": "DOĞAN ERGÜN",
+    "slug": "dogan-ergun",
+    "count": 1
+  },
+  {
+    "name": "Doğan Özlem",
+    "slug": "dogan-ozlem",
+    "count": 6
+  },
+  {
+    "name": "Doğan Özlem Güçlü Ateşoğlu",
+    "slug": "dogan-ozlem-guclu-atesoglu",
+    "count": 1
+  },
+  {
+    "name": "Doğu Perinçek",
+    "slug": "dogu-perincek",
+    "count": 2
+  },
+  {
+    "name": "Dr. Ali Kemal BELVİRANLI",
+    "slug": "dr-ali-kemal-belviranli",
+    "count": 1
+  },
+  {
+    "name": "Dr. Fatma Paksüt",
+    "slug": "dr-fatma-paksut",
+    "count": 1
+  },
+  {
+    "name": "Dr. Hayri Bolay",
+    "slug": "dr-hayri-bolay",
+    "count": 1
+  },
+  {
+    "name": "Dr. M. Sabri Erdoğdu",
+    "slug": "dr-m-sabri-erdogdu",
+    "count": 1
+  },
+  {
+    "name": "DR. OSMAN MUTLUELL",
+    "slug": "dr-osman-mutluell",
+    "count": 2
+  },
+  {
+    "name": "Dücane Cündioğlu",
+    "slug": "ducane-cundioglu",
+    "count": 2
+  },
+  {
+    "name": "E. Durkheim",
+    "slug": "e-durkheim",
+    "count": 2
+  },
+  {
+    "name": "EBU HANİFE",
+    "slug": "ebu-hanife",
+    "count": 1
+  },
+  {
+    "name": "Ebû Hilâl el-Askerî",
+    "slug": "ebu-hilal-el-askeri",
+    "count": 1
+  },
+  {
+    "name": "Ebü'l-Alâ Afîfî",
+    "slug": "ebu-l-ala-afifi",
+    "count": 1
+  },
+  {
+    "name": "Ed: Emre Kongar - Ümit Özdağ",
+    "slug": "ed-emre-kongar-umit-ozdag",
+    "count": 2
+  },
+  {
+    "name": "Ed: Mehmet Ali Kaynar",
+    "slug": "ed-mehmet-ali-kaynar",
+    "count": 1
+  },
+  {
+    "name": "Editörler: Anthony Giddens, Jonathan Turner",
+    "slug": "editorler-anthony-giddens-jonathan-turner",
+    "count": 1
+  },
+  {
+    "name": "Editörler: İsmail Köz, Ali Çetin",
+    "slug": "editorler-ismail-koz-ali-cetin",
+    "count": 1
+  },
+  {
+    "name": "Edmund Husserl",
+    "slug": "edmund-husserl",
+    "count": 2
+  },
+  {
+    "name": "EDWARD HALLETT CARR",
+    "slug": "edward-hallett-carr",
+    "count": 1
+  },
+  {
+    "name": "EDWARD SAID",
+    "slug": "edward-said",
+    "count": 1
+  },
+  {
+    "name": "Edward W. Said",
+    "slug": "edward-w-said",
+    "count": 1
+  },
+  {
+    "name": "Eflatun",
+    "slug": "eflatun",
+    "count": 1
+  },
+  {
+    "name": "Ekrem Demirli",
+    "slug": "ekrem-demirli",
+    "count": 2
+  },
+  {
+    "name": "Ela Ersoy",
+    "slug": "ela-ersoy",
+    "count": 1
+  },
+  {
+    "name": "ELİS YAYINLARI",
+    "slug": "elis-yayinlari",
+    "count": 1
+  },
+  {
+    "name": "ELMALILI AHMET HAMDİ YAZIR",
+    "slug": "elmalili-ahmet-hamdi-yazir",
+    "count": 1
+  },
+  {
+    "name": "Emile Boutroux",
+    "slug": "emile-boutroux",
+    "count": 1
+  },
+  {
+    "name": "EMILE DURKHEIM",
+    "slug": "emile-durkheim",
+    "count": 2
+  },
+  {
+    "name": "Emile Durkheim / Selmin Evrim",
+    "slug": "emile-durkheim-selmin-evrim",
+    "count": 1
+  },
+  {
+    "name": "EMİNE SONNUR ÖZCAN",
+    "slug": "emine-sonnur-ozcan",
+    "count": 1
+  },
+  {
+    "name": "Emrah Gökçe",
+    "slug": "emrah-gokce",
+    "count": 1
+  },
+  {
+    "name": "Emre Şen",
+    "slug": "emre-sen",
+    "count": 2
+  },
+  {
+    "name": "Emrullah Efendi",
+    "slug": "emrullah-efendi",
+    "count": 2
+  },
+  {
+    "name": "Enver Gülşen",
+    "slug": "enver-gulsen",
+    "count": 3
+  },
+  {
+    "name": "ENVER ORMAN",
+    "slug": "enver-orman",
+    "count": 1
+  },
+  {
+    "name": "Erasmus",
+    "slug": "erasmus",
+    "count": 1
+  },
+  {
+    "name": "Ercan Çifçi",
+    "slug": "ercan-cifci",
+    "count": 1
+  },
+  {
+    "name": "ERENDİZ ÖZBAYOĞLU",
+    "slug": "erendiz-ozbayoglu",
+    "count": 1
+  },
+  {
+    "name": "ERGUN YILDIRIM",
+    "slug": "ergun-yildirim",
+    "count": 1
+  },
+  {
+    "name": "Erhan Özden",
+    "slug": "erhan-ozden",
+    "count": 1
+  },
+  {
+    "name": "Ernest von Aster",
+    "slug": "ernest-von-aster",
+    "count": 1
+  },
+  {
+    "name": "Ernst Haeckel / Ahmet Nebil",
+    "slug": "ernst-haeckel-ahmet-nebil",
+    "count": 1
+  },
+  {
+    "name": "Erving Goffman",
+    "slug": "erving-goffman",
+    "count": 1
+  },
+  {
+    "name": "ETHEM BAKAR",
+    "slug": "ethem-bakar",
+    "count": 1
+  },
+  {
+    "name": "Eyyüp Demir",
+    "slug": "eyyup-demir",
+    "count": 2
+  },
+  {
+    "name": "EYÜP ALİ KILIÇARSLAN GÜÇLÜ ATEŞOĞLU",
+    "slug": "eyup-ali-kilicarslan-guclu-atesoglu",
+    "count": 1
+  },
+  {
+    "name": "Farabi",
+    "slug": "farabi",
+    "count": 4
+  },
+  {
+    "name": "FARUKİ",
+    "slug": "faruki",
+    "count": 1
+  },
+  {
+    "name": "Fatma Erkman Akerson",
+    "slug": "fatma-erkman-akerson",
+    "count": 1
+  },
+  {
+    "name": "Fehrullah Terkan",
+    "slug": "fehrullah-terkan",
+    "count": 1
+  },
+  {
+    "name": "Felix Clay",
+    "slug": "felix-clay",
+    "count": 2
+  },
+  {
+    "name": "Ferdinand Tönnies",
+    "slug": "ferdinand-tonnies",
+    "count": 1
+  },
+  {
+    "name": "Fernand Braudel",
+    "slug": "fernand-braudel",
+    "count": 4
+  },
+  {
+    "name": "Fikir Mimarları Dizisi",
+    "slug": "fikir-mimarlari-dizisi",
+    "count": 5
+  },
+  {
+    "name": "Fikret Başkaya",
+    "slug": "fikret-baskaya",
+    "count": 1
+  },
+  {
+    "name": "Filibeli Ahmed Hilmi",
+    "slug": "filibeli-ahmed-hilmi",
+    "count": 1
+  },
+  {
+    "name": "FİLİPELİ AHMET",
+    "slug": "filipeli-ahmet",
+    "count": 1
+  },
+  {
+    "name": "France Farago",
+    "slug": "france-farago",
+    "count": 2
+  },
+  {
+    "name": "FRANCIS BACON",
+    "slug": "francis-bacon",
+    "count": 4
+  },
+  {
+    "name": "Frank Thilly",
+    "slug": "frank-thilly",
+    "count": 1
+  },
+  {
+    "name": "Friedrich Engels",
+    "slug": "friedrich-engels",
+    "count": 1
+  },
+  {
+    "name": "Friedrich Nietzsche",
+    "slug": "friedrich-nietzsche",
+    "count": 7
+  },
+  {
+    "name": "Fritjof Capra",
+    "slug": "fritjof-capra",
+    "count": 1
+  },
+  {
+    "name": "Fuad Köprülü",
+    "slug": "fuad-koprulu",
+    "count": 1
+  },
+  {
+    "name": "FUNDA TÜMER",
+    "slug": "funda-tumer",
+    "count": 2
+  },
+  {
+    "name": "G. Stauth & B. S. Turner",
+    "slug": "g-stauth-b-s-turner",
+    "count": 1
+  },
+  {
+    "name": "G. W. F. Hegel",
+    "slug": "g-w-f-hegel",
+    "count": 11
+  },
+  {
+    "name": "G. W. Leibniz",
+    "slug": "g-w-leibniz",
+    "count": 1
+  },
+  {
+    "name": "G. Yakup Şimşek",
+    "slug": "g-yakup-simsek",
+    "count": 1
+  },
+  {
+    "name": "GAMZE KESKİN",
+    "slug": "gamze-keskin",
+    "count": 2
+  },
+  {
+    "name": "Garrett Thomson",
+    "slug": "garrett-thomson",
+    "count": 1
+  },
+  {
+    "name": "Geoff Boucher",
+    "slug": "geoff-boucher",
+    "count": 1
+  },
+  {
+    "name": "GEORG LUKACS",
+    "slug": "georg-lukacs",
+    "count": 4
+  },
+  {
+    "name": "GEORG LUKACS/AHMET CEMAL",
+    "slug": "georg-lukacs-ahmet-cemal",
+    "count": 2
+  },
+  {
+    "name": "Georg Simmel",
+    "slug": "georg-simmel",
+    "count": 6
+  },
+  {
+    "name": "Gerry Spence",
+    "slug": "gerry-spence",
+    "count": 1
+  },
+  {
+    "name": "Gilbert Simondon",
+    "slug": "gilbert-simondon",
+    "count": 1
+  },
+  {
+    "name": "Gilles Deleuze",
+    "slug": "gilles-deleuze",
+    "count": 2
+  },
+  {
+    "name": "GORDON MASHALL",
+    "slug": "gordon-mashall",
+    "count": 1
+  },
+  {
+    "name": "GOTTFRIED WILHELM LEIBNIZ",
+    "slug": "gottfried-wilhelm-leibniz",
+    "count": 1
+  },
+  {
+    "name": "Gottlob Frege",
+    "slug": "gottlob-frege",
+    "count": 2
+  },
+  {
+    "name": "Gregory Jusdanis",
+    "slug": "gregory-jusdanis",
+    "count": 2
+  },
+  {
+    "name": "Gönül Bünyadzade",
+    "slug": "gonul-bunyadzade",
+    "count": 1
+  },
+  {
+    "name": "Gülhanım Küçükalkan",
+    "slug": "gulhanim-kucukalkan",
+    "count": 1
+  },
+  {
+    "name": "güzin yamaner",
+    "slug": "guzin-yamaner",
+    "count": 2
+  },
+  {
+    "name": "GÜÇLÜ ATEŞOĞLU",
+    "slug": "guclu-atesoglu",
+    "count": 1
+  },
+  {
+    "name": "H. Bülent Gözkan",
+    "slug": "h-bulent-gozkan",
+    "count": 1
+  },
+  {
+    "name": "Habib Türker",
+    "slug": "habib-turker",
+    "count": 2
+  },
+  {
+    "name": "Habib Şener",
+    "slug": "habib-sener",
+    "count": 1
+  },
+  {
+    "name": "Hakan Kurt",
+    "slug": "hakan-kurt",
+    "count": 1
+  },
+  {
+    "name": "Hakan Poyraz",
+    "slug": "hakan-poyraz",
+    "count": 1
+  },
+  {
+    "name": "Hakan Savaş",
+    "slug": "hakan-savas",
+    "count": 1
+  },
+  {
+    "name": "Hakan Topateş",
+    "slug": "hakan-topates",
+    "count": 1
+  },
+  {
+    "name": "Halil İnalcık",
+    "slug": "halil-inalcik",
+    "count": 3
+  },
+  {
+    "name": "Hanna Fenichel Pitkin",
+    "slug": "hanna-fenichel-pitkin",
+    "count": 1
+  },
+  {
+    "name": "HANS FREYER",
+    "slug": "hans-freyer",
+    "count": 2
+  },
+  {
+    "name": "Harputîzade hacı mustafa efend,",
+    "slug": "harputizade-haci-mustafa-efend",
+    "count": 1
+  },
+  {
+    "name": "Harry K. Wells",
+    "slug": "harry-k-wells",
+    "count": 1
+  },
+  {
+    "name": "Hasan Hanefi",
+    "slug": "hasan-hanefi",
+    "count": 1
+  },
+  {
+    "name": "HAYDAR RIFAT",
+    "slug": "haydar-rifat",
+    "count": 1
+  },
+  {
+    "name": "Haydar Tolun",
+    "slug": "haydar-tolun",
+    "count": 1
+  },
+  {
+    "name": "Hayrettin Karaman",
+    "slug": "hayrettin-karaman",
+    "count": 1
+  },
+  {
+    "name": "HAZ : METE TUNÇAY",
+    "slug": "haz-mete-tuncay",
+    "count": 3
+  },
+  {
+    "name": "Hazırlayan: EMRAH GÖKÇE",
+    "slug": "hazirlayan-emrah-gokce",
+    "count": 1
+  },
+  {
+    "name": "Heinz Heimsoeth",
+    "slug": "heinz-heimsoeth",
+    "count": 2
+  },
+  {
+    "name": "Henri Bergson",
+    "slug": "henri-bergson",
+    "count": 2
+  },
+  {
+    "name": "Henry Rutgers Marshall",
+    "slug": "henry-rutgers-marshall",
+    "count": 2
+  },
+  {
+    "name": "Herakleitos",
+    "slug": "herakleitos",
+    "count": 1
+  },
+  {
+    "name": "Herbert Marcuse",
+    "slug": "herbert-marcuse",
+    "count": 2
+  },
+  {
+    "name": "Herodotos (Çev: Müntekim Ökmen)",
+    "slug": "herodotos-cev-muntekim-okmen",
+    "count": 1
+  },
+  {
+    "name": "Hesiodos",
+    "slug": "hesiodos",
+    "count": 1
+  },
+  {
+    "name": "Hilmi Yavuz",
+    "slug": "hilmi-yavuz",
+    "count": 1
+  },
+  {
+    "name": "hilmi ziya ülken",
+    "slug": "hilmi-ziya-ulken",
+    "count": 4
+  },
+  {
+    "name": "HİMMET UÇ",
+    "slug": "himmet-uc",
+    "count": 2
+  },
+  {
+    "name": "Hobson",
+    "slug": "hobson",
+    "count": 1
+  },
+  {
+    "name": "Hoca Tahsin",
+    "slug": "hoca-tahsin",
+    "count": 2
+  },
+  {
+    "name": "Homeros",
+    "slug": "homeros",
+    "count": 2
+  },
+  {
+    "name": "Hèlen Politis",
+    "slug": "helen-politis",
+    "count": 1
+  },
+  {
+    "name": "Hülya Yetişkin",
+    "slug": "hulya-yetiskin",
+    "count": 2
+  },
+  {
+    "name": "Hüseyin Hilmi Işık",
+    "slug": "huseyin-hilmi-isik",
+    "count": 1
+  },
+  {
+    "name": "HÜSEYİN CAHİT YALÇIN",
+    "slug": "huseyin-cahit-yalcin",
+    "count": 2
+  },
+  {
+    "name": "I. T. KURŞUN",
+    "slug": "i-t-kursun",
+    "count": 1
+  },
+  {
+    "name": "I.B. Bravo / H. Bravo",
+    "slug": "i-b-bravo-h-bravo",
+    "count": 1
+  },
+  {
+    "name": "Ian Almond",
+    "slug": "ian-almond",
+    "count": 1
+  },
+  {
+    "name": "Immanuel Kant",
+    "slug": "immanuel-kant",
+    "count": 13
+  },
+  {
+    "name": "Işıl Bayar Bravo / Banu Alan Sümer",
+    "slug": "isil-bayar-bravo-banu-alan-sumer",
+    "count": 1
+  },
+  {
+    "name": "İbn Haldun",
+    "slug": "ibn-haldun",
+    "count": 2
+  },
+  {
+    "name": "İbn Rüşd",
+    "slug": "ibn-rusd",
+    "count": 1
+  },
+  {
+    "name": "İbn Sînâ",
+    "slug": "ibn-sina",
+    "count": 2
+  },
+  {
+    "name": "İbni Arabi (Eser Sahibi), Ekrem Demirli (Çevirmen)",
+    "slug": "ibni-arabi-eser-sahibi-ekrem-demirli-cevirmen",
+    "count": 18
+  },
+  {
+    "name": "İbnü'l Arabî",
+    "slug": "ibnu-l-arabi",
+    "count": 2
+  },
+  {
+    "name": "İbrahim Alaettin Gövsa",
+    "slug": "ibrahim-alaettin-govsa",
+    "count": 2
+  },
+  {
+    "name": "İbrahim Hakkı Paşa",
+    "slug": "ibrahim-hakki-pasa",
+    "count": 1
+  },
+  {
+    "name": "İbrahim Kâfi Dönmez",
+    "slug": "ibrahim-kafi-donmez",
+    "count": 1
+  },
+  {
+    "name": "İhsan Fazlıoğlu",
+    "slug": "ihsan-fazlioglu",
+    "count": 1
+  },
+  {
+    "name": "İmadüddin Halil",
+    "slug": "imaduddin-halil",
+    "count": 1
+  },
+  {
+    "name": "İmam Azam",
+    "slug": "imam-azam",
+    "count": 1
+  },
+  {
+    "name": "İMAM GAZALİ",
+    "slug": "imam-gazali",
+    "count": 6
+  },
+  {
+    "name": "İmam Gazzâlî",
+    "slug": "imam-gazzali",
+    "count": 3
+  },
+  {
+    "name": "İrfan Külyutmaz",
+    "slug": "irfan-kulyutmaz",
+    "count": 1
+  },
+  {
+    "name": "İsmail Fenni Ertuğrul",
+    "slug": "ismail-fenni-ertugrul",
+    "count": 4
+  },
+  {
+    "name": "İsmail Hakkı Bursevî",
+    "slug": "ismail-hakki-bursevi",
+    "count": 1
+  },
+  {
+    "name": "İsmail Hakkı İzmirli (Sadeleştiren: R. Ergin)",
+    "slug": "ismail-hakki-izmirli-sadelestiren-r-ergin",
+    "count": 1
+  },
+  {
+    "name": "İsmail Hakkı Uzunçarşılı",
+    "slug": "ismail-hakki-uzuncarsili",
+    "count": 7
+  },
+  {
+    "name": "İsmail Tunalı",
+    "slug": "ismail-tunali",
+    "count": 6
+  },
+  {
+    "name": "İsmail Yakıt",
+    "slug": "ismail-yakit",
+    "count": 1
+  },
+  {
+    "name": "İSMAİL FERRUH EFENDİ",
+    "slug": "ismail-ferruh-efendi",
+    "count": 3
+  },
+  {
+    "name": "İSMAİL HAKKI",
+    "slug": "ismail-hakki",
+    "count": 1
+  },
+  {
+    "name": "İsmet Özel",
+    "slug": "ismet-ozel",
+    "count": 9
+  },
+  {
+    "name": "İzmirli İsmail Hakkı",
+    "slug": "izmirli-ismail-hakki",
+    "count": 2
+  },
+  {
+    "name": "J.J. Rousseau",
+    "slug": "j-j-rousseau",
+    "count": 1
+  },
+  {
+    "name": "Jack Goody",
+    "slug": "jack-goody",
+    "count": 2
+  },
+  {
+    "name": "JACQUELINE RUSS",
+    "slug": "jacqueline-russ",
+    "count": 1
+  },
+  {
+    "name": "Jacques Derrida",
+    "slug": "jacques-derrida",
+    "count": 2
+  },
+  {
+    "name": "Jale Nejdet Erzen",
+    "slug": "jale-nejdet-erzen",
+    "count": 2
+  },
+  {
+    "name": "James Gordon Finlayson",
+    "slug": "james-gordon-finlayson",
+    "count": 1
+  },
+  {
+    "name": "James M. Jasper",
+    "slug": "james-m-jasper",
+    "count": 1
+  },
+  {
+    "name": "Jared Diamond",
+    "slug": "jared-diamond",
+    "count": 1
+  },
+  {
+    "name": "Jean Baudrillard",
+    "slug": "jean-baudrillard",
+    "count": 2
+  },
+  {
+    "name": "Jean Paul Sartre",
+    "slug": "jean-paul-sartre",
+    "count": 2
+  },
+  {
+    "name": "Jean Perrot",
+    "slug": "jean-perrot",
+    "count": 1
+  },
+  {
+    "name": "Jean-Claude Paye",
+    "slug": "jean-claude-paye",
+    "count": 1
+  },
+  {
+    "name": "Jean-Jacques Rousseau",
+    "slug": "jean-jacques-rousseau",
+    "count": 1
+  },
+  {
+    "name": "Jeremy Bentham",
+    "slug": "jeremy-bentham",
+    "count": 1
+  },
+  {
+    "name": "Joan Robinson",
+    "slug": "joan-robinson",
+    "count": 1
+  },
+  {
+    "name": "John Berger",
+    "slug": "john-berger",
+    "count": 1
+  },
+  {
+    "name": "John Hick",
+    "slug": "john-hick",
+    "count": 1
+  },
+  {
+    "name": "John Lechte",
+    "slug": "john-lechte",
+    "count": 1
+  },
+  {
+    "name": "John Locke",
+    "slug": "john-locke",
+    "count": 3
+  },
+  {
+    "name": "John Penrice",
+    "slug": "john-penrice",
+    "count": 1
+  },
+  {
+    "name": "John R. Searle",
+    "slug": "john-r-searle",
+    "count": 1
+  },
+  {
+    "name": "John Stuart Mill",
+    "slug": "john-stuart-mill",
+    "count": 2
+  },
+  {
+    "name": "Jules Payot",
+    "slug": "jules-payot",
+    "count": 1
+  },
+  {
+    "name": "Jürgen Habermas",
+    "slug": "jurgen-habermas",
+    "count": 3
+  },
+  {
+    "name": "Kaan H. Ökten",
+    "slug": "kaan-h-okten",
+    "count": 2
+  },
+  {
+    "name": "Kadir Mısıroğlu",
+    "slug": "kadir-misiroglu",
+    "count": 14
+  },
+  {
+    "name": "Kadir Çüçen",
+    "slug": "kadir-cucen",
+    "count": 1
+  },
+  {
+    "name": "Kadirbeyoğlu Zeki Bey",
+    "slug": "kadirbeyoglu-zeki-bey",
+    "count": 1
+  },
+  {
+    "name": "KADİR CANATAN",
+    "slug": "kadir-canatan",
+    "count": 2
+  },
+  {
+    "name": "Kamil Kömürcü",
+    "slug": "kamil-komurcu",
+    "count": 1
+  },
+  {
+    "name": "KARL MARX",
+    "slug": "karl-marx",
+    "count": 1
+  },
+  {
+    "name": "KARL MARX - FRIEDRICH ENGELS",
+    "slug": "karl-marx-friedrich-engels",
+    "count": 1
+  },
+  {
+    "name": "Karl Vorlander",
+    "slug": "karl-vorlander",
+    "count": 1
+  },
+  {
+    "name": "Kasım Küçükalp",
+    "slug": "kasim-kucukalp",
+    "count": 1
+  },
+  {
+    "name": "Kasım Müminoğlu",
+    "slug": "kasim-muminoglu",
+    "count": 1
+  },
+  {
+    "name": "Kathleen Sears",
+    "slug": "kathleen-sears",
+    "count": 1
+  },
+  {
+    "name": "Kemal Atatürk",
+    "slug": "kemal-ataturk",
+    "count": 3
+  },
+  {
+    "name": "Kemal Özer",
+    "slug": "kemal-ozer",
+    "count": 1
+  },
+  {
+    "name": "Kolektif",
+    "slug": "kolektif",
+    "count": 16
+  },
+  {
+    "name": "Kolektif / Haz. Heyet",
+    "slug": "kolektif-haz-heyet",
+    "count": 3
+  },
+  {
+    "name": "Kolektif / Seçki",
+    "slug": "kolektif-secki",
+    "count": 1
+  },
+  {
+    "name": "Konfüçyüs",
+    "slug": "konfucyus",
+    "count": 1
+  },
+  {
+    "name": "Kubilay Aysever",
+    "slug": "kubilay-aysever",
+    "count": 1
+  },
+  {
+    "name": "KUBİLAY AYSEVENER",
+    "slug": "kubilay-aysevener",
+    "count": 1
+  },
+  {
+    "name": "KUEHN",
+    "slug": "kuehn",
+    "count": 1
+  },
+  {
+    "name": "Kuyucaklızâde Mehmet Atıf Bey",
+    "slug": "kuyucaklizade-mehmet-atif-bey",
+    "count": 1
+  },
+  {
+    "name": "Kâtip Çelebi",
+    "slug": "katip-celebi",
+    "count": 1
+  },
+  {
+    "name": "KÖSEMİHAL",
+    "slug": "kosemihal",
+    "count": 1
+  },
+  {
+    "name": "Kınalı-zâde Ali Çelebi",
+    "slug": "kinali-zade-ali-celebi",
+    "count": 1
+  },
+  {
+    "name": "La Mettrie",
+    "slug": "la-mettrie",
+    "count": 1
+  },
+  {
+    "name": "Larry Shiner",
+    "slug": "larry-shiner",
+    "count": 1
+  },
+  {
+    "name": "LEİBNİZ",
+    "slug": "leibniz",
+    "count": 1
+  },
+  {
+    "name": "Lewis MUMFORD",
+    "slug": "lewis-mumford",
+    "count": 1
+  },
+  {
+    "name": "Luc Ferry",
+    "slug": "luc-ferry",
+    "count": 2
+  },
+  {
+    "name": "Lucien Sève",
+    "slug": "lucien-seve",
+    "count": 1
+  },
+  {
+    "name": "Ludwig Feuerbach",
+    "slug": "ludwig-feuerbach",
+    "count": 1
+  },
+  {
+    "name": "Ludwig Wittgenstein",
+    "slug": "ludwig-wittgenstein",
+    "count": 5
+  },
+  {
+    "name": "M. Foucault",
+    "slug": "m-foucault",
+    "count": 1
+  },
+  {
+    "name": "M. Fuad Köprülü",
+    "slug": "m-fuad-koprulu",
+    "count": 2
+  },
+  {
+    "name": "M. KAĞAN",
+    "slug": "m-kagan",
+    "count": 2
+  },
+  {
+    "name": "M. Muhammed Şerif",
+    "slug": "m-muhammed-serif",
+    "count": 1
+  },
+  {
+    "name": "M. Mukadder Yakupoğlu",
+    "slug": "m-mukadder-yakupoglu",
+    "count": 1
+  },
+  {
+    "name": "M. Murat Baskıcı",
+    "slug": "m-murat-baskici",
+    "count": 1
+  },
+  {
+    "name": "MAHMUT AYDIN",
+    "slug": "mahmut-aydin",
+    "count": 1
+  },
+  {
+    "name": "Mahmut Kaya",
+    "slug": "mahmut-kaya",
+    "count": 1
+  },
+  {
+    "name": "Mahmut Kaya (Çev.)",
+    "slug": "mahmut-kaya-cev",
+    "count": 1
+  },
+  {
+    "name": "Malcolm Bowie",
+    "slug": "malcolm-bowie",
+    "count": 1
+  },
+  {
+    "name": "MARC JIMENEZ",
+    "slug": "marc-jimenez",
+    "count": 2
+  },
+  {
+    "name": "Marcus Aurelius",
+    "slug": "marcus-aurelius",
+    "count": 1
+  },
+  {
+    "name": "Mark Richard",
+    "slug": "mark-richard",
+    "count": 1
+  },
+  {
+    "name": "Marshall G. S. Hodgson",
+    "slug": "marshall-g-s-hodgson",
+    "count": 3
+  },
+  {
+    "name": "MARSHALL HODGSON",
+    "slug": "marshall-hodgson",
+    "count": 1
+  },
+  {
+    "name": "Martin Heidegger",
+    "slug": "martin-heidegger",
+    "count": 6
+  },
+  {
+    "name": "Martin Jay",
+    "slug": "martin-jay",
+    "count": 1
+  },
+  {
+    "name": "Martin Slattery",
+    "slug": "martin-slattery",
+    "count": 1
+  },
+  {
+    "name": "Martine de Gaudemar",
+    "slug": "martine-de-gaudemar",
+    "count": 1
+  },
+  {
+    "name": "Marx / Engels / Lenin",
+    "slug": "marx-engels-lenin",
+    "count": 1
+  },
+  {
+    "name": "Matei Calinescu",
+    "slug": "matei-calinescu",
+    "count": 1
+  },
+  {
+    "name": "Maurice Duverger",
+    "slug": "maurice-duverger",
+    "count": 1
+  },
+  {
+    "name": "Max Horkheimer",
+    "slug": "max-horkheimer",
+    "count": 1
+  },
+  {
+    "name": "Max Scheler",
+    "slug": "max-scheler",
+    "count": 1
+  },
+  {
+    "name": "MAX WEBER",
+    "slug": "max-weber",
+    "count": 3
+  },
+  {
+    "name": "Mazhar Bağlı",
+    "slug": "mazhar-bagli",
+    "count": 2
+  },
+  {
+    "name": "MECMU",
+    "slug": "mecmu",
+    "count": 1
+  },
+  {
+    "name": "MECMUA",
+    "slug": "mecmua",
+    "count": 25
+  },
+  {
+    "name": "Mehmed Ali Aynî",
+    "slug": "mehmed-ali-ayni",
+    "count": 2
+  },
+  {
+    "name": "Mehmed Es'ad Dilaveroğlu",
+    "slug": "mehmed-es-ad-dilaveroglu",
+    "count": 1
+  },
+  {
+    "name": "Mehmed Kırkıncı",
+    "slug": "mehmed-kirkinci",
+    "count": 1
+  },
+  {
+    "name": "Mehmed Ziver",
+    "slug": "mehmed-ziver",
+    "count": 1
+  },
+  {
+    "name": "Mehmed Şemseddin Günaltay",
+    "slug": "mehmed-semseddin-gunaltay",
+    "count": 2
+  },
+  {
+    "name": "Mehmet Akif Koç",
+    "slug": "mehmet-akif-koc",
+    "count": 2
+  },
+  {
+    "name": "Mehmet Bilen",
+    "slug": "mehmet-bilen",
+    "count": 1
+  },
+  {
+    "name": "MEHMET H.DOĞAN",
+    "slug": "mehmet-h-dogan",
+    "count": 2
+  },
+  {
+    "name": "MEHMET KÜÇÜK",
+    "slug": "mehmet-kucuk",
+    "count": 1
+  },
+  {
+    "name": "Mehmet Niyazi",
+    "slug": "mehmet-niyazi",
+    "count": 1
+  },
+  {
+    "name": "Mehmet Rifat",
+    "slug": "mehmet-rifat",
+    "count": 1
+  },
+  {
+    "name": "Mehrzad Boroujerdi",
+    "slug": "mehrzad-boroujerdi",
+    "count": 1
+  },
+  {
+    "name": "MEMET ZENCİRKIRAN",
+    "slug": "memet-zencirkiran",
+    "count": 1
+  },
+  {
+    "name": "Merry E. Wiesner-Hanks",
+    "slug": "merry-e-wiesner-hanks",
+    "count": 1
+  },
+  {
+    "name": "Mesut Özünlü",
+    "slug": "mesut-ozunlu",
+    "count": 1
+  },
+  {
+    "name": "Metin And",
+    "slug": "metin-and",
+    "count": 1
+  },
+  {
+    "name": "Mian M. Şerif",
+    "slug": "mian-m-serif",
+    "count": 2
+  },
+  {
+    "name": "Michael Ehrmantraut",
+    "slug": "michael-ehrmantraut",
+    "count": 1
+  },
+  {
+    "name": "Michael Gardiner",
+    "slug": "michael-gardiner",
+    "count": 1
+  },
+  {
+    "name": "Michael O'Sullivan",
+    "slug": "michael-o-sullivan",
+    "count": 1
+  },
+  {
+    "name": "Michel de Montaigne",
+    "slug": "michel-de-montaigne",
+    "count": 1
+  },
+  {
+    "name": "Michel Foucault",
+    "slug": "michel-foucault",
+    "count": 2
+  },
+  {
+    "name": "montesquieu",
+    "slug": "montesquieu",
+    "count": 1
+  },
+  {
+    "name": "MORITZ GEIGER",
+    "slug": "moritz-geiger",
+    "count": 2
+  },
+  {
+    "name": "Muallim Naci",
+    "slug": "muallim-naci",
+    "count": 1
+  },
+  {
+    "name": "MUHAMMAD M. PICKTHALL",
+    "slug": "muhammad-m-pickthall",
+    "count": 1
+  },
+  {
+    "name": "Muhammed Abdülazim Zürkani",
+    "slug": "muhammed-abdulazim-zurkani",
+    "count": 2
+  },
+  {
+    "name": "MUHAMMED İKBAL",
+    "slug": "muhammed-ikbal",
+    "count": 1
+  },
+  {
+    "name": "Muhsin Gerviyani",
+    "slug": "muhsin-gerviyani",
+    "count": 1
+  },
+  {
+    "name": "mustafa armağan",
+    "slug": "mustafa-armagan",
+    "count": 1
+  },
+  {
+    "name": "Mustafa Günay",
+    "slug": "mustafa-gunay",
+    "count": 1
+  },
+  {
+    "name": "Mustafa Kutlu",
+    "slug": "mustafa-kutlu",
+    "count": 5
+  },
+  {
+    "name": "MUSTAFA NAMIK ÇANKI",
+    "slug": "mustafa-namik-canki",
+    "count": 3
+  },
+  {
+    "name": "Mustafa Namık",
+    "slug": "mustafa-namik",
+    "count": 1
+  },
+  {
+    "name": "Mustafa Nihat Özön",
+    "slug": "mustafa-nihat-ozon",
+    "count": 1
+  },
+  {
+    "name": "Mustafa Said Şimşek",
+    "slug": "mustafa-said-simsek",
+    "count": 1
+  },
+  {
+    "name": "Mustafa Sâtı Bey",
+    "slug": "mustafa-sati-bey",
+    "count": 1
+  },
+  {
+    "name": "Mustafa Topöz",
+    "slug": "mustafa-topoz",
+    "count": 1
+  },
+  {
+    "name": "Münif Paşa",
+    "slug": "munif-pasa",
+    "count": 1
+  },
+  {
+    "name": "Müslid b. Süleyman",
+    "slug": "muslid-b-suleyman",
+    "count": 1
+  },
+  {
+    "name": "N. J. H. Dent",
+    "slug": "n-j-h-dent",
+    "count": 1
+  },
+  {
+    "name": "Necip Fazıl Kısakürek",
+    "slug": "necip-fazil-kisakurek",
+    "count": 2
+  },
+  {
+    "name": "NECİP FAZIL",
+    "slug": "necip-fazil",
+    "count": 1
+  },
+  {
+    "name": "Necmi Karkın",
+    "slug": "necmi-karkin",
+    "count": 2
+  },
+  {
+    "name": "Neşet Toku",
+    "slug": "neset-toku",
+    "count": 1
+  },
+  {
+    "name": "Niccolò Machiavelli",
+    "slug": "niccolo-machiavelli",
+    "count": 2
+  },
+  {
+    "name": "Nicolai Hartmann",
+    "slug": "nicolai-hartmann",
+    "count": 2
+  },
+  {
+    "name": "Nigel Tubbs",
+    "slug": "nigel-tubbs",
+    "count": 1
+  },
+  {
+    "name": "Nigel Warburton",
+    "slug": "nigel-warburton",
+    "count": 1
+  },
+  {
+    "name": "Niyazi Öktem",
+    "slug": "niyazi-oktem",
+    "count": 1
+  },
+  {
+    "name": "Nizâmü'l-Mülk",
+    "slug": "nizamu-l-mulk",
+    "count": 1
+  },
+  {
+    "name": "Numan Aydoğan Ünal",
+    "slug": "numan-aydogan-unal",
+    "count": 2
+  },
+  {
+    "name": "Nurcan Demir",
+    "slug": "nurcan-demir",
+    "count": 1
+  },
+  {
+    "name": "Nurettin Topçu",
+    "slug": "nurettin-topcu",
+    "count": 1
+  },
+  {
+    "name": "Nusret Polat",
+    "slug": "nusret-polat",
+    "count": 2
+  },
+  {
+    "name": "ONTOGNAZZA",
+    "slug": "ontognazza",
+    "count": 1
+  },
+  {
+    "name": "Oral Sander",
+    "slug": "oral-sander",
+    "count": 2
+  },
+  {
+    "name": "Orhan Okay, Ayhan Yücel",
+    "slug": "orhan-okay-ayhan-yucel",
+    "count": 1
+  },
+  {
+    "name": "OSMAN BAKAR",
+    "slug": "osman-bakar",
+    "count": 1
+  },
+  {
+    "name": "Osman Öztürk",
+    "slug": "osman-ozturk",
+    "count": 1
+  },
+  {
+    "name": "Oğuz Haşlakaoğlu",
+    "slug": "oguz-haslakaoglu",
+    "count": 2
+  },
+  {
+    "name": "Oğuz Tekin",
+    "slug": "oguz-tekin",
+    "count": 1
+  },
+  {
+    "name": "P. A. Sorokin",
+    "slug": "p-a-sorokin",
+    "count": 3
+  },
+  {
+    "name": "Pascal Dupont",
+    "slug": "pascal-dupont",
+    "count": 1
+  },
+  {
+    "name": "Patrizia Castelli",
+    "slug": "patrizia-castelli",
+    "count": 2
+  },
+  {
+    "name": "Paul Elbourne",
+    "slug": "paul-elbourne",
+    "count": 1
+  },
+  {
+    "name": "Paul Foulquie",
+    "slug": "paul-foulquie",
+    "count": 1
+  },
+  {
+    "name": "Paul Guyer",
+    "slug": "paul-guyer",
+    "count": 1
+  },
+  {
+    "name": "Paul Janet & Gabriel Séailles (Çev: Elmalılı M. Hamdi Yazır)",
+    "slug": "paul-janet-gabriel-seailles-cev-elmalili-m-hamdi-yazir",
+    "count": 1
+  },
+  {
+    "name": "Paul Kleinman",
+    "slug": "paul-kleinman",
+    "count": 1
+  },
+  {
+    "name": "Paul-Laurent Assoun",
+    "slug": "paul-laurent-assoun",
+    "count": 1
+  },
+  {
+    "name": "Penelope Deutscher",
+    "slug": "penelope-deutscher",
+    "count": 1
+  },
+  {
+    "name": "PETER BURKE",
+    "slug": "peter-burke",
+    "count": 1
+  },
+  {
+    "name": "Peter de Bolla",
+    "slug": "peter-de-bolla",
+    "count": 2
+  },
+  {
+    "name": "Peter Fleming",
+    "slug": "peter-fleming",
+    "count": 1
+  },
+  {
+    "name": "Peter Kieffer",
+    "slug": "peter-kieffer",
+    "count": 1
+  },
+  {
+    "name": "Peter L. Berger, Thomas Luckmann",
+    "slug": "peter-l-berger-thomas-luckmann",
+    "count": 1
+  },
+  {
+    "name": "Peter Wagner",
+    "slug": "peter-wagner",
+    "count": 1
+  },
+  {
+    "name": "Philipp Frank",
+    "slug": "philipp-frank",
+    "count": 1
+  },
+  {
+    "name": "Pierre Bourdieu",
+    "slug": "pierre-bourdieu",
+    "count": 1
+  },
+  {
+    "name": "Pierre Bourdieu - Loic Wacquant",
+    "slug": "pierre-bourdieu-loic-wacquant",
+    "count": 1
+  },
+  {
+    "name": "PİNKARD",
+    "slug": "pinkard",
+    "count": 1
+  },
+  {
+    "name": "Platon",
+    "slug": "platon",
+    "count": 7
+  },
+  {
+    "name": "PORPHYRİOS",
+    "slug": "porphyrios",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. A. Reşit Turnagil",
+    "slug": "prof-dr-a-resit-turnagil",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Adem Tatlı, Dr. İdris Görmez",
+    "slug": "prof-dr-adem-tatli-dr-idris-gormez",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Ayferi GÖZE",
+    "slug": "prof-dr-ayferi-goze",
+    "count": 1
+  },
+  {
+    "name": "PROF. DR. BEDİ ZİYA EGEMEN",
+    "slug": "prof-dr-bedi-ziya-egemen",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Bekir Topaloğlu, M. Nuri Yılmaz, İ. Kafi Dönmez, Prof. Dr. İlyas Çelebi",
+    "slug": "prof-dr-bekir-topaloglu-m-nuri-yilmaz-i-kafi-donmez-prof-dr-ilyas-celebi",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Halil İnalcık",
+    "slug": "prof-dr-halil-inalcik",
+    "count": 5
+  },
+  {
+    "name": "Prof. Dr. Halil İnalcık, Mehmet Seyitdanlıoğlu",
+    "slug": "prof-dr-halil-inalcik-mehmet-seyitdanlioglu",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. HİMMET UÇ",
+    "slug": "prof-dr-himmet-uc",
+    "count": 2
+  },
+  {
+    "name": "Prof. Dr. Jur. Alim Şerif Onaran",
+    "slug": "prof-dr-jur-alim-serif-onaran",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Mahmut Kaplan",
+    "slug": "prof-dr-mahmut-kaplan",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Mehmet Aydın",
+    "slug": "prof-dr-mehmet-aydin",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Mehmet Kanar",
+    "slug": "prof-dr-mehmet-kanar",
+    "count": 1
+  },
+  {
+    "name": "PROF. DR. MEVLÜT ALBAYRAK",
+    "slug": "prof-dr-mevlut-albayrak",
+    "count": 2
+  },
+  {
+    "name": "Prof. Dr. Mustafa Es-Sibâî",
+    "slug": "prof-dr-mustafa-es-sibai",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Mustafa Turan",
+    "slug": "prof-dr-mustafa-turan",
+    "count": 1
+  },
+  {
+    "name": "PROF. DR. NECATİ ÖNER",
+    "slug": "prof-dr-necati-oner",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Osman Turan",
+    "slug": "prof-dr-osman-turan",
+    "count": 6
+  },
+  {
+    "name": "Prof. Dr. Seyyid Hüseyin Nasr",
+    "slug": "prof-dr-seyyid-huseyin-nasr",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Sezgin Kızılçelik",
+    "slug": "prof-dr-sezgin-kizilcelik",
+    "count": 5
+  },
+  {
+    "name": "Prof. Dr. Vahidüddin Han",
+    "slug": "prof-dr-vahiduddin-han",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Vehbe Zuhayli",
+    "slug": "prof-dr-vehbe-zuhayli",
+    "count": 1
+  },
+  {
+    "name": "PROF. DR. YUSUF EL-KARADÂVÎ",
+    "slug": "prof-dr-yusuf-el-karadavi",
+    "count": 2
+  },
+  {
+    "name": "Prof. Dr. Zekeriya Kitapçı",
+    "slug": "prof-dr-zekeriya-kitapci",
+    "count": 2
+  },
+  {
+    "name": "Prof. Dr. Ömer ÇAHA",
+    "slug": "prof-dr-omer-caha",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Ömer Çelik",
+    "slug": "prof-dr-omer-celik",
+    "count": 1
+  },
+  {
+    "name": "Prof. Dr. Şadi Eren",
+    "slug": "prof-dr-sadi-eren",
+    "count": 1
+  },
+  {
+    "name": "PROF. DR. ŞAHİN UÇAR",
+    "slug": "prof-dr-sahin-ucar",
+    "count": 1
+  },
+  {
+    "name": "Pyotr Kropotkin",
+    "slug": "pyotr-kropotkin",
+    "count": 1
+  },
+  {
+    "name": "Pîrîzâde Mehmed Sâhib",
+    "slug": "pirizade-mehmed-sahib",
+    "count": 2
+  },
+  {
+    "name": "Quentin Skinner",
+    "slug": "quentin-skinner",
+    "count": 2
+  },
+  {
+    "name": "Quintus T. Cicero",
+    "slug": "quintus-t-cicero",
+    "count": 3
+  },
+  {
+    "name": "R. Behrens",
+    "slug": "r-behrens",
+    "count": 1
+  },
+  {
+    "name": "R. Calin / J.-D. Sebbah",
+    "slug": "r-calin-j-d-sebbah",
+    "count": 1
+  },
+  {
+    "name": "R.G. Collingwood",
+    "slug": "r-g-collingwood",
+    "count": 2
+  },
+  {
+    "name": "Raif Necdet Kestelli",
+    "slug": "raif-necdet-kestelli",
+    "count": 2
+  },
+  {
+    "name": "Rasim Başak",
+    "slug": "rasim-basak",
+    "count": 1
+  },
+  {
+    "name": "Rasim Özdenören",
+    "slug": "rasim-ozdenoren",
+    "count": 2
+  },
+  {
+    "name": "Ray Monk",
+    "slug": "ray-monk",
+    "count": 1
+  },
+  {
+    "name": "Raymond Aron",
+    "slug": "raymond-aron",
+    "count": 1
+  },
+  {
+    "name": "Recep Alpyağıl",
+    "slug": "recep-alpyagil",
+    "count": 5
+  },
+  {
+    "name": "RECEP KILIÇ / MEHMET SAİT REÇBER",
+    "slug": "recep-kilic-mehmet-sait-recber",
+    "count": 1
+  },
+  {
+    "name": "Remzi Demir",
+    "slug": "remzi-demir",
+    "count": 1
+  },
+  {
+    "name": "René Guénon",
+    "slug": "rene-guenon",
+    "count": 2
+  },
+  {
+    "name": "Richard Sennett",
+    "slug": "richard-sennett",
+    "count": 2
+  },
+  {
+    "name": "RICHARD TARNAS",
+    "slug": "richard-tarnas",
+    "count": 2
+  },
+  {
+    "name": "RİFAT BİN MEHMET EMİN",
+    "slug": "rifat-bin-mehmet-emin",
+    "count": 1
+  },
+  {
+    "name": "Robert Nisbet",
+    "slug": "robert-nisbet",
+    "count": 2
+  },
+  {
+    "name": "Roger Garaudy",
+    "slug": "roger-garaudy",
+    "count": 3
+  },
+  {
+    "name": "ROUSSEAU",
+    "slug": "rousseau",
+    "count": 1
+  },
+  {
+    "name": "Routledge , Alan Pritchard",
+    "slug": "routledge-alan-pritchard",
+    "count": 1
+  },
+  {
+    "name": "Ruth A. Wallace & Alison Wolf",
+    "slug": "ruth-a-wallace-alison-wolf",
+    "count": 1
+  },
+  {
+    "name": "Rıfkı Ali Abû El-Hâc",
+    "slug": "rifki-ali-abu-el-hac",
+    "count": 1
+  },
+  {
+    "name": "Rıza Tevfik",
+    "slug": "riza-tevfik",
+    "count": 2
+  },
+  {
+    "name": "Rıza Tevfik Bölükbaşı",
+    "slug": "riza-tevfik-bolukbasi",
+    "count": 2
+  },
+  {
+    "name": "Rızaeddin Bin Fahreddin",
+    "slug": "rizaeddin-bin-fahreddin",
+    "count": 1
+  },
+  {
+    "name": "Saadeddin Ustaosmanoğlu",
+    "slug": "saadeddin-ustaosmanoglu",
+    "count": 2
+  },
+  {
+    "name": "SABRİ F. ÜLGENER",
+    "slug": "sabri-f-ulgener",
+    "count": 1
+  },
+  {
+    "name": "SADIK EYÜB",
+    "slug": "sadik-eyub",
+    "count": 1
+  },
+  {
+    "name": "Sadreddin Konevî",
+    "slug": "sadreddin-konevi",
+    "count": 5
+  },
+  {
+    "name": "Sadık Erol Er",
+    "slug": "sadik-erol-er",
+    "count": 1
+  },
+  {
+    "name": "Sadık Türker",
+    "slug": "sadik-turker",
+    "count": 1
+  },
+  {
+    "name": "Safa Mürsel",
+    "slug": "safa-mursel",
+    "count": 1
+  },
+  {
+    "name": "SAİD NURSİ",
+    "slug": "said-nursi",
+    "count": 1
+  },
+  {
+    "name": "Salih Aydın",
+    "slug": "salih-aydin",
+    "count": 1
+  },
+  {
+    "name": "Salih Mirza Beyoğlu",
+    "slug": "salih-mirza-beyoglu",
+    "count": 2
+  },
+  {
+    "name": "Salih Mirzabeyoğlu",
+    "slug": "salih-mirzabeyoglu",
+    "count": 8
+  },
+  {
+    "name": "Salih Zeki",
+    "slug": "salih-zeki",
+    "count": 1
+  },
+  {
+    "name": "Sam Harris",
+    "slug": "sam-harris",
+    "count": 1
+  },
+  {
+    "name": "Samuel Noah Kramer",
+    "slug": "samuel-noah-kramer",
+    "count": 1
+  },
+  {
+    "name": "SAVA PAŞA / BAHA ARIKAN",
+    "slug": "sava-pasa-baha-arikan",
+    "count": 1
+  },
+  {
+    "name": "SCHELLİNG",
+    "slug": "schelling",
+    "count": 1
+  },
+  {
+    "name": "Selanikli Abdi Tevfik",
+    "slug": "selanikli-abdi-tevfik",
+    "count": 1
+  },
+  {
+    "name": "Selanikli Fazlı Necib",
+    "slug": "selanikli-fazli-necib",
+    "count": 1
+  },
+  {
+    "name": "Seneca",
+    "slug": "seneca",
+    "count": 1
+  },
+  {
+    "name": "Sentez",
+    "slug": "sentez",
+    "count": 1
+  },
+  {
+    "name": "Sercan Çalcı",
+    "slug": "sercan-calci",
+    "count": 1
+  },
+  {
+    "name": "SEVAN NİŞANYAN",
+    "slug": "sevan-nisanyan",
+    "count": 1
+  },
+  {
+    "name": "Seyyid Hüseyin Nasr",
+    "slug": "seyyid-huseyin-nasr",
+    "count": 1
+  },
+  {
+    "name": "Seyyid Şerîf Cürcânî",
+    "slug": "seyyid-serif-curcani",
+    "count": 4
+  },
+  {
+    "name": "Sezai Karakoç",
+    "slug": "sezai-karakoc",
+    "count": 8
+  },
+  {
+    "name": "Simon Glendinning",
+    "slug": "simon-glendinning",
+    "count": 1
+  },
+  {
+    "name": "Sina Akşin",
+    "slug": "sina-aksin",
+    "count": 1
+  },
+  {
+    "name": "SOROKİN / METE TUNÇAY",
+    "slug": "sorokin-mete-tuncay",
+    "count": 1
+  },
+  {
+    "name": "Spinoza",
+    "slug": "spinoza",
+    "count": 3
+  },
+  {
+    "name": "ST. AUGUSTINUS",
+    "slug": "st-augustinus",
+    "count": 1
+  },
+  {
+    "name": "Stephen F. Mason",
+    "slug": "stephen-f-mason",
+    "count": 1
+  },
+  {
+    "name": "STEPHEN TURNER",
+    "slug": "stephen-turner",
+    "count": 1
+  },
+  {
+    "name": "Steve Bruce",
+    "slug": "steve-bruce",
+    "count": 1
+  },
+  {
+    "name": "Steven Pinker",
+    "slug": "steven-pinker",
+    "count": 1
+  },
+  {
+    "name": "Stig Børsen Hansen",
+    "slug": "stig-b-rsen-hansen",
+    "count": 1
+  },
+  {
+    "name": "SUAD EL HAKİM",
+    "slug": "suad-el-hakim",
+    "count": 1
+  },
+  {
+    "name": "Suat Soner Eremözlü",
+    "slug": "suat-soner-eremozlu",
+    "count": 2
+  },
+  {
+    "name": "SULHİ DÖNMEZLER",
+    "slug": "sulhi-donmezler",
+    "count": 1
+  },
+  {
+    "name": "SULHİ DÖNMEZLER / 1970",
+    "slug": "sulhi-donmezler-1970",
+    "count": 1
+  },
+  {
+    "name": "Sun Tzu (Sunzi)",
+    "slug": "sun-tzu-sunzi",
+    "count": 1
+  },
+  {
+    "name": "Suut Kemal Yetkin",
+    "slug": "suut-kemal-yetkin",
+    "count": 4
+  },
+  {
+    "name": "Søren Kierkegaard",
+    "slug": "s-ren-kierkegaard",
+    "count": 9
+  },
+  {
+    "name": "Süleyman Hayri Bolay",
+    "slug": "suleyman-hayri-bolay",
+    "count": 1
+  },
+  {
+    "name": "Süleyman Uludağ",
+    "slug": "suleyman-uludag",
+    "count": 1
+  },
+  {
+    "name": "T. B. BOTTOMORE",
+    "slug": "t-b-bottomore",
+    "count": 1
+  },
+  {
+    "name": "T. Bottomore",
+    "slug": "t-bottomore",
+    "count": 1
+  },
+  {
+    "name": "T. Bottomore - R. Nisbet",
+    "slug": "t-bottomore-r-nisbet",
+    "count": 3
+  },
+  {
+    "name": "Tage Lindbom",
+    "slug": "tage-lindbom",
+    "count": 1
+  },
+  {
+    "name": "TAHA ÇAĞLAROĞLU",
+    "slug": "taha-caglaroglu",
+    "count": 2
+  },
+  {
+    "name": "TAHSİN GÖRGÜN",
+    "slug": "tahsin-gorgun",
+    "count": 1
+  },
+  {
+    "name": "Talat Ordu - Seyyit N. Erkal",
+    "slug": "talat-ordu-seyyit-n-erkal",
+    "count": 1
+  },
+  {
+    "name": "TANPINAR",
+    "slug": "tanpinar",
+    "count": 1
+  },
+  {
+    "name": "Tat Wood & Dorothy A.",
+    "slug": "tat-wood-dorothy-a",
+    "count": 1
+  },
+  {
+    "name": "Taylan Altuğ",
+    "slug": "taylan-altug",
+    "count": 3
+  },
+  {
+    "name": "Temel Demirer / Sibel Özbudun",
+    "slug": "temel-demirer-sibel-ozbudun",
+    "count": 1
+  },
+  {
+    "name": "Terry Eagleton",
+    "slug": "terry-eagleton",
+    "count": 2
+  },
+  {
+    "name": "Tevfik Fikret",
+    "slug": "tevfik-fikret",
+    "count": 3
+  },
+  {
+    "name": "TEZ",
+    "slug": "tez",
+    "count": 1
+  },
+  {
+    "name": "Theda Skocpol",
+    "slug": "theda-skocpol",
+    "count": 1
+  },
+  {
+    "name": "Theodor W. Adorno",
+    "slug": "theodor-w-adorno",
+    "count": 1
+  },
+  {
+    "name": "Theodor W. Adorno, Georg Lukács, Ernst Bloch, Walter Benjamin, Bertolt Brecht",
+    "slug": "theodor-w-adorno-georg-lukacs-ernst-bloch-walter-benjamin-bertolt-brecht",
+    "count": 2
+  },
+  {
+    "name": "Theodore Flournoy, Rahmi Balaban",
+    "slug": "theodore-flournoy-rahmi-balaban",
+    "count": 1
+  },
+  {
+    "name": "Theodore Millon",
+    "slug": "theodore-millon",
+    "count": 1
+  },
+  {
+    "name": "Thomas Hobbes",
+    "slug": "thomas-hobbes",
+    "count": 1
+  },
+  {
+    "name": "Thomas More",
+    "slug": "thomas-more",
+    "count": 2
+  },
+  {
+    "name": "Todd May",
+    "slug": "todd-may",
+    "count": 1
+  },
+  {
+    "name": "Tolstoy",
+    "slug": "tolstoy",
+    "count": 1
+  },
+  {
+    "name": "TOM BOTTOMORE",
+    "slug": "tom-bottomore",
+    "count": 1
+  },
+  {
+    "name": "Tom G. Palmer",
+    "slug": "tom-g-palmer",
+    "count": 1
+  },
+  {
+    "name": "Tom Rockmore",
+    "slug": "tom-rockmore",
+    "count": 1
+  },
+  {
+    "name": "Toshihiko Izutsu",
+    "slug": "toshihiko-izutsu",
+    "count": 1
+  },
+  {
+    "name": "Turan Koç",
+    "slug": "turan-koc",
+    "count": 3
+  },
+  {
+    "name": "Tülin Bumin",
+    "slug": "tulin-bumin",
+    "count": 1
+  },
+  {
+    "name": "Türkiye Yayınevi",
+    "slug": "turkiye-yayinevi",
+    "count": 1
+  },
+  {
+    "name": "Ulvi Murat Kılavuz - Ahmet Saim Kılavuz",
+    "slug": "ulvi-murat-kilavuz-ahmet-saim-kilavuz",
+    "count": 1
+  },
+  {
+    "name": "Umberto Eco",
+    "slug": "umberto-eco",
+    "count": 2
+  },
+  {
+    "name": "V.V. Barthold",
+    "slug": "v-v-barthold",
+    "count": 1
+  },
+  {
+    "name": "Vasilij Vladimiroviç Barthold",
+    "slug": "vasilij-vladimirovic-barthold",
+    "count": 1
+  },
+  {
+    "name": "Vefa Taşdelen",
+    "slug": "vefa-tasdelen",
+    "count": 1
+  },
+  {
+    "name": "VERNON HYDE MINOR",
+    "slug": "vernon-hyde-minor",
+    "count": 1
+  },
+  {
+    "name": "Veysel Eroğlu",
+    "slug": "veysel-eroglu",
+    "count": 1
+  },
+  {
+    "name": "Vincent Ryan Ruggiero",
+    "slug": "vincent-ryan-ruggiero",
+    "count": 1
+  },
+  {
+    "name": "Vural Yıldırım, Tarkan Koç",
+    "slug": "vural-yildirim-tarkan-koc",
+    "count": 1
+  },
+  {
+    "name": "Walter Benjamin",
+    "slug": "walter-benjamin",
+    "count": 2
+  },
+  {
+    "name": "Walther Kranz",
+    "slug": "walther-kranz",
+    "count": 1
+  },
+  {
+    "name": "Wilhelm Dilthey",
+    "slug": "wilhelm-dilthey",
+    "count": 1
+  },
+  {
+    "name": "Wilhelm Reich",
+    "slug": "wilhelm-reich",
+    "count": 1
+  },
+  {
+    "name": "WILLIAM C. CHITTICK",
+    "slug": "william-c-chittick",
+    "count": 2
+  },
+  {
+    "name": "William CHITTICK",
+    "slug": "william-chittick",
+    "count": 1
+  },
+  {
+    "name": "William Ebenstein",
+    "slug": "william-ebenstein",
+    "count": 1
+  },
+  {
+    "name": "William G. Lycan",
+    "slug": "william-g-lycan",
+    "count": 1
+  },
+  {
+    "name": "William H. McNeill",
+    "slug": "william-h-mcneill",
+    "count": 2
+  },
+  {
+    "name": "WILLIAM JAMES / M. ŞEKİP",
+    "slug": "william-james-m-sekip",
+    "count": 1
+  },
+  {
+    "name": "Yasin Aktay",
+    "slug": "yasin-aktay",
+    "count": 1
+  },
+  {
+    "name": "Yasin Ramazan",
+    "slug": "yasin-ramazan",
+    "count": 1
+  },
+  {
+    "name": "Yayın Yönetmeni: NEZİHE ARAZ",
+    "slug": "yayin-yonetmeni-nezihe-araz",
+    "count": 3
+  },
+  {
+    "name": "Yaşar Yücel - Ali Sevim",
+    "slug": "yasar-yucel-ali-sevim",
+    "count": 1
+  },
+  {
+    "name": "Yeliz Okay",
+    "slug": "yeliz-okay",
+    "count": 1
+  },
+  {
+    "name": "YUNUS EMRE",
+    "slug": "yunus-emre",
+    "count": 1
+  },
+  {
+    "name": "Yunus Çakır",
+    "slug": "yunus-cakir",
+    "count": 1
+  },
+  {
+    "name": "Yusuf Akçura",
+    "slug": "yusuf-akcura",
+    "count": 1
+  },
+  {
+    "name": "Yusuf Has Hâcib",
+    "slug": "yusuf-has-hacib",
+    "count": 1
+  },
+  {
+    "name": "Yusuf Kaplan",
+    "slug": "yusuf-kaplan",
+    "count": 1
+  },
+  {
+    "name": "Yılmaz Özbek",
+    "slug": "yilmaz-ozbek",
+    "count": 2
+  },
+  {
+    "name": "Yılmaz Öztuna",
+    "slug": "yilmaz-oztuna",
+    "count": 2
+  },
+  {
+    "name": "Z. Bauman & D. Lyon",
+    "slug": "z-bauman-d-lyon",
+    "count": 1
+  },
+  {
+    "name": "Z. Bauman & L. Donskis",
+    "slug": "z-bauman-l-donskis",
+    "count": 2
+  },
+  {
+    "name": "Zekeriya Kadri",
+    "slug": "zekeriya-kadri",
+    "count": 1
+  },
+  {
+    "name": "Zekeriya Kitapçı",
+    "slug": "zekeriya-kitapci",
+    "count": 1
+  },
+  {
+    "name": "Zeki Eraslan",
+    "slug": "zeki-eraslan",
+    "count": 1
+  },
+  {
+    "name": "Zeki Kadirbeyoğlu",
+    "slug": "zeki-kadirbeyoglu",
+    "count": 1
+  },
+  {
+    "name": "Zeki Özcan",
+    "slug": "zeki-ozcan",
+    "count": 4
+  },
+  {
+    "name": "ZEKİYYÜDDİN ŞA'BAN, İBRAHİM DÖNMEZ",
+    "slug": "zekiyyuddin-sa-ban-ibrahim-donmez",
+    "count": 1
+  },
+  {
+    "name": "ZEYNÜ'D-DİN AHMED B.AHMED B.ABDİ'L-LATİF",
+    "slug": "zeynu-d-din-ahmed-b-ahmed-b-abdi-l-latif",
+    "count": 13
+  },
+  {
+    "name": "Zigardelakizade Salih Nabi",
+    "slug": "zigardelakizade-salih-nabi",
+    "count": 1
+  },
+  {
+    "name": "Ziya Gökalp",
+    "slug": "ziya-gokalp",
+    "count": 4
+  },
+  {
+    "name": "Zygmunt Bauman",
+    "slug": "zygmunt-bauman",
+    "count": 25
+  },
+  {
+    "name": "Zygmunt Bauman & Stanisław Obirek",
+    "slug": "zygmunt-bauman-stanis-aw-obirek",
+    "count": 3
+  },
+  {
+    "name": "ÇİĞDEM DÜŞKÜN",
+    "slug": "cigdem-duskun",
+    "count": 1
+  },
+  {
+    "name": "çotuksöken",
+    "slug": "cotuksoken",
+    "count": 1
+  },
+  {
+    "name": "ÖMER DEMİR MUSTAFA ACAR",
+    "slug": "omer-demir-mustafa-acar",
+    "count": 1
+  },
+  {
+    "name": "Ömer Faruk",
+    "slug": "omer-faruk",
+    "count": 2
+  },
+  {
+    "name": "Ömer Ferid Kam",
+    "slug": "omer-ferid-kam",
+    "count": 1
+  },
+  {
+    "name": "Ömer Lütfü ÖZAKIN",
+    "slug": "omer-lutfu-ozakin",
+    "count": 2
+  },
+  {
+    "name": "Ömer Mahir Alper",
+    "slug": "omer-mahir-alper",
+    "count": 1
+  },
+  {
+    "name": "Ömer Naci Soykan",
+    "slug": "omer-naci-soykan",
+    "count": 5
+  },
+  {
+    "name": "Ömer Rıza Doğrul",
+    "slug": "omer-riza-dogrul",
+    "count": 1
+  },
+  {
+    "name": "Ömer Türker",
+    "slug": "omer-turker",
+    "count": 4
+  },
+  {
+    "name": "Ömer Türker - İ. Halil Üçer",
+    "slug": "omer-turker-i-halil-ucer",
+    "count": 1
+  },
+  {
+    "name": "Özgür Taburoğlu",
+    "slug": "ozgur-taburoglu",
+    "count": 1
+  },
+  {
+    "name": "Özkan Eroğlu",
+    "slug": "ozkan-eroglu",
+    "count": 4
+  },
+  {
+    "name": "Özkan Eroğlu / ROSENTHAL",
+    "slug": "ozkan-eroglu-rosenthal",
+    "count": 2
+  },
+  {
+    "name": "Ümit Hassan",
+    "slug": "umit-hassan",
+    "count": 1
+  },
+  {
+    "name": "Ünver Günay",
+    "slug": "unver-gunay",
+    "count": 1
+  },
+  {
+    "name": "ıan markham ibrahim özdemir",
+    "slug": "ian-markham-ibrahim-ozdemir",
+    "count": 1
+  },
+  {
+    "name": "Ş. Teoman Duralı",
+    "slug": "s-teoman-durali",
+    "count": 6
+  },
+  {
+    "name": "ŞADİYE OSMANOĞLU",
+    "slug": "sadiye-osmanoglu",
+    "count": 1
+  },
+  {
+    "name": "Şahin Uçar",
+    "slug": "sahin-ucar",
+    "count": 3
+  },
+  {
+    "name": "Şehristani",
+    "slug": "sehristani",
+    "count": 1
+  },
+  {
+    "name": "ŞEMSEDDİN SAMİ",
+    "slug": "semseddin-sami",
+    "count": 1
+  },
+  {
+    "name": "Şener Aksu",
+    "slug": "sener-aksu",
+    "count": 1
+  },
+  {
+    "name": "Şeniz Yıldırımer",
+    "slug": "seniz-yildirimer",
+    "count": 1
+  },
+  {
+    "name": "Şerif Mardin",
+    "slug": "serif-mardin",
+    "count": 1
+  }
+]
