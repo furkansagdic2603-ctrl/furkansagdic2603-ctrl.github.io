@@ -94,6 +94,17 @@ def related_items(group, site_books, quotes, semantic_articles):
             related_quotes.append(quote)
     return related_books[:12], related_articles[:18], related_quotes[:10]
 
+def strength_class(value):
+    return {'çok güçlü':'cok-guclu','güçlü':'guclu','muhtemel':'muhtemel'}.get(str(value or '').strip(), 'muhtemel')
+
+def evidence_text(article):
+    seen = []
+    for item in article.get('semanticEvidence') or []:
+        term = str(item.get('term') or '').strip()
+        if term and term not in seen:
+            seen.append(term)
+    return ', '.join(seen[:4])
+
 def book_row(book):
     title = escape(str(book.get('title') or 'İsimsiz eser'))
     publisher = escape(str(book.get('publisher') or '—'))
@@ -155,9 +166,9 @@ def build_author_profiles(root, articles, doc, write):
         article_cards = ''.join(
             f'<a class="author-article-card" href="{escape(str(a.get("url") or ""), quote=True)}">'
             f'<div class="author-relation-meta"><small>{escape(str(a.get("date") or "YAZI"))}</small>'
-            f'<em class="semantic-badge semantic-{escape(str(a.get("semanticStrength") or "muhtemel").replace(" ", "-"), quote=True)}">{escape(str(a.get("semanticStrength") or "ilişkili"))} ilişki</em></div>'
+            f'<em class="semantic-badge semantic-{strength_class(a.get("semanticStrength"))}">{escape(str(a.get("semanticStrength") or "ilişkili"))} ilişki</em></div>'
             f'<strong>{escape(str(a.get("title") or "Yazı"))}</strong><span>{escape(str(a.get("description") or "")[:180])}</span>'
-            + (f'<p class="semantic-evidence">Bağ: {escape(", ".join(str(e.get("term") or "") for e in (a.get("semanticEvidence") or [])[:4] if e.get("term")))}</p>' if a.get('semanticEvidence') else '')
+            + (f'<p class="semantic-evidence">Bağ: {escape(evidence_text(a))}</p>' if evidence_text(a) else '')
             + '</a>'
             for a in related_articles
         )
