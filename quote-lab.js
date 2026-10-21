@@ -152,6 +152,8 @@
       state.items=r.ok?await r.json():[];
       if(!Array.isArray(state.items))state.items=[];
       renderAll(false);
+      const wanted=new URLSearchParams(location.search).get('quote');
+      if(wanted)selectById(wanted,true);
     }catch(err){
       console.warn('Alıntı verileri yüklenemedi',err);
       state.items=[];
