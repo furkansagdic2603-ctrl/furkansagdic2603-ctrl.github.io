@@ -1520,3 +1520,42 @@ html[data-theme="dark"] .sozler-head:after{mix-blend-mode:normal;opacity:.09}
 .book-author-row{display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;border-radius:4px}.book-author-row.is-active{background:color-mix(in srgb,var(--folio-gold) 17%,var(--paper));box-shadow:inset 3px 0 0 var(--folio-gold)}.book-author-row .book-author-item{box-shadow:none!important;background:transparent!important}.book-author-profile-link{padding:7px 8px;font:600 10px/1 system-ui,sans-serif;color:var(--accent);text-decoration:none;white-space:nowrap}.book-author-profile-link:hover{text-decoration:underline}
 @media(max-width:800px){.author-profile-hero{grid-template-columns:90px 1fr;padding:26px 22px;gap:20px}.author-monogram{width:82px;font-size:42px}.author-profile-stats{grid-template-columns:repeat(2,1fr)}.author-profile-stats>div:nth-child(2){border-right:0}.author-profile-stats>div:nth-child(-n+2){border-bottom:1px solid var(--rule)}.author-related-grid{grid-template-columns:1fr 1fr}.author-letter{grid-template-columns:45px 1fr}.author-letter>div{grid-template-columns:1fr 1fr}}
 @media(max-width:560px){.author-profile-hero{grid-template-columns:1fr}.author-monogram{width:72px}.author-profile-stats{grid-template-columns:1fr}.author-profile-stats>div{border-right:0;border-bottom:1px solid var(--rule)}.author-related-grid,.author-quote-grid,.author-letter>div{grid-template-columns:1fr}.author-letter{grid-template-columns:38px 1fr}.author-letter h2{font-size:30px}}
+
+
+/* Müellif araştırma dosyası: hayat, düşünce, özgün külliyat ve Türkçe tercümeler */
+.author-monogram{position:relative;overflow:hidden}
+.author-monogram>span{position:relative;z-index:1}
+.author-monogram img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:inherit;z-index:2}
+.author-monogram.has-portrait>span{opacity:0}
+.author-research{max-width:1120px;margin:34px auto 42px}
+.author-research-intro{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--rule)}
+.author-research-intro h2{margin:5px 0 0;font:normal clamp(30px,4vw,44px)/1.12 var(--serif);letter-spacing:-.025em}
+.author-research-intro>div>p{max-width:720px;margin:9px 0 0;color:var(--muted);font-size:13px;line-height:1.55}
+.author-research-meta{margin:0;max-width:320px;color:var(--muted);font-size:11px;text-align:right}
+.author-research-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:28px}
+.author-research-card{position:relative;min-height:190px;padding:24px 24px 23px 66px;border:1px solid var(--rule);background:linear-gradient(145deg,color-mix(in srgb,var(--accent) 4%,var(--paper)),var(--paper))}
+.author-research-card h3{margin:0 0 11px;font:normal 26px/1.15 var(--serif)}
+.author-research-number{position:absolute;left:20px;top:23px;color:color-mix(in srgb,var(--accent) 70%,var(--muted));font:600 10px/1 system-ui,sans-serif;letter-spacing:.08em}
+.author-research-text{margin:0;color:var(--ink);font-size:14px;line-height:1.72}
+.author-bibliography-block{margin:28px 0 0}
+.author-source-note{margin:-4px 0 12px;color:var(--muted);font-size:11px;line-height:1.5}
+.author-external-work-list{list-style:none;margin:0;padding:0;border:1px solid var(--rule);background:var(--paper);counter-reset:none}
+.author-external-work-list li{display:grid;grid-template-columns:44px minmax(0,1fr);gap:11px;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.author-external-work-list li:last-child{border-bottom:0}
+.author-work-no{color:var(--muted);font:600 10px/1.3 system-ui,sans-serif;letter-spacing:.06em;padding-top:3px}
+.author-external-work-list strong{display:block;font:normal 16px/1.35 var(--serif)}
+.author-external-work-list strong small{font:normal 12px/1.3 var(--serif);color:var(--muted)}
+.author-external-work-list p{margin:4px 0 0;color:var(--muted);font-size:10px;line-height:1.4}
+.author-loading-row,.author-research-empty{color:var(--muted);font-size:12px;font-style:italic}
+.author-loading-row{display:block!important;padding:18px!important}
+.author-research-sources{margin:18px 0 0;padding:12px 14px;border-left:2px solid color-mix(in srgb,var(--accent) 55%,var(--rule));background:color-mix(in srgb,var(--accent) 4%,var(--paper));color:var(--muted);font-size:10px;line-height:1.55}
+.author-research-sources span{font-weight:700;color:var(--ink)}
+.author-research.is-loading .author-research-card,.author-research.is-loading .author-bibliography-block{opacity:.78}
+@media(max-width:760px){
+  .author-research-intro{align-items:flex-start;flex-direction:column}
+  .author-research-meta{text-align:left}
+  .author-research-grid{grid-template-columns:1fr}
+  .author-research-card{min-height:0;padding:20px 18px 20px 54px}
+  .author-research-number{left:16px;top:21px}
+  .author-external-work-list li{grid-template-columns:34px minmax(0,1fr);padding:11px 10px}
+}
