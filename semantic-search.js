@@ -23,7 +23,7 @@ function expand(q){
 }
 function detectedAuthors(q){
  const nq=' '+norm(q)+' ';
- return data.records.filter(r=>r.type==='author' && (' '+nq).includes(' '+norm(r.title)+' ') || (r.type==='author'&&norm(r.title).split(' ').some(x=>x.length>=5&&nq.includes(' '+x+' ')))).slice(0,5);
+ return data.records.filter(r=>r.type==='author' && (' '+nq).includes(' '+norm(r.title)+' ') || (r.type==='author'&&norm(r.title).split(' ').some(x=>x.length>=4&&nq.includes(' '+x+' ')))).slice(0,5);
 }
 function score(r,q,terms,authors){
  const hay=norm([r.title,r.description,r.author,r.publisher,r.category,r.text].join(' '));
