@@ -1559,3 +1559,13 @@ html[data-theme="dark"] .sozler-head:after{mix-blend-mode:normal;opacity:.09}
   .author-research-number{left:16px;top:21px}
   .author-external-work-list li{grid-template-columns:34px minmax(0,1fr);padding:11px 10px}
 }
+
+
+/* Müellif profilleri: semantik ilişki göstergeleri */
+.author-relation-meta{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:7px}
+.author-relation-meta small{margin:0!important}
+.semantic-badge{flex:none;padding:4px 7px;border-radius:999px;font:700 9px/1 system-ui,sans-serif;font-style:normal;letter-spacing:.035em;text-transform:uppercase;border:1px solid color-mix(in srgb,var(--accent) 28%,var(--rule));background:color-mix(in srgb,var(--accent) 7%,var(--paper));color:var(--accent)}
+.semantic-badge.semantic-cok-guclu{background:color-mix(in srgb,var(--accent) 15%,var(--paper));border-color:color-mix(in srgb,var(--accent) 55%,var(--rule))}
+.semantic-badge.semantic-guclu{background:color-mix(in srgb,var(--accent) 10%,var(--paper))}
+.semantic-badge.semantic-muhtemel{opacity:.82}
+.semantic-evidence{margin:10px 0 0!important;padding-top:8px;border-top:1px dashed var(--rule);color:var(--muted)!important;font:10px/1.45 system-ui,sans-serif!important}
