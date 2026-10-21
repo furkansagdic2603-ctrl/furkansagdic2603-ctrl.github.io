@@ -2,6 +2,12 @@
 
 const search=document.getElementById('book-search');
 const tree=document.getElementById('book-category-tree');
+const browseTabs=[...document.querySelectorAll('[data-book-browse]')];
+const categoryBrowser=document.getElementById('book-category-browser');
+const authorBrowser=document.getElementById('book-author-browser');
+const authorSearch=document.getElementById('book-author-search');
+const authorLetters=document.getElementById('book-author-letters');
+const authorList=document.getElementById('book-author-list');
 const body=document.getElementById('book-rows');
 const status=document.getElementById('book-status');
 const activeCategory=document.getElementById('book-active-category');
@@ -13,6 +19,9 @@ let books=[];
 let page=0;
 let selectedMain='';
 let selectedSub='';
+let selectedAuthor='';
+let browseMode='category';
+let selectedLetter='';
 const size=50;
 
 const MAIN_ORDER=['Felsefe','Sanat','Edebiyat','Tarih','Din'];
@@ -25,6 +34,8 @@ const SUB_ORDER={
 };
 
 const normalize=s=>String(s||'').toLocaleLowerCase('tr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ı/g,'i');
+const authorKey=s=>normalize(s).replace(/[^a-z0-9çğıöşü]+/g,' ').trim();
+const authorLetter=s=>String(s||'').trim().charAt(0).toLocaleUpperCase('tr')||'#';
 const has=(text,...keys)=>keys.some(k=>text.includes(normalize(k)));
 
 function classifyBook(book){
@@ -91,8 +102,47 @@ function classifyBook(book){
 function enrich(list){
   return list.map(book=>{
     const [mainCategory,subCategory]=classifyBook(book);
-    return {...book,mainCategory,subCategory};
+    return {...book,mainCategory,subCategory,authorKey:authorKey(book.author)};
   });
+}
+
+function getAuthors(){
+  const map=new Map();
+  books.forEach(book=>{
+    if(!book.authorKey)return;
+    if(!map.has(book.authorKey))map.set(book.authorKey,{key:book.authorKey,name:String(book.author||'').trim(),count:0});
+    const item=map.get(book.authorKey);
+    item.count++;
+    const candidate=String(book.author||'').trim();
+    if(candidate && candidate.length<item.name.length)item.name=candidate;
+  });
+  return [...map.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr',{sensitivity:'base'}));
+}
+
+function renderAuthorIndex(){
+  if(!authorList||!authorLetters)return;
+  const all=getAuthors();
+  const letters=[...new Set(all.map(a=>authorLetter(a.name)))].sort((a,b)=>a.localeCompare(b,'tr'));
+  authorLetters.innerHTML='<button type="button" class="'+(!selectedLetter?'is-active':'')+'" data-letter="">Tümü</button>'+letters.map(l=>'<button type="button" class="'+(selectedLetter===l?'is-active':'')+'" data-letter="'+l+'">'+l+'</button>').join('');
+  authorLetters.querySelectorAll('[data-letter]').forEach(b=>b.onclick=()=>{selectedLetter=b.dataset.letter||'';renderAuthorIndex();});
+  const q=normalize(authorSearch?.value||'');
+  const filtered=all.filter(a=>(!selectedLetter||authorLetter(a.name)===selectedLetter)&&(!q||normalize(a.name).includes(q)));
+  authorList.innerHTML=filtered.length?filtered.map(a=>'<button type="button" class="book-author-item '+(selectedAuthor===a.key?'is-active':'')+'" data-author="'+a.key.replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'"><span>'+a.name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span><small>'+a.count.toLocaleString('tr-TR')+'</small></button>').join(''):'<p class="book-author-empty">Müellif bulunamadı.</p>';
+  authorList.querySelectorAll('[data-author]').forEach(button=>button.onclick=()=>{
+    selectedAuthor=button.dataset.author||'';
+    selectedMain='';selectedSub='';page=0;
+    renderAuthorIndex();render();
+  });
+}
+
+function setBrowseMode(mode){
+  browseMode=mode==='author'?'author':'category';
+  categoryBrowser.hidden=browseMode!=='category';
+  authorBrowser.hidden=browseMode!=='author';
+  browseTabs.forEach(b=>{const on=b.dataset.bookBrowse===browseMode;b.classList.toggle('is-active',on);b.setAttribute('aria-selected',String(on));});
+  if(browseMode==='category'){selectedAuthor='';renderTree();}
+  else{selectedMain='';selectedSub='';renderAuthorIndex();}
+  page=0;render();
 }
 
 function countFor(main,sub=''){
@@ -117,6 +167,7 @@ function renderTree(){
     button.addEventListener('click',()=>{
       selectedMain=button.dataset.main||'';
       selectedSub=button.dataset.sub||'';
+      selectedAuthor='';
       page=0;
       renderTree();
       render();
@@ -128,8 +179,9 @@ function render(){
   const query=normalize(search.value.trim());
   const matches=books.filter(b=>{
     const categoryOk=(!selectedMain||b.mainCategory===selectedMain)&&(!selectedSub||b.subCategory===selectedSub);
+    const authorOk=!selectedAuthor||b.authorKey===selectedAuthor;
     const searchOk=normalize([b.title,b.author,b.publisher,b.translator,b.mainCategory,b.subCategory].join(' ')).includes(query);
-    return categoryOk&&searchOk;
+    return categoryOk&&authorOk&&searchOk;
   });
   const pages=Math.max(1,Math.ceil(matches.length/size));
   page=Math.min(page,pages-1);
@@ -143,7 +195,8 @@ function render(){
     }
     return row;
   }));
-  const categoryLabel=selectedSub?selectedMain+' › '+selectedSub:(selectedMain||'Tüm kitaplar');
+  const selectedAuthorName=selectedAuthor?(getAuthors().find(a=>a.key===selectedAuthor)?.name||'Müellif'):'';
+  const categoryLabel=selectedAuthor?'Müellif › '+selectedAuthorName:(selectedSub?selectedMain+' › '+selectedSub:(selectedMain||'Tüm kitaplar'));
   activeCategory.textContent=categoryLabel;
   status.textContent=matches.length
     ? matches.length.toLocaleString('tr-TR')+' kayıt · '+(page*size+1)+'–'+Math.min((page+1)*size,matches.length)+' arası gösteriliyor'
@@ -154,6 +207,8 @@ function render(){
 }
 
 search.addEventListener('input',()=>{page=0;render()});
+browseTabs.forEach(button=>button.addEventListener('click',()=>setBrowseMode(button.dataset.bookBrowse)));
+authorSearch?.addEventListener('input',()=>{selectedLetter='';renderAuthorIndex();});
 prev.onclick=()=>{page=Math.max(0,page-1);render()};
 next.onclick=()=>{page++;render()};
 
@@ -163,6 +218,7 @@ fetch('/data/books.json').then(r=>{
 }).then(data=>{
   books=enrich(Array.isArray(data)?data:[]);
   renderTree();
+  renderAuthorIndex();
   render();
 }).catch(()=>{
   status.textContent='Kitap listesi yüklenemedi. Sayfayı yenileyerek tekrar deneyin.';
