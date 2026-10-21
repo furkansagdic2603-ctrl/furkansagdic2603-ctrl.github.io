@@ -2,6 +2,7 @@
 from pathlib import Path
 from html import escape
 import json, re, unicodedata
+from semantic_relations import build_semantic_relations
 
 TR_MAP = str.maketrans({'ı':'i','ç':'c','ğ':'g','ö':'o','ş':'s','ü':'u','İ':'i','Ç':'c','Ğ':'g','Ö':'o','Ş':'s','Ü':'u'})
 
@@ -55,7 +56,7 @@ def build_author_groups(books):
         group['keys'].add(key)
     return groups, aliases
 
-def related_items(group, articles, site_books, quotes):
+def related_items(group, site_books, quotes, semantic_articles):
     keys = {norm(x) for x in group['names'] if norm(x)}
     surnames = {k.split()[-1] for k in keys if len(k.split()[-1]) >= 5}
 
@@ -76,22 +77,22 @@ def related_items(group, articles, site_books, quotes):
                 'description': item.get('description') or ''
             })
 
+    note_urls = {item.get('url') for item in related_books if item.get('url')}
     related_articles = []
     seen = set()
-    for article in articles:
-        blob = ' '.join([str(article.get('title') or ''), str(article.get('description') or '')])
-        if mentions(blob):
-            url = article.get('url') or ''
-            if url and url not in seen:
-                seen.add(url)
-                related_articles.append(article)
+    for article in semantic_articles or []:
+        url = article.get('url') or ''
+        if not url or url in seen or url in note_urls:
+            continue
+        seen.add(url)
+        related_articles.append(article)
 
     related_quotes = []
     for quote in quotes:
         label = str(quote.get('label') or '')
         if norm(label) in keys or mentions(label):
             related_quotes.append(quote)
-    return related_books[:12], related_articles[:12], related_quotes[:10]
+    return related_books[:12], related_articles[:18], related_quotes[:10]
 
 def book_row(book):
     title = escape(str(book.get('title') or 'İsimsiz eser'))
@@ -113,6 +114,7 @@ def build_author_profiles(root, articles, doc, write):
         quotes = []
 
     groups, aliases = build_author_groups(books)
+    semantic_relations = build_semantic_relations(root, articles, groups)
     urls = set()
     index_items = []
 
@@ -121,7 +123,7 @@ def build_author_profiles(root, articles, doc, write):
         slug = group['slug']
         library = sorted(group['books'], key=lambda b: str(b.get('title') or '').casefold())
         publishers = sorted({str(b.get('publisher') or '').strip() for b in library if str(b.get('publisher') or '').strip()})
-        notes, related_articles, related_quotes = related_items(group, articles, site_books, quotes)
+        notes, related_articles, related_quotes = related_items(group, site_books, quotes, semantic_relations.get(key, []))
 
         stats = (
             f'<div class="author-profile-stats">'
@@ -151,12 +153,17 @@ def build_author_profiles(root, articles, doc, write):
             for n in notes if n.get('url')
         )
         article_cards = ''.join(
-            f'<a class="author-article-card" href="{escape(str(a.get("url") or ""), quote=True)}"><small>{escape(str(a.get("date") or "YAZI"))}</small><strong>{escape(str(a.get("title") or "Yazı"))}</strong><span>{escape(str(a.get("description") or "")[:180])}</span></a>'
+            f'<a class="author-article-card" href="{escape(str(a.get("url") or ""), quote=True)}">'
+            f'<div class="author-relation-meta"><small>{escape(str(a.get("date") or "YAZI"))}</small>'
+            f'<em class="semantic-badge semantic-{escape(str(a.get("semanticStrength") or "muhtemel").replace(" ", "-"), quote=True)}">{escape(str(a.get("semanticStrength") or "ilişkili"))} ilişki</em></div>'
+            f'<strong>{escape(str(a.get("title") or "Yazı"))}</strong><span>{escape(str(a.get("description") or "")[:180])}</span>'
+            + (f'<p class="semantic-evidence">Bağ: {escape(", ".join(str(e.get("term") or "") for e in (a.get("semanticEvidence") or [])[:4] if e.get("term")))}</p>' if a.get('semanticEvidence') else '')
+            + '</a>'
             for a in related_articles
         )
         related_html = ''
         if note_cards or article_cards:
-            related_html = '<section class="author-section"><div class="author-section-head"><div><span class="eyebrow">SİTE İÇİNDE</span><h2>Notlar ve yazılar</h2></div></div><div class="author-related-grid">' + note_cards + article_cards + '</div></section>'
+            related_html = '<section class="author-section"><div class="author-section-head"><div><span class="eyebrow">SEMANTİK BAĞLANTILAR</span><h2>Notlar ve yazılar</h2></div></div><div class="author-related-grid">' + note_cards + article_cards + '</div></section>'
 
         quote_html = ''
         if related_quotes:
