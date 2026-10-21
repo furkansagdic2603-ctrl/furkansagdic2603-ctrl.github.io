@@ -170,15 +170,31 @@ def build_author_profiles(root, articles, doc, write):
         if publishers:
             publisher_html = '<div class="author-publishers"><span>Yayınevleri</span><div>' + ''.join(f'<em>{escape(p)}</em>' for p in publishers[:18]) + '</div></div>'
 
+        research_section = (
+            f'<section class="author-research" data-author-research data-author-name="{escape(name, quote=True)}" data-author-slug="{escape(slug, quote=True)}">'
+            '<div class="author-research-intro"><div><span class="eyebrow">ARAŞTIRMA DOSYASI</span><h2>Hayatı, düşüncesi ve eserleri</h2>'
+            '<p>Bu bölüm uluslararası ve Türkçe bibliyografik kataloglardan canlı olarak derlenir.</p></div><p id="author-research-meta" class="author-research-meta"></p></div>'
+            '<div class="author-research-grid">'
+            '<article class="author-research-card"><span class="author-research-number">01</span><h3>Hayatı</h3><p id="author-life" class="author-research-text">Biyografik kayıtlar getiriliyor…</p></article>'
+            '<article class="author-research-card"><span class="author-research-number">02</span><h3>Düşüncesi / Felsefesi</h3><p id="author-thought" class="author-research-text">Düşünsel çerçeve hazırlanıyor…</p></article>'
+            '</div>'
+            '<section class="author-bibliography-block"><div class="author-section-head"><div><span class="eyebrow">ÖZGÜN KÜLLİYAT</span><h2>Anadilinde / özgün eserleri</h2></div><strong id="author-original-count">…</strong></div>'
+            '<p class="author-source-note">Wikidata ve Open Library kayıtları birleştirilir. Başlıklar kaynak katalogların ana kayıt biçiminde korunur.</p>'
+            '<ol id="author-original-works" class="author-external-work-list"><li class="author-loading-row">Eser kataloğu hazırlanıyor…</li></ol></section>'
+            '<section class="author-bibliography-block"><div class="author-section-head"><div><span class="eyebrow">TÜRKÇE TERCÜMELER</span><h2>Türkçeye çevrilen eserleri</h2></div><strong id="author-turkish-count">…</strong></div>'
+            '<p class="author-source-note">Türkçe baskı ve tercüme kayıtları Google Books kataloğundan taranır ve mükerrer kayıtlar ayıklanır.</p>'
+            '<ol id="author-turkish-works" class="author-external-work-list"><li class="author-loading-row">Türkçe katalog taranıyor…</li></ol></section>'
+            '<p id="author-research-sources" class="author-research-sources">Kaynaklar hazırlanıyor…</p></section>'
+        )
         main = (
             '<section class="author-profile-hero"><a class="back" href="/kaynakca/">← Kaynakça</a>'
-            '<div class="author-monogram" aria-hidden="true">' + escape(name[:1].upper()) + '</div>'
+            '<div class="author-monogram"><span aria-hidden="true">' + escape(name[:1].upper()) + '</span><img id="author-portrait" src="" alt="' + escape(name, quote=True) + ' portresi" hidden loading="lazy"></div>'
             '<div class="author-profile-copy"><span class="eyebrow">MÜELLİF DOSYASI</span>'
-            f'<h1>{escape(name)}</h1><p>Kişisel kütüphanemde bulunan eserleri ve sitede bu müellifle kesişen notları tek yerde topluyorum.</p>{alias_html}{publisher_html}</div></section>'
-            + stats + work_section + related_html + quote_html
+            f'<h1>{escape(name)}</h1><p>Hayatı, düşüncesi, eser külliyatı, Türkçe tercümeleri ve benim kütüphanemde bulunan nüshaları tek dosyada topluyorum.</p>{alias_html}{publisher_html}</div></section>'
+            + stats + research_section + work_section + related_html + quote_html
         )
         page = doc(name + ' — Müellif', main, '', f'{name} için kişisel kütüphane eserleri, kitap notları ve ilgili yazılar.')
-        page = page.replace('/style.css?v=20261020-ultrarealbook1','/style.css?v=20261021-authors-profile1')
+        page = page.replace('/style.css?v=20261020-ultrarealbook1','/style.css?v=20261021-author-research1').replace('</body>','<script src="/author-research.js?v=20261021-1" defer></script></body>')
         write(f'muellif/{slug}/index.html', page)
         url = f'/muellif/{slug}/'
         urls.add(url)
@@ -195,7 +211,7 @@ def build_author_profiles(root, articles, doc, write):
         index_body += '</div></section>'
     index_body += '</section>'
     index_page = doc('Müellifler', index_body, '', 'Kişisel kütüphanedeki müellifler ve eserleri.')
-    index_page = index_page.replace('/style.css?v=20261020-ultrarealbook1','/style.css?v=20261021-authors-profile1')
+    index_page = index_page.replace('/style.css?v=20261020-ultrarealbook1','/style.css?v=20261021-author-research1')
     write('muellif/index.html', index_page)
     urls.add('/muellif/')
     return urls
