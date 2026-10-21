@@ -7,6 +7,8 @@ from urllib.parse import quote
 from author_profiles import build_author_groups, norm, slugify
 from semantic_relations import CONCEPTS
 
+FEATURE_SUITE_VERSION = '2026-10-21.2'
+
 MAIN_ORDER = ['Felsefe','Sanat','Edebiyat','Tarih','Din']
 
 TIMELINE = {
