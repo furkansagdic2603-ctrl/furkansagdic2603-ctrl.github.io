@@ -3,6 +3,7 @@ from pathlib import Path
 from html import escape, unescape
 from collections import Counter
 import json, re, math
+from urllib.parse import quote
 from author_profiles import build_author_groups, norm, slugify
 from semantic_relations import CONCEPTS
 
@@ -173,7 +174,7 @@ def generate_search_index(root, articles, books, quotes, groups, semantic):
     for b in books:
         title=str(b.get('title') or 'İsimsiz eser')
         author=str(b.get('author') or '')
-        records.append({'type':'book','title':title,'url':'/kaynakca/?q='+title,'description':' · '.join(x for x in [author,str(b.get('publisher') or '')] if x),'author':author,'publisher':b.get('publisher') or '','category':classify(b),'text':' '.join([title,author,str(b.get('publisher') or ''),str(b.get('translator') or '')])})
+        records.append({'type':'book','title':title,'url':'/kaynakca/?q='+quote(title),'description':' · '.join(x for x in [author,str(b.get('publisher') or '')] if x),'author':author,'publisher':b.get('publisher') or '','category':classify(b),'text':' '.join([title,author,str(b.get('publisher') or ''),str(b.get('translator') or '')])})
     for q in quotes:
         records.append({'type':'quote','title':q.get('label') or 'İktibas','url':'/iktibas-alintilar/?quote='+str(q.get('id') or ''),'description':q.get('text') or '','author':q.get('label') or '','category':q.get('category') or '','text':' '.join([str(q.get('label') or ''),str(q.get('text') or '')])})
     for group in groups.values():
@@ -218,7 +219,7 @@ def build_library_features(root, articles, doc, write):
         discover.append({'type':'Yazı','title':a.get('title') or 'Yazı','description':a.get('description') or '','url':a.get('url') or '/arsiv/'})
     for b in books:
         title=str(b.get('title') or 'İsimsiz eser')
-        discover.append({'type':'Kitap','title':title,'description':str(b.get('author') or ''),'url':'/kaynakca/?q='+title})
+        discover.append({'type':'Kitap','title':title,'description':str(b.get('author') or ''),'url':'/kaynakca/?q='+quote(title)})
     for g in groups.values():
         discover.append({'type':'Müellif','title':g['name'],'description':str(len(g['books']))+' eser kütüphanemde','url':'/muellif/'+g['slug']+'/'})
     for q in quotes:
