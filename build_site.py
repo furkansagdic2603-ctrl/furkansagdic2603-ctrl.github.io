@@ -214,7 +214,7 @@ for slug,name in CATS.items():
             write(f'kitap-notlari/{key}/index.html',doc(value+' — Kitap Notları',topic,slug))
     page_html=doc(name,inner,slug)
     if slug == 'iktibas-alintilar':
-        page_html=page_html.replace('/style.css?v=20261020-ultrarealbook1','/style.css?v=20261020-ultrarealbook1').replace('</body>','<script src="/quote-lab.js?v=20261020-ultrarealbook1" defer></script></body>')
+        page_html=page_html.replace('</head>','<link rel="stylesheet" href="/quote-motion.css?v=20261021-reference2"></head>').replace('/style.css?v=20261020-ultrarealbook1','/style.css?v=20261020-ultrarealbook1').replace('</body>','<script src="/quote-lab.js?v=20261021-reference2" defer></script></body>')
     write(f'{slug}/index.html',page_html)
 # Show nested categories at every level, including existing philosophy pages.
 for path, name in CATEGORY_PATHS.items():

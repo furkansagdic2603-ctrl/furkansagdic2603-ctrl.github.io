@@ -1,0 +1,59 @@
+/* Reference study: hardback, hinged cover, paper slips and linked reading map. */
+.quote-lab{background:#fffefa;border:0;border-radius:3px;box-shadow:none;overflow:visible;padding:20px 22px 40px;max-width:1740px}
+.quote-lab-top{width:43%;gap:13px;margin-bottom:0;min-height:100px}
+.quote-filter-row{gap:7px}.quote-filter-row button{border:1px solid #e6e0d3;border-radius:1px;font-size:16px;min-height:36px;padding:7px 11px;background:linear-gradient(175deg,#fffdf6,#f2efdf);box-shadow:1px 3px 3px #49391f22}
+.quote-lab-stage{grid-template-columns:minmax(0,.94fr) minmax(0,1.26fr);gap:44px;min-height:620px}
+.quote-book-zone{top:20px;padding:0}.quote-book-scene{height:440px;perspective:1600px;perspective-origin:50% 45%}
+.quote-book{left:18%;top:80px;width:68%;height:auto;aspect-ratio:.76;transform-origin:50% 65%;transform:rotateX(calc(59deg + var(--tilt-x))) rotateZ(-32deg) rotateY(var(--tilt-y));transition:transform 1.1s cubic-bezier(.22,.7,.18,1),left 1.1s,top 1.1s,width 1.1s,aspect-ratio 1.1s}
+.quote-book-scene:before{left:13%;top:68%;width:80%;height:45px;transform:rotate(-20deg);opacity:.5}
+.quote-book-scene:after{display:none}
+.book-front-cover{transform-origin:0 50%;backface-visibility:hidden;transform:translateZ(7px) rotateY(0);border-radius:3px 7px 7px 3px;background-color:#a1322b}
+.book-front-cover:before{inset:14px;border-color:#d0a55799}.book-front-cover:after{inset:20px;border-color:#d0a55755}
+.book-cover-title strong{font-size:clamp(15px,1.5vw,25px)}.book-cover-title small{font-size:8px}.book-cover-title em{font-size:10px}
+.book-bottom-cover{inset:5px -3px -8px 0;transform:translateZ(-16px);border-radius:3px 7px 7px 3px}
+.book-page-block{inset:5px 4px 0 2px;transform:translateZ(-7px)}
+.book-open-spread{inset:0;display:block;opacity:1;transform:translateZ(1px);overflow:visible;pointer-events:none}
+.book-page{position:absolute;top:0;bottom:0;width:100%;padding:30px 25px 28px;transform:none;font-size:12px;border-radius:2px 5px 5px 2px;overflow:auto;scrollbar-width:thin}
+.book-page-left{right:100%;transform-origin:right center;transform:rotateY(180deg);backface-visibility:hidden;transition:transform 1.1s cubic-bezier(.22,.7,.18,1);border-radius:5px 2px 2px 5px;box-shadow:inset -18px 0 25px #65543d22}
+.book-page-right{left:0;box-shadow:inset 18px 0 25px #65543d22}
+.book-page p,.book-page .page-context{font-size:11px;line-height:1.65;white-space:pre-line;overflow-wrap:anywhere}.book-page small{font-size:8px;margin-bottom:18px}.book-page h3{font-size:14px;margin-bottom:14px}.book-page b{font-size:9px;position:sticky;display:block;text-align:center;left:auto;right:auto;bottom:0;margin-top:18px;background:#f6efdf}
+.book-page mark{background:#d8925b55;box-decoration-break:clone;-webkit-box-decoration-break:clone;line-height:1.8}
+.book-gutter{left:0;top:0;bottom:0;z-index:6;width:13px;opacity:0;transition:opacity .7s}
+.quote-book.is-open{left:50%;top:24px;width:47%;aspect-ratio:.76;transform:rotateX(12deg) rotateZ(1deg);height:auto}
+.quote-book.is-open .book-front-cover{transform:translateZ(3px) rotateY(-180deg);box-shadow:none;pointer-events:none}
+.quote-book.is-open .book-open-spread{transform:translateZ(2px);pointer-events:auto}
+.quote-book.is-open .book-page-left{transform:rotateY(6deg)}
+.quote-book.is-open .book-page-right{transform:rotateY(-3deg);transform-origin:left center}
+.quote-book.is-open .book-gutter{opacity:1}.quote-book.is-open .book-page-block{opacity:.7}
+.quote-book-scene:has(.quote-book.is-open):before{left:1%;width:98%;top:86%;transform:rotate(1deg)}
+.book-turn-sheet{right:auto;left:0;width:100%;height:100%;top:0;opacity:0;border:0;border-radius:1px 5px 5px 1px;transform-origin:left center;backface-visibility:visible;background:linear-gradient(90deg,#e8ddc4,#faf4e5 16%,#f4ebd8);z-index:9;overflow:hidden}
+.turn-copy{padding:30px 25px;color:#4a4439;font:11px/1.65 Georgia,serif}.turn-copy small{display:block;text-align:center;font-size:8px}.turn-copy h3{font:14px Georgia;text-align:center}.turn-copy p{font-size:11px;white-space:pre-line}.turn-copy mark{background:#d8925b55;color:inherit}.turn-copy b{display:block;text-align:center;font-size:9px}
+.quote-book.is-turning .book-turn-sheet{animation:reference-leaf .98s cubic-bezier(.24,.62,.2,1) both}
+.quote-book.turn-back .book-turn-sheet{animation-direction:reverse}
+@keyframes reference-leaf{0%{opacity:0;transform:rotateY(0) skewY(0);filter:brightness(1)}7%{opacity:1}35%{opacity:1;transform:rotateY(-58deg) skewY(-4deg);filter:brightness(.95);box-shadow:-16px 6px 30px #34241433}60%{opacity:1;transform:rotateY(-108deg) skewY(3deg);filter:brightness(.86)}90%{opacity:1;transform:rotateY(-170deg);filter:brightness(1)}100%{opacity:0;transform:rotateY(-178deg)}}
+.quote-book-controls{display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 8px;font:11px Georgia;color:#786d5b;min-height:30px}
+.quote-book-controls button{border:1px solid #d7ccb7;background:#f6f0e4;padding:4px 13px;cursor:pointer;font-size:17px}.quote-book-controls button:disabled{opacity:.3;cursor:default}.quote-book-status{text-align:center;max-width:75%;overflow-wrap:anywhere}
+.quote-lab-help{text-align:center;font:italic 11px Georgia;color:#887d6a;margin:8px 0 14px}
+.quote-timeline{margin:0 2% 0 0;min-height:100px;padding-top:22px;padding-bottom:25px}
+.timeline-chapters,.timeline-rows{margin-left:76px}.timeline-row{height:18px;background-color:#f1f0eb}.timeline-row:nth-child(even){background-color:#faf9f6}
+.timeline-row b{width:74px;font-size:10px}.timeline-dot{width:4px;height:10px;top:4px}.timeline-dot:before{content:"";position:absolute;inset:-4px -6px}.timeline-dot.is-active{outline:1px solid #6d4935;outline-offset:1px}
+.timeline-cursor{top:22px;bottom:25px;transition:left .8s cubic-bezier(.2,.7,.2,1)}
+.quote-notes{margin-top:-100px;columns:2 220px;column-gap:28px;padding:0;overflow:visible}
+.quote-note-group{margin-bottom:26px}.quote-tape{font-size:17px;padding:6px 13px;font-weight:400}
+.quote-tape:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(130deg,#ffffff22 0 6px,transparent 6px 12px)}
+.quote-fragment-wrap{gap:3px 2px}.quote-fragment{font-size:15px;line-height:1.28;padding:5px 8px;border-color:#d7cfbd;background:radial-gradient(ellipse at 23% 30%,#b19b7110,transparent 60%),linear-gradient(170deg,#fcf9ed,#eee8d8);box-shadow:1px 3px 2px #52432a24;border-radius:1px 2px 3px 1px;animation-delay:min(var(--delay),350ms)}
+.quote-fragment:hover,.quote-fragment:focus-visible{position:relative;z-index:10;transform:scale(1.045) rotate(0);box-shadow:0 8px 14px #48371f30}
+.quote-fragment:focus-visible,.quote-filter-row button:focus-visible,.quote-book-controls button:focus-visible,.timeline-dot:focus-visible{outline:2px solid #914b37;outline-offset:3px}
+.quote-slip-preview{position:fixed;z-index:2000;pointer-events:none;display:none;max-width:min(480px,calc(100vw - 24px));padding:10px 14px;border:1px solid #ded6c6;color:#353026;background:linear-gradient(170deg,#fffdf4,#eee7d6);box-shadow:3px 9px 12px #43351e30;font:22px/1.4 Georgia,serif;overflow-wrap:anywhere;max-height:65vh;overflow:hidden;transform:rotate(-.5deg)}
+.quote-slip-preview.is-visible{display:block;animation:slip-expand .17s ease-out both}
+@keyframes slip-expand{from{opacity:0;transform:scale(.92)}to{opacity:1;transform:scale(1) rotate(-.5deg)}}
+html[data-theme="dark"] .quote-lab{background:#24231f;--ql-ink:#e2dac8;--ql-muted:#b9af9a}
+@media(min-width:1800px){.quote-book-scene{height:540px}}
+@media(max-width:1100px){.quote-lab-top{width:100%;margin-bottom:28px}.quote-notes{margin-top:0;columns:2 170px}.quote-lab-stage{grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:25px}.quote-book-scene{height:360px}.book-page{padding:20px 14px}.book-page p,.book-page .page-context{font-size:10px}.quote-fragment{font-size:13px}}
+@media(max-width:780px){.quote-lab{padding:14px 8px 30px}.quote-lab-stage{grid-template-columns:1fr;gap:25px}.quote-book-zone{position:relative;top:auto}.quote-book-scene{height:450px;max-width:600px;margin:auto}.quote-book{left:24%;top:65px;width:56%;transform:rotateX(59deg) rotateZ(-32deg)}.quote-book.is-open{left:50%;top:15px;width:45%;transform:rotateX(10deg) rotateZ(0)}.quote-notes{columns:2 210px}.quote-timeline{max-width:600px;margin:auto}.quote-lab-top{margin-bottom:10px}.book-page p,.book-page .page-context{font-size:11px}.quote-filter-row button{font-size:13px}}
+@media(max-width:480px){.quote-book-scene{height:355px}.quote-book{top:60px;width:62%;left:20%}.quote-book.is-open{top:20px;width:47%;left:50%}.book-page{padding:16px 10px 20px}.book-page p,.book-page .page-context{font-size:10px;line-height:1.55}.book-page small{font-size:6px;margin-bottom:10px}.book-page h3{font-size:11px}.quote-notes{columns:1}.quote-fragment{font-size:15px}.quote-book-controls{font-size:10px}.quote-slip-preview{font-size:18px}}
+@media(prefers-reduced-motion:reduce){.quote-slip-preview,.quote-lab *{animation:none!important;transition:none!important}.quote-book.is-turning .book-turn-sheet{display:none}}
+/* Hide cover lettering after its physical hinge rotation; avoid mirrored foil. */
+.book-front-cover{visibility:visible;transition:transform 1.1s cubic-bezier(.22,.7,.18,1),visibility 0s}
+.quote-book.is-open .book-front-cover{visibility:hidden;transition:transform 1.1s cubic-bezier(.22,.7,.18,1),visibility 0s 1.1s}
+.turn-copy{backface-visibility:hidden;transform:translateZ(.2px)}
