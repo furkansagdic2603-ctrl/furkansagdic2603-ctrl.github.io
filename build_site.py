@@ -280,9 +280,11 @@ write('arsiv/index.html',doc('Arşiv',archive,'arsiv'))
 write('arama/index.html',doc('Yazılarda ara','<section class="page-head"><span class="eyebrow">YAZILAR</span><h1>Ara</h1><label class="search-label" for="site-search">Başlık, kategori veya açıklama</label><div class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 5 5"/></svg><input id="site-search" type="search" placeholder="Yazılarda arayın…" autofocus autocomplete="off"></div><p id="result-count" aria-live="polite"></p></section><section class="entries" id="search-results"></section>',description='Furkan Sağdıç’ın yazılarında arama.'))
 write('hakkimda/index.html',doc('Hakkımda','<section class="page-head"><span class="eyebrow">YAZAR</span><h1>Hakkımda</h1></section><div class="prose static-copy"><p>Ben Furkan Sağdıç. Mühendislik eğitimi aldım; felsefe, edebiyat, sanat ve düşünce tarihi üzerine okuyup yazıyorum.</p><p>Bu site, okuduklarımı, sorularımı ve kendi yazılarımı bir araya getirdiğim kişisel alanım.</p></div>','hakkimda'))
 write('kaynakca/index.html',doc('Kaynakça',(ROOT/'bibliography_content.html').read_text(encoding='utf-8'),'kaynakca','Furkan Sağdıç’ın kişisel kütüphanesi: kitaplar, yazarlar ve yayınevleri.'))
+from author_profiles import build_author_profiles
+author_urls = build_author_profiles(ROOT, articles, doc, write)
 write('galeri/index.html',doc('Galeri','<section class="page-head"><span class="eyebrow">GÖRSELLER</span><h1>Galeri</h1></section><div class="prose static-copy"><p>Görsel çalışmalar ve fotoğraflar yayımlandıkça bu bölümde yer alacak.</p></div>','galeri'))
 write('iletisim/index.html',doc('İletişim','<section class="page-head"><span class="eyebrow">İLETİŞİM</span><h1>İletişim</h1></section><div class="prose static-copy"><p>İletişim bilgileri yakında burada yer alacak.</p></div>','iletisim'))
-urls = {'/'} | {f'/{key}/' for key in CATEGORY_PATHS} | {f'/{key}/' for key in EXTRAS} | {a['url'] for a in articles}
+urls = {'/'} | {f'/{key}/' for key in CATEGORY_PATHS} | {f'/{key}/' for key in EXTRAS} | {a['url'] for a in articles} | author_urls
 urls.add('/arama/')
 urls.add('/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/')
 urls.add('/kitap-notlari/sinema/sinemanin-kokleri/')
