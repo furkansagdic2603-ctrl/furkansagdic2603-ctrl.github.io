@@ -8,6 +8,8 @@ const authorBrowser=document.getElementById('book-author-browser');
 const authorSearch=document.getElementById('book-author-search');
 const authorLetters=document.getElementById('book-author-letters');
 const authorList=document.getElementById('book-author-list');
+const corpusPanel=document.getElementById('book-corpus-panel');
+const tableWrap=document.querySelector('.book-table-wrap');
 const body=document.getElementById('book-rows');
 const status=document.getElementById('book-status');
 const activeCategory=document.getElementById('book-active-category');
@@ -160,14 +162,38 @@ function renderAuthorIndex(){
   });
 }
 
+function renderCorpus(){
+  if(!corpusPanel)return;
+  const q=normalize(search.value.trim());
+  const authors=getAuthors().sort((a,b)=>b.count-a.count||a.name.localeCompare(b.name,'tr',{sensitivity:'base'}));
+  const filtered=authors.filter(a=>{
+    if(!q)return true;
+    const works=books.filter(b=>b.authorKey===a.key);
+    return normalize(a.name).includes(q)||works.some(b=>normalize(b.title).includes(q));
+  });
+  corpusPanel.innerHTML=filtered.length?filtered.map(a=>{
+    const works=books.filter(b=>b.authorKey===a.key).sort((x,y)=>String(x.title||'').localeCompare(String(y.title||''),'tr',{sensitivity:'base'}));
+    const shown=works.slice(0,6);
+    return '<article class="corpus-card"><header><div class="corpus-monogram">'+a.name.trim().charAt(0).toLocaleUpperCase('tr')+'</div><div><small>MÜELLİF KÜLLİYATI</small><h3>'+a.name.replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</h3><p>'+a.count.toLocaleString('tr-TR')+' eser kütüphanemde</p></div></header><ol>'+shown.map(b=>'<li>'+String(b.title||'İsimsiz eser').replace(/&/g,'&amp;').replace(/</g,'&lt;')+'</li>').join('')+(works.length>shown.length?'<li class="corpus-more">+'+(works.length-shown.length)+' eser daha</li>':'')+'</ol><footer><a href="/muellif/'+a.slug+'/">Müellif dosyasını aç →</a></footer></article>';
+  }).join(''):'<p class="book-author-empty">Bu aramada külliyat bulunamadı.</p>';
+  activeCategory.textContent='Müellif Külliyatı · '+filtered.length.toLocaleString('tr-TR')+' müellif';
+  status.textContent='Müelliflerin kütüphanendeki eserleri külliyat görünümünde gruplanıyor.';
+}
+
 function setBrowseMode(mode){
-  browseMode=mode==='author'?'author':'category';
+  browseMode=['category','author','corpus'].includes(mode)?mode:'category';
   categoryBrowser.hidden=browseMode!=='category';
   authorBrowser.hidden=browseMode!=='author';
   browseTabs.forEach(b=>{const on=b.dataset.bookBrowse===browseMode;b.classList.toggle('is-active',on);b.setAttribute('aria-selected',String(on));});
   if(browseMode==='category'){selectedAuthor='';renderTree();}
-  else{selectedMain='';selectedSub='';renderAuthorIndex();}
-  page=0;render();
+  else if(browseMode==='author'){selectedMain='';selectedSub='';renderAuthorIndex();}
+  else{selectedMain='';selectedSub='';selectedAuthor='';}
+  const corpus=browseMode==='corpus';
+  corpusPanel.hidden=!corpus;
+  tableWrap.hidden=corpus;
+  document.querySelector('.book-pagination').hidden=corpus;
+  page=0;
+  corpus?renderCorpus():render();
 }
 
 function countFor(main,sub=''){
@@ -231,7 +257,7 @@ function render(){
   next.disabled=page>=pages-1;
 }
 
-search.addEventListener('input',()=>{page=0;render()});
+search.addEventListener('input',()=>{page=0;browseMode==='corpus'?renderCorpus():render()});
 browseTabs.forEach(button=>button.addEventListener('click',()=>setBrowseMode(button.dataset.bookBrowse)));
 authorSearch?.addEventListener('input',()=>{selectedLetter='';renderAuthorIndex();});
 prev.onclick=()=>{page=Math.max(0,page-1);render()};
@@ -242,6 +268,8 @@ fetch('/data/books.json').then(r=>{
   return r.json();
 }).then(data=>{
   books=enrich(Array.isArray(data)?data:[]);
+  const initial=new URLSearchParams(location.search).get('q');
+  if(initial)search.value=initial.slice(0,180);
   renderTree();
   renderAuthorIndex();
   render();
