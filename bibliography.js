@@ -36,6 +36,7 @@ const SUB_ORDER={
 const normalize=s=>String(s||'').toLocaleLowerCase('tr').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/ı/g,'i');
 const authorKey=s=>normalize(s).replace(/[^a-z0-9çğıöşü]+/g,' ').trim();
 const authorLetter=s=>String(s||'').trim().charAt(0).toLocaleUpperCase('tr')||'#';
+const authorSlug=s=>normalize(s).replace(/ç/g,'c').replace(/ğ/g,'g').replace(/ö/g,'o').replace(/ş/g,'s').replace(/ü/g,'u').replace(/[^a-z0-9]+/g,'-').replace(/^-+|-+$/g,'')||'isimsiz';
 const has=(text,...keys)=>keys.some(k=>text.includes(normalize(k)));
 
 function classifyBook(book){
@@ -107,15 +108,39 @@ function enrich(list){
 }
 
 function getAuthors(){
-  const map=new Map();
+  const raw=new Map();
   books.forEach(book=>{
     if(!book.authorKey)return;
-    if(!map.has(book.authorKey))map.set(book.authorKey,{key:book.authorKey,name:String(book.author||'').trim(),count:0});
-    const item=map.get(book.authorKey);
-    item.count++;
-    const candidate=String(book.author||'').trim();
-    if(candidate && candidate.length<item.name.length)item.name=candidate;
+    if(!raw.has(book.authorKey))raw.set(book.authorKey,{key:book.authorKey,names:[],books:[]});
+    raw.get(book.authorKey).names.push(String(book.author||'').trim());
+    raw.get(book.authorKey).books.push(book);
   });
+  const aliases=new Map();
+  const keys=[...raw.keys()];
+  for(const key of keys){
+    if(key.split(' ').length!==1||key.length<4)continue;
+    const matches=keys.filter(k=>k!==key&&k.split(' ').length>1&&k.split(' ').at(-1)===key);
+    if(matches.length===1)aliases.set(key,matches[0]);
+  }
+  books.forEach(book=>{book.authorKey=aliases.get(book.authorKey)||book.authorKey;});
+  const map=new Map();
+  for(const [key,data] of raw){
+    const canonical=aliases.get(key)||key;
+    if(!map.has(canonical))map.set(canonical,{key:canonical,names:[],count:0});
+    const item=map.get(canonical);
+    item.count+=data.books.length;
+    item.names.push(...data.names);
+  }
+  for(const item of map.values()){
+    const unique=[...new Set(item.names.filter(Boolean))];
+    unique.sort((a,b)=>{
+      const sa=(/[(),/]/.test(a)?0:4)+(a===a.toUpperCase()?0:3)+Math.min(a.length,48)/100;
+      const sb=(/[(),/]/.test(b)?0:4)+(b===b.toUpperCase()?0:3)+Math.min(b.length,48)/100;
+      return sb-sa||a.localeCompare(b,'tr');
+    });
+    item.name=unique[0]||item.key;
+    item.slug=authorSlug(item.name);
+  }
   return [...map.values()].sort((a,b)=>a.name.localeCompare(b.name,'tr',{sensitivity:'base'}));
 }
 
@@ -127,7 +152,7 @@ function renderAuthorIndex(){
   authorLetters.querySelectorAll('[data-letter]').forEach(b=>b.onclick=()=>{selectedLetter=b.dataset.letter||'';renderAuthorIndex();});
   const q=normalize(authorSearch?.value||'');
   const filtered=all.filter(a=>(!selectedLetter||authorLetter(a.name)===selectedLetter)&&(!q||normalize(a.name).includes(q)));
-  authorList.innerHTML=filtered.length?filtered.map(a=>'<button type="button" class="book-author-item '+(selectedAuthor===a.key?'is-active':'')+'" data-author="'+a.key.replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'"><span>'+a.name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span><small>'+a.count.toLocaleString('tr-TR')+'</small></button>').join(''):'<p class="book-author-empty">Müellif bulunamadı.</p>';
+  authorList.innerHTML=filtered.length?filtered.map(a=>'<div class="book-author-row '+(selectedAuthor===a.key?'is-active':'')+'"><button type="button" class="book-author-item" data-author="'+a.key.replace(/&/g,'&amp;').replace(/"/g,'&quot;')+'"><span>'+a.name.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')+'</span><small>'+a.count.toLocaleString('tr-TR')+'</small></button><a class="book-author-profile-link" href="/muellif/'+a.slug+'/">Profil →</a></div>').join(''):'<p class="book-author-empty">Müellif bulunamadı.</p>';
   authorList.querySelectorAll('[data-author]').forEach(button=>button.onclick=()=>{
     selectedAuthor=button.dataset.author||'';
     selectedMain='';selectedSub='';page=0;
