@@ -123,19 +123,34 @@ def clean_html(path):
     return re.sub(r'\s+',' ',unescape(chunk)).strip()
 
 def classify(book):
-    x = norm((book.get('title') or '') + ' ' + (book.get('author') or ''))
+    title = norm(book.get('title'))
+    author = norm(book.get('author'))
+    x = title + ' ' + author
     def has(*keys):
         return any(norm(k) in x for k in keys)
-    if has('tarih felsefesi','felsefe tarihi','estetik','güzellik','sanat felsefesi','mantık','etik','ahlak','siyaset felsefesi','bilim felsefesi','epistemoloji','metafizik','ontoloji','varlık ve zaman','fenomenoloji','dil felsefesi','hermeneutik','islam felsefesi','antik felsefe','sokrates','platon','aristoteles','nietzsche','schopenhauer','kant','hegel','descartes','spinoza','leibniz','kierkegaard','deleuze','derrida','bergson','whitehead','rousseau','hobbes','locke','comte','badiou','habermas','felsefe','filozof','sosyoloji','bauman','simmel','weber'):
+
+    if has('tarih felsefesi','felsefe tarihi','felsefenin tarihi','tarihselcilik'):
         return 'Felsefe'
-    if has('fıkıh','tefsir','kur an','hadis','sünnet','buhari','tasavvuf','ibn arabi','futuhat','fusus','konevi','mevlana','gazali','akaid','kelam','maturidi','hristiyan','yahudi','islam','islâm','ilahiyat','risale','bediuzzaman'):
+    if has('estetik','güzellik','sanat felsefesi','sanatın felsefesi','poetika','yargı yetisinin eleştirisi','aşk estetiği'):
+        return 'Felsefe'
+    if has('mantık','lojik','organon','etik','ahlak','erdem','siyaset felsefesi','siyasal felsefe','politik felsefe','bilim felsefesi','epistemoloji','bilgi felsefesi','bilgi kuramı','metafizik','ontoloji','varlık ve zaman','fenomenoloji','dil felsefesi','hermeneutik','islam felsefesi','islâm felsefesi','antik felsefe','yunan felsefesi','sokrates','platon','eflatun','aristoteles','herakleitos','nietzsche','schopenhauer','kant','hegel','descartes','spinoza','leibniz','kierkegaard','deleuze','derrida','bergson','whitehead','bacon','rousseau','hobbes','locke','comte','badiou','habermas','marx','felsefe','felsefi','felsefesi','filozof','sosyoloji','sosyolojik','bauman','simmel','weber'):
+        return 'Felsefe'
+
+    if has('fıkıh','fikih','mustasfa','islam hukuku','tefsir','kur an','kuran','meal','hadis','sünnet','sunnet','buhari','müsned','musned','tecrid','sahih','hanbel','tasavvuf','ibn arabi','ibni arabi','futuhat','fütuhat','fusûs','fusus','konevi','konevî','mevlana','mevlânâ','kuşeyr','gazzali','gazali','akaid','akâid','kelam','kelâm','maturidi','mâturîdî','hristiyan','hıristiyan','yahudi','dinler tarihi','budizm','hindu','incil','tevrat','islam düşüncesi','islâm düşüncesi','bediüzzaman','bediuzzaman','risale','sıratımüstakim','sebilürreşad','mecmua','diyanet','islam','islâm','ilahiyat','şeriat'):
         return 'Din'
-    if has('sanat tarihi','sinema','film','mimari','mimarlık','resim','fotoğraf','heykel','minyatür','müzik','musiki','sanat','sanatsal'):
+
+    if has('sanat tarihi','sanatın tarihi','sinema','film','sinematograf','yönetmen','mimari','mimarlık','şehir estetiği','resim','ressam','fotoğraf','görme biçimleri','görsel','heykel','minyatür','müzik','musiki','mûsikî','sanat','sanatsal','croce','bedrettin cömert','suut kemal yetkin','ismail tunalı','ömer naci soykan'):
         return 'Sanat'
-    if has('edebiyat','şiir','siir','roman','hikaye','öykü','oyku','divan','mektuplar','günlük','gunluk'):
+
+    literary = ['mustafa kutlu','sezai karakoç','dostoyevski','tolstoy','kafka','orhan pamuk','ahmet hamdi tanpınar','tanpınar','cemil meriç','ismet özel','yahya kemal','mehmet akif','necip fazıl','necib fazıl','shakespeare','goethe','victor hugo','balzac','stendhal','flaubert']
+    if has('edebiyat tarihi','edebiyat','şiir','siir','roman','hikaye','hikâye','öykü','oyku','divan','edebî','edebi','hatıra','hatirat','mektuplar','günlük','gunluk') or any(norm(n) in author for n in literary):
         return 'Edebiyat'
-    if has('yunan tarihi','roma tarihi','bizans','osmanlı','selçuk','cumhuriyet','atatürk','türk tarihi','islam tarihi','siyer','avrupa tarihi','ortaçağ','rönesans','tarih','tarihi','imparatorluğu','medeniyet'):
+
+    if has('yunan tarihi','antik yunan','hellen','helenistik','atina','sparta','roma tarihi','roma imparator','romalı','bizans','osmanlı','osmanli','devlet i aliyye','ahmet cevdet paşa','uzunçarşılı','halil inalcık','selçuk','selcuk','osman turan','cumhuriyet','atatürk','milli mücadele','inkılap','türk tarihi','türkler','orta asya','islam tarihi','islâm tarihi','siyer','peygamber','halifeler','emevi','abbasi','avrupa tarihi','batı tarihi','ortaçağ','rönesans','fransız ihtilali','tarih','tarihi','imparatorluğu','medeniyet','braudel','hodgson','mısıroğlu'):
         return 'Tarih'
+
+    if has('psikoloji','zihin','bilinç','insan'):
+        return 'Felsefe'
     return 'Felsefe'
 
 def author_timeline(groups):
