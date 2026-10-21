@@ -22,7 +22,7 @@ STOP = {
 CONCEPTS = {
     'hegel': ['diyalektik','tin','geist','aufhebung','mutlak idealizm','tinin fenomenolojisi','efendi kole','kendinde varlik','kendi icin varlik','dunya tini','aklin hilesi','tez antitez sentez'],
     'kant': ['kategorik imperatif','numen','fenomen','askinsal','transandantal','saf akil','pratik akil','yargi yetisi','sentetik a priori','estetik yargi'],
-    'schopenhauer': ['isteme','irade ve tasarim','tasarim olarak dunya','yeter sebep','kotu mserlik','yasama iradesi'],
+    'schopenhauer': ['isteme','irade ve tasarim','tasarim olarak dunya','yeter sebep','kotumserlik','yasama iradesi'],
     'nietzsche': ['guc istenci','ustinsan','ebedi donus','tanrinin olumu','kole ahlaki','degerlerin yeniden degerlendirilmesi','amor fati'],
     'heidegger': ['dasein','varlik ve zaman','dunyada olmak','firlatilmislik','das man','ontolojik fark','varligin anlami'],
     'bergson': ['sure','elan vital','yaratici tekamul','sezgi','madde ve bellek','yasamsal atilim'],
