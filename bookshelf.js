@@ -7,6 +7,7 @@
   const safe = value => typeof value === 'string' && value.startsWith('/') && !value.startsWith('//') && !value.includes('..');
   async function start() {
     const response = await fetch('/data/site-books.json', {cache:'no-cache'}); if (!response.ok) throw new Error('catalog');
+    const navigation=await fetch('/data/book-navigation.json?v=20261024').then(r=>r.ok?r.json():{}).catch(()=>({}));
     const books = (await response.json()).filter(book=>book.category!=='kitap-notlari/su-an-masada');
     if (Array.isArray(books) && !books.some(b=>b.id==='kitap-notlari/sinema/sinemanin-kokleri')) books.push({id:'kitap-notlari/sinema/sinemanin-kokleri',title:'Sinemanın Kökleri',author:'Enver Gülşen',category:'kitap-notlari/sinema'});
     if (!Array.isArray(books) || !books.length) return;
@@ -53,6 +54,7 @@
         await motion(bookObject,[{transform:p[3]},{transform:p[2],offset:.4},{transform:p[1],offset:.78},{transform:p[0]}],1050);
         dialog.close();
       }finally{
+        if(dialog.open)dialog.close();
         opener?.classList.remove('is-returning');bookObject?.remove();bookObject=null;
         busy=false;close.disabled=false;opener?.focus({preventScroll:true});
       }
@@ -72,8 +74,12 @@
       right.append(el('p','shelf-reading-status',status));
       if(book.description)right.append(el('p','shelf-description',book.description));
       const notes=el('nav','shelf-notes');notes.addEventListener('click',e=>{if(e.target.closest('a'))try{localStorage.setItem('shelf-reading:'+book.id,'1');}catch{}});notes.setAttribute('aria-label','Kitabın notları');right.append(notes);
-      const url='/'+book.id.replace(/^\/+|\/+$/g,'')+'/';
-      if(safe(url)) notes.append(link('Notları oku',url));
+      const record=navigation[book.id];
+      if(record?.notes?.length){
+        record.notes.forEach(n=>{if(safe(n.url))notes.append(link(n.title,n.url));});
+      }else if(record&&safe(record.url))notes.append(link('Kitabın sayfası',record.url));
+      else notes.append(el('p','shelf-no-notes','Bu kitap için yayımlanmış not bağlantısı bulunamadı.'));
+
       dialog.classList.remove('is-open-book');
       bookObject=el('div','physical-book');bookObject.setAttribute('aria-hidden','true');
       const cover=el('div','physical-cover');
@@ -93,19 +99,9 @@
         await motion(bookObject,[{transform:p[0]},{transform:p[1],offset:.3},{transform:p[2],offset:.75},{transform:p[3]}],1150);
         await motion(cover,[{transform:'rotateY(0deg)'},{transform:'rotateY(-165deg)'}],650);
         dialog.classList.add('is-open-book');
-      }finally{busy=false;close.disabled=false;}
-      // Existing category pages retain the published grouping of notes into books.
-      try{
-        const category='/'+book.category.replace(/^\/+|\/+$/g,'').split('/').slice(0,2).join('/')+'/';
-        const r=await fetch(category);if(!r.ok)return;const doc=new DOMParser().parseFromString(await r.text(),'text/html');
-        const match=[...doc.querySelectorAll('.cinema-book')].find(b=>b.dataset.title===book.title);
-        if(current!==token || !dialog.open || !match)return;
-        const target=match.dataset.url;
-        if(target?.startsWith('#')){
-          const group=doc.getElementById(target.slice(1)); const links=[...(group?.querySelectorAll('a')||[])].filter(a=>safe(a.getAttribute('href')));
-          if(links.length)notes.replaceChildren(...links.map(a=>link(a.textContent,a.getAttribute('href'))));
-        }else if(safe(target))notes.replaceChildren(link('Notları oku',target));
-      }catch{/* The original note link remains available when enrichment fails. */}
+      }catch(error){console.warn('Kitap animasyonu tamamlanamadı; notlar açıldı.',error);}
+      finally{if(current===token&&dialog.open){dialog.classList.add('is-open-book');}busy=false;close.disabled=false;}
+
     }
     books.filter(b=>b.id?.startsWith('kitap-notlari/') && b.title).forEach((book,i)=>{
       const button=el('button','shelf-book');button.type='button';button.style.setProperty('--binding',['#315b59','#704651','#746039','#404b68'][i%4]);button.style.setProperty('--book-height',(232+i%4*12)+'px');
@@ -159,7 +155,7 @@
     setMode(initialMode);renderCarousel(0);
     const heading=main.querySelector('.page-head');
     const legacy=[...main.children].filter(n=>n!==heading);
-    legacy.forEach(node=>node.hidden=true);
+    legacy.forEach(node=>{if(!node.matches('.topic-grid'))node.hidden=true;});
     if(heading)heading.after(section);else main.prepend(section);
   }
   start().catch(()=>{/* Existing categories and notes stay usable. */});

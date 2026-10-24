@@ -124,6 +124,11 @@ def build_author_profiles(root, articles, doc, write):
     except Exception:
         quotes = []
 
+    from author_dossier import dossier
+    try:
+        snapshots=json.loads((root/'data/author-catalog.json').read_text()).get('profiles',{})
+    except (FileNotFoundError,ValueError):
+        snapshots={}
     groups, aliases = build_author_groups(books)
     semantic_relations = build_semantic_relations(root, articles, groups)
     urls = set()
@@ -151,7 +156,7 @@ def build_author_profiles(root, articles, doc, write):
 
         works = ''.join(book_row(b) for b in library)
         work_section = (
-            '<section class="author-section author-library"><div class="author-section-head">'
+            '<section id="katalog-nushalari" class="author-section author-library"><div class="author-section-head">'
             f'<div><span class="eyebrow">KİŞİSEL KÜTÜPHANE</span><h2>Eserleri</h2></div><strong>{len(library)}</strong></div>'
             '<div class="author-work-table-wrap"><table class="author-work-table"><thead><tr><th>Eser</th><th>Yayınevi</th><th>Sayfa</th><th>Mütercim</th></tr></thead>'
             f'<tbody>{works}</tbody></table></div></section>'
@@ -204,15 +209,13 @@ def build_author_profiles(root, articles, doc, write):
             '<ol id="author-turkish-works" class="author-external-work-list"><li class="author-loading-row">Türkçe katalog taranıyor…</li></ol></section>'
             '<p id="author-research-sources" class="author-research-sources">Kaynaklar hazırlanıyor…</p></section>'
         )
+        dossier_hero,research_section=dossier(name,slug,library,snapshots.get(slug,{}))
         main = (
-            '<section class="author-profile-hero"><a class="back" href="/kaynakca/">← Kaynakça</a>'
-            '<div class="author-monogram"><span aria-hidden="true">' + escape(name[:1].upper()) + '</span><img id="author-portrait" src="" alt="' + escape(name, quote=True) + ' portresi" hidden loading="lazy"></div>'
-            '<div class="author-profile-copy"><span class="eyebrow">MÜELLİF DOSYASI</span>'
-            f'<h1>{escape(name)}</h1><p>Hayatı, düşüncesi, eser külliyatı, Türkçe tercümeleri ve benim kütüphanemde bulunan nüshaları tek dosyada topluyorum.</p>{alias_html}{publisher_html}</div></section>'
+            dossier_hero
             + stats + research_section + work_section + related_html + quote_html
         )
         page = doc(name + ' — Müellif', main, '', f'{name} için kişisel kütüphane eserleri, kitap notları ve ilgili yazılar.')
-        page = page.replace('/style.css?v=20261020-ultrarealbook1','/style.css?v=20261021-author-research1').replace('</body>','<script src="/author-research.js?v=20261021-1" defer></script></body>')
+        page = page.replace('</head>','<link rel="stylesheet" href="/author-dossier.css?v=20261024-1"></head>').replace('</body>','<script src="/author-research.js?v=20261024-1" defer></script></body>')
         write(f'muellif/{slug}/index.html', page)
         url = f'/muellif/{slug}/'
         urls.add(url)
@@ -222,14 +225,19 @@ def build_author_profiles(root, articles, doc, write):
     for name, url, count in index_items:
         letter = name[:1].upper() if name else '#'
         groups_by_letter.setdefault(letter, []).append((name,url,count))
-    index_body = '<section class="page-head author-index-head"><span class="eyebrow">KÜTÜPHANE DİZİNİ</span><h1>Müellifler</h1><p>Kişisel kütüphanemdeki müellifler ve eserleri.</p></section><section class="author-index">'
+    index_body = '<section class="page-head author-index-head"><span class="eyebrow">KÜTÜPHANE DİZİNİ</span><h1>Müellifler</h1><p>Kişisel kütüphanemdeki müellifler ve eserleri.</p></section><section class="author-index" data-author-index><label class="author-index-search">Müelliflerde ara<input id="author-index-search" type="search" placeholder="Müellif adı…" autocomplete="off"></label><p id="author-index-status" role="status"></p>'
     for letter in sorted(groups_by_letter, key=lambda x: x.casefold()):
         index_body += f'<section class="author-letter"><h2>{escape(letter)}</h2><div>'
-        index_body += ''.join(f'<a href="{escape(url, quote=True)}"><span>{escape(name)}</span><small>{count} eser</small></a>' for name,url,count in groups_by_letter[letter])
+        for name,url,count in groups_by_letter[letter]:
+            item=snapshots.get(url.strip('/').split('/')[-1],{})
+            image=str(item.get('portraitUrl') or '')
+            art=(f'<img src="{escape(image,quote=True)}" alt="" width="44" height="54" loading="lazy">' if image.startswith(('/assets/','https://')) else '<b class="author-index-initial" aria-hidden="true">'+escape(name[:1])+'</b>')
+            index_body += f'<a href="{escape(url,quote=True)}" data-author-name="{escape(name,quote=True)}">'+art+f'<span>{escape(name)}</span><small>{count} eser</small></a>'
         index_body += '</div></section>'
     index_body += '</section>'
     index_page = doc('Müellifler', index_body, '', 'Kişisel kütüphanedeki müellifler ve eserleri.')
     index_page = index_page.replace('/style.css?v=20261020-ultrarealbook1','/style.css?v=20261021-author-research1')
+    index_page=index_page.replace('</head>','<link rel="stylesheet" href="/author-dossier.css?v=20261024-1"></head>').replace('</body>','<script src="/author-research.js?v=20261024-1" defer></script></body>')
     write('muellif/index.html', index_page)
     urls.add('/muellif/')
     return urls

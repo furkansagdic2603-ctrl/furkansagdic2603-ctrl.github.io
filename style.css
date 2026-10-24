@@ -1751,3 +1751,11 @@ html[data-theme="dark"] .docx-content{color:#181818;background:#fbfaf7}
 .site-music{color:var(--ink);background:var(--surface);border-color:var(--rule)}
 @media(min-width:380px) and (max-width:700px){.top-actions{flex-wrap:nowrap!important;gap:5px!important}.top-actions .script-switch{font-size:10px;padding:6px 5px;gap:3px}.top-actions .discover-button,.top-actions .theme-toggle,.top-actions .admin-access,.top-actions .menu-buton{font-size:10px;padding:6px 7px;min-width:0;min-height:34px}.top-actions .menu-buton{margin-left:auto;min-width:43px}}
 html[data-script="ottoman"] .prose:not(.docx-content){font-family:'Noto Naskh Arabic','Traditional Arabic',serif;font-size:22px;line-height:2}
+
+/* Restore the category illustrations hidden by the reading-room override. */
+html[data-category-design]:not([data-category-design=""]) .page-head{
+ border-image:none;border:1px solid var(--gold);background-image:var(--heading-frame);background-size:100% 100%;background-repeat:no-repeat;background-position:center;background-color:var(--category-paper,var(--paper));padding:46px 25%;min-height:250px;text-align:center;align-items:center;color:var(--heading-text,var(--ink));
+}
+html[data-category-design]:not([data-category-design=""]) .page-head h1,html[data-category-design]:not([data-category-design=""]) .page-head p,html[data-category-design]:not([data-category-design=""]) .page-head .eyebrow,html[data-category-design]:not([data-category-design=""]) .page-head .back{color:inherit}
+html[data-category-design]:not([data-category-design=""]) .page-head h1{max-width:none}
+@media(max-width:700px){html[data-category-design]:not([data-category-design=""]) .page-head{padding:30px 17%;min-height:190px}html[data-category-design]:not([data-category-design=""]) .page-head h1{font-size:clamp(24px,6vw,34px)}}
