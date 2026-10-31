@@ -143,6 +143,35 @@ export function initBooks({ $, callAdmin, feedback }) {
     }catch(err){$('edit-book-status').textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
   });
 
+  const kyNormalizeIsbn=value=>{
+    const m=String(value||'').match(/(?:97[89][\s-]?)?(?:\d[\s-]?){9}[\dXx]/);
+    return m?m[0].replace(/[\s-]/g,'').toUpperCase():'';
+  };
+  const kyMergeClientResults=(...groups)=>{
+    const out=[],seen=new Set();
+    for(const group of groups)for(const item of group||[]){
+      if(!item?.title)continue;
+      const key=[String(item.isbn||'').replace(/[^0-9X]/gi,''),String(item.title||'').toLocaleLowerCase('tr'),String(item.author||'').toLocaleLowerCase('tr')].join('|');
+      if(seen.has(key))continue;seen.add(key);out.push(item);
+    }
+    return out;
+  };
+  const browserIsbnLookup=async query=>{
+    const isbn=kyNormalizeIsbn(query);if(!isbn)return[];
+    const google=(async()=>{try{
+      const r=await fetch('https://www.googleapis.com/books/v1/volumes?q='+encodeURIComponent('isbn:'+isbn)+'&maxResults=20&printType=books&projection=full');
+      if(!r.ok)return[];const data=await r.json();
+      return (Array.isArray(data.items)?data.items:[]).map(x=>{const d=x.volumeInfo||{},ids=Array.isArray(d.industryIdentifiers)?d.industryIdentifiers:[],found=String(ids.find(z=>z.type==='ISBN_13')?.identifier||ids.find(z=>z.type==='ISBN_10')?.identifier||isbn);return{title:String(d.title||'').slice(0,160),author:String(d.authors?.join(', ')||'').slice(0,160),description:String(d.description||'').replace(/<[^>]+>/g,' ').replace(/\s+/g,' ').trim().slice(0,500),cover:String(d.imageLinks?.extraLarge||d.imageLinks?.large||d.imageLinks?.medium||d.imageLinks?.thumbnail||'').replace(/^http:/,'https:'),publisher:String(d.publisher||'').slice(0,160),isbn:found,pages:String(d.pageCount||''),publishDate:String(d.publishedDate||''),sourceUrl:String(d.infoLink||''),source:'Google Books'};}).filter(x=>x.title);
+    }catch{return[];}})();
+    const openLibrary=(async()=>{try{
+      const r=await fetch('https://openlibrary.org/api/books?bibkeys='+encodeURIComponent('ISBN:'+isbn)+'&jscmd=data&format=json');
+      if(!r.ok)return[];const data=await r.json(),d=data?.['ISBN:'+isbn];if(!d?.title)return[];
+      return [{title:String(d.title).slice(0,160),author:String((Array.isArray(d.authors)?d.authors.map(a=>a?.name).filter(Boolean):[]).join(', ')).slice(0,160),description:String(d.subtitle||'').slice(0,500),cover:String(d.cover?.large||d.cover?.medium||d.cover?.small||'').replace(/^http:/,'https:'),publisher:String((Array.isArray(d.publishers)?d.publishers.map(p=>p?.name).filter(Boolean):[]).join(', ')).slice(0,160),isbn,pages:String(d.number_of_pages||''),publishDate:String(d.publish_date||''),sourceUrl:String(d.url||d.info_url||('https://openlibrary.org/isbn/'+isbn)),source:'Open Library ISBN'}];
+    }catch{return[];}})();
+    const [g,o]=await Promise.all([google,openLibrary]);
+    return kyMergeClientResults(g,o);
+  };
+
   const kyResults=$('ky-book-results'),kyStatus=$('ky-book-status');
   const renderKyResults=items=>{
     kyResults.replaceChildren(...items.map(item=>{
@@ -165,9 +194,21 @@ export function initBooks({ $, callAdmin, feedback }) {
   };
   $('ky-book-search').addEventListener('click',async()=>{
     const query=$('ky-book-query').value.trim();if(!query){kyStatus.textContent='ISBN-10 veya ISBN-13 numarasını yaz.';return;}
-    const button=$('ky-book-search');button.disabled=true;kyStatus.textContent='ISBN kitap kaynaklarında aranıyor…';kyResults.replaceChildren();
-    try{const data=await callAdmin('kitapyurdu_lookup',{query});const items=Array.isArray(data.results)?data.results:[];renderKyResults(items);kyStatus.textContent=data.message||(items.length?items.length+' sonuç bulundu. Doğru kitabı seç.':'Sonuç bulunamadı. Kitap adı veya ISBN ile tekrar deneyebilirsin.');}
-    catch(err){kyStatus.textContent=err.message;feedback(err.message);}finally{button.disabled=false;}
+    const button=$('ky-book-search'),isbn=kyNormalizeIsbn(query);button.disabled=true;kyStatus.textContent='ISBN Google Books, Open Library ve diğer kataloglarda aranıyor…';kyResults.replaceChildren();
+    try{
+      const data=await callAdmin('kitapyurdu_lookup',{query});
+      let items=Array.isArray(data.results)?data.results:[];
+      let browserFallback=false;
+      if(!items.length&&isbn){items=await browserIsbnLookup(isbn);browserFallback=items.length>0;}
+      renderKyResults(items);
+      kyStatus.textContent=browserFallback
+        ? items.length+' sonuç tarayıcıdaki yedek ISBN aramasıyla bulundu. Doğru kitabı seç.'
+        : (data.message||(items.length?items.length+' sonuç bulundu. Doğru kitabı seç.':'Bu ISBN açık kitap kataloglarında bulunamadı. ISBN numarasını kontrol et; tireli veya tiresiz yazabilirsin.'));
+    }catch(err){
+      const items=isbn?await browserIsbnLookup(isbn).catch(()=>[]):[];
+      if(items.length){renderKyResults(items);kyStatus.textContent=items.length+' sonuç bulundu. Sunucu araması yanıt vermediği için tarayıcı yedeği kullanıldı.';}
+      else{kyStatus.textContent=err.message;feedback(err.message);}
+    }finally{button.disabled=false;}
   });
   $('ky-book-query').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();$('ky-book-search').click();}});
   $('new-book-title').addEventListener('input', () => { $('new-book-fallback-title').textContent = $('new-book-title').value.trim() || 'Kitap adı'; });
