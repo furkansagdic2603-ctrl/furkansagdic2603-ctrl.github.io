@@ -310,36 +310,6 @@ build_series_navigation(ROOT)
 write('su-an-masada/index.html',doc('Şu An Masada','<section class="page-head"><span class="eyebrow">OKUMA MASAM</span><h1>Şu An Masada</h1><p>Kitaplarla, notlarla ve sorularla devam eden bir çalışma.</p></section>','su-an-masada'))
 
 
-# TEMP_METAFIZIK_PAYLOAD_INSPECT_V1
-try:
-    import base64 as _b64, lzma as _lzma, io as _io, tarfile as _tarfile
-    _p = ROOT / '.site-payload' / 'metafizik-20261031'
-    _names = [f'part-{i:02d}' for i in range(12)] + ['part-12a','part-12b','part-12c']
-    _joined = ''.join((_p / n).read_text(encoding='utf-8') for n in _names)
-    _raw = _lzma.decompress(_b64.b64decode(_joined))
-    print('METAFIZIK_PAYLOAD_PRIMARY_LEN', len(_raw))
-    print('METAFIZIK_PAYLOAD_PRIMARY_HEAD', repr(_raw[:300]))
-    try:
-        _tf = _tarfile.open(fileobj=_io.BytesIO(_raw), mode='r:*')
-        print('METAFIZIK_PAYLOAD_TAR_NAMES', _tf.getnames()[:100])
-    except Exception as _e:
-        print('METAFIZIK_PAYLOAD_NOT_TAR', type(_e).__name__, str(_e))
-    for _n in (13,14):
-        _hx = ((_p / f'part-{_n}h0').read_text() + (_p / f'part-{_n}h1').read_text()).strip()
-        _bin = bytes.fromhex(_hx)
-        print(f'METAFIZIK_PAYLOAD_HEX_{_n}_BIN_HEAD', repr(_bin[:40]), 'LEN', len(_bin))
-        try:
-            _out = _lzma.decompress(_bin)
-            print(f'METAFIZIK_PAYLOAD_HEX_{_n}_OUT_LEN', len(_out), 'HEAD', repr(_out[:200]))
-        except Exception as _e:
-            print(f'METAFIZIK_PAYLOAD_HEX_{_n}_ERR', type(_e).__name__, str(_e))
-    _hx = (_p / 'part-15h1').read_text().strip()
-    _bin = bytes.fromhex(_hx)
-    print('METAFIZIK_PAYLOAD_HEX_15_BIN_HEAD', repr(_bin[:40]), 'LEN', len(_bin))
-    try:
-        _out = _lzma.decompress(_bin)
-        print('METAFIZIK_PAYLOAD_HEX_15_OUT_LEN', len(_out), 'HEAD', repr(_out[:200]))
-    except Exception as _e:
-        print('METAFIZIK_PAYLOAD_HEX_15_ERR', type(_e).__name__, str(_e))
-except Exception as _e:
-    print('METAFIZIK_PAYLOAD_INSPECT_ERROR', type(_e).__name__, str(_e))
+# Apply exact Word formatting for the imported Metafizik chapters.
+from metafizik_word_restore import apply_metafizik_word_restore
+apply_metafizik_word_restore(ROOT)
