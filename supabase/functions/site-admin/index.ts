@@ -258,33 +258,97 @@ async function internetArchiveIsbnLookup(query:string){
   return docs.map((d:any)=>{const ids=Array.isArray(d.isbn)?d.isbn:[d.isbn].filter(Boolean),found=String(ids.find((x:any)=>variants.includes(String(x).replace(/[^0-9X]/gi,'')))||variants[0]||'');return{title:String(d.title||'').slice(0,160),author:String(Array.isArray(d.creator)?d.creator.join(', '):d.creator||'').slice(0,160),description:'',cover:d.identifier?'https://archive.org/services/img/'+encodeURIComponent(String(d.identifier)):'',publisher:String(Array.isArray(d.publisher)?d.publisher.join(', '):d.publisher||'').slice(0,160),isbn:found.slice(0,40),pages:'',publishDate:String(d.date||'').slice(0,40),sourceUrl:d.identifier?'https://archive.org/details/'+encodeURIComponent(String(d.identifier)):'',source:'Internet Archive'};}).filter((x:any)=>x.title);
  }catch{return[];}
 }
+const trRetailers=[
+ {name:'BKM Kitap',host:'bkmkitap.com',search:(q:string)=>'https://www.bkmkitap.com/arama?q='+encodeURIComponent(q)},
+ {name:'D&R',host:'dr.com.tr',search:(q:string)=>'https://www.dr.com.tr/search?q='+encodeURIComponent(q)},
+ {name:'İdefix',host:'idefix.com',search:(q:string)=>'https://www.idefix.com/search?q='+encodeURIComponent(q)},
+ {name:'Kitap Sepeti',host:'kitapsepeti.com',search:(q:string)=>'https://www.kitapsepeti.com/arama?q='+encodeURIComponent(q)},
+ {name:'KitapSeç',host:'kitapsec.com',search:(q:string)=>'https://www.kitapsec.com/Arama/index.php?ara='+encodeURIComponent(q)},
+ {name:'NadirKitap',host:'nadirkitap.com',search:(q:string)=>'https://www.nadirkitap.com/kitapara.php?ara='+encodeURIComponent(q)},
+ {name:'İstanbul Kitapçısı',host:'istanbulkitapcisi.com',search:(q:string)=>'https://www.istanbulkitapcisi.com/arama?q='+encodeURIComponent(q)},
+ {name:'Pandora',host:'pandora.com.tr',search:(q:string)=>'https://www.pandora.com.tr/arama?search='+encodeURIComponent(q)},
+ {name:'Hepsiburada',host:'hepsiburada.com',search:(q:string)=>'https://www.hepsiburada.com/ara?q='+encodeURIComponent(q)},
+ {name:'Trendyol',host:'trendyol.com',search:(q:string)=>'https://www.trendyol.com/sr?q='+encodeURIComponent(q)},
+ {name:'Amazon Türkiye',host:'amazon.com.tr',search:(q:string)=>'https://www.amazon.com.tr/s?k='+encodeURIComponent(q)}
+];
+const trRetailerHeaders={'User-Agent':'Mozilla/5.0 (compatible; FurkanSagdicBookAdmin/2.1; +https://furkansagdic.com.tr)','Accept':'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8','Accept-Language':'tr-TR,tr;q=0.9,en;q=0.6','Cache-Control':'no-cache'};
+const trSameHost=(url:string,host:string)=>{try{const u=new URL(url);return u.hostname===host||u.hostname.endsWith('.'+host);}catch{return false;}};
+const trAbsolute=(href:string,base:string)=>{try{return new URL(href.replace(/&amp;/g,'&'),base).href}catch{return''}};
+const trCandidateScore=(url:string,htmlContext:string)=>{
+ let s=0;const x=(url+' '+htmlContext).toLocaleLowerCase('tr');
+ if(/product|urun|kitap|book|p-\d|urunno|productid|product-detail|productdetail/.test(x))s+=8;
+ if(/sepete|cart|sepet|login|giris|uye|hesap|kategori|category|kampanya|magaza|store|arama|search|blog|yardim|help|iletisim|contact|favori|wishlist/.test(x))s-=10;
+ if(/\.html?(?:$|\?)/.test(url))s+=2;
+ return s;
+};
+const trJsonLdProducts=(html:string,sourceUrl:string,sourceName:string,targetIsbn:string)=>{
+ const out:any[]=[];
+ for(const m of html.matchAll(/<script[^>]+type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)){
+  try{
+   const root=JSON.parse(m[1]);
+   const walk=(o:any)=>{
+    if(!o||typeof o!=='object')return;
+    if(Array.isArray(o)){o.forEach(walk);return;}
+    const t=String(o['@type']||'').toLowerCase();
+    if(t==='book'||t==='product'){
+      const isbn=kyExtractIsbn(String(o.isbn||o.gtin13||o.gtin||o.sku||''))||kyExtractIsbn(JSON.stringify(o));
+      if(!targetIsbn||isbn===targetIsbn){
+        const image=Array.isArray(o.image)?o.image[0]:o.image;
+        const a=Array.isArray(o.author)?o.author[0]:o.author;
+        const brand=Array.isArray(o.brand)?o.brand[0]:o.brand;
+        const p=Array.isArray(o.publisher)?o.publisher[0]:o.publisher;
+        const item={title:String(o.name||o.headline||'').slice(0,160),author:String(typeof a==='string'?a:(a?.name||'')).slice(0,160),description:kyClean(String(o.description||'')).slice(0,500),cover:String(typeof image==='string'?image:(image?.url||'')).replace(/^http:/,'https:'),publisher:String(typeof p==='string'?p:(p?.name||brand?.name||'')).slice(0,160),isbn:String(isbn||targetIsbn||'').slice(0,40),pages:String(o.numberOfPages||''),publishDate:String(o.datePublished||''),sourceUrl:String(o.url||sourceUrl),source:sourceName};
+        if(item.title)out.push(item);
+      }
+    }
+    for(const v of Object.values(o))if(v&&typeof v==='object')walk(v);
+   };
+   walk(root);
+  }catch{}
+ }
+ return out;
+};
+async function trRetailerLookup(src:any,isbn:string){
+ const searchUrl=src.search(isbn);
+ let html='';
+ try{
+  const r=await fetch(searchUrl,{headers:trRetailerHeaders,redirect:'follow',signal:AbortSignal.timeout(9000)});
+  if(!r.ok)return[];
+  html=await r.text();
+ }catch{return[];}
+ const direct=trJsonLdProducts(html,searchUrl,src.name,isbn);
+ if(direct.length)return kyMergeBooks(direct);
+ const links=new Map<string,number>();
+ for(const m of html.matchAll(/<a\b[^>]*href=["']([^"'#]+)["'][^>]*>([\s\S]*?)<\/a>/gi)){
+  const url=trAbsolute(m[1],searchUrl);if(!url||!trSameHost(url,src.host))continue;
+  const context=kyClean(m[2]).slice(0,220);
+  let score=trCandidateScore(url,context);
+  const around=html.slice(Math.max(0,(m.index||0)-350),Math.min(html.length,(m.index||0)+900));
+  if(around.replace(/[\s-]/g,'').includes(isbn))score+=20;
+  if(/product|urun|kitap|book|product-card|productitem|product-item|search-result|listing/i.test(around))score+=6;
+  if(score>0)links.set(url,Math.max(score,links.get(url)||0));
+ }
+ const candidates=[...links.entries()].sort((a,b)=>b[1]-a[1]).slice(0,12).map(x=>x[0]);
+ const pages=await Promise.all(candidates.map(async url=>{
+  try{
+   const r=await fetch(url,{headers:trRetailerHeaders,redirect:'follow',signal:AbortSignal.timeout(7000)});if(!r.ok)return null;
+   const h=await r.text();
+   const structured=trJsonLdProducts(h,url,src.name,isbn);
+   if(structured.length)return structured[0];
+   const product=kyProduct(h,url),pageIsbn=kyExtractIsbn(product.isbn||h);
+   return pageIsbn===isbn&&product.title?{...product,isbn,source:src.name}:null;
+  }catch{return null;}
+ }));
+ return kyMergeBooks(pages.filter(Boolean) as any[]);
+}
 async function trBookLookup(query:string){
  const raw=query.replace(/^https?:\/\/\S+$/i,'').trim();if(!raw)return[];
  const isbn=kyExtractIsbn(raw);
- const sources=[
-  {name:'1000Kitap',url:'https://1000kitap.com/arama?q='+encodeURIComponent(raw),host:'1000kitap.com'},
-  {name:'BKM Kitap',url:'https://www.bkmkitap.com/arama?q='+encodeURIComponent(raw),host:'bkmkitap.com'},
-  {name:'D&R',url:'https://www.dr.com.tr/search?q='+encodeURIComponent(raw),host:'dr.com.tr'},
-  {name:'idefix',url:'https://www.idefix.com/search?q='+encodeURIComponent(raw),host:'idefix.com'},
-  {name:'Amazon Türkiye',url:'https://www.amazon.com.tr/s?k='+encodeURIComponent(raw),host:'amazon.com.tr'}
- ];
- const results:any[]=[];
- for(const src of sources){
-  try{
-   const r=await fetch(src.url,{headers:{'User-Agent':'Mozilla/5.0 (compatible; FurkanSagdicBookAdmin/2.0)','Accept':'text/html,application/xhtml+xml','Accept-Language':'tr-TR,tr;q=0.9'},redirect:'follow',signal:AbortSignal.timeout(7000)});
-   if(!r.ok)continue;const html=await r.text();const links=new Set<string>();
-   for(const m of html.matchAll(/href=["']([^"'#]+)["']/gi)){try{const u=new URL(m[1],src.url);if((u.hostname===src.host||u.hostname.endsWith('.'+src.host))&&/(kitap|book|urun|product)/i.test(u.pathname)){links.add(u.href);if(links.size>=6)break;}}catch{}}
-   for(const url of [...links].slice(0,4)){try{
-    const p=await fetch(url,{headers:{'User-Agent':'Mozilla/5.0 (compatible; FurkanSagdicBookAdmin/2.0)','Accept':'text/html','Accept-Language':'tr-TR,tr;q=0.9'},redirect:'follow',signal:AbortSignal.timeout(6000)});if(!p.ok)continue;
-    const h=await p.text(),product=kyProduct(h,url),pageIsbn=kyExtractIsbn(product.isbn||h);
-    const titleMatch=product.title&&product.title.toLocaleLowerCase('tr').includes(raw.toLocaleLowerCase('tr').split(/\s+/)[0]);
-    const isbnMatch=isbn&&pageIsbn===isbn;
-    if((isbn?isbnMatch:titleMatch)&&product.title)results.push({...product,source:src.name});
-   }catch{}}
-  }catch{}
-  if(results.length>=6)break;
+ if(isbn){
+  const settled=await Promise.all(trRetailers.map(src=>trRetailerLookup(src,isbn)));
+  return kyMergeBooks(...settled);
  }
- return kyMergeBooks(results);
+ return[];
 }
 async function fallbackBookLookup(query:string){
  const isbn=kyExtractIsbn(query);
@@ -500,7 +564,7 @@ Deno.serve(async req => {
       if(isbn){
         const valid=isbn.length===10?kyValidIsbn10(isbn):kyValidIsbn13(isbn);
         const fallback=await fallbackBookLookup(isbn);
-        return result({results:fallback,isbn,validIsbn:valid,sources:['Google Books','Open Library ISBN','Internet Archive'],message:fallback.length?(fallback.length+' ISBN eşleşmesi bulundu. Sonuçlar Google Books, Open Library ve Internet Archive kataloglarından birleştirildi.'):(valid?'Bu ISBN için Google Books, Open Library ve Internet Archive kataloglarında kayıt bulunamadı.':'ISBN doğrulama basamağı hatalı görünüyor. Numarayı kontrol edip tekrar dene.')});
+        return result({results:fallback,isbn,validIsbn:valid, sources:['BKM Kitap','D&R','İdefix','Kitap Sepeti','KitapSeç','NadirKitap','İstanbul Kitapçısı','Pandora','Hepsiburada','Trendyol','Amazon Türkiye','Google Books','Open Library ISBN','Internet Archive'],message:fallback.length?(fallback.length+' ISBN eşleşmesi bulundu. Sonuçlar Türkiye kitapçıları ve açık kitap kataloglarından birleştirildi.'):(valid?'Bu ISBN; BKM Kitap, D&R, İdefix, Kitap Sepeti, KitapSeç, NadirKitap, İstanbul Kitapçısı, Pandora, Hepsiburada, Trendyol, Amazon Türkiye, Google Books, Open Library ve Internet Archive üzerinde bulunamadı.':'ISBN doğrulama basamağı hatalı görünüyor. Numarayı kontrol edip tekrar dene.')});
       }
       const direct=kySafeUrl(query);if(direct&&/\/kitap\//i.test(new URL(direct).pathname)){try{return result({results:[kyProduct(await kyFetch(direct),direct)]});}catch(err){if(String(err).includes('403')){const slug=decodeURIComponent(new URL(direct).pathname.split('/').filter(Boolean)[1]||'').replace(/[-_]+/g,' ');const fallback=await fallbackBookLookup(slug);return result({results:fallback,blocked:true,fallback:'book-databases',message:fallback.length?'Kitapyurdu engelledi; kitap adı bağlantıdan çıkarılıp yedek veritabanında arandı.':'Kitapyurdu engelledi ve yedek kaynakta eşleşme bulunamadı.'});}throw err;}}
       let html='';try{html=await kyFetch('https://www.kitapyurdu.com/index.php?route=product/search&filter_name='+encodeURIComponent(query));}catch(err){if(String(err).includes('(403)')||String(err).includes('403')){const fallback=await fallbackBookLookup(query);return result({results:fallback,blocked:true,fallback:'book-databases',message:fallback.length?'Kitapyurdu erişimi engelledi; sonuçlar yedek kitap veritabanından getirildi.':'Kitapyurdu erişimi engelledi ve yedek kaynakta eşleşme bulunamadı.'});}throw err;}const found=new Map<string,string>();
