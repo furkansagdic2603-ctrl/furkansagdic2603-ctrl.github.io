@@ -289,7 +289,9 @@ author_urls = build_author_profiles(ROOT, articles, doc, write)
 from library_features import build_library_features
 feature_urls = build_library_features(ROOT, articles, doc, write)
 write('galeri/index.html',doc('Galeri','<section class="page-head"><span class="eyebrow">GÖRSELLER</span><h1>Galeri</h1></section><div class="prose static-copy"><p>Görsel çalışmalar ve fotoğraflar yayımlandıkça bu bölümde yer alacak.</p></div>','galeri'))
-write('iletisim/index.html',doc('İletişim','<section class="page-head"><span class="eyebrow">İLETİŞİM</span><h1>İletişim</h1></section><div class="prose static-copy"><p>İletişim bilgileri yakında burada yer alacak.</p></div>','iletisim'))
+contact_text = json.loads((ROOT/'data/contact.json').read_text(encoding='utf-8'))['text']
+contact_body = ''.join('<p dir="auto">' + escape(paragraph).replace('\n', '<br>') + '</p>' for paragraph in re.split(r'\n\s*\n', contact_text.strip()))
+write('iletisim/index.html',doc('İletişim','<section class="page-head"><span class="eyebrow">İLETİŞİM</span><h1>İletişim</h1></section><div class="prose static-copy">'+contact_body+'</div>','iletisim'))
 urls = {'/'} | {f'/{key}/' for key in CATEGORY_PATHS} | {f'/{key}/' for key in EXTRAS} | {a['url'] for a in articles} | author_urls | feature_urls
 urls.add('/arama/')
 urls.add('/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/')

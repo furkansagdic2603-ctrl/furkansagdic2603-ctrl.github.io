@@ -1,4 +1,5 @@
 const screens = {
+  contact: ['İletişim', 'İletişim sayfanın içeriğini düzenle, önizle ve yayımla.'],
   about: ['Hakkımda', 'Tanıtım metnini düzenle, önizle ve yayımla.'],
   reading: ['Şu An Masada', 'Okuduğun kitapları ve çalışma notlarını ziyaretçilerinle paylaş.'],
   overview: ['Genel bakış', 'Paneline hoş geldin. Yapmak istediğin işlemi seç.'],

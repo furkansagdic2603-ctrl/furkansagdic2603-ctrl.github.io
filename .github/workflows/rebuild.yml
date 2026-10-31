@@ -8,6 +8,7 @@ on:
       - 'data/categories.json'
       - 'data/theme.json'
       - 'data/about.json'
+      - 'data/contact.json'
       - 'data/site-books.json'
       - 'data/books.json'
       - 'data/quotes.json'

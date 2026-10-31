@@ -473,6 +473,20 @@ Deno.serve(async req => {
       const sha = await putFile(token, path, JSON.stringify({ text }, null, 2) + '\n', 'Update about page', file.sha);
       return result({ text, sha });
     }
+    if (input.action === 'load_contact' || input.action === 'save_contact') {
+      const path = 'data/contact.json';
+      const response = await fetch(ghUrl(path), { headers: ghHeaders(token) });
+      if (!response.ok) throw new Error('İletişim metni alınamadı. Daha sonra yeniden dene.');
+      const file = await response.json();
+      const current = JSON.parse(decode(file.content));
+      if (typeof current.text !== 'string') throw new Error('Kayıtlı İletişim metni geçersiz.');
+      if (input.action === 'load_contact') return result({ text: current.text, sha: file.sha });
+      const text = typeof input.text === 'string' ? input.text.trim() : '';
+      if (!text || text.length > 30000) return result({ error: '1–30.000 karakter arasında bir metin yaz.' }, 400);
+      if (input.sha !== file.sha) return result({ error: 'Metin başka bir işlemle değişti. Kendi metnini kopyalayıp kayıtlı metni yeniden yükle.' }, 409);
+      const sha = await putFile(token, path, JSON.stringify({ text }, null, 2) + '\n', 'Update contact page', file.sha);
+      return result({ text, sha });
+    }
     if (input.action === 'stats') {
       const since = new Date(Date.now() - 30 * 86400000).toISOString();
       const params = new URLSearchParams({ select: 'page_path,created_at', created_at: `gte.${since}`, order: 'created_at.desc', limit: '10000' });

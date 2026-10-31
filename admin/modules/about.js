@@ -1,5 +1,6 @@
 // Read and save through the authenticated gateway, avoiding stale published data.
-export function createAbout({ $, callAdmin }) {
+export function createAbout({ $: byId, callAdmin, page = 'about', label = 'Hakkımda' }) {
+  const $ = id => byId(id.replace(/^about-/, page + '-'));
   const text = $('about-text'), status = $('about-status');
   const save = $('about-save'), reload = $('about-reload');
   let sha = null, savedText = '', loaded = false, busy = false;
@@ -21,7 +22,7 @@ export function createAbout({ $, callAdmin }) {
     if (busy) return;
     busy = true; controls(); status.textContent = 'Kayıtlı metin yükleniyor…';
     try {
-      const data = await callAdmin('load_about');
+      const data = await callAdmin('load_' + page);
       text.value = data.text; sha = data.sha; savedText = data.text; loaded = true;
       preview(); status.textContent = 'Kayıtlı metin yüklendi.';
     } catch (err) { status.textContent = 'Metin yüklenemedi: ' + err.message; }
@@ -42,9 +43,9 @@ export function createAbout({ $, callAdmin }) {
     if (!value || value.length > 30000) { status.textContent = '1–30.000 karakter arasında bir metin yaz.'; return; }
     busy = true; controls(); status.textContent = 'Metin kaydediliyor…';
     try {
-      const data = await callAdmin('save_about', { text: value, sha });
+      const data = await callAdmin('save_' + page, { text: value, sha });
       sha = data.sha; savedText = data.text; text.value = data.text; preview();
-      status.textContent = 'Kaydedildi. Hakkımda sayfasına yansıması birkaç dakika sürebilir.';
+      status.textContent = 'Kaydedildi. ' + label + ' sayfasına yansıması birkaç dakika sürebilir.';
     } catch (err) { status.textContent = 'Kaydedilemedi: ' + err.message; }
     finally { busy = false; controls(); }
   });
