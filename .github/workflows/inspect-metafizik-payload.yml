@@ -15,12 +15,17 @@ jobs:
           set -euxo pipefail
           python - <<'PY'
           from pathlib import Path
-          import base64,lzma,io,tarfile
+          import base64,lzma,io,tarfile,string
           p=Path('.site-payload/metafizik-20261031')
           names=[f'part-{i:02d}' for i in range(12)]+['part-12a','part-12b','part-12c']
           s=''.join((p/n).read_text() for n in names)
-          for n in ['part-13h0','part-13h1','part-14h0','part-14h1','part-15h1']:
+          for n in ['part-13h0','part-13h1','part-14h0','part-14h1']:
               s += bytes.fromhex((p/n).read_text().strip()).decode('ascii')
+          last=bytes.fromhex((p/'part-15h1').read_text().strip())
+          allowed=set((string.ascii_letters+string.digits+'+/=').encode())
+          cut=next((i for i,b in enumerate(last) if b not in allowed),len(last))
+          print('LAST_PREFIX_LEN',cut,'NEXT_BYTES',last[cut:cut+24].hex())
+          s += last[:cut].decode('ascii')
           s=''.join(s.split())
           print('B64_LEN_BEFORE_PADDING',len(s),'MOD4',len(s)%4)
           s += '='*((4-len(s)%4)%4)
