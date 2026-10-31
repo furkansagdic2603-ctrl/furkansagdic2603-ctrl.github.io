@@ -1,0 +1,40 @@
+name: Inspect Metafizik payload
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/inspect-metafizik-payload.yml'
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: metafizik-notes-import-20261031
+      - name: Inspect payload
+        shell: bash
+        run: |
+          set -euxo pipefail
+          P=.site-payload/metafizik-20261031
+          cat "$P"/part-00 "$P"/part-01 "$P"/part-02 "$P"/part-03 "$P"/part-04 "$P"/part-05 "$P"/part-06 "$P"/part-07 "$P"/part-08 "$P"/part-09 "$P"/part-10 "$P"/part-11 "$P"/part-12a "$P"/part-12b "$P"/part-12c > /tmp/payload.b64
+          base64 -d /tmp/payload.b64 > /tmp/payload.xz
+          echo "=== PRIMARY COMPRESSED ==="
+          file /tmp/payload.xz
+          xz -dc /tmp/payload.xz > /tmp/payload.out
+          echo "=== PRIMARY DECOMPRESSED ==="
+          file /tmp/payload.out
+          wc -c /tmp/payload.out
+          head -c 300 /tmp/payload.out | xxd
+          (tar -tf /tmp/payload.out | head -100) || true
+          for N in 13 14; do
+            cat "$P"/part-${N}h0 "$P"/part-${N}h1 | xxd -r -p > /tmp/p${N}.bin
+            echo "=== HEX GROUP ${N} ==="
+            file /tmp/p${N}.bin
+            wc -c /tmp/p${N}.bin
+            (xz -dc /tmp/p${N}.bin > /tmp/p${N}.out && file /tmp/p${N}.out && wc -c /tmp/p${N}.out && head -c 200 /tmp/p${N}.out | xxd) || true
+          done
+          xxd -r -p "$P"/part-15h1 > /tmp/p15.bin
+          echo "=== HEX GROUP 15 ==="
+          file /tmp/p15.bin
+          wc -c /tmp/p15.bin
+          (xz -dc /tmp/p15.bin > /tmp/p15.out && file /tmp/p15.out && wc -c /tmp/p15.out && head -c 200 /tmp/p15.out | xxd) || true
