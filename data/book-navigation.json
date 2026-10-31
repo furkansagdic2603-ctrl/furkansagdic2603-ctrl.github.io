@@ -252,7 +252,12 @@
   },
   "kitap-notlari/felsefe/90-dakikada-hegel": {
     "url": "/kitap-notlari/felsefe/90-dakikada-hegel/",
-    "notes": [],
+    "notes": [
+      {
+        "title": "90 Dakikada Hegel Kitabı Notları",
+        "url": "/kitap-notlari/felsefe/90-dakikada-hegel-kitabi-notlari/"
+      }
+    ],
     "title": "90 Dakikada Hegel"
   }
 }

@@ -3,6 +3,46 @@
   "authors": {
     "g-w-f-hegel": [
       {
+        "url": "/kitap-notlari/felsefe/90-dakikada-hegel-kitabi-notlari/",
+        "title": "90 Dakikada Hegel Kitabı Notları",
+        "score": 295.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "hegel"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "hegel"
+          },
+          {
+            "kind": "kavram",
+            "term": "diyalektik"
+          },
+          {
+            "kind": "kavram",
+            "term": "geist"
+          },
+          {
+            "kind": "kavram",
+            "term": "tin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tarihte"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "akil"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "roma"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/1-mukaddime/",
         "title": "1- MUKADDİME",
         "score": 287.0,
@@ -2629,6 +2669,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/90-dakikada-hegel-kitabi-notlari/",
+        "title": "90 Dakikada Hegel Kitabı Notları",
+        "score": 78.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "spinoza"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "politik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "spinoza"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
         "score": 76.8,
@@ -2895,6 +2955,18 @@
       {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetigin-cagdas-retorikleri/estetigin-ruh-imkanlari/",
         "title": "ESTETİĞİN RUHÎ İMKANLARI",
+        "score": 95.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "karl marx"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/90-dakikada-hegel-kitabi-notlari/",
+        "title": "90 Dakikada Hegel Kitabı Notları",
         "score": 95.0,
         "strength": "güçlü",
         "evidence": [
@@ -5793,6 +5865,18 @@
     ],
     "schelling": [
       {
+        "url": "/kitap-notlari/felsefe/90-dakikada-hegel-kitabi-notlari/",
+        "title": "90 Dakikada Hegel Kitabı Notları",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "schelling"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/siir-denemem/",
         "title": "CEMİL SENA - ESTETİK (1931)",
         "score": 70.0,
@@ -6060,6 +6144,18 @@
       }
     ],
     "sentez": [
+      {
+        "url": "/kitap-notlari/felsefe/90-dakikada-hegel-kitabi-notlari/",
+        "title": "90 Dakikada Hegel Kitabı Notları",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "sentez"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-2/",
         "title": "Bölüm 2",
@@ -6921,6 +7017,42 @@
           {
             "kind": "bibliyografik iz",
             "term": "olumun"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/90-dakikada-hegel-kitabi-notlari/",
+        "title": "90 Dakikada Hegel Kitabı Notları",
+        "score": 175.8,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "schopenhauer"
+          },
+          {
+            "kind": "kavram",
+            "term": "isteme"
+          },
+          {
+            "kind": "eser",
+            "term": "din uzerine"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ihtiyaci"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "anlami"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yolu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "akil"
           }
         ]
       },
@@ -10591,6 +10723,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/90-dakikada-hegel-kitabi-notlari/",
+        "title": "90 Dakikada Hegel Kitabı Notları",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "sezgi"
+          },
+          {
+            "kind": "kavram",
+            "term": "sure"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 60.0,
@@ -12290,6 +12438,34 @@
       }
     ],
     "cev-ahmet-yildiz": [
+      {
+        "url": "/kitap-notlari/felsefe/90-dakikada-hegel-kitabi-notlari/",
+        "title": "90 Dakikada Hegel Kitabı Notları",
+        "score": 66.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "yildiz"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hazirlik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yazi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefeye"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefi"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-2/",
         "title": "Bölüm 2",
