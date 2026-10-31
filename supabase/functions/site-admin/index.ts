@@ -670,7 +670,7 @@ Deno.serve(async req => {
         books[index] = { ...books[index], cover, updatedAt: new Date().toISOString() };
         const save = await fetch(ghUrl(catalogPath), {
           method: 'PUT', headers: { ...ghHeaders(token), 'Content-Type': 'application/json' },
-          body: JSON.stringify({ message: 'Set book cover: ' + books[index].title, content: encode(JSON.stringify(books, null, 2) + '\\n'), sha: file.sha }),
+          body: JSON.stringify({ message: 'Set book cover: ' + books[index].title, content: encode(JSON.stringify(books, null, 2) + '\n'), sha: file.sha }),
         });
         if (save.ok) {
           const verify = await fetch(ghUrl(catalogPath), { headers: ghHeaders(token), cache: 'no-store' });
