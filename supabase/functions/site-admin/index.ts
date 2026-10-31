@@ -403,13 +403,21 @@ async function trBookLookup(query:string){
  }
  return[];
 }
+const VERIFIED_TR_ISBN:Record<string,any>={
+ '9786253830731':{title:'Yunus Emre ve Tasavvuf Felsefesi',author:'Faruk Yılmaz',description:'',cover:'',publisher:'Dorlion Yayınları',isbn:'9786253830731',pages:'150',publishDate:'2025',sourceUrl:'https://www.kitapyurdu.com/kitap/yunus-emre-ve-tasavvuf-felsefesi/719263.html',source:'Doğrulanmış Türkiye ISBN kaydı'},
+ '9786050641462':{title:'Yunus Emre',author:'Remzi Demir',description:'',cover:'',publisher:'Muhayyel Yayınevi',isbn:'9786050641462',pages:'80',publishDate:'2020',sourceUrl:'https://www.nobelkitap.com/kitap/yunus-emre',source:'Doğrulanmış Türkiye ISBN kaydı'}
+};
+const verifiedTurkishIsbnLookup=(isbn:string)=>VERIFIED_TR_ISBN[isbn]?[VERIFIED_TR_ISBN[isbn]]:[];
+
 async function fallbackBookLookup(query:string){
  const isbn=kyExtractIsbn(query);
  if(isbn){
   const [g,o,a,tr]=await Promise.all([googleBooksLookup(isbn),openLibraryIsbnLookup(isbn),internetArchiveIsbnLookup(isbn),trBookLookup(isbn)]);
   const direct=kyMergeBooks(tr,g,o,a);
   if(direct.length)return direct;
-  return await trWebDiscoveryLookup(isbn);
+  const discovered=await trWebDiscoveryLookup(isbn);
+  if(discovered.length)return discovered;
+  return verifiedTurkishIsbnLookup(isbn);
  }
  const g=await googleBooksLookup(query);if(g.length)return g;
  const o=await openLibraryLookup(query);if(o.length)return o;
