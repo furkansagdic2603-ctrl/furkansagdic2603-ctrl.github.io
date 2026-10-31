@@ -10,10 +10,11 @@ import { createCategories } from './modules/categories.js?v=20261003-booknotes3'
 import { createArticles } from './modules/articles.js?v=20261017-pastefix1';
 import { createComments } from './modules/comments.js';
 import { createStats } from './modules/stats.js';
+import { createAbout } from './modules/about.js?v=20261031-about1';
 import { createTheme } from './modules/theme.js';
 import { initImages } from './modules/images.js';
 import { initQuotePhotos } from './modules/quote-photos.js';
-import { initNavigation } from './modules/navigation.js?v=20261017-notes1';
+import { initNavigation } from './modules/navigation.js?v=20261031-about1';
 
 const $ = id => document.getElementById(id);
 const navigation = initNavigation();
@@ -25,6 +26,7 @@ const articles = createArticles({ $, callAdmin, feedback });
 const comments = createComments({ $, callAdmin, getArticles: articles.getArticles });
 const stats = createStats({ $, callAdmin, getArticles: articles.getArticles });
 const theme = createTheme({ $, callAdmin });
+const about = createAbout({ $, callAdmin });
 initImages({ $, callAdmin, feedback });
 
 initQuotePhotos({ $, callAdmin });
@@ -80,6 +82,7 @@ initQuickNotes();
 async function showPanel() {
   await callAdmin('whoami');
   await theme.loadTheme();
+  await about.load();
   await categories.loadCategories();
   await articles.loadArticles();
   try {

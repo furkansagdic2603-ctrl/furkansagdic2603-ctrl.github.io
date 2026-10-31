@@ -459,6 +459,20 @@ Deno.serve(async req => {
     if (new TextEncoder().encode(raw).length > MAX_REQUEST_BYTES) return result({ error: 'Yükleme 32 MB sınırını aşıyor. PDF dosyası en fazla 20 MB olabilir.' }, 413);
     const input = JSON.parse(raw);
     if (input.action === 'whoami') return result({ ok: true });
+    if (input.action === 'load_about' || input.action === 'save_about') {
+      const path = 'data/about.json';
+      const response = await fetch(ghUrl(path), { headers: ghHeaders(token) });
+      if (!response.ok) throw new Error('Hakkımda metni alınamadı. Daha sonra yeniden dene.');
+      const file = await response.json();
+      const current = JSON.parse(decode(file.content));
+      if (typeof current.text !== 'string') throw new Error('Kayıtlı Hakkımda metni geçersiz.');
+      if (input.action === 'load_about') return result({ text: current.text, sha: file.sha });
+      const text = typeof input.text === 'string' ? input.text.trim() : '';
+      if (!text || text.length > 30000) return result({ error: '1–30.000 karakter arasında bir metin yaz.' }, 400);
+      if (input.sha !== file.sha) return result({ error: 'Metin başka bir işlemle değişti. Kendi metnini kopyalayıp kayıtlı metni yeniden yükle.' }, 409);
+      const sha = await putFile(token, path, JSON.stringify({ text }, null, 2) + '\n', 'Update about page', file.sha);
+      return result({ text, sha });
+    }
     if (input.action === 'stats') {
       const since = new Date(Date.now() - 30 * 86400000).toISOString();
       const params = new URLSearchParams({ select: 'page_path,created_at', created_at: `gte.${since}`, order: 'created_at.desc', limit: '10000' });

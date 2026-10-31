@@ -278,7 +278,9 @@ write('kitap-notlari/sinema/sinemanin-kokleri/index.html',doc('Sinemanın Kökle
 archive='<section class="page-head"><span class="eyebrow">TÜM YAZILAR</span><h1>Arşiv</h1><p>Yazılar ve okuma notları</p></section><section class="entries">'+''.join(card(a) for a in visible)+'</section>'
 write('arsiv/index.html',doc('Arşiv',archive,'arsiv'))
 write('arama/index.html',doc('Yazılarda ara','<section class="page-head"><span class="eyebrow">YAZILAR</span><h1>Ara</h1><label class="search-label" for="site-search">Başlık, kategori veya açıklama</label><div class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 5 5"/></svg><input id="site-search" type="search" placeholder="Yazılarda arayın…" autofocus autocomplete="off"></div><p id="result-count" aria-live="polite"></p></section><section class="entries" id="search-results"></section>',description='Furkan Sağdıç’ın yazılarında arama.'))
-write('hakkimda/index.html',doc('Hakkımda','<section class="page-head"><span class="eyebrow">YAZAR</span><h1>Hakkımda</h1></section><div class="prose static-copy"><p>Ben Furkan Sağdıç. Mühendislik eğitimi aldım; felsefe, edebiyat, sanat ve düşünce tarihi üzerine okuyup yazıyorum.</p><p>Bu site, okuduklarımı, sorularımı ve kendi yazılarımı bir araya getirdiğim kişisel alanım.</p></div>','hakkimda'))
+about_text = json.loads((ROOT/'data/about.json').read_text(encoding='utf-8'))['text']
+about_body = ''.join('<p dir="auto">' + escape(paragraph).replace('\n', '<br>') + '</p>' for paragraph in re.split(r'\n\s*\n', about_text.strip()))
+write('hakkimda/index.html',doc('Hakkımda','<section class="page-head"><span class="eyebrow">YAZAR</span><h1>Hakkımda</h1></section><div class="prose static-copy">'+about_body+'</div>','hakkimda'))
 write('kaynakca/index.html',doc('Kaynakça',(ROOT/'bibliography_content.html').read_text(encoding='utf-8'),'kaynakca','Furkan Sağdıç’ın kişisel kütüphanesi: kitaplar, yazarlar ve yayınevleri.'))
 from book_navigation import build_book_navigation
 build_book_navigation(ROOT, doc, write)
