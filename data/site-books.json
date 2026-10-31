@@ -210,5 +210,15 @@
     "fallback": "ink",
     "createdAt": "2026-10-31T18:37:13.171Z",
     "updatedAt": "2026-10-31T18:39:18.186Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi",
+    "title": "Metafizik - Kavram ve Problemleriyle Varlık Felsefesi",
+    "author": "Prof. Dr. A. Kadir Çüçen",
+    "description": "Metafizik: Kavram ve Problemleriyle Varlık Felsefesi adlı bu çalışma, metafizik olanlardan yola çıkılarak yapılan bir tür varlık sorgulamasıdır. Bu çalışmada üzerinde durulan felsefi düşünüş ve sorgulama, aslında bir hakikat araştırmasıdır. Çünkü felsefe, Varlığın hakikatini doğru bir söylemle ortaya koyma çabasıdır. Bu çalışmaya katkı verenler de Varlığın hakikatini doğru bir söylemle dile getirme serüvenini seven filozoflardır.",
+    "category": "kitap-notlari/felsefe/metafizik",
+    "cover": "/assets/uploads/2026-10-31/1e2ab042-0d7c-4b87-8265-860b63cda9cb.png",
+    "fallback": "burgundy",
+    "createdAt": "2026-10-31T18:42:58.082Z"
   }
 ]
