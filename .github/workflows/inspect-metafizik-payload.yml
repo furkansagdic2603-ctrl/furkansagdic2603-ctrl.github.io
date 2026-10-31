@@ -13,20 +13,24 @@ jobs:
         shell: bash
         run: |
           set -euxo pipefail
-          P=.site-payload/metafizik-20261031
-          cat "$P"/part-00 "$P"/part-01 "$P"/part-02 "$P"/part-03 "$P"/part-04 "$P"/part-05 "$P"/part-06 "$P"/part-07 "$P"/part-08 "$P"/part-09 "$P"/part-10 "$P"/part-11 "$P"/part-12a "$P"/part-12b "$P"/part-12c > /tmp/payload.b64
-          for F in part-13h0 part-13h1 part-14h0 part-14h1 part-15h1; do
-            xxd -r -p "$P/$F" >> /tmp/payload.b64
-          done
-          tr -d '\r\n ' < /tmp/payload.b64 > /tmp/payload.clean.b64
-          base64 -d /tmp/payload.clean.b64 > /tmp/payload.xz
-          echo "=== COMPRESSED ==="
-          file /tmp/payload.xz
-          wc -c /tmp/payload.xz
-          xz -dc /tmp/payload.xz > /tmp/payload.out
-          echo "=== DECOMPRESSED ==="
-          file /tmp/payload.out
-          wc -c /tmp/payload.out
-          head -c 400 /tmp/payload.out | xxd
-          echo "=== TAR LIST IF TAR ==="
-          (tar -tf /tmp/payload.out | head -100) || true
+          python - <<'PY'
+          from pathlib import Path
+          import base64,lzma,io,tarfile
+          p=Path('.site-payload/metafizik-20261031')
+          names=[f'part-{i:02d}' for i in range(12)]+['part-12a','part-12b','part-12c']
+          s=''.join((p/n).read_text() for n in names)
+          for n in ['part-13h0','part-13h1','part-14h0','part-14h1','part-15h1']:
+              s += bytes.fromhex((p/n).read_text().strip()).decode('ascii')
+          s=''.join(s.split())
+          print('B64_LEN_BEFORE_PADDING',len(s),'MOD4',len(s)%4)
+          s += '='*((4-len(s)%4)%4)
+          raw=base64.b64decode(s,validate=True)
+          print('XZ_LEN',len(raw),'HEAD',raw[:16])
+          out=lzma.decompress(raw)
+          print('OUT_LEN',len(out),'HEAD',repr(out[:300]))
+          try:
+              tf=tarfile.open(fileobj=io.BytesIO(out),mode='r:*')
+              print('TAR_NAMES',tf.getnames())
+          except Exception as e:
+              print('NOT_TAR',type(e).__name__,str(e))
+          PY
