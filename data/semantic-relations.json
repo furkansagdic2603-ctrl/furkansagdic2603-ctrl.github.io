@@ -347,6 +347,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 100.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hegel"
+          },
+          {
+            "kind": "kavram",
+            "term": "tin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dunyasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tarihte"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "akil"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "roma"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
         "score": 94.0,
@@ -1395,6 +1427,30 @@
             "term": "metafizik"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 62.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "descartes"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metot"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
       }
     ],
     "leibniz": [
@@ -1599,6 +1655,34 @@
             "term": "sosyoloji"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 66.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "weber"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "weber"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ahlaki"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilimler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sosyal"
+          }
+        ]
       }
     ],
     "ahmet-cevizci": [
@@ -1719,6 +1803,34 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 64.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "felsefe tarihi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilgi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "buyuk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "etik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ahlak"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-3/",
         "title": "Bölüm 3",
         "score": 64.8,
@@ -1743,6 +1855,28 @@
           {
             "kind": "bibliyografik iz",
             "term": "etik"
+          }
+        ]
+      }
+    ],
+    "baha-tevfik": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 78.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "tevfik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "edebi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "muhtasar"
           }
         ]
       }
@@ -2207,6 +2341,34 @@
     ],
     "ibn-sina": [
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 172.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "ibn sina"
+          },
+          {
+            "kind": "kavram",
+            "term": "sifa"
+          },
+          {
+            "kind": "eser",
+            "term": "ibn sina metafizik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sina"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/muzik-felsefesi/felsefe-i-m-s-k/",
         "title": "Felsefe-i Mûsîkî",
         "score": 116.0,
@@ -2261,6 +2423,18 @@
           {
             "kind": "bibliyografik iz",
             "term": "platon"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "farabi"
           }
         ]
       }
@@ -3015,6 +3189,30 @@
     ],
     "ismail-hakki": [
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 153.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "ismail hakki"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "serh"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hakikati"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sirat-i-mustakim-sebil-rresad-mecmuasi/ed-d-nu-n-nas-ha/",
         "title": "ED-DÎNÜ’N-NASÎHA",
         "score": 145.0,
@@ -3098,6 +3296,42 @@
       }
     ],
     "imam-gazzali": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 257.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "imam gazzali"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "gazzali"
+          },
+          {
+            "kind": "kavram",
+            "term": "marifet"
+          },
+          {
+            "kind": "kavram",
+            "term": "tasavvuf"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "envar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hakikat"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "islam"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-3/",
         "title": "Bölüm 3 · Filmlere Neden İhtiyacımız Var? Neden Film İzleriz?",
@@ -3293,6 +3527,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 171.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "arabi"
+          },
+          {
+            "kind": "kavram",
+            "term": "insan i kamil"
+          },
+          {
+            "kind": "kavram",
+            "term": "tecelli"
+          },
+          {
+            "kind": "kavram",
+            "term": "vahdet i vucud"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
         "score": 150.0,
@@ -3429,6 +3687,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 68.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "marifet"
+          },
+          {
+            "kind": "kavram",
+            "term": "tasavvuf"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilgi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varlik"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-4/",
         "title": "Bölüm 4 · İmge, Sanat Gelenekleri ve Sinemaya Giriş",
         "score": 68.4,
@@ -3519,6 +3801,28 @@
         ]
       }
     ],
+    "prof-dr-bekir-topaloglu-m-nuri-yilmaz-i-kafi-donmez-prof-dr-ilyas-celebi": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "celebi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "inanc"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "islam"
+          }
+        ]
+      }
+    ],
     "osman-bakar": [
       {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
@@ -3555,6 +3859,18 @@
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bakar"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
         "score": 70.0,
         "strength": "muhtemel",
         "evidence": [
@@ -3867,6 +4183,18 @@
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bakar"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
         "score": 70.0,
         "strength": "muhtemel",
         "evidence": [
@@ -4457,6 +4785,18 @@
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "dogan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
         "score": 70.0,
         "strength": "muhtemel",
         "evidence": [
@@ -5243,6 +5583,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kelam"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yeni"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-5/",
         "title": "Bölüm 5 · Kayıp Hikmetin Peşinde",
         "score": 58.4,
@@ -5815,6 +6175,36 @@
         ]
       }
     ],
+    "yunus-emre": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 155.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "yunus emre"
+          },
+          {
+            "kind": "eser",
+            "term": "yunus emre divan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "divan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "emre"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yunus"
+          }
+        ]
+      }
+    ],
     "michel-de-montaigne": [
       {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
@@ -5825,6 +6215,32 @@
           {
             "kind": "başlık/özet",
             "term": "montaigne"
+          }
+        ]
+      }
+    ],
+    "ahmed-yesevi": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 193.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "ahmed yesevi"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "yesevi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "divan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hikmet"
           }
         ]
       }
@@ -5843,6 +6259,36 @@
           {
             "kind": "metin içi atıf",
             "term": "burke"
+          }
+        ]
+      }
+    ],
+    "abdulbaki-golpinarli": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 241.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "abdulbaki golpinarli"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "golpinarli"
+          },
+          {
+            "kind": "eser",
+            "term": "yunus emre"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "emre"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yunus"
           }
         ]
       }
@@ -5977,6 +6423,22 @@
           {
             "kind": "kavram",
             "term": "diyalog"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 91.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "platon"
+          },
+          {
+            "kind": "kavram",
+            "term": "devlet"
           }
         ]
       },
@@ -6563,6 +7025,34 @@
           {
             "kind": "bibliyografik iz",
             "term": "sefer"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 66.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kutlu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hikaye"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "icimizde"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sefer"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "uzun"
           }
         ]
       }
@@ -7571,6 +8061,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "episteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-2/",
         "title": "Bölüm 2 · Mukaddime",
         "score": 60.0,
@@ -7845,6 +8351,22 @@
           {
             "kind": "kavram",
             "term": "arkeoloji"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "episteme"
           },
           {
             "kind": "kavram",
@@ -8727,6 +9249,18 @@
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
         "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kucuk"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -10057,6 +10591,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "sezgi"
+          },
+          {
+            "kind": "kavram",
+            "term": "sure"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-1/",
         "title": "Bölüm 1",
         "score": 60.0,
@@ -10074,6 +10624,18 @@
       }
     ],
     "ibn-rusd": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 95.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "ibn rusd"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-5/",
         "title": "Bölüm 5 · Kayıp Hikmetin Peşinde",
@@ -10569,6 +11131,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "efendi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hikmet"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ahlak"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sirat-i-mustakim-sebil-rresad-mecmuasi/ed-d-nu-n-nas-ha/",
         "title": "ED-DÎNÜ’N-NASÎHA",
         "score": 90.0,
@@ -10591,6 +11173,32 @@
           {
             "kind": "metin içi atıf",
             "term": "necib"
+          }
+        ]
+      }
+    ],
+    "m-fuad-koprulu": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 102.6,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "koprulu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "fikriyye"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "edebiyati"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "turk"
           }
         ]
       }
@@ -10657,6 +11265,54 @@
           {
             "kind": "bibliyografik iz",
             "term": "isbat"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "vacib"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "efkar"
+          }
+        ]
+      }
+    ],
+    "selanikli-abdi-tevfik": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "tevfik"
+          }
+        ]
+      }
+    ],
+    "abdi-tevfik": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "tevfik"
           }
         ]
       }
@@ -11003,6 +11659,18 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "egemen"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-2/",
         "title": "Bölüm 2",
         "score": 70.0,
@@ -11285,6 +11953,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 98.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "weber"
+          },
+          {
+            "kind": "eser",
+            "term": "felsefe tarihi"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
         "title": "4-Henri Lefebvre: Sıradanın Filozofu",
         "score": 71.0,
@@ -11435,6 +12119,26 @@
             "term": "islam"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "serif"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusunceleri"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "islam"
+          }
+        ]
       }
     ],
     "prof-dr-mahmut-kaplan": [
@@ -11517,6 +12221,30 @@
             "term": "kitapci"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 62.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kitapci"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "iman"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "anadolu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hareketi"
+          }
+        ]
       }
     ],
     "ahmet-arslan": [
@@ -11575,6 +12303,30 @@
           {
             "kind": "bibliyografik iz",
             "term": "yazi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefeye"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yazmak"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 62.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "yildiz"
           },
           {
             "kind": "bibliyografik iz",
@@ -11793,6 +12545,18 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bagli"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-1/",
         "title": "Bölüm 1",
         "score": 90.0,
@@ -11915,6 +12679,36 @@
         ]
       }
     ],
+    "remzi-demir": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 64.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "yunus emre turk felsefesi nin dogusu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dogusu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "emre"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yunus"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "turk"
+          }
+        ]
+      }
+    ],
     "todd-may": [
       {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-1/",
@@ -11997,6 +12791,24 @@
           {
             "kind": "bibliyografik iz",
             "term": "nasil"
+          }
+        ]
+      }
+    ],
+    "riza-tevfik": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 165.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "riza tevfik"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "tevfik"
           }
         ]
       }
@@ -12259,6 +13071,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "ene"
+          },
+          {
+            "kind": "kavram",
+            "term": "tecelli"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-2/",
         "title": "Bölüm 2",
         "score": 60.0,
@@ -12497,6 +13325,18 @@
             "term": "efendi"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "efendi"
+          }
+        ]
       }
     ],
     "abdullah-yegin": [
@@ -12509,6 +13349,32 @@
           {
             "kind": "metin içi atıf",
             "term": "yegin"
+          }
+        ]
+      }
+    ],
+    "ziya-gokalp": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 173.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "ziya gokalp"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "gokalp"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "mecmua"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kucuk"
           }
         ]
       }
@@ -12619,6 +13485,18 @@
             "term": "efendi"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "efendi"
+          }
+        ]
       }
     ],
     "zeynu-d-din-ahmed-b-ahmed-b-abdi-l-latif": [
@@ -12651,6 +13529,32 @@
           {
             "kind": "metin içi atıf",
             "term": "latif"
+          }
+        ]
+      }
+    ],
+    "ismail-yakit": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 153.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "ismail yakit"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "yakit"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "turk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "islam"
           }
         ]
       }
@@ -12725,6 +13629,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 81.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "insan i kamil"
+          },
+          {
+            "kind": "kavram",
+            "term": "tecelli"
+          },
+          {
+            "kind": "kavram",
+            "term": "vahdet i vucud"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
         "score": 60.0,
@@ -12737,6 +13661,46 @@
           {
             "kind": "kavram",
             "term": "tecelli"
+          }
+        ]
+      }
+    ],
+    "fuad-koprulu": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 193.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "fuad koprulu"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "koprulu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "edebiyati"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "turk"
+          }
+        ]
+      }
+    ],
+    "mehmet-niyazi": [
+      {
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "niyazi"
           }
         ]
       }

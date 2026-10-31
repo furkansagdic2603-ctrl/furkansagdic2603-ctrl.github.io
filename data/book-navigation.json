@@ -242,7 +242,12 @@
   },
   "kitap-notlari/felsefe/yunus-emre-turk-felsefesi-nin-dogusu": {
     "url": "/kitap-notlari/felsefe/yunus-emre-turk-felsefesi-nin-dogusu/",
-    "notes": [],
+    "notes": [
+      {
+        "title": "Türk Felsefesi'nin Doğuşu",
+        "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/"
+      }
+    ],
     "title": "Yunus Emre - Türk Felsefesi'nin Doğuşu"
   }
 }
