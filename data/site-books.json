@@ -199,5 +199,15 @@
     "cover": "/assets/uploads/2026-10-31/d6c54ce2-3d3e-4ebc-8bcb-b0c8b35fb5d0.png",
     "fallback": "ochre",
     "createdAt": "2026-10-31T15:38:20.703Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/metafizik/metafizik-filozoflarin-metafizik-sistemleri",
+    "title": "Metafizik - Filozofların Metafizik Sistemleri",
+    "author": "Prof. Dr. A. Kadir Çüçen",
+    "description": "Varlık Felsefesi ve Ontoloji gibi dersler bulunmaktadır.Metafizik; Kavram ve Problemleriyle Varlık Felsefesi’nde ontolojinin temel kavram ve problemleri ele alınmıştı. Örneğin, Metafizik, Tanrı, töz, varlık, varoluş, zaman, mekan, tin, ruh, determinizm, kader, olasılık, kaos ve benzeri gibi. Bu çalışma ise doğrudan filozofların kendi görüşlerini ele almaktadır.",
+    "category": "kitap-notlari/felsefe/metafizik",
+    "cover": "",
+    "fallback": "ink",
+    "createdAt": "2026-10-31T18:37:13.171Z"
   }
 ]
