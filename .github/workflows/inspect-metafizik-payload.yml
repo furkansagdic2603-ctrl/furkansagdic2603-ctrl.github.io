@@ -9,33 +9,27 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Inspect complete payload
+        with:
+          ref: metafizik-word-exact-import-20261031
+      - name: Verify exact Word payload
         shell: bash
         run: |
           set -euxo pipefail
           python - <<'PY'
           from pathlib import Path
-          import base64,lzma,io,tarfile,string
-          p=Path('.site-payload/metafizik-20261031')
-          names=[f'part-{i:02d}' for i in range(12)]+['part-12a','part-12b','part-12c']
-          s=''.join((p/n).read_text() for n in names)
-          for n in ['part-13h0','part-13h1','part-14h0','part-14h1']:
-              s += bytes.fromhex((p/n).read_text().strip()).decode('ascii')
-          last=bytes.fromhex((p/'part-15h1').read_text().strip())
-          allowed=set((string.ascii_letters+string.digits+'+/=').encode())
-          cut=next((i for i,b in enumerate(last) if b not in allowed),len(last))
-          print('LAST_PREFIX_LEN',cut,'NEXT_BYTES',last[cut:cut+24].hex())
-          s += last[:cut].decode('ascii')
-          s=''.join(s.split())
-          print('B64_LEN_BEFORE_PADDING',len(s),'MOD4',len(s)%4)
-          s += '='*((4-len(s)%4)%4)
-          raw=base64.b64decode(s,validate=True)
-          print('XZ_LEN',len(raw),'HEAD',raw[:16])
-          out=lzma.decompress(raw)
-          print('OUT_LEN',len(out),'HEAD',repr(out[:300]))
-          try:
-              tf=tarfile.open(fileobj=io.BytesIO(out),mode='r:*')
-              print('TAR_NAMES',tf.getnames())
-          except Exception as e:
-              print('NOT_TAR',type(e).__name__,str(e))
+          import base64,lzma,io,tarfile,json,hashlib
+          p=Path('.site-payload/metafizik-word-exact')
+          parts=sorted(p.glob('part-*'))
+          s=''.join(x.read_text() for x in parts)
+          print('PARTS',len(parts),'B64_LEN',len(s),'SHA256',hashlib.sha256(s.encode()).hexdigest())
+          raw=lzma.decompress(base64.b64decode(s))
+          print('TAR_BYTES',len(raw))
+          tf=tarfile.open(fileobj=io.BytesIO(raw),mode='r:')
+          names=tf.getnames()
+          print('TAR_NAMES',names)
+          manifest=json.loads(tf.extractfile('manifest.json').read())
+          print('MANIFEST_COUNT',len(manifest))
+          for slug,meta in manifest.items():
+              data=tf.extractfile(slug+'.html').read()
+              print('ITEM',slug,'BYTES',len(data),'HAS_FONT_COLOR',b'<font color=' in data,'HAS_BOLD',b'<b>' in data)
           PY
