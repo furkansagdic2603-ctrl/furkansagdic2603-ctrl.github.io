@@ -187,6 +187,86 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 223.2,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hegel"
+          },
+          {
+            "kind": "kavram",
+            "term": "mutlak idealizm"
+          },
+          {
+            "kind": "kavram",
+            "term": "tin"
+          },
+          {
+            "kind": "eser",
+            "term": "tarih felsefesi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dunyasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "akil"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dunya"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefesinin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 208.8,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hegel"
+          },
+          {
+            "kind": "kavram",
+            "term": "diyalektik"
+          },
+          {
+            "kind": "kavram",
+            "term": "kendinde varlik"
+          },
+          {
+            "kind": "kavram",
+            "term": "tin"
+          },
+          {
+            "kind": "kavram",
+            "term": "tinin fenomenolojisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dunyasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dunya"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefesinin"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
         "title": "4-Henri Lefebvre: Sıradanın Filozofu",
         "score": 192.0,
@@ -227,6 +307,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 175.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hegel"
+          },
+          {
+            "kind": "kavram",
+            "term": "geist"
+          },
+          {
+            "kind": "kavram",
+            "term": "tin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "akil"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dunya"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hegel"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-2/",
         "title": "Bölüm 2",
         "score": 166.8,
@@ -251,6 +363,38 @@
           {
             "kind": "bibliyografik iz",
             "term": "dunya"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefesinin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hegel"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-17-kader-uzerine/",
+        "title": "Bölüm 17 · Kader Üzerine",
+        "score": 166.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hegel"
+          },
+          {
+            "kind": "kavram",
+            "term": "geist"
+          },
+          {
+            "kind": "kavram",
+            "term": "tin"
+          },
+          {
+            "kind": "eser",
+            "term": "tarih felsefesi"
           },
           {
             "kind": "bibliyografik iz",
@@ -569,6 +713,22 @@
             "term": "felsefesinin"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-11-kategoriler/",
+        "title": "Bölüm 11 · Kategoriler",
+        "score": 71.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hegel"
+          },
+          {
+            "kind": "kavram",
+            "term": "tin"
+          }
+        ]
       }
     ],
     "immanuel-kant": [
@@ -609,6 +769,46 @@
           {
             "kind": "bibliyografik iz",
             "term": "elestirisi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 203.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "fenomen"
+          },
+          {
+            "kind": "kavram",
+            "term": "numen"
+          },
+          {
+            "kind": "kavram",
+            "term": "saf akil"
+          },
+          {
+            "kind": "kavram",
+            "term": "sentetik a priori"
+          },
+          {
+            "kind": "kavram",
+            "term": "transandantal"
+          },
+          {
+            "kind": "eser",
+            "term": "saf aklin elestirisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafiziginin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "muhakeme"
           }
         ]
       },
@@ -677,6 +877,38 @@
           {
             "kind": "bibliyografik iz",
             "term": "pratik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/",
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
+        "score": 132.8,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "immanuel kant"
+          },
+          {
+            "kind": "kavram",
+            "term": "fenomen"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "gozlemler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yetisinin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kant"
           }
         ]
       },
@@ -819,9 +1051,109 @@
             "term": "elestirisi"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 89.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "fenomen"
+          },
+          {
+            "kind": "kavram",
+            "term": "transandantal"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafiziginin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yasamin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yetisinin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "anlami"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 72.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "sentetik a priori"
+          },
+          {
+            "kind": "kavram",
+            "term": "transandantal"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yetisinin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kant"
+          }
+        ]
       }
     ],
     "martin-heidegger": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 251.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "heidegger"
+          },
+          {
+            "kind": "kavram",
+            "term": "dasein"
+          },
+          {
+            "kind": "kavram",
+            "term": "varligin anlami"
+          },
+          {
+            "kind": "kavram",
+            "term": "varlik ve zaman"
+          },
+          {
+            "kind": "eser",
+            "term": "varlik ve zaman"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "demektir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "olandir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "problemi"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/4-kisim-onotloji/",
         "title": "4. KISIM - ONOTLOJİ",
@@ -999,6 +1331,42 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 191.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "heidegger"
+          },
+          {
+            "kind": "kavram",
+            "term": "varligin anlami"
+          },
+          {
+            "kind": "eser",
+            "term": "metafizik nedir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "demektir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "problemi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusunmek"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "zaman"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
         "title": "4-Henri Lefebvre: Sıradanın Filozofu",
         "score": 186.0,
@@ -1027,6 +1395,38 @@
           {
             "kind": "bibliyografik iz",
             "term": "metafizik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/",
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
+        "score": 136.2,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "heidegger"
+          },
+          {
+            "kind": "kavram",
+            "term": "dasein"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusunmek"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "zaman"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varlik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "nedir"
           }
         ]
       },
@@ -1083,6 +1483,38 @@
           {
             "kind": "bibliyografik iz",
             "term": "varlik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-08-zamana-yazgili-olmak-ve-mekanda-kaybolan-zaman-zamana-dair-bir-sorgulama/",
+        "title": "Bölüm 8 · Zamana Yazgılı Olmak ve Mekânda Kaybolan Zaman (Zamana Dair Bir Sorgulama)",
+        "score": 87.8,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "heidegger"
+          },
+          {
+            "kind": "kavram",
+            "term": "dasein"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "zaman"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varlik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kant"
           }
         ]
       },
@@ -1213,6 +1645,34 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-13-zihin-metafizigi/",
+        "title": "Bölüm 13 · Zihin Metafiziği",
+        "score": 266.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "rene descartes"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "descartes"
+          },
+          {
+            "kind": "kavram",
+            "term": "cogito"
+          },
+          {
+            "kind": "kavram",
+            "term": "res cogitans"
+          },
+          {
+            "kind": "kavram",
+            "term": "res extensa"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/4-kisim-onotloji/",
         "title": "4. KISIM - ONOTLOJİ",
         "score": 261.8,
@@ -1293,6 +1753,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/",
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
+        "score": 253.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "rene descartes"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "descartes"
+          },
+          {
+            "kind": "kavram",
+            "term": "res cogitans"
+          },
+          {
+            "kind": "kavram",
+            "term": "res extensa"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/1-mukaddime/",
         "title": "1- MUKADDİME",
         "score": 218.6,
@@ -1313,6 +1805,130 @@
           {
             "kind": "bibliyografik iz",
             "term": "yontem"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 171.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "descartes"
+          },
+          {
+            "kind": "kavram",
+            "term": "cogito"
+          },
+          {
+            "kind": "kavram",
+            "term": "dusunuyorum oyleyse varim"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yontem"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "usul"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusunceler"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 159.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "descartes"
+          },
+          {
+            "kind": "eser",
+            "term": "metot uzerine konusma"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metot"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "konusma"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yontem"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 123.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "descartes"
+          },
+          {
+            "kind": "kavram",
+            "term": "cogito"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ilkeleri"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 123.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "descartes"
+          },
+          {
+            "kind": "kavram",
+            "term": "cogito"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "konusma"
           },
           {
             "kind": "bibliyografik iz",
@@ -1401,6 +2017,38 @@
           {
             "kind": "bibliyografik iz",
             "term": "yontem"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 87.8,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "descartes"
+          },
+          {
+            "kind": "kavram",
+            "term": "cogito"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "konusma"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ilkeleri"
           },
           {
             "kind": "bibliyografik iz",
@@ -1509,6 +2157,54 @@
       {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-21-ozdeslik-ve-suredurum/",
+        "title": "Bölüm 21 · Özdeşlik ve Süredurum",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -1725,7 +2421,89 @@
         ]
       }
     ],
+    "dogan-ozlem": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 69.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "tarih felsefesi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "calismalari"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "gunumuzde"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tartismalar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kavram"
+          }
+        ]
+      }
+    ],
     "ahmet-cevizci": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 159.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "cevizci"
+          },
+          {
+            "kind": "eser",
+            "term": "felsefe tarihi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizige"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilgi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "buyuk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "etik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 146.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "cevizci"
+          },
+          {
+            "kind": "eser",
+            "term": "bilgi felsefesi"
+          },
+          {
+            "kind": "eser",
+            "term": "felsefe tarihi"
+          }
+        ]
+      },
       {
         "url": "/makaleler/felsefe-ve-edebiyat/",
         "title": "Felsefe ve Edebiyat",
@@ -1843,6 +2621,90 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 64.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "felsefe tarihi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizige"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilgi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "buyuk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "etik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-17-kader-uzerine/",
+        "title": "Bölüm 17 · Kader Üzerine",
+        "score": 64.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "bilgi felsefesi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilgi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "buyuk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "etik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ahlak"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 64.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "felsefe tarihi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilgi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "buyuk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "etik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ahlak"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 64.8,
@@ -1895,6 +2757,30 @@
           {
             "kind": "bibliyografik iz",
             "term": "etik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 60.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "felsefe tarihi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizige"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilgi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "buyuk"
           }
         ]
       }
@@ -2039,6 +2925,34 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 158.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "nietzsche"
+          },
+          {
+            "kind": "kavram",
+            "term": "degerlerin yeniden degerlendirilmesi"
+          },
+          {
+            "kind": "kavram",
+            "term": "tanrinin olumu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "boyle"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "otesinde"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
         "title": "4-Henri Lefebvre: Sıradanın Filozofu",
         "score": 119.4,
@@ -2139,6 +3053,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 82.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "nietzsche"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "boyle"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "otesinde"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "homo"
+          }
+        ]
+      },
+      {
         "url": "/makaleler/felsefe-ve-edebiyat/",
         "title": "Felsefe ve Edebiyat",
         "score": 70.0,
@@ -2232,6 +3170,30 @@
       }
     ],
     "alfred-north-whitehead": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 153.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "alfred north whitehead"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "whitehead"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusuncelerin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusunme"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/4-kisim-onotloji/",
         "title": "4. KISIM - ONOTLOJİ",
@@ -2477,9 +3439,69 @@
             "term": "farabi"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "farabi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "platon"
+          }
+        ]
       }
     ],
     "spinoza": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 221.8,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "spinoza"
+          },
+          {
+            "kind": "kavram",
+            "term": "deus sive natura"
+          },
+          {
+            "kind": "kavram",
+            "term": "modus"
+          },
+          {
+            "kind": "kavram",
+            "term": "toz"
+          },
+          {
+            "kind": "kavram",
+            "term": "zorunluluk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "eseri"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "spinoza"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-2/",
         "title": "Bölüm 2",
@@ -2545,6 +3567,62 @@
           {
             "kind": "bibliyografik iz",
             "term": "spinoza"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 138.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "spinoza"
+          },
+          {
+            "kind": "kavram",
+            "term": "toz"
+          },
+          {
+            "kind": "kavram",
+            "term": "zorunluluk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "spinoza"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 123.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "spinoza"
+          },
+          {
+            "kind": "kavram",
+            "term": "toz"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "politik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "spinoza"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
           }
         ]
       },
@@ -2825,6 +3903,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-17-kader-uzerine/",
+        "title": "Bölüm 17 · Kader Üzerine",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "toz"
+          },
+          {
+            "kind": "kavram",
+            "term": "zorunluluk"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "toz"
+          },
+          {
+            "kind": "kavram",
+            "term": "zorunluluk"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-5/",
         "title": "Bölüm 5 · Kayıp Hikmetin Peşinde",
         "score": 60.0,
@@ -2875,6 +3985,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 201.8,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "john locke"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "locke"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ikinci"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tabiat"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "inceleme"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insan"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-4/",
         "title": "Bölüm 4",
         "score": 177.6,
@@ -2915,6 +4057,46 @@
           {
             "kind": "bibliyografik iz",
             "term": "anligi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ikinci"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "locke"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ikinci"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-13-zihin-metafizigi/",
+        "title": "Bölüm 13 · Zihin Metafiziği",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "locke"
           },
           {
             "kind": "bibliyografik iz",
@@ -3120,6 +4302,54 @@
             "kind": "müellif adı",
             "term": "gottfried wilhelm leibniz"
           },
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-21-ozdeslik-ve-suredurum/",
+        "title": "Bölüm 21 · Özdeşlik ve Süredurum",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
           {
             "kind": "metin içi atıf",
             "term": "leibniz"
@@ -3493,6 +4723,18 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "gazzali"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/siir-denemem/",
         "title": "CEMİL SENA - ESTETİK (1931)",
         "score": 68.4,
@@ -3853,6 +5095,26 @@
             "term": "tasavvuf"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "gazali"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilgi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varlik"
+          }
+        ]
       }
     ],
     "ebu-hanife": [
@@ -3999,6 +5261,20 @@
         ]
       }
     ],
+    "ergun-yildirim": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "yildirim"
+          }
+        ]
+      }
+    ],
     "gorunmuyor": [
       {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
@@ -4045,6 +5321,20 @@
           {
             "kind": "bibliyografik iz",
             "term": "estetik"
+          }
+        ]
+      }
+    ],
+    "emine-sonnur-ozcan": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ozcan"
           }
         ]
       }
@@ -4121,6 +5411,32 @@
           {
             "kind": "bibliyografik iz",
             "term": "gercek"
+          }
+        ]
+      }
+    ],
+    "a-kadir-gucen": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 60.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "heidegger varlik ve zaman"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "zaman"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "heidegger"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varlik"
           }
         ]
       }
@@ -4387,6 +5703,32 @@
           {
             "kind": "bibliyografik iz",
             "term": "yakin"
+          }
+        ]
+      }
+    ],
+    "william-h-mcneill": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 60.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "dunya tarihi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tarihinin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "avrupa"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dunya"
           }
         ]
       }
@@ -4781,6 +6123,32 @@
         ]
       }
     ],
+    "afsar-timucin": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 62.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "timucin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yorum"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "anlam"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "estetik"
+          }
+        ]
+      }
+    ],
     "mehmet-h-dogan": [
       {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
@@ -5027,6 +6395,18 @@
             "term": "keskin"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "keskin"
+          }
+        ]
       }
     ],
     "theodor-w-adorno-georg-lukacs-ernst-bloch-walter-benjamin-bertolt-brecht": [
@@ -5205,6 +6585,32 @@
         ]
       }
     ],
+    "taylan-altug": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 62.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "altug"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dile"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "gelen"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kant"
+          }
+        ]
+      }
+    ],
     "benedetto-croce": [
       {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/siir-denemem/",
@@ -5357,6 +6763,30 @@
       {
         "url": "/kitap-notlari/felsefe/4-kisim-onotloji/",
         "title": "4. KISIM - ONOTLOJİ",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "yetkin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-12-insan-metafizigi-benlik-kimlik-kisilik/",
+        "title": "Bölüm 12 · İnsan Metafiziği: Benlik, Kimlik, Kişilik",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "yetkin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
         "score": 70.0,
         "strength": "muhtemel",
         "evidence": [
@@ -5753,6 +7183,20 @@
         ]
       }
     ],
+    "zeki-ozcan": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ozcan"
+          }
+        ]
+      }
+    ],
     "john-r-searle": [
       {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
@@ -5775,6 +7219,18 @@
           {
             "kind": "bibliyografik iz",
             "term": "calismak"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-13-zihin-metafizigi/",
+        "title": "Bölüm 13 · Zihin Metafiziği",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "searle"
           }
         ]
       }
@@ -5805,7 +7261,105 @@
         ]
       }
     ],
+    "derleyen-zeki-ozcan": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ozcan"
+          }
+        ]
+      }
+    ],
     "david-hume": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 120.2,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "david hume"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "anlama"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dogasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yetisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insanin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 116.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "david hume"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "anlama"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dogasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yetisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insanin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 116.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "david hume"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "anlama"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dogasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insanin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "inceleme"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-3/",
         "title": "Bölüm 3",
@@ -5855,6 +7409,30 @@
           {
             "kind": "bibliyografik iz",
             "term": "ustune"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 107.6,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "david hume"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sorusturma"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insanin"
           },
           {
             "kind": "bibliyografik iz",
@@ -5967,6 +7545,42 @@
           {
             "kind": "kavram",
             "term": "umutsuzluk"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 126.8,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kierkegaard"
+          },
+          {
+            "kind": "kavram",
+            "term": "kaygi"
+          },
+          {
+            "kind": "kavram",
+            "term": "ya ya da"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "gecerliligi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "goturen"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "parca"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "estetik"
           }
         ]
       },
@@ -6169,6 +7783,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 78.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "sentez"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "inanc"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "estetik"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-5/",
         "title": "Bölüm 5 · Kayıp Hikmetin Peşinde",
         "score": 58.4,
@@ -6193,6 +7827,34 @@
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
+        "score": 64.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "varlik nedir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varlik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefesine"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "nedir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
         "score": 64.8,
         "strength": "muhtemel",
         "evidence": [
@@ -6391,6 +8053,30 @@
     ],
     "platon": [
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 245.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "platon"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "platon"
+          },
+          {
+            "kind": "kavram",
+            "term": "idealar"
+          },
+          {
+            "kind": "kavram",
+            "term": "magara alegorisi"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
         "score": 183.6,
@@ -6483,6 +8169,34 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 158.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "platon"
+          },
+          {
+            "kind": "kavram",
+            "term": "diyalog"
+          },
+          {
+            "kind": "kavram",
+            "term": "idealar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "parmenides"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sofist"
+          }
+        ]
+      },
+      {
         "url": "/makaleler/felsefe-ve-edebiyat/",
         "title": "Felsefe ve Edebiyat",
         "score": 150.0,
@@ -6499,6 +8213,86 @@
           {
             "kind": "kavram",
             "term": "diyalog"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 150.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "platon"
+          },
+          {
+            "kind": "kavram",
+            "term": "devlet"
+          },
+          {
+            "kind": "kavram",
+            "term": "idealar"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 150.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "platon"
+          },
+          {
+            "kind": "kavram",
+            "term": "devlet"
+          },
+          {
+            "kind": "kavram",
+            "term": "idealar"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 119.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "platon"
+          },
+          {
+            "kind": "kavram",
+            "term": "idealar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "parmenides"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sofist"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/",
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
+        "score": 111.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "platon"
+          },
+          {
+            "kind": "kavram",
+            "term": "idealar"
           }
         ]
       },
@@ -6551,6 +8345,18 @@
           {
             "kind": "kavram",
             "term": "devlet"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-11-kategoriler/",
+        "title": "Bölüm 11 · Kategoriler",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "platon"
           }
         ]
       },
@@ -6623,6 +8429,18 @@
           {
             "kind": "kavram",
             "term": "devlet"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-17-kader-uzerine/",
+        "title": "Bölüm 17 · Kader Üzerine",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "platon"
           }
         ]
       },
@@ -6713,22 +8531,6 @@
             "term": "diyalog"
           }
         ]
-      },
-      {
-        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
-        "title": "4-Henri Lefebvre: Sıradanın Filozofu",
-        "score": 60.0,
-        "strength": "muhtemel",
-        "evidence": [
-          {
-            "kind": "kavram",
-            "term": "devlet"
-          },
-          {
-            "kind": "kavram",
-            "term": "diyalog"
-          }
-        ]
       }
     ],
     "aristoteles": [
@@ -6773,6 +8575,110 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 248.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "kavram",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "kavram",
+            "term": "madde form"
+          },
+          {
+            "kind": "kavram",
+            "term": "ousia"
+          },
+          {
+            "kind": "eser",
+            "term": "yorum uzerine"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "fizik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hayvanlarin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kategoriler"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 227.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "kavram",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "fizik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "onermeler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "etik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-12-insan-metafizigi-benlik-kimlik-kisilik/",
+        "title": "Bölüm 12 · İnsan Metafiziği: Benlik, Kimlik, Kişilik",
+        "score": 197.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "fizik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "etik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/4-kisim-onotloji/",
         "title": "4. KISIM - ONOTLOJİ",
         "score": 192.0,
@@ -6813,6 +8719,46 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 192.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "kavram",
+            "term": "dort neden"
+          },
+          {
+            "kind": "kavram",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "kavram",
+            "term": "ousia"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "fizik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hareketi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "etik"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-3/",
         "title": "Bölüm 3",
         "score": 143.0,
@@ -6841,6 +8787,34 @@
           {
             "kind": "bibliyografik iz",
             "term": "devleti"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-11-kategoriler/",
+        "title": "Bölüm 11 · Kategoriler",
+        "score": 136.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "kavram",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "onermeler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
           }
         ]
       },
@@ -6881,6 +8855,34 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/",
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
+        "score": 123.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "kavram",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "fizik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
+      },
+      {
         "url": "/makaleler/felsefe-ve-edebiyat/",
         "title": "Felsefe ve Edebiyat",
         "score": 106.8,
@@ -6901,6 +8903,50 @@
           {
             "kind": "bibliyografik iz",
             "term": "yorum"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 102.6,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "fizik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "onermeler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-08-zamana-yazgili-olmak-ve-mekanda-kaybolan-zaman-zamana-dair-bir-sorgulama/",
+        "title": "Bölüm 8 · Zamana Yazgılı Olmak ve Mekânda Kaybolan Zaman (Zamana Dair Bir Sorgulama)",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hareketi"
           },
           {
             "kind": "bibliyografik iz",
@@ -6937,6 +8983,22 @@
           {
             "kind": "bibliyografik iz",
             "term": "metafizik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-13-zihin-metafizigi/",
+        "title": "Bölüm 13 · Zihin Metafiziği",
+        "score": 71.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "kavram",
+            "term": "kategoriler"
           }
         ]
       },
@@ -7089,6 +9151,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 85.2,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "isteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "kotumserlik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilmek"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "anlami"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tartisma"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yolu"
+          }
+        ]
+      },
+      {
         "url": "/makaleler/felsefe-ve-edebiyat/",
         "title": "Felsefe ve Edebiyat",
         "score": 79.4,
@@ -7115,6 +9209,38 @@
             "term": "yolu"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 76.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "isteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "yeter sebep"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilmek"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tarihinden"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "akil"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          }
+        ]
       }
     ],
     "quintus-t-cicero": [
@@ -7127,6 +9253,20 @@
           {
             "kind": "metin içi atıf",
             "term": "cicero"
+          }
+        ]
+      }
+    ],
+    "hesiodos": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/",
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hesiodos"
           }
         ]
       }
@@ -7873,6 +10013,34 @@
             "term": "cagdas"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 64.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "frankfurt okulu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "frankfurt"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "nietzsche"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "okulu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "cagdas"
+          }
+        ]
       }
     ],
     "m-foucault": [
@@ -8193,6 +10361,70 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "episteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "episteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "episteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "episteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 60.0,
@@ -8491,6 +10723,70 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "episteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "episteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "episteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "episteme"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 60.0,
@@ -8693,6 +10989,34 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 80.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "frankfurt okulu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "cogito"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "filozof"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "taniyan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "cevresi"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-4/",
         "title": "Bölüm 4 · İmge, Sanat Gelenekleri ve Sinemaya Giriş",
         "score": 71.0,
@@ -8717,6 +11041,18 @@
           {
             "kind": "bibliyografik iz",
             "term": "sonrasi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-12-insan-metafizigi-benlik-kimlik-kisilik/",
+        "title": "Bölüm 12 · İnsan Metafiziği: Benlik, Kimlik, Kişilik",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kolektif"
           }
         ]
       },
@@ -9391,6 +11727,18 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kucuk"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 90.0,
@@ -9551,6 +11899,58 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 119.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "wittgenstein"
+          },
+          {
+            "kind": "kavram",
+            "term": "dil oyunu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kesinlik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 106.8,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "wittgenstein"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kesinlik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tractatus"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusunceler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefi"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
         "score": 102.6,
@@ -9567,6 +11967,26 @@
           {
             "kind": "bibliyografik iz",
             "term": "dusunceler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "wittgenstein"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kesinlik"
           },
           {
             "kind": "bibliyografik iz",
@@ -9697,6 +12117,46 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 231.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "sartre"
+          },
+          {
+            "kind": "kavram",
+            "term": "kendinde varlik"
+          },
+          {
+            "kind": "kavram",
+            "term": "kotu niyet"
+          },
+          {
+            "kind": "kavram",
+            "term": "varolusculuk"
+          },
+          {
+            "kind": "eser",
+            "term": "varlik ve hiclik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hiclik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varolusculuk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varlik"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-4/",
         "title": "Bölüm 4",
         "score": 186.0,
@@ -9737,6 +12197,38 @@
           {
             "kind": "bibliyografik iz",
             "term": "hiclik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varlik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 120.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "ozgurluk"
+          },
+          {
+            "kind": "kavram",
+            "term": "varolusculuk"
+          },
+          {
+            "kind": "eser",
+            "term": "varlik ve hiclik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hiclik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varolusculuk"
           },
           {
             "kind": "bibliyografik iz",
@@ -9863,6 +12355,66 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yeni"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yeni"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yeni"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insan"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-2/",
         "title": "Bölüm 2",
         "score": 98.4,
@@ -9879,6 +12431,18 @@
           {
             "kind": "bibliyografik iz",
             "term": "insan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-21-ozdeslik-ve-suredurum/",
+        "title": "Bölüm 21 · Özdeşlik ve Süredurum",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
           }
         ]
       },
@@ -9925,6 +12489,26 @@
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yeni"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/",
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
         "score": 58.4,
         "strength": "muhtemel",
         "evidence": [
@@ -10125,6 +12709,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 111.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "deleuze"
+          },
+          {
+            "kind": "kavram",
+            "term": "olus"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-4/",
         "title": "Bölüm 4 · İmge, Sanat Gelenekleri ve Sinemaya Giriş",
         "score": 111.0,
@@ -10185,6 +12785,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 71.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "deleuze"
+          },
+          {
+            "kind": "kavram",
+            "term": "olus"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-5/",
         "title": "Bölüm 5 · Kayıp Hikmetin Peşinde",
         "score": 71.0,
@@ -10202,6 +12818,42 @@
       }
     ],
     "bertrand-russell": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 254.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "bertrand russell"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "russell"
+          },
+          {
+            "kind": "eser",
+            "term": "mantiksal atomculuk felsefesi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "atomculuk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "mantiksal"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sorunlari"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefede"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/4-kisim-onotloji/",
         "title": "4. KISIM - ONOTLOJİ",
@@ -10595,6 +13247,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 122.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bergson"
+          },
+          {
+            "kind": "kavram",
+            "term": "sezgi"
+          },
+          {
+            "kind": "kavram",
+            "term": "sure"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dinin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "metafizige"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kaynagi"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/siir-denemem/",
         "title": "CEMİL SENA - ESTETİK (1931)",
         "score": 119.4,
@@ -10623,6 +13307,22 @@
         "title": "Felsefe de Fark Mefhumu",
         "score": 91.0,
         "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bergson"
+          },
+          {
+            "kind": "kavram",
+            "term": "sure"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-08-zamana-yazgili-olmak-ve-mekanda-kaybolan-zaman-zamana-dair-bir-sorgulama/",
+        "title": "Bölüm 8 · Zamana Yazgılı Olmak ve Mekânda Kaybolan Zaman (Zamana Dair Bir Sorgulama)",
+        "score": 71.0,
+        "strength": "muhtemel",
         "evidence": [
           {
             "kind": "metin içi atıf",
@@ -10809,6 +13509,30 @@
             "term": "frege"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "frege"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/",
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "frege"
+          }
+        ]
       }
     ],
     "jacques-derrida": [
@@ -10913,6 +13637,34 @@
           {
             "kind": "bibliyografik iz",
             "term": "jacques"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "derrida"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 151.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "derrida"
+          },
+          {
+            "kind": "kavram",
+            "term": "differance"
+          },
+          {
+            "kind": "kavram",
+            "term": "iz"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "platon"
           },
           {
             "kind": "bibliyografik iz",
@@ -11183,6 +13935,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 201.8,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "edmund husserl"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "husserl"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kesin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "fenomenoloji"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "olarak"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilim"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-2/",
         "title": "Bölüm 2",
         "score": 201.8,
@@ -11211,6 +13995,26 @@
           {
             "kind": "bibliyografik iz",
             "term": "bilim"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-11-kategoriler/",
+        "title": "Bölüm 11 · Kategoriler",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "husserl"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kesin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "olarak"
           }
         ]
       }
@@ -11253,6 +14057,86 @@
           {
             "kind": "bibliyografik iz",
             "term": "dair"
+          }
+        ]
+      }
+    ],
+    "s-teoman-durali": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/",
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
+        "score": 91.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "durali"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sorun"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dogusu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aklin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilim"
+          }
+        ]
+      }
+    ],
+    "fritjof-capra": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 78.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "capra"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "noktasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusuncesinde"
+          }
+        ]
+      }
+    ],
+    "emile-boutroux": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "boutroux"
+          }
+        ]
+      }
+    ],
+    "der-zeki-ozcan": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ozcan"
           }
         ]
       }
@@ -11729,6 +14613,70 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "idealar"
+          },
+          {
+            "kind": "kavram",
+            "term": "magara alegorisi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "devlet"
+          },
+          {
+            "kind": "kavram",
+            "term": "idealar"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "diyalog"
+          },
+          {
+            "kind": "kavram",
+            "term": "idealar"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "devlet"
+          },
+          {
+            "kind": "kavram",
+            "term": "idealar"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-4/",
         "title": "Bölüm 4",
         "score": 60.0,
@@ -11841,6 +14789,40 @@
           {
             "kind": "metin içi atıf",
             "term": "aysever"
+          }
+        ]
+      }
+    ],
+    "bahaeddin-saglam": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "saglam"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 78.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "saglam"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ilim"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "usul"
           }
         ]
       }
@@ -11997,6 +14979,18 @@
             "term": "robinson"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "robinson"
+          }
+        ]
       }
     ],
     "gilbert-simondon": [
@@ -12018,6 +15012,18 @@
       }
     ],
     "mehmet-bilen": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-12-insan-metafizigi-benlik-kimlik-kisilik/",
+        "title": "Bölüm 12 · İnsan Metafiziği: Benlik, Kimlik, Kişilik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bilen"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-4/",
         "title": "Bölüm 4 · İmge, Sanat Gelenekleri ve Sinemaya Giriş",
@@ -12079,6 +15085,20 @@
           {
             "kind": "bibliyografik iz",
             "term": "bediuzzaman"
+          }
+        ]
+      }
+    ],
+    "cemal-yildirim": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "yildirim"
           }
         ]
       }
@@ -12217,6 +15237,36 @@
           {
             "kind": "metin içi atıf",
             "term": "dizisi"
+          }
+        ]
+      }
+    ],
+    "heinz-heimsoeth": [
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 64.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "felsefenin temel disiplinleri"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "disiplinleri"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "temel"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefenin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kant"
           }
         ]
       }
@@ -12399,6 +15449,18 @@
       {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "arslan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/",
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
         "score": 70.0,
         "strength": "muhtemel",
         "evidence": [
@@ -12721,6 +15783,66 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
+        "title": "Bölüm 1 · Metafizik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bagli"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bagli"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/",
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bagli"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
+        "title": "Bölüm 7 · Töz",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bagli"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/",
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bagli"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 90.0,
@@ -12819,6 +15941,18 @@
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/2-dada-ve-surrealizm/",
         "title": "2-DADA VE SÜRREALİZM",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bagli"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-17-kader-uzerine/",
+        "title": "Bölüm 17 · Kader Üzerine",
         "score": 70.0,
         "strength": "muhtemel",
         "evidence": [

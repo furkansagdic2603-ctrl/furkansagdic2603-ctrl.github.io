@@ -267,7 +267,60 @@
   },
   "kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi": {
     "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/",
-    "notes": [],
+    "notes": [
+      {
+        "title": "Bölüm 1 · Metafizik",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/"
+      },
+      {
+        "title": "Bölüm 6 · Varlık ve Hiçlik",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-06-varlik-ve-hiclik/"
+      },
+      {
+        "title": "Bölüm 7 · Töz",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/"
+      },
+      {
+        "title": "Bölüm 8 · Zamana Yazgılı Olmak ve Mekânda Kaybolan Zaman (Zamana Dair Bir Sorgulama)",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-08-zamana-yazgili-olmak-ve-mekanda-kaybolan-zaman-zamana-dair-bir-sorgulama/"
+      },
+      {
+        "title": "Bölüm 9 · Mekânın Metafizik Açıdan Açımlanması",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-09-mekanin-metafizik-acidan-acimlanmasi/"
+      },
+      {
+        "title": "Bölüm 11 · Kategoriler",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-11-kategoriler/"
+      },
+      {
+        "title": "Bölüm 12 · İnsan Metafiziği: Benlik, Kimlik, Kişilik",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-12-insan-metafizigi-benlik-kimlik-kisilik/"
+      },
+      {
+        "title": "Bölüm 13 · Zihin Metafiziği",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-13-zihin-metafizigi/"
+      },
+      {
+        "title": "Bölüm 17 · Kader Üzerine",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-17-kader-uzerine/"
+      },
+      {
+        "title": "Bölüm 18 · Kaos",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-18-kaos/"
+      },
+      {
+        "title": "Bölüm 21 · Özdeşlik ve Süredurum",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-21-ozdeslik-ve-suredurum/"
+      },
+      {
+        "title": "Bölüm 22 · Bilgi ve Sınırları",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-22-bilgi-ve-sinirlari/"
+      },
+      {
+        "title": "Bölüm 23 · Doğruluk-Gerçeklik",
+        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/"
+      }
+    ],
     "title": "Metafizik - Kavram ve Problemleriyle Varlık Felsefesi"
   }
 }
