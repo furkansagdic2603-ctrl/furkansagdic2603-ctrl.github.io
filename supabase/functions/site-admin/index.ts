@@ -260,6 +260,7 @@ async function internetArchiveIsbnLookup(query:string){
 }
 async function trBookLookup(query:string){
  const raw=query.replace(/^https?:\/\/\S+$/i,'').trim();if(!raw)return[];
+ const isbn=kyExtractIsbn(raw);
  const sources=[
   {name:'1000Kitap',url:'https://1000kitap.com/arama?q='+encodeURIComponent(raw),host:'1000kitap.com'},
   {name:'BKM Kitap',url:'https://www.bkmkitap.com/arama?q='+encodeURIComponent(raw),host:'bkmkitap.com'},
@@ -270,20 +271,28 @@ async function trBookLookup(query:string){
  const results:any[]=[];
  for(const src of sources){
   try{
-   const r=await fetch(src.url,{headers:{'User-Agent':'Mozilla/5.0 (compatible; FurkanSagdicBookAdmin/1.0)','Accept':'text/html,application/xhtml+xml','Accept-Language':'tr-TR,tr;q=0.9'},redirect:'follow',signal:AbortSignal.timeout(9000)});
+   const r=await fetch(src.url,{headers:{'User-Agent':'Mozilla/5.0 (compatible; FurkanSagdicBookAdmin/2.0)','Accept':'text/html,application/xhtml+xml','Accept-Language':'tr-TR,tr;q=0.9'},redirect:'follow',signal:AbortSignal.timeout(7000)});
    if(!r.ok)continue;const html=await r.text();const links=new Set<string>();
-   for(const m of html.matchAll(/href=["']([^"'#]+)["']/gi)){try{const u=new URL(m[1],src.url);if((u.hostname===src.host||u.hostname.endsWith('.'+src.host))&&/(kitap|book|urun|product)/i.test(u.pathname)){links.add(u.href);if(links.size>=5)break;}}catch{}}
-   for(const url of [...links].slice(0,3)){try{const p=await fetch(url,{headers:{'User-Agent':'Mozilla/5.0 (compatible; FurkanSagdicBookAdmin/1.0)','Accept':'text/html','Accept-Language':'tr-TR,tr;q=0.9'},redirect:'follow',signal:AbortSignal.timeout(7000)});if(!p.ok)continue;const h=await p.text(),title=kyMeta(h,'og:title').replace(/\s*[|–-].*$/,'').trim(),cover=kyMeta(h,'og:image'),description=kyMeta(h,'og:description');if(title&&title.toLocaleLowerCase('tr').includes(raw.toLocaleLowerCase('tr').split(/\s+/)[0]))results.push({title:title.slice(0,160),author:'',description:description.slice(0,500),cover,publisher:'',isbn:'',pages:'',publishDate:'',sourceUrl:url,source:src.name});}catch{}}
+   for(const m of html.matchAll(/href=["']([^"'#]+)["']/gi)){try{const u=new URL(m[1],src.url);if((u.hostname===src.host||u.hostname.endsWith('.'+src.host))&&/(kitap|book|urun|product)/i.test(u.pathname)){links.add(u.href);if(links.size>=6)break;}}catch{}}
+   for(const url of [...links].slice(0,4)){try{
+    const p=await fetch(url,{headers:{'User-Agent':'Mozilla/5.0 (compatible; FurkanSagdicBookAdmin/2.0)','Accept':'text/html','Accept-Language':'tr-TR,tr;q=0.9'},redirect:'follow',signal:AbortSignal.timeout(6000)});if(!p.ok)continue;
+    const h=await p.text(),product=kyProduct(h,url),pageIsbn=kyExtractIsbn(product.isbn||h);
+    const titleMatch=product.title&&product.title.toLocaleLowerCase('tr').includes(raw.toLocaleLowerCase('tr').split(/\s+/)[0]);
+    const isbnMatch=isbn&&pageIsbn===isbn;
+    if((isbn?isbnMatch:titleMatch)&&product.title)results.push({...product,source:src.name});
+   }catch{}}
   }catch{}
   if(results.length>=6)break;
  }
- return results;
+ return kyMergeBooks(results);
 }
 async function fallbackBookLookup(query:string){
  const isbn=kyExtractIsbn(query);
  if(isbn){
   const [g,o,a]=await Promise.all([googleBooksLookup(isbn),openLibraryIsbnLookup(isbn),internetArchiveIsbnLookup(isbn)]);
-  return kyMergeBooks(g,o,a);
+  const publicResults=kyMergeBooks(g,o,a);
+  if(publicResults.length)return publicResults;
+  return await trBookLookup(isbn);
  }
  const g=await googleBooksLookup(query);if(g.length)return g;
  const o=await openLibraryLookup(query);if(o.length)return o;
