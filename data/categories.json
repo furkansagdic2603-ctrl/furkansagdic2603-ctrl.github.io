@@ -210,5 +210,10 @@
     "slug": "sanat-saadettin-ustaosmanoglu",
     "name": "SANAT - Saadettin Ustaosmanoğlu",
     "parent": "kitap-notlari/sanat"
+  },
+  {
+    "slug": "metafizik",
+    "name": "Metafizik",
+    "parent": "kitap-notlari/felsefe"
   }
 ]
