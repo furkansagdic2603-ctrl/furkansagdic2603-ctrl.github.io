@@ -189,5 +189,15 @@
     "fallback": "teal",
     "createdAt": "2026-10-31T15:11:04.465Z",
     "updatedAt": "2026-10-31T15:14:24.695Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/90-dakikada-hegel",
+    "title": "90 Dakikada Hegel",
+    "author": "Paul Strathern",
+    "description": "GENDAŞ YAYINLARI",
+    "category": "kitap-notlari/felsefe",
+    "cover": "/assets/uploads/2026-10-31/d6c54ce2-3d3e-4ebc-8bcb-b0c8b35fb5d0.png",
+    "fallback": "ochre",
+    "createdAt": "2026-10-31T15:38:20.703Z"
   }
 ]
