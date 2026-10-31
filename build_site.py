@@ -308,8 +308,3 @@ build_series_navigation(ROOT)
 
 # Current-reading landing page; book records are managed by the existing admin API.
 write('su-an-masada/index.html',doc('Şu An Masada','<section class="page-head"><span class="eyebrow">OKUMA MASAM</span><h1>Şu An Masada</h1><p>Kitaplarla, notlarla ve sorularla devam eden bir çalışma.</p></section>','su-an-masada'))
-
-
-# Apply exact Word formatting for the imported Metafizik chapters.
-from metafizik_word_restore import apply_metafizik_word_restore
-apply_metafizik_word_restore(ROOT)
