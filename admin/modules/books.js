@@ -179,7 +179,7 @@ export function initBooks({ $, callAdmin, feedback }) {
       if(item.cover){const img=document.createElement('img');img.src=item.cover;img.alt='';img.loading='lazy';card.append(img);}
       const info=document.createElement('span'),strong=document.createElement('strong'),small=document.createElement('small'),meta=document.createElement('i');
       strong.textContent=item.title||'Adsız kitap';small.textContent=item.author||item.publisher||'Yazar bilgisi yok';
-      meta.textContent=[item.publisher,item.isbn&&('ISBN '+item.isbn),item.pages&&item.pages+' sayfa'].filter(Boolean).join(' · ');
+      meta.textContent=[item.source,item.publisher,item.isbn&&('ISBN '+item.isbn),item.pages&&item.pages+' sayfa'].filter(Boolean).join(' · ');
       info.append(strong,small,meta);card.append(info);
       card.addEventListener('click',async()=>{
         $('new-book-title').value=item.title||'';$('new-book-author').value=item.author||'';$('new-book-description').value=(item.description||'').slice(0,500);$('new-book-fallback-title').textContent=item.title||'Kitap adı';
@@ -194,7 +194,7 @@ export function initBooks({ $, callAdmin, feedback }) {
   };
   $('ky-book-search').addEventListener('click',async()=>{
     const query=$('ky-book-query').value.trim();if(!query){kyStatus.textContent='ISBN-10 veya ISBN-13 numarasını yaz.';return;}
-    const button=$('ky-book-search'),isbn=kyNormalizeIsbn(query);button.disabled=true;kyStatus.textContent='ISBN Google Books, Open Library ve diğer kataloglarda aranıyor…';kyResults.replaceChildren();
+    const button=$('ky-book-search'),isbn=kyNormalizeIsbn(query);button.disabled=true;kyStatus.textContent='ISBN Türkiye kitapçıları ve açık kitap kataloglarında aranıyor…';kyResults.replaceChildren();
     try{
       const data=await callAdmin('kitapyurdu_lookup',{query});
       let items=Array.isArray(data.results)?data.results:[];
