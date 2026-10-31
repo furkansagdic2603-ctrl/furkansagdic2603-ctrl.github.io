@@ -107,6 +107,46 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 226.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hegel"
+          },
+          {
+            "kind": "kavram",
+            "term": "diyalektik"
+          },
+          {
+            "kind": "kavram",
+            "term": "dunya tini"
+          },
+          {
+            "kind": "kavram",
+            "term": "geist"
+          },
+          {
+            "kind": "kavram",
+            "term": "tin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dunyasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dogu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dunya"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
         "title": "4-Henri Lefebvre: Sıradanın Filozofu",
         "score": 192.0,
@@ -1527,6 +1567,38 @@
             "term": "sosyal"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 76.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "burokrasi"
+          },
+          {
+            "kind": "kavram",
+            "term": "ideal tip"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kapitalizmin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ahlaki"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sosyal"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sosyoloji"
+          }
+        ]
       }
     ],
     "ahmet-cevizci": [
@@ -2057,6 +2129,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 81.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "meta fetisizmi"
+          },
+          {
+            "kind": "kavram",
+            "term": "sinif mucadelesi"
+          },
+          {
+            "kind": "kavram",
+            "term": "yabancilasma"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
         "title": "4-Henri Lefebvre: Sıradanın Filozofu",
         "score": 60.0,
@@ -2483,6 +2575,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "duygulanim"
+          },
+          {
+            "kind": "kavram",
+            "term": "zorunluluk"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-5/",
         "title": "Bölüm 5 · Kayıp Hikmetin Peşinde",
         "score": 60.0,
@@ -2647,6 +2755,34 @@
           {
             "kind": "bibliyografik iz",
             "term": "katki"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 89.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "meta fetisizmi"
+          },
+          {
+            "kind": "kavram",
+            "term": "sinif mucadelesi"
+          },
+          {
+            "kind": "kavram",
+            "term": "yabancilasma"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ekonomik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "elestirisine"
           }
         ]
       },
@@ -3499,6 +3635,30 @@
             "term": "estetik"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 60.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "kulturel antropoloji"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kulturel"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "antropoloji"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "estetik"
+          }
+        ]
       }
     ],
     "ibn-haldun": [
@@ -3791,6 +3951,26 @@
     ],
     "mustafa-armagan": [
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 78.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "armagan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "altinda"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yakin"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/1-mukaddime/",
         "title": "1- MUKADDİME",
         "score": 58.4,
@@ -3875,6 +4055,26 @@
           {
             "kind": "bibliyografik iz",
             "term": "teorisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "elestirisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sanat"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "korur"
           },
           {
             "kind": "bibliyografik iz",
@@ -4505,6 +4705,34 @@
             "term": "estetik"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 72.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "kultur endustrisi"
+          },
+          {
+            "kind": "kavram",
+            "term": "mekanik yeniden uretim"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "film"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sanat"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "estetik"
+          }
+        ]
       }
     ],
     "nicolai-hartmann": [
@@ -4643,6 +4871,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 185.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "herbert marcuse"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "marcuse"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/1-mukaddime/",
         "title": "1- MUKADDİME",
         "score": 173.4,
@@ -4756,6 +5000,22 @@
       }
     ],
     "georg-lukacs": [
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 185.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "georg lukacs"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "lukacs"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/1-mukaddime/",
         "title": "1- MUKADDİME",
@@ -5833,6 +6093,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 68.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "devlet"
+          },
+          {
+            "kind": "kavram",
+            "term": "diyalog"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yasalar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "devlet"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-4/",
         "title": "Bölüm 4",
         "score": 68.4,
@@ -6791,6 +7075,34 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 127.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "adorno"
+          },
+          {
+            "kind": "kavram",
+            "term": "kultur endustrisi"
+          },
+          {
+            "kind": "eser",
+            "term": "kultur endustrisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "endustrisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kultur"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-5/",
         "title": "Bölüm 5",
         "score": 77.4,
@@ -7155,6 +7467,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 79.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "foucault"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "gerekir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "toplumu"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/mukaddime-estetigin-asri-retorikleri-1/",
         "title": "Mukaddime-Estetiğin Asri Retorikleri-1",
         "score": 71.0,
@@ -7469,6 +7805,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 71.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "foucault"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
         "score": 60.0,
@@ -7739,6 +8091,34 @@
           {
             "kind": "bibliyografik iz",
             "term": "sonrasi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 66.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kolektif"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dergisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "cevresi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sonrasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dogu"
           }
         ]
       },
@@ -8157,6 +8537,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 106.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "baudrillard"
+          },
+          {
+            "kind": "eser",
+            "term": "tuketim toplumu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tuketim"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "toplumu"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-4/",
         "title": "Bölüm 4 · İmge, Sanat Gelenekleri ve Sinemaya Giriş",
         "score": 58.4,
@@ -8311,6 +8715,18 @@
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/1-mukaddime/",
         "title": "1- MUKADDİME",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kucuk"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -9209,6 +9625,24 @@
         ]
       }
     ],
+    "wilhelm-reich": [
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 145.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "wilhelm reich"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "reich"
+          }
+        ]
+      }
+    ],
     "max-horkheimer": [
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/1-mukaddime/",
@@ -9279,6 +9713,24 @@
           {
             "kind": "bibliyografik iz",
             "term": "insanin"
+          }
+        ]
+      }
+    ],
+    "ludwig-feuerbach": [
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 145.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "ludwig feuerbach"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "feuerbach"
           }
         ]
       }
@@ -10457,6 +10909,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "devlet"
+          },
+          {
+            "kind": "kavram",
+            "term": "diyalog"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-4/",
         "title": "Bölüm 4",
         "score": 60.0,
@@ -10501,6 +10969,18 @@
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
         "title": "4-Henri Lefebvre: Sıradanın Filozofu",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "egemen"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -10585,6 +11065,18 @@
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "savas"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -10805,6 +11297,22 @@
           {
             "kind": "kavram",
             "term": "protestan ahlaki"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "burokrasi"
+          },
+          {
+            "kind": "kavram",
+            "term": "ideal tip"
           }
         ]
       }
@@ -11084,6 +11592,30 @@
       }
     ],
     "marx-engels-lenin": [
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 151.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "lenin"
+          },
+          {
+            "kind": "kavram",
+            "term": "meta fetisizmi"
+          },
+          {
+            "kind": "kavram",
+            "term": "sinif mucadelesi"
+          },
+          {
+            "kind": "kavram",
+            "term": "yabancilasma"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
         "title": "4-Henri Lefebvre: Sıradanın Filozofu",
@@ -12235,6 +12767,18 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "baskici"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-4/",
         "title": "Bölüm 4",
         "score": 70.0,
@@ -12294,6 +12838,30 @@
       }
     ],
     "michael-gardiner": [
+      {
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
+        "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
+        "score": 193.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "michael gardiner"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "gardiner"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "elestirileri"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "gundelik"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/2-dada-ve-surrealizm/",
         "title": "2-DADA VE SÜRREALİZM",
