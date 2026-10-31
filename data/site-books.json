@@ -178,5 +178,15 @@
     "cover": "/assets/uploads/2026-10-18/2b71231b-fc81-42a2-8eb2-522314b8f03c.jpg",
     "fallback": "burgundy",
     "createdAt": "2026-10-18T07:04:04.816Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/yunus-emre-turk-felsefesi-nin-dogusu",
+    "title": "Yunus Emre - Türk Felsefesi'nin Doğuşu",
+    "author": "Remzi Demir",
+    "description": "Türk Felsefesi'nin macerası henüz gereği gibi yazılmadı, ancak şuna inanıyorum ki bir gün bu mühim iş yapıldığında Yunus Emre'nin çok önemli bir yerde durduğu anlaşılacaktır.\n\nYunus Emre, Orta Çağ'ın en mütekamil felsefi öğretisi olan Vahdet-i Vücûd Öğretisi'ni Türkçe terennüm ederek asırlarca Anadolu'da hakim olacak dünya görüşünün ve yaşam biçiminin yayılmasını ve yerleşmesini sağlamıştır.",
+    "category": "kitap-notlari/felsefe",
+    "cover": "",
+    "fallback": "teal",
+    "createdAt": "2026-10-31T15:11:04.465Z"
   }
 ]
