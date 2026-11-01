@@ -17,6 +17,58 @@ export function createAbout({ $: byId, callAdmin, page = 'about', label = 'Hakk�
     localPhotoUrl = '';
   }
 
+  const readDataUrl = file => new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result));
+    reader.onerror = () => reject(new Error('Fotoğraf okunamadı.'));
+    reader.readAsDataURL(file);
+  });
+
+  async function preparePhotoUpload(file) {
+    if (file.size <= 2 * 1024 * 1024) {
+      const dataUrl = await readDataUrl(file);
+      return { filename: file.name, mime: file.type, data: dataUrl.slice(dataUrl.indexOf(',') + 1), compressed: false };
+    }
+
+    const objectUrl = URL.createObjectURL(file);
+    try {
+      const image = await new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => resolve(img);
+        img.onerror = () => reject(new Error('Fotoğraf sıkıştırmak için açılamadı.'));
+        img.src = objectUrl;
+      });
+
+      const maxWidth = 1800, maxHeight = 2200;
+      let scale = Math.min(1, maxWidth / image.naturalWidth, maxHeight / image.naturalHeight);
+      let width = Math.max(1, Math.round(image.naturalWidth * scale));
+      let height = Math.max(1, Math.round(image.naturalHeight * scale));
+      let quality = 0.9;
+
+      for (let attempt = 0; attempt < 8; attempt += 1) {
+        const canvas = document.createElement('canvas');
+        canvas.width = width; canvas.height = height;
+        const ctx = canvas.getContext('2d', { alpha: false });
+        if (!ctx) throw new Error('Fotoğraf işlenemedi.');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, width, height);
+        ctx.drawImage(image, 0, 0, width, height);
+        const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/jpeg', quality));
+        if (!blob) throw new Error('Fotoğraf sıkıştırılamadı.');
+        if (blob.size <= 1.9 * 1024 * 1024) {
+          const dataUrl = await readDataUrl(blob);
+          const base = file.name.replace(/\.[^.]+$/, '').slice(0, 100) || 'hakkimda-fotografi';
+          return { filename: base + '.jpg', mime: 'image/jpeg', data: dataUrl.slice(dataUrl.indexOf(',') + 1), compressed: true };
+        }
+        if (quality > 0.66) quality -= 0.08;
+        else { width = Math.max(900, Math.round(width * 0.82)); height = Math.max(1100, Math.round(height * 0.82)); }
+      }
+      throw new Error('Fotoğraf otomatik olarak yeterince küçültülemedi.');
+    } finally {
+      URL.revokeObjectURL(objectUrl);
+    }
+  }
+
   function isDirty() {
     return loaded && (text.value !== savedText || (supportsPhoto && (photo !== savedPhoto || Boolean(selectedPhoto))));
   }
@@ -87,9 +139,9 @@ export function createAbout({ $: byId, callAdmin, page = 'about', label = 'Hakk�
       const file = event.target.files?.[0];
       event.target.value = '';
       if (!file) return;
-      const allowed = ['image/jpeg','image/png','image/webp','image/gif'];
-      if (!allowed.includes(file.type) || file.size > 2 * 1024 * 1024) {
-        status.textContent = 'JPEG, PNG, WebP veya GIF seç; fotoğraf en fazla 2 MB olabilir.';
+      const allowed = ['image/jpeg','image/png','image/webp'];
+      if (!allowed.includes(file.type) || file.size > 12 * 1024 * 1024) {
+        status.textContent = 'JPEG, PNG veya WebP seç; kaynak fotoğraf en fazla 12 MB olabilir.';
         return;
       }
       revokeLocalPhoto();
@@ -129,14 +181,10 @@ export function createAbout({ $: byId, callAdmin, page = 'about', label = 'Hakk�
     try {
       let photoToSave = photo;
       if (supportsPhoto && selectedPhoto) {
-        const dataUrl = await new Promise((resolve, reject) => {
-          const reader = new FileReader();
-          reader.onload = () => resolve(String(reader.result));
-          reader.onerror = () => reject(new Error('Fotoğraf okunamadı.'));
-          reader.readAsDataURL(selectedPhoto);
-        });
-        const data = dataUrl.slice(dataUrl.indexOf(',') + 1);
-        const uploaded = await callAdmin('upload_image', { filename: selectedPhoto.name, mime: selectedPhoto.type, data });
+        status.textContent = selectedPhoto.size > 2 * 1024 * 1024 ? 'Fotoğraf otomatik küçültülüyor…' : 'Fotoğraf hazırlanıyor…';
+        const prepared = await preparePhotoUpload(selectedPhoto);
+        status.textContent = prepared.compressed ? 'Fotoğraf küçültüldü ve yükleniyor…' : 'Fotoğraf yükleniyor…';
+        const uploaded = await callAdmin('upload_image', { filename: prepared.filename, mime: prepared.mime, data: prepared.data });
         if (!uploaded.url) throw new Error('Fotoğraf yüklenemedi.');
         photoToSave = uploaded.url;
         status.textContent = 'Fotoğraf yüklendi. Hakkımda sayfası kaydediliyor…';
