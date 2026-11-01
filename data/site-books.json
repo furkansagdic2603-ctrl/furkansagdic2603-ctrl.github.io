@@ -230,5 +230,15 @@
     "cover": "/assets/uploads/2026-11-01/b4e47f57-8b66-4a33-856b-fb422969a7c4.png",
     "fallback": "teal",
     "createdAt": "2026-11-01T05:09:50.436Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik",
+    "title": "Estetik",
+    "author": "Suut Kemal Yetkin",
+    "description": "",
+    "category": "kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin",
+    "cover": "/assets/uploads/2026-11-01/6befc692-dbc7-476a-887a-65b576223b97.png",
+    "fallback": "ochre",
+    "createdAt": "2026-11-01T05:19:05.754Z"
   }
 ]
