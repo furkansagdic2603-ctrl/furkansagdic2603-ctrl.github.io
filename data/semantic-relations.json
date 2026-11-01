@@ -627,6 +627,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 92.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "diyalektik"
+          },
+          {
+            "kind": "kavram",
+            "term": "tin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dunyasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tarihte"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "akil"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "roma"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/klasikler/schopenhauer/olumun-anlami/",
         "title": "Ölümün Anlamı",
         "score": 83.6,
@@ -1475,6 +1507,38 @@
           {
             "kind": "bibliyografik iz",
             "term": "problemi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "zaman"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varlik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 96.2,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "heidegger"
+          },
+          {
+            "kind": "kavram",
+            "term": "dunyada olmak"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "demektir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusunmek"
           },
           {
             "kind": "bibliyografik iz",
@@ -2361,6 +2425,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 116.2,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "weber"
+          },
+          {
+            "kind": "kavram",
+            "term": "burokrasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "protestan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ruhu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "weber"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ahlaki"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
         "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
         "score": 76.8,
@@ -2447,6 +2543,20 @@
           {
             "kind": "bibliyografik iz",
             "term": "kavram"
+          }
+        ]
+      }
+    ],
+    "enver-orman": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "orman"
           }
         ]
       }
@@ -2803,6 +2913,26 @@
           {
             "kind": "bibliyografik iz",
             "term": "muhtasar"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "tevfik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "edebi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ilmi"
           }
         ]
       }
@@ -3169,6 +3299,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 60.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "tarih uzerine"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "boyle"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "otesinde"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ustune"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-2/",
         "title": "Bölüm 2 · Mukaddime",
         "score": 58.4,
@@ -3305,6 +3459,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "uretim iliskileri"
+          },
+          {
+            "kind": "kavram",
+            "term": "yabancilasma"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
         "title": "4-Henri Lefebvre: Sıradanın Filozofu",
         "score": 60.0,
@@ -3317,6 +3487,32 @@
           {
             "kind": "kavram",
             "term": "yabancilasma"
+          }
+        ]
+      }
+    ],
+    "richard-sennett": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 193.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "richard sennett"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "sennett"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "gozun"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "karakter"
           }
         ]
       }
@@ -3348,6 +3544,18 @@
       }
     ],
     "mian-m-serif": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "serif"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
@@ -3425,9 +3633,49 @@
             "term": "metafizik"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "necat"
+          },
+          {
+            "kind": "kavram",
+            "term": "sifa"
+          }
+        ]
       }
     ],
     "farabi": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 102.6,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "farabi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "harfler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "platon"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/muzik-felsefesi/felsefe-i-m-s-k/",
         "title": "Felsefe-i Mûsîkî",
@@ -3457,6 +3705,26 @@
           {
             "kind": "metin içi atıf",
             "term": "farabi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "farabi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "fazila"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "platon"
           }
         ]
       },
@@ -4131,6 +4399,30 @@
     ],
     "karl-marx": [
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 124.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "karl marx"
+          },
+          {
+            "kind": "kavram",
+            "term": "yabancilasma"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ekonomik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "katki"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-4/",
         "title": "Bölüm 4",
         "score": 124.4,
@@ -4255,6 +4547,30 @@
           {
             "kind": "bibliyografik iz",
             "term": "elestirisine"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "katki"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 68.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "uretim iliskileri"
+          },
+          {
+            "kind": "kavram",
+            "term": "yabancilasma"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ekonomik"
           },
           {
             "kind": "bibliyografik iz",
@@ -4591,6 +4907,18 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-2/",
         "title": "Bölüm 2 · Mukaddime",
         "score": 70.0,
@@ -4751,6 +5079,30 @@
           {
             "kind": "metin içi atıf",
             "term": "gazzali"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 68.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "ihya"
+          },
+          {
+            "kind": "kavram",
+            "term": "tasavvuf"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hakikat"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "islam"
           }
         ]
       },
@@ -4937,6 +5289,20 @@
         ]
       }
     ],
+    "mahmut-aydin": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aydin"
+          }
+        ]
+      }
+    ],
     "prof-dr-omer-celik": [
       {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
@@ -5001,6 +5367,34 @@
           {
             "kind": "kavram",
             "term": "marifet"
+          },
+          {
+            "kind": "kavram",
+            "term": "tasavvuf"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ihya"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilgi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "varlik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 72.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "ihya"
           },
           {
             "kind": "kavram",
@@ -5157,6 +5551,38 @@
     ],
     "prof-dr-bekir-topaloglu-m-nuri-yilmaz-i-kafi-donmez-prof-dr-ilyas-celebi": [
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "celebi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "celebi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "inanc"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "islam"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 58.4,
@@ -5243,6 +5669,26 @@
           {
             "kind": "metin içi atıf",
             "term": "bakar"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bakar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusuncesinde"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "islam"
           }
         ]
       }
@@ -5359,7 +5805,67 @@
         ]
       }
     ],
+    "tanpinar": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "tanpinar"
+          }
+        ]
+      }
+    ],
+    "ahmed-hamdi-tanpinar": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "tanpinar"
+          }
+        ]
+      }
+    ],
     "ibn-haldun": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 185.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "ibn haldun"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "haldun"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 185.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "ibn haldun"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "haldun"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/muzik-felsefesi/felsefe-i-m-s-k/",
         "title": "Felsefe-i Mûsîkî",
@@ -5407,6 +5913,18 @@
         "title": "CEMİL SENA - ESTETİK (1931)",
         "score": 90.0,
         "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "nisbet"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 70.0,
+        "strength": "muhtemel",
         "evidence": [
           {
             "kind": "metin içi atıf",
@@ -5495,6 +6013,36 @@
           {
             "kind": "metin içi atıf",
             "term": "nisbet"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "nisbet"
+          }
+        ]
+      }
+    ],
+    "lewis-mumford": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 145.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "lewis mumford"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "mumford"
           }
         ]
       }
@@ -5671,6 +6219,40 @@
         ]
       }
     ],
+    "sezai-karakoc": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 190.2,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "sezai karakoc"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "karakoc"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ilham"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sarti"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yitik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insanligin"
+          }
+        ]
+      }
+    ],
     "prof-dr-zekeriya-kitapci": [
       {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-5/",
@@ -5683,6 +6265,56 @@
             "term": "kitapci"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kitapci"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kerim"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "turkler"
+          }
+        ]
+      }
+    ],
+    "prof-dr-osman-turan": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 82.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "turan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "buhran"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "cihan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "zamaninda"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "manevi"
+          }
+        ]
       }
     ],
     "mustafa-armagan": [
@@ -5690,6 +6322,26 @@
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
         "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
         "score": 78.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "armagan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "altinda"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yakin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 58.4,
         "strength": "muhtemel",
         "evidence": [
           {
@@ -5754,6 +6406,26 @@
       }
     ],
     "salih-mirza-beyoglu": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "beyoglu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "siir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sanat"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
@@ -6093,6 +6765,34 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 71.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "benjamin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "teknik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "olarak"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yeniden"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "caginda"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
         "score": 66.8,
@@ -6171,6 +6871,18 @@
     ],
     "mehmet-h-dogan": [
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "dogan"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
         "score": 90.0,
@@ -6223,6 +6935,18 @@
         "title": "Bölüm 5",
         "score": 90.0,
         "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "dogan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
         "evidence": [
           {
             "kind": "metin içi atıf",
@@ -6343,6 +7067,18 @@
     ],
     "georg-lukacs-ahmet-cemal": [
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "başlık/özet",
+            "term": "cemal"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
         "score": 90.0,
@@ -6404,6 +7140,18 @@
       }
     ],
     "gamze-keskin": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "keskin"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-3/",
         "title": "Bölüm 3 · Filmlere Neden İhtiyacımız Var? Neden Film İzleriz?",
@@ -6913,6 +7661,30 @@
     ],
     "turan-koc": [
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 60.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "islam estetigi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dili"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "estetigi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "islam"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-4/",
         "title": "Bölüm 4 · İmge, Sanat Gelenekleri ve Sinemaya Giriş",
         "score": 60.6,
@@ -6960,6 +7732,30 @@
       }
     ],
     "filipeli-ahmet": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ahmet"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ahmet"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
@@ -7033,6 +7829,26 @@
             "term": "vahdet"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ertugrul"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "izale"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hakikat"
+          }
+        ]
       }
     ],
     "izmirli-ismail-hakki": [
@@ -7053,6 +7869,18 @@
           {
             "kind": "bibliyografik iz",
             "term": "yeni"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
           }
         ]
       },
@@ -7183,6 +8011,50 @@
     ],
     "kemal-ataturk": [
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ataturk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ataturk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kemal"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 82.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ataturk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ataturk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kemal"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "nutuk"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
         "score": 78.4,
@@ -7199,6 +8071,20 @@
           {
             "kind": "bibliyografik iz",
             "term": "kemal"
+          }
+        ]
+      }
+    ],
+    "dr-hayri-bolay": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "başlık/özet",
+            "term": "bolay"
           }
         ]
       }
@@ -7261,6 +8147,18 @@
         "title": "1-Estetik",
         "score": 90.0,
         "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "richard"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
         "evidence": [
           {
             "kind": "metin içi atıf",
@@ -7601,6 +8499,38 @@
           {
             "kind": "bibliyografik iz",
             "term": "estetik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 85.2,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "kaygi"
+          },
+          {
+            "kind": "kavram",
+            "term": "ya ya da"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bastan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "goturen"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hastalik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "parcalari"
           }
         ]
       },
@@ -7981,6 +8911,26 @@
             "term": "yunus"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 103.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "yunus emre"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "emre"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yunus"
+          }
+        ]
       }
     ],
     "michel-de-montaigne": [
@@ -8046,6 +8996,34 @@
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 241.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "abdulbaki golpinarli"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "golpinarli"
+          },
+          {
+            "kind": "eser",
+            "term": "yunus emre"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "emre"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yunus"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 221.4,
         "strength": "çok güçlü",
         "evidence": [
           {
@@ -8317,6 +9295,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 110.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "platon"
+          },
+          {
+            "kind": "kavram",
+            "term": "devlet"
+          },
+          {
+            "kind": "kavram",
+            "term": "diyalog"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
         "score": 110.0,
@@ -8401,6 +9399,22 @@
           {
             "kind": "metin içi atıf",
             "term": "platon"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 71.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "platon"
+          },
+          {
+            "kind": "kavram",
+            "term": "devlet"
           }
         ]
       },
@@ -8509,46 +9523,6 @@
           {
             "kind": "bibliyografik iz",
             "term": "devlet"
-          }
-        ]
-      },
-      {
-        "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-4/",
-        "title": "Bölüm 4",
-        "score": 68.4,
-        "strength": "muhtemel",
-        "evidence": [
-          {
-            "kind": "kavram",
-            "term": "devlet"
-          },
-          {
-            "kind": "kavram",
-            "term": "diyalog"
-          },
-          {
-            "kind": "bibliyografik iz",
-            "term": "yasalar"
-          },
-          {
-            "kind": "bibliyografik iz",
-            "term": "devlet"
-          }
-        ]
-      },
-      {
-        "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
-        "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
-        "score": 60.0,
-        "strength": "muhtemel",
-        "evidence": [
-          {
-            "kind": "kavram",
-            "term": "devlet"
-          },
-          {
-            "kind": "kavram",
-            "term": "diyalog"
           }
         ]
       }
@@ -8835,6 +9809,38 @@
           {
             "kind": "bibliyografik iz",
             "term": "metafizik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 136.2,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "kavram",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "fizik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "politika"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "devleti"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ekonomi"
           }
         ]
       },
@@ -9323,6 +10329,20 @@
         ]
       }
     ],
+    "thomas-more": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 95.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "thomas more"
+          }
+        ]
+      }
+    ],
     "mustafa-kutlu": [
       {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
@@ -9373,6 +10393,50 @@
           {
             "kind": "bibliyografik iz",
             "term": "sefer"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "uzun"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 60.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "bu boyledir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "boyledir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hikaye"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "uzun"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kutlu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hikaye"
           },
           {
             "kind": "bibliyografik iz",
@@ -9475,6 +10539,30 @@
           {
             "kind": "metin içi atıf",
             "term": "kaplan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tasavvuru"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "medeniyet"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 146.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kaplan"
+          },
+          {
+            "kind": "eser",
+            "term": "medeniyet tasavvuru"
           },
           {
             "kind": "bibliyografik iz",
@@ -9767,6 +10855,74 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 142.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "simmel"
+          },
+          {
+            "kind": "kavram",
+            "term": "metropol"
+          },
+          {
+            "kind": "kavram",
+            "term": "yabanci"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "catisma"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "gizli"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kadinlar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "meseleleri"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 81.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "metropol"
+          },
+          {
+            "kind": "kavram",
+            "term": "yabanci"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "toplumlarin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insasi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kultur"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefi"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-3/",
         "title": "Bölüm 3",
         "score": 72.6,
@@ -9819,6 +10975,28 @@
           {
             "kind": "bibliyografik iz",
             "term": "modern"
+          }
+        ]
+      }
+    ],
+    "attila-ilhan": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ilhan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hangi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bati"
           }
         ]
       }
@@ -9898,6 +11076,30 @@
             "kind": "metin içi atıf",
             "term": "adorno"
           },
+          {
+            "kind": "kavram",
+            "term": "kultur endustrisi"
+          },
+          {
+            "kind": "eser",
+            "term": "kultur endustrisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "endustrisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kultur"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 77.4,
+        "strength": "muhtemel",
+        "evidence": [
           {
             "kind": "kavram",
             "term": "kultur endustrisi"
@@ -10309,6 +11511,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 79.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "foucault"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "gerekir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "toplumu"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/5-kisim-situasyonist-enternasyonel/",
         "title": "5. KISIM : SİTÜASYONİST ENTERNASYONEL",
         "score": 79.4,
@@ -10630,6 +11856,26 @@
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
         "score": 186.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "michel foucault"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "foucault"
+          },
+          {
+            "kind": "kavram",
+            "term": "soylem"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 166.0,
         "strength": "çok güçlü",
         "evidence": [
           {
@@ -11037,6 +12283,34 @@
           {
             "kind": "bibliyografik iz",
             "term": "cinsiyet"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 82.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kolektif"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "agaclari"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "aylik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dayanismanin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "omer"
           }
         ]
       },
@@ -11719,6 +12993,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kucuk"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kucuk"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
         "score": 90.0,
@@ -12253,6 +13551,22 @@
           {
             "kind": "bibliyografik iz",
             "term": "varlik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 145.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "jean paul sartre"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "sartre"
           }
         ]
       },
@@ -13427,6 +14741,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "sezgi"
+          },
+          {
+            "kind": "kavram",
+            "term": "sure"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
         "score": 60.0,
@@ -14245,6 +15575,26 @@
             "term": "efendi"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "efendi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hikmet"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ahlak"
+          }
+        ]
       }
     ],
     "selanikli-fazli-necib": [
@@ -14257,6 +15607,34 @@
           {
             "kind": "metin içi atıf",
             "term": "necib"
+          }
+        ]
+      }
+    ],
+    "salih-aydin": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aydin"
+          }
+        ]
+      }
+    ],
+    "muallim-naci": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 95.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "muallim naci"
           }
         ]
       }
@@ -14288,6 +15666,18 @@
       }
     ],
     "bereketzade-ismail-hakki": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
@@ -14549,6 +15939,22 @@
           {
             "kind": "kavram",
             "term": "magara alegorisi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "devlet"
+          },
+          {
+            "kind": "kavram",
+            "term": "diyalog"
           }
         ]
       },
@@ -14831,6 +16237,36 @@
         ]
       }
     ],
+    "ahmet-hamdi-tanpinar": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 197.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "ahmet hamdi tanpinar"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "tanpinar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "asir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "edebiyati"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "turk"
+          }
+        ]
+      }
+    ],
     "kubilay-aysever": [
       {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
@@ -14859,6 +16295,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 78.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "saglam"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ilim"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bediuzzaman"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
         "title": "Bölüm 1 · Metafizik",
         "score": 78.4,
@@ -14875,6 +16331,18 @@
           {
             "kind": "bibliyografik iz",
             "term": "usul"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "saglam"
           }
         ]
       }
@@ -14897,6 +16365,18 @@
           {
             "kind": "bibliyografik iz",
             "term": "varolusculuk"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "savas"
           }
         ]
       },
@@ -15045,6 +16525,28 @@
         ]
       }
     ],
+    "mustafa-gunay": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "gunay"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tarihinde"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insan"
+          }
+        ]
+      }
+    ],
     "gilbert-simondon": [
       {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-3/",
@@ -15064,6 +16566,26 @@
       }
     ],
     "mehmet-bilen": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bilen"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hadis"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bediuzzaman"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-12-insan-metafizigi-benlik-kimlik-kisilik/",
         "title": "Bölüm 12 · İnsan Metafiziği: Benlik, Kimlik, Kişilik",
@@ -15105,6 +16627,18 @@
           {
             "kind": "bibliyografik iz",
             "term": "said"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bilen"
           }
         ]
       },
@@ -15185,6 +16719,22 @@
           {
             "kind": "eser",
             "term": "felsefe tarihi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 91.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "weber"
+          },
+          {
+            "kind": "kavram",
+            "term": "burokrasi"
           }
         ]
       },
@@ -15371,6 +16921,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "serif"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "klasik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "islam"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 58.4,
@@ -15392,6 +16962,18 @@
       }
     ],
     "prof-dr-mahmut-kaplan": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kaplan"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/1-mukaddime/",
         "title": "1- MUKADDİME",
@@ -15473,6 +17055,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 62.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kitapci"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "iman"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "anadolu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hareketi"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 62.6,
@@ -15493,6 +17099,32 @@
           {
             "kind": "bibliyografik iz",
             "term": "hareketi"
+          }
+        ]
+      }
+    ],
+    "suleyman-hayri-bolay": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 233.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "suleyman hayri bolay"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "bolay"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "mucadelesi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "turkiye"
           }
         ]
       }
@@ -15519,6 +17151,56 @@
           {
             "kind": "metin içi atıf",
             "term": "arslan"
+          }
+        ]
+      }
+    ],
+    "nurcan-demir": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "demir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ahmet"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "gonul"
+          }
+        ]
+      }
+    ],
+    "prof-dr-mehmet-aydin": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aydin"
+          }
+        ]
+      }
+    ],
+    "yasin-ramazan": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ramazan"
           }
         ]
       }
@@ -15597,6 +17279,30 @@
           {
             "kind": "bibliyografik iz",
             "term": "felsefeye"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yazmak"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 62.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "yildiz"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yazi"
           },
           {
             "kind": "bibliyografik iz",
@@ -15729,6 +17435,22 @@
             "term": "arti deger"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "uretim iliskileri"
+          },
+          {
+            "kind": "kavram",
+            "term": "yabancilasma"
+          }
+        ]
       }
     ],
     "yunus-cakir": [
@@ -15783,6 +17505,30 @@
           {
             "kind": "bibliyografik iz",
             "term": "estetik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bagli"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bagli"
           }
         ]
       },
@@ -16043,6 +17789,34 @@
     ],
     "remzi-demir": [
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 66.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "demir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dogusu"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "emre"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yunus"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "turk"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 64.8,
@@ -16063,6 +17837,26 @@
           {
             "kind": "bibliyografik iz",
             "term": "yunus"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "turk"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "demir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dogusu"
           },
           {
             "kind": "bibliyografik iz",
@@ -16177,6 +17971,18 @@
     ],
     "babanzade-ismail-hakki": [
       {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
         "score": 90.0,
@@ -16255,6 +18061,26 @@
           {
             "kind": "bibliyografik iz",
             "term": "mukaddime"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "tercume"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "sahib"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "haldun"
           },
           {
             "kind": "bibliyografik iz",
@@ -16361,6 +18187,26 @@
           {
             "kind": "kavram",
             "term": "risale i nur"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 81.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "bediuzzaman"
+          },
+          {
+            "kind": "kavram",
+            "term": "ene"
+          },
+          {
+            "kind": "kavram",
+            "term": "tecelli"
           }
         ]
       },
@@ -16515,6 +18361,18 @@
           {
             "kind": "bibliyografik iz",
             "term": "arabi"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakim"
           }
         ]
       },
@@ -17027,6 +18885,20 @@
         ]
       }
     ],
+    "kinali-zade-ali-celebi": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "celebi"
+          }
+        ]
+      }
+    ],
     "fuad-koprulu": [
       {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
@@ -17049,6 +18921,70 @@
           {
             "kind": "bibliyografik iz",
             "term": "turk"
+          }
+        ]
+      }
+    ],
+    "katip-celebi": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "celebi"
+          }
+        ]
+      }
+    ],
+    "sina-aksin": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
+        "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 79.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aksin"
+          },
+          {
+            "kind": "kavram",
+            "term": "necat"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yuzyil"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kisa"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 68.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "necat"
+          },
+          {
+            "kind": "kavram",
+            "term": "sifa"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yuzyil"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kisa"
           }
         ]
       }
@@ -17117,6 +19053,36 @@
         ]
       }
     ],
+    "prof-dr-mustafa-turan": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 66.8,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "turan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "acidan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "milli"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "mucadele"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "siyasi"
+          }
+        ]
+      }
+    ],
     "ebu-hilal-el-askeri": [
       {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-5/",
@@ -17159,6 +19125,20 @@
           {
             "kind": "bibliyografik iz",
             "term": "dili"
+          }
+        ]
+      }
+    ],
+    "muslid-b-suleyman": [
+      {
+        "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
+        "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "başlık/özet",
+            "term": "suleyman"
           }
         ]
       }
