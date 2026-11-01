@@ -220,5 +220,15 @@
     "cover": "/assets/uploads/2026-10-31/1e2ab042-0d7c-4b87-8265-860b63cda9cb.png",
     "fallback": "burgundy",
     "createdAt": "2026-10-31T18:42:58.082Z"
+  },
+  {
+    "id": "kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris",
+    "title": "Dil Felsefesine Giriş",
+    "author": "Zeki Özcan",
+    "description": "Dil felsefesi, ifadeleri anlam açısından analiz eder; sözcelerin anlam koşullarını belirler; hangi durumlarda anlamsız olduklarını araştırır; felsefi problemlerin anlam sorunlarından ibaret olduğunu kabul eder; bunları dildeki belirsizlikleri gidererek çözmeye çalışır. Dil ve anlam birbirinden bağımsız değildir. Anlam dilin ereğidir, dil anlamın aracıdır. Kitabımızda sadece dili ve anlamı ele aldık. Çalışmamız şurealitenin açılımından ibarettir.",
+    "category": "kitap-notlari/felsefe/dil-felsefesi",
+    "cover": "/assets/uploads/2026-11-01/b4e47f57-8b66-4a33-856b-fb422969a7c4.png",
+    "fallback": "teal",
+    "createdAt": "2026-11-01T05:09:50.436Z"
   }
 ]
