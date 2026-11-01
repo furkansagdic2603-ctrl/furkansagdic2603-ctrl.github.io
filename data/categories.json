@@ -215,5 +215,10 @@
     "slug": "metafizik",
     "name": "Metafizik",
     "parent": "kitap-notlari/felsefe"
+  },
+  {
+    "slug": "estetik-suut-kemal-yetkin",
+    "name": "Estetik-Suut Kemal Yetkin",
+    "parent": "kitap-notlari/felsefe/estetik-felsefesi"
   }
 ]
