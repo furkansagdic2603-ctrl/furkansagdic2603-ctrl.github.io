@@ -462,16 +462,19 @@ Deno.serve(async req => {
     if (input.action === 'load_about' || input.action === 'save_about') {
       const path = 'data/about.json';
       const response = await fetch(ghUrl(path), { headers: ghHeaders(token) });
-      if (!response.ok) throw new Error('Hakkımda metni alınamadı. Daha sonra yeniden dene.');
+      if (!response.ok) throw new Error('Hakkımda içeriği alınamadı. Daha sonra yeniden dene.');
       const file = await response.json();
       const current = JSON.parse(decode(file.content));
       if (typeof current.text !== 'string') throw new Error('Kayıtlı Hakkımda metni geçersiz.');
-      if (input.action === 'load_about') return result({ text: current.text, sha: file.sha });
+      const currentPhoto = typeof current.photo === 'string' ? current.photo : '';
+      if (input.action === 'load_about') return result({ text: current.text, photo: currentPhoto, sha: file.sha });
       const text = typeof input.text === 'string' ? input.text.trim() : '';
+      const photo = typeof input.photo === 'string' ? input.photo.trim() : currentPhoto;
       if (!text || text.length > 30000) return result({ error: '1–30.000 karakter arasında bir metin yaz.' }, 400);
-      if (input.sha !== file.sha) return result({ error: 'Metin başka bir işlemle değişti. Kendi metnini kopyalayıp kayıtlı metni yeniden yükle.' }, 409);
-      const sha = await putFile(token, path, JSON.stringify({ text }, null, 2) + '\n', 'Update about page', file.sha);
-      return result({ text, sha });
+      if (photo.length > 500 || (photo && (!photo.startsWith('/assets/uploads/') || photo.includes('..') || /[\r\n]/.test(photo)))) return result({ error: 'Hakkımda fotoğraf adresi geçersiz.' }, 400);
+      if (input.sha !== file.sha) return result({ error: 'İçerik başka bir işlemle değişti. Kendi metnini kopyalayıp kayıtlı içeriği yeniden yükle.' }, 409);
+      const sha = await putFile(token, path, JSON.stringify({ text, photo }, null, 2) + '\n', 'Update about page', file.sha);
+      return result({ text, photo, sha });
     }
     if (input.action === 'load_contact' || input.action === 'save_contact') {
       const path = 'data/contact.json';

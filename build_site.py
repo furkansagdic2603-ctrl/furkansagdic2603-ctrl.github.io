@@ -26,7 +26,7 @@ FOLIO_ART['arsiv'] = ''
 
 def doc(title, main, active='', description='Furkan Sağdıç’ın yazıları ve notları.'):
     folio = active if active in FOLIO_ART else ''
-    folio_css = '<link rel="stylesheet" href="/folio-pages.css?v=20261021-authors1">' if folio else ''
+    folio_css = '<link rel="stylesheet" href="/folio-pages.css?v=20261101-aboutphoto1">' if folio else ''
     folio_body = f' data-folio="{folio}"' if folio else ''
     if folio:
         main = main.replace('<section class="page-head">', '<section class="page-head folio-head"><div class="folio-heading">', 1)
@@ -278,9 +278,15 @@ write('kitap-notlari/sinema/sinemanin-kokleri/index.html',doc('Sinemanın Kökle
 archive='<section class="page-head"><span class="eyebrow">TÜM YAZILAR</span><h1>Arşiv</h1><p>Yazılar ve okuma notları</p></section><section class="entries">'+''.join(card(a) for a in visible)+'</section>'
 write('arsiv/index.html',doc('Arşiv',archive,'arsiv'))
 write('arama/index.html',doc('Yazılarda ara','<section class="page-head"><span class="eyebrow">YAZILAR</span><h1>Ara</h1><label class="search-label" for="site-search">Başlık, kategori veya açıklama</label><div class="search-field"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.8" cy="10.8" r="6.5"/><path d="m16 16 5 5"/></svg><input id="site-search" type="search" placeholder="Yazılarda arayın…" autofocus autocomplete="off"></div><p id="result-count" aria-live="polite"></p></section><section class="entries" id="search-results"></section>',description='Furkan Sağdıç’ın yazılarında arama.'))
-about_text = json.loads((ROOT/'data/about.json').read_text(encoding='utf-8'))['text']
+about_data = json.loads((ROOT/'data/about.json').read_text(encoding='utf-8'))
+about_text = about_data['text']
+about_photo = str(about_data.get('photo') or '').strip()
 about_body = ''.join('<p dir="auto">' + escape(paragraph).replace('\n', '<br>') + '</p>' for paragraph in re.split(r'\n\s*\n', about_text.strip()))
-write('hakkimda/index.html',doc('Hakkımda','<section class="page-head"><span class="eyebrow">YAZAR</span><h1>Hakkımda</h1></section><div class="prose static-copy">'+about_body+'</div>','hakkimda'))
+about_copy = '<div class="prose static-copy">'+about_body+'</div>'
+if about_photo.startswith('/assets/uploads/') and '..' not in about_photo:
+    about_photo_html = '<figure class="about-portrait"><div class="about-portrait-frame"><img src="' + escape(about_photo, quote=True) + '" alt="Furkan Sağdıç" decoding="async"></div></figure>'
+    about_copy = '<div class="about-profile-layout">' + about_photo_html + about_copy + '</div>'
+write('hakkimda/index.html',doc('Hakkımda','<section class="page-head"><span class="eyebrow">YAZAR</span><h1>Hakkımda</h1></section>'+about_copy,'hakkimda'))
 write('kaynakca/index.html',doc('Kaynakça',(ROOT/'bibliography_content.html').read_text(encoding='utf-8'),'kaynakca','Furkan Sağdıç’ın kişisel kütüphanesi: kitaplar, yazarlar ve yayınevleri.'))
 from book_navigation import build_book_navigation
 build_book_navigation(ROOT, doc, write)
