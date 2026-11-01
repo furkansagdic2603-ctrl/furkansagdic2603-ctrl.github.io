@@ -27,6 +27,29 @@
     ]
   },
   {
+    "id": "kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik",
+    "title": "Estetik",
+    "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/",
+    "chapters": [
+      {
+        "title": "Birinci Kısım",
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-1/"
+      },
+      {
+        "title": "İkinci Kısım · San'at",
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-2/"
+      },
+      {
+        "title": "Üçüncü Kısım",
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-3/"
+      },
+      {
+        "title": "Dördüncü Kısım",
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-4/"
+      }
+    ]
+  },
+  {
     "id": "kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri",
     "title": "Gündelik Hayat Tenkidleri",
     "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/",

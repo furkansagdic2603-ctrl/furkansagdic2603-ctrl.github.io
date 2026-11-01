@@ -4933,6 +4933,22 @@
     ],
     "auguste-comte": [
       {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-2/",
+        "title": "İkinci Kısım · San'at",
+        "score": 165.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "auguste comte"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "comte"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/1-mukaddime/",
         "title": "1- MUKADDİME",
         "score": 165.0,
@@ -7724,6 +7740,70 @@
       }
     ],
     "suut-kemal-yetkin": [
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-1/",
+        "title": "Birinci Kısım",
+        "score": 225.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "suut kemal yetkin"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "yetkin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-4/",
+        "title": "Dördüncü Kısım",
+        "score": 225.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "suut kemal yetkin"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "yetkin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-2/",
+        "title": "İkinci Kısım · San'at",
+        "score": 225.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "suut kemal yetkin"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "yetkin"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-3/",
+        "title": "Üçüncü Kısım",
+        "score": 225.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "suut kemal yetkin"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "yetkin"
+          }
+        ]
+      },
       {
         "url": "/felsefe/estetik/suut-kemal-yetkin-estetik/",
         "title": "Estetik (Müellif: Suut Kemal Yetkin)",
@@ -15191,6 +15271,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-2/",
+        "title": "İkinci Kısım · San'at",
+        "score": 71.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bergson"
+          },
+          {
+            "kind": "kavram",
+            "term": "sure"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-08-zamana-yazgili-olmak-ve-mekanda-kaybolan-zaman-zamana-dair-bir-sorgulama/",
         "title": "Bölüm 8 · Zamana Yazgılı Olmak ve Mekânda Kaybolan Zaman (Zamana Dair Bir Sorgulama)",
         "score": 71.0,
@@ -16443,6 +16539,22 @@
           {
             "kind": "kavram",
             "term": "idealar"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-2/",
+        "title": "İkinci Kısım · San'at",
+        "score": 91.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "eflatun"
+          },
+          {
+            "kind": "kavram",
+            "term": "devlet"
           }
         ]
       },
@@ -18393,8 +18505,8 @@
         ]
       },
       {
-        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/2-dada-ve-surrealizm/",
-        "title": "2-DADA VE SÜRREALİZM",
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-2/",
+        "title": "İkinci Kısım · San'at",
         "score": 70.0,
         "strength": "muhtemel",
         "evidence": [
@@ -18405,8 +18517,8 @@
         ]
       },
       {
-        "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-17-kader-uzerine/",
-        "title": "Bölüm 17 · Kader Üzerine",
+        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/2-dada-ve-surrealizm/",
+        "title": "2-DADA VE SÜRREALİZM",
         "score": 70.0,
         "strength": "muhtemel",
         "evidence": [

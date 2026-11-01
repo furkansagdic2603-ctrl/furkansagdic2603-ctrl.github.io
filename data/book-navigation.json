@@ -347,7 +347,24 @@
   },
   "kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik": {
     "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/",
-    "notes": [],
+    "notes": [
+      {
+        "title": "Birinci Kısım",
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-1/"
+      },
+      {
+        "title": "İkinci Kısım · San'at",
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-2/"
+      },
+      {
+        "title": "Üçüncü Kısım",
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-3/"
+      },
+      {
+        "title": "Dördüncü Kısım",
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-4/"
+      }
+    ],
     "title": "Estetik"
   }
 }
