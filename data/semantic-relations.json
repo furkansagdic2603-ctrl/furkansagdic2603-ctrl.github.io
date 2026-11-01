@@ -1463,6 +1463,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 123.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "heidegger"
+          },
+          {
+            "kind": "kavram",
+            "term": "dasein"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "demektir"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "problemi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusunmek"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "zaman"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-4/",
         "title": "Bölüm 4 · İmge, Sanat Gelenekleri ve Sinemaya Giriş",
         "score": 119.4,
@@ -2061,6 +2093,34 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 115.2,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "descartes"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kurallar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "konusma"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ilkeleri"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yontem"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/henri-lefebvre-siradanin-filozofu/",
         "title": "4-Henri Lefebvre: Sıradanın Filozofu",
         "score": 87.8,
@@ -2650,6 +2710,34 @@
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
         "score": 73.2,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "felsefe tarihi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "egitim"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bilgi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "buyuk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "etik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 69.0,
         "strength": "muhtemel",
         "evidence": [
           {
@@ -3859,6 +3947,42 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 143.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "spinoza"
+          },
+          {
+            "kind": "kavram",
+            "term": "duygulanim"
+          },
+          {
+            "kind": "kavram",
+            "term": "toz"
+          },
+          {
+            "kind": "kavram",
+            "term": "zorunluluk"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "teolojik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "spinoza"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "inceleme"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-01-metafizik/",
         "title": "Bölüm 1 · Metafizik",
         "score": 138.4,
@@ -4867,6 +4991,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ceviri"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hakikati"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
         "score": 98.4,
@@ -5729,6 +5873,26 @@
     ],
     "ergun-yildirim": [
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 98.4,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "yildirim"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "incelemesi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sosyoloji"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
         "title": "Bölüm 23 · Doğruluk-Gerçeklik",
         "score": 90.0,
@@ -5792,6 +5956,18 @@
       }
     ],
     "emine-sonnur-ozcan": [
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "başlık/özet",
+            "term": "ozcan"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
         "title": "Bölüm 7 · Töz",
@@ -6453,6 +6629,30 @@
     ],
     "ahmet-feyzi-korur": [
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 102.6,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "korur"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "teorisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "elestirisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sanat"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-4/",
         "title": "Bölüm 4",
         "score": 82.6,
@@ -6873,6 +7073,18 @@
       {
         "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
         "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "dogan"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -7757,6 +7969,18 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "ahmet"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
         "score": 90.0,
@@ -7875,6 +8099,18 @@
       {
         "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
         "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -8091,6 +8327,30 @@
     ],
     "zeki-ozcan": [
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 321.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "zeki ozcan"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "ozcan"
+          },
+          {
+            "kind": "eser",
+            "term": "dil felsefesine giris"
+          },
+          {
+            "kind": "eser",
+            "term": "dil felsefesi i"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
         "title": "Bölüm 7 · Töz",
         "score": 70.0,
@@ -8139,6 +8399,30 @@
             "term": "searle"
           }
         ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 82.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "searle"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "anlatmaya"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "soylemek"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "calismak"
+          }
+        ]
       }
     ],
     "mark-richard": [
@@ -8180,6 +8464,18 @@
       }
     ],
     "derleyen-zeki-ozcan": [
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "başlık/özet",
+            "term": "ozcan"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
         "title": "Bölüm 7 · Töz",
@@ -8535,6 +8831,38 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 81.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "kaygi"
+          },
+          {
+            "kind": "kavram",
+            "term": "ya ya da"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "bastan"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "evliligin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "parca"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "korku"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
         "score": 81.0,
@@ -8879,6 +9207,28 @@
           {
             "kind": "bibliyografik iz",
             "term": "metafizik"
+          }
+        ]
+      }
+    ],
+    "egitim-serisi": [
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "serisi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ingilizce"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "okuma"
           }
         ]
       }
@@ -9749,6 +10099,42 @@
           {
             "kind": "bibliyografik iz",
             "term": "etik"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 179.4,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "aristoteles"
+          },
+          {
+            "kind": "kavram",
+            "term": "dort neden"
+          },
+          {
+            "kind": "kavram",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hayvanlarin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kategoriler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "onermeler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "ekonomi"
           }
         ]
       },
@@ -12287,6 +12673,34 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 91.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kolektif"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "agaclari"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "filozof"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sayi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "alfabesi"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
         "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
         "score": 82.0,
@@ -13017,6 +13431,18 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "kucuk"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
         "score": 90.0,
@@ -13224,6 +13650,38 @@
       }
     ],
     "ludwig-wittgenstein": [
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 162.6,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "wittgenstein"
+          },
+          {
+            "kind": "kavram",
+            "term": "dil oyunu"
+          },
+          {
+            "kind": "kavram",
+            "term": "ozel dil"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kesinlik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dusunceler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefi"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-5/",
         "title": "Bölüm 5",
@@ -13853,6 +14311,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "leibniz"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yeni"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "insan"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/3-bakhtin-in-aleladelik-tahayyulu/",
         "title": "3-BAKHTİN'İN ALELADELİK TAHAYYÜLÜ",
         "score": 58.4,
@@ -14249,6 +14727,34 @@
           {
             "kind": "bibliyografik iz",
             "term": "yolu"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 115.2,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "russell"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "evlilik"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "mantiksal"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "sorunlari"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefede"
           }
         ]
       },
@@ -14757,6 +15263,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "sezgi"
+          },
+          {
+            "kind": "kavram",
+            "term": "sure"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sanat/sanat-saadettin-ustaosmanoglu/sanat-dogrunun-olmadigi-yerde-guzel-de-yoktur/",
         "title": "Sanat - Doğrunun Olmadığı Yerde Güzel de Yoktur",
         "score": 60.0,
@@ -14880,6 +15402,18 @@
       }
     ],
     "gottlob-frege": [
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "frege"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/dil-felsefesi/50-soruda-dil-felsefesi/",
         "title": "50 Soruda Dil Felsefesi",
@@ -15511,6 +16045,18 @@
     ],
     "der-zeki-ozcan": [
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "başlık/özet",
+            "term": "ozcan"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
         "title": "Bölüm 7 · Töz",
         "score": 70.0,
@@ -15625,6 +16171,20 @@
         ]
       }
     ],
+    "i-b-bravo-h-bravo": [
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bravo"
+          }
+        ]
+      }
+    ],
     "muallim-naci": [
       {
         "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
@@ -15669,6 +16229,18 @@
       {
         "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
         "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -16283,6 +16855,18 @@
     ],
     "bahaeddin-saglam": [
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "saglam"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-07-toz/",
         "title": "Bölüm 7 · Töz",
         "score": 90.0,
@@ -16371,6 +16955,18 @@
       {
         "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
         "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "savas"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -16643,6 +17239,18 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 70.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bilen"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/sinema/sinemanin-kokleri/bolum-5/",
         "title": "Bölüm 5 · Kayıp Hikmetin Peşinde",
         "score": 70.0,
@@ -16676,6 +17284,18 @@
       }
     ],
     "cemal-yildirim": [
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "yildirim"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-23-dogruluk-gerceklik/",
         "title": "Bölüm 23 · Doğruluk-Gerçeklik",
@@ -17315,6 +17935,30 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 62.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "yildiz"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "yazi"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefeye"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "felsefi"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/turk-felsefesi-nin-dogusu/",
         "title": "Türk Felsefesi'nin Doğuşu",
         "score": 62.6,
@@ -17523,6 +18167,18 @@
       {
         "url": "/kitap-notlari/mecmualar/sehirlerin-dili/5-kisim-sorusturma/",
         "title": "5.KISIM-SORUŞTURMA",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bagli"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -17759,18 +18415,6 @@
             "term": "bagli"
           }
         ]
-      },
-      {
-        "url": "/kitap-notlari/felsefe/estetik-felsefesi/1-estetik/",
-        "title": "1-Estetik",
-        "score": 70.0,
-        "strength": "muhtemel",
-        "evidence": [
-          {
-            "kind": "metin içi atıf",
-            "term": "bagli"
-          }
-        ]
       }
     ],
     "zigardelakizade-salih-nabi": [
@@ -17973,6 +18617,18 @@
       {
         "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
         "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakki"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -18263,6 +18919,22 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 60.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "kavram",
+            "term": "ene"
+          },
+          {
+            "kind": "kavram",
+            "term": "tecelli"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/siir-denemem/",
         "title": "CEMİL SENA - ESTETİK (1931)",
         "score": 60.0,
@@ -18367,6 +19039,18 @@
       {
         "url": "/kitap-notlari/mecmualar/sehirlerin-dili/4-kisim-sehir-ve-kultur/",
         "title": "4.KISIM-ŞEHİR VE KÜLTÜR",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "hakim"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
         "score": 90.0,
         "strength": "güçlü",
         "evidence": [
@@ -19083,6 +19767,32 @@
         ]
       }
     ],
+    "ismail-hakki-bursevi": [
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 60.6,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "eser",
+            "term": "kelimeler arasindaki farklar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "arasindaki"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "kelimeler"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "farklar"
+          }
+        ]
+      }
+    ],
     "ebu-hilal-el-askeri": [
       {
         "url": "/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/bolum-5/",
@@ -19105,6 +19815,26 @@
           {
             "kind": "metin içi atıf",
             "term": "askeri"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "askeri"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "farklar"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dili"
           }
         ]
       },
@@ -19255,6 +19985,26 @@
           {
             "kind": "metin içi atıf",
             "term": "gormez"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/",
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "score": 58.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "gormez"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "dilinden"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hakkin"
           }
         ]
       }

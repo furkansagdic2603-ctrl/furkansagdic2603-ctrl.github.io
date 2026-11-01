@@ -337,7 +337,12 @@
   },
   "kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris": {
     "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris/",
-    "notes": [],
+    "notes": [
+      {
+        "title": "Dil Felsefesine Giriş-Zeki Özcan",
+        "url": "/kitap-notlari/felsefe/dil-felsefesi/dil-felsefesine-giris-zeki-ozcan/"
+      }
+    ],
     "title": "Dil Felsefesine Giriş"
   }
 }
