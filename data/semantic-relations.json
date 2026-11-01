@@ -2267,6 +2267,22 @@
     ],
     "leibniz": [
       {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/birinci-kisim/",
+        "title": "Birinci Kısım",
+        "score": 185.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "leibniz"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/4-kisim-onotloji/",
         "title": "4. KISIM - ONOTLOJİ",
         "score": 90.0,
@@ -4703,6 +4719,20 @@
         ]
       }
     ],
+    "francis-bacon": [
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/ikinci-kisim-sanat/",
+        "title": "İkinci Kısım · San'at",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "başlık/özet",
+            "term": "bacon"
+          }
+        ]
+      }
+    ],
     "gottfried-wilhelm-leibniz": [
       {
         "url": "/kitap-notlari/felsefe/4-kisim-onotloji/",
@@ -4764,6 +4794,18 @@
           },
           {
             "kind": "metin içi atıf",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/birinci-kisim/",
+        "title": "Birinci Kısım",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "başlık/özet",
             "term": "leibniz"
           }
         ]
@@ -4934,6 +4976,22 @@
     "auguste-comte": [
       {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-2/",
+        "title": "İkinci Kısım · San'at",
+        "score": 165.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "auguste comte"
+          },
+          {
+            "kind": "metin içi atıf",
+            "term": "comte"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/ikinci-kisim-sanat/",
         "title": "İkinci Kısım · San'at",
         "score": 165.0,
         "strength": "çok güçlü",
@@ -7740,6 +7798,22 @@
       }
     ],
     "suut-kemal-yetkin": [
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/birinci-kisim/",
+        "title": "Birinci Kısım",
+        "score": 225.0,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "suut kemal yetkin"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "yetkin"
+          }
+        ]
+      },
       {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-1/",
         "title": "Birinci Kısım",
@@ -14339,6 +14413,18 @@
         ]
       },
       {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/birinci-kisim/",
+        "title": "Birinci Kısım",
+        "score": 90.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "başlık/özet",
+            "term": "leibniz"
+          }
+        ]
+      },
+      {
         "url": "/kitap-notlari/felsefe/metafizik/metafizik-kavram-ve-problemleriyle-varlik-felsefesi/bolum-21-ozdeslik-ve-suredurum/",
         "title": "Bölüm 21 · Özdeşlik ve Süredurum",
         "score": 90.0,
@@ -15272,6 +15358,22 @@
       },
       {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-2/",
+        "title": "İkinci Kısım · San'at",
+        "score": 71.0,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "bergson"
+          },
+          {
+            "kind": "kavram",
+            "term": "sure"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/ikinci-kisim-sanat/",
         "title": "İkinci Kısım · San'at",
         "score": 71.0,
         "strength": "muhtemel",
@@ -16544,6 +16646,22 @@
       },
       {
         "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/bolum-2/",
+        "title": "İkinci Kısım · San'at",
+        "score": 91.0,
+        "strength": "güçlü",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "eflatun"
+          },
+          {
+            "kind": "kavram",
+            "term": "devlet"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/ikinci-kisim-sanat/",
         "title": "İkinci Kısım · San'at",
         "score": 91.0,
         "strength": "güçlü",
@@ -18517,8 +18635,8 @@
         ]
       },
       {
-        "url": "/kitap-notlari/felsefe/gundelik-hayat-felsefesi/gundelik-hayat-tenkidleri/2-dada-ve-surrealizm/",
-        "title": "2-DADA VE SÜRREALİZM",
+        "url": "/kitap-notlari/felsefe/estetik-felsefesi/estetik-suut-kemal-yetkin/estetik/ikinci-kisim-sanat/",
+        "title": "İkinci Kısım · San'at",
         "score": 70.0,
         "strength": "muhtemel",
         "evidence": [
