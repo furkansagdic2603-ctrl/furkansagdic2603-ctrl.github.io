@@ -10,7 +10,7 @@ import { createCategories } from './modules/categories.js?v=20261003-booknotes3'
 import { createArticles } from './modules/articles.js?v=20261017-pastefix1';
 import { createComments } from './modules/comments.js';
 import { createStats } from './modules/stats.js';
-import { createAbout } from './modules/about.js?v=20261101-aboutphoto2';
+import { createAbout } from './modules/about.js?v=20261101-aboutphoto3';
 import { createTheme } from './modules/theme.js';
 import { initImages } from './modules/images.js';
 import { initQuotePhotos } from './modules/quote-photos.js';

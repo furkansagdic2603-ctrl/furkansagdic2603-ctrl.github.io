@@ -11,6 +11,7 @@ export function createAbout({ $: byId, callAdmin, page = 'about', label = 'Hakk�
   const photoNote = supportsPhoto ? $('about-photo-note') : null;
   let sha = null, savedText = '', loaded = false, busy = false;
   let photo = '', savedPhoto = '', selectedPhoto = null, localPhotoUrl = '';
+  let photoRevision = '', photoRetry = 0, photoRetryTimer = null;
 
   function revokeLocalPhoto() {
     if (localPhotoUrl) URL.revokeObjectURL(localPhotoUrl);
@@ -73,32 +74,79 @@ export function createAbout({ $: byId, callAdmin, page = 'about', label = 'Hakk�
     return loaded && (text.value !== savedText || (supportsPhoto && (photo !== savedPhoto || Boolean(selectedPhoto))));
   }
 
+  function displayPhotoSource(extra = '') {
+    if (!supportsPhoto) return '';
+    if (localPhotoUrl) return localPhotoUrl;
+    if (!photo) return '';
+    const join = photo.includes('?') ? '&' : '?';
+    const token = encodeURIComponent([photoRevision || sha || 'preview', extra].filter(Boolean).join('-'));
+    return photo + join + 'adminPreview=' + token;
+  }
+
   function previewText() {
-    $('about-preview').replaceChildren(...text.value.trim().split(/\n\s*\n/).filter(Boolean).map(value => {
+    const root = $('about-preview');
+    const copy = document.createElement('div');
+    copy.className = 'about-preview-copy';
+    const paragraphs = text.value.trim().split(/\n\s*\n/).filter(Boolean).map(value => {
       const p = document.createElement('p');
       p.dir = 'auto';
       p.style.whiteSpace = 'pre-line';
       p.textContent = value;
       return p;
-    }));
+    });
+    copy.replaceChildren(...paragraphs);
+
+    if (!supportsPhoto || !(localPhotoUrl || photo)) {
+      root.replaceChildren(copy);
+      return;
+    }
+
+    const layout = document.createElement('div');
+    layout.className = 'about-preview-layout';
+    const figure = document.createElement('figure');
+    figure.className = 'about-preview-portrait';
+    const img = document.createElement('img');
+    img.alt = 'Hakkımda fotoğrafı önizlemesi';
+    img.src = displayPhotoSource('bottom');
+    img.addEventListener('error', () => {
+      figure.classList.add('is-loading');
+      img.hidden = true;
+      const note = document.createElement('span');
+      note.textContent = 'Fotoğraf yayına hazırlanıyor…';
+      figure.replaceChildren(note);
+    }, { once: true });
+    figure.appendChild(img);
+    layout.append(figure, copy);
+    root.replaceChildren(layout);
   }
 
   function previewPhoto() {
     if (!supportsPhoto) return;
-    const source = localPhotoUrl || photo;
-    photoPreview.hidden = !source;
-    photoPlaceholder.hidden = Boolean(source);
-    photoRemove.hidden = !source;
-    if (source) {
-      if (photoPreview.src !== source) photoPreview.src = source;
-    } else {
+    const source = displayPhotoSource();
+    photoRemove.hidden = !(localPhotoUrl || photo);
+
+    if (!source) {
+      if (photoRetryTimer) clearTimeout(photoRetryTimer);
+      photoRetryTimer = null;
+      photoRetry = 0;
+      photoPreview.hidden = true;
+      photoPlaceholder.hidden = false;
+      photoPlaceholder.textContent = 'Fotoğraf yok';
       photoPreview.removeAttribute('src');
+      photoNote.textContent = 'Henüz fotoğraf eklenmedi.';
+      previewText();
+      return;
     }
+
+    photoPreview.hidden = false;
+    photoPlaceholder.hidden = true;
+    if (photoPreview.getAttribute('src') !== source) photoPreview.src = source;
     photoNote.textContent = selectedPhoto
       ? 'Yeni fotoğraf seçildi. “Kaydet ve yayımla” ile siteye gönderilecek.'
-      : photo
-        ? 'Kayıtlı fotoğraf. Yeni bir fotoğraf seçebilir veya kaldırabilirsin.'
-        : 'Henüz fotoğraf eklenmedi.';
+      : localPhotoUrl
+        ? 'Fotoğraf kaydedildi. Yerel önizleme gösteriliyor; site yayını hazırlanıyor.'
+        : 'Kayıtlı fotoğraf. Yeni bir fotoğraf seçebilir veya kaldırabilirsin.';
+    previewText();
   }
 
   function controls() {
@@ -122,6 +170,8 @@ export function createAbout({ $: byId, callAdmin, page = 'about', label = 'Hakk�
         selectedPhoto = null;
         photo = typeof data.photo === 'string' ? data.photo : '';
         savedPhoto = photo;
+        photoRevision = data.sha || String(Date.now());
+        photoRetry = 0;
         previewPhoto();
       }
       previewText(); status.textContent = 'Kayıtlı içerik yüklendi.';
@@ -159,9 +209,38 @@ export function createAbout({ $: byId, callAdmin, page = 'about', label = 'Hakk�
       status.textContent = 'Fotoğraf kaldırılacak. Değişikliği yayımlamak için kaydet.';
     });
 
+    photoPreview.addEventListener('load', () => {
+      photoRetry = 0;
+      if (photoRetryTimer) clearTimeout(photoRetryTimer);
+      photoRetryTimer = null;
+      photoPreview.hidden = false;
+      photoPlaceholder.hidden = true;
+      if (!selectedPhoto && !localPhotoUrl && photo) {
+        photoNote.textContent = 'Kayıtlı fotoğraf hazır.';
+      }
+      previewText();
+    });
+
     photoPreview.addEventListener('error', () => {
-      if (!selectedPhoto) {
-        photoNote.textContent = 'Kayıtlı fotoğraf yüklenemedi. Yeni bir fotoğraf seçebilirsin.';
+      if (selectedPhoto || localPhotoUrl || !photo) return;
+      photoPreview.hidden = true;
+      photoPlaceholder.hidden = false;
+      photoPlaceholder.textContent = 'Fotoğraf yayına hazırlanıyor…';
+      photoNote.textContent = 'Fotoğraf dosyası kayıtlı. Yayın önizlemesi yeniden deneniyor…';
+      if (photoRetry < 4) {
+        photoRetry += 1;
+        if (photoRetryTimer) clearTimeout(photoRetryTimer);
+        photoRetryTimer = setTimeout(() => {
+          if (!photo || localPhotoUrl || selectedPhoto) return;
+          const source = displayPhotoSource('retry-' + photoRetry + '-' + Date.now());
+          photoPreview.hidden = false;
+          photoPlaceholder.hidden = true;
+          photoPreview.src = source;
+          previewText();
+        }, 1200 * photoRetry);
+      } else {
+        photoPlaceholder.textContent = 'Fotoğraf kayıtlı';
+        photoNote.textContent = 'Fotoğraf dosyası mevcut; sayfa yayını tamamlandığında görünecek.';
       }
     });
   }
@@ -195,10 +274,11 @@ export function createAbout({ $: byId, callAdmin, page = 'about', label = 'Hakk�
       const data = await callAdmin('save_' + page, payload);
       sha = data.sha; savedText = data.text; text.value = data.text;
       if (supportsPhoto) {
-        revokeLocalPhoto();
         selectedPhoto = null;
         photo = typeof data.photo === 'string' ? data.photo : photoToSave;
         savedPhoto = photo;
+        photoRevision = data.sha || String(Date.now());
+        photoRetry = 0;
         previewPhoto();
       }
       previewText();
@@ -209,6 +289,7 @@ export function createAbout({ $: byId, callAdmin, page = 'about', label = 'Hakk�
 
   window.addEventListener('beforeunload', event => {
     if (isDirty()) { event.preventDefault(); event.returnValue = ''; }
+    if (!isDirty()) revokeLocalPhoto();
   });
   return { load };
 }

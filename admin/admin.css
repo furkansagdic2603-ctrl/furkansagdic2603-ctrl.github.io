@@ -274,3 +274,14 @@ html[data-theme="dark"] .admin-body{--admin-bg:#14211f;--admin-gold:#d2b578;back
 .about-photo-controls button{justify-self:start}
 .about-photo-controls p{margin:0;color:var(--admin-muted)}
 @media(max-width:620px){.about-photo-admin{display:grid}.about-photo-frame{width:130px}}
+
+
+/* Hakkımda birleşik önizleme */
+.about-page-preview{max-width:none!important}
+.about-preview-layout{display:grid;grid-template-columns:170px minmax(0,1fr);gap:28px;align-items:start}
+.about-preview-copy{min-width:0}
+.about-preview-copy p:first-child{margin-top:0}
+.about-preview-portrait{margin:0;padding:8px;border:1px solid var(--admin-line);background:var(--admin-surface);box-shadow:0 12px 28px #0002;min-height:210px;display:grid;place-items:center}
+.about-preview-portrait img{display:block;width:100%;aspect-ratio:4/5;object-fit:cover;object-position:center top}
+.about-preview-portrait.is-loading{color:var(--admin-muted);font-size:13px;text-align:center;padding:18px}
+@media(max-width:700px){.about-preview-layout{grid-template-columns:1fr}.about-preview-portrait{width:min(70vw,240px);margin:0 auto}}

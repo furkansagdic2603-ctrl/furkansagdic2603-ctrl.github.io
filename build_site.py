@@ -284,7 +284,8 @@ about_photo = str(about_data.get('photo') or '').strip()
 about_body = ''.join('<p dir="auto">' + escape(paragraph).replace('\n', '<br>') + '</p>' for paragraph in re.split(r'\n\s*\n', about_text.strip()))
 about_copy = '<div class="prose static-copy">'+about_body+'</div>'
 if about_photo.startswith('/assets/uploads/') and '..' not in about_photo:
-    about_photo_html = '<figure class="about-portrait"><div class="about-portrait-frame"><img src="' + escape(about_photo, quote=True) + '" alt="Furkan Sağdıç" decoding="async"></div></figure>'
+    about_photo_src = about_photo + ('&' if '?' in about_photo else '?') + 'v=about-photo-1'
+    about_photo_html = '<figure class="about-portrait"><div class="about-portrait-frame"><img src="' + escape(about_photo_src, quote=True) + '" alt="Furkan Sağdıç" decoding="async"></div></figure>'
     about_copy = '<div class="about-profile-layout">' + about_photo_html + about_copy + '</div>'
 write('hakkimda/index.html',doc('Hakkımda','<section class="page-head"><span class="eyebrow">YAZAR</span><h1>Hakkımda</h1></section>'+about_copy,'hakkimda'))
 write('kaynakca/index.html',doc('Kaynakça',(ROOT/'bibliography_content.html').read_text(encoding='utf-8'),'kaynakca','Furkan Sağdıç’ın kişisel kütüphanesi: kitaplar, yazarlar ve yayınevleri.'))
