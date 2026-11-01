@@ -3077,6 +3077,26 @@
         ]
       },
       {
+        "url": "/kitap-notlari/sirat-i-mustakim-sebil-rresad-mecmuasi/kadinlar-arthur-schopenhauer/",
+        "title": "Kadınlar - Arthur Schopenhauer",
+        "score": 78.4,
+        "strength": "muhtemel",
+        "evidence": [
+          {
+            "kind": "metin içi atıf",
+            "term": "nietzsche"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "boyle"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "zerdust"
+          }
+        ]
+      },
+      {
         "url": "/makaleler/felsefe-ve-edebiyat/",
         "title": "Felsefe ve Edebiyat",
         "score": 70.0,
@@ -9079,6 +9099,38 @@
           {
             "kind": "bibliyografik iz",
             "term": "olumun"
+          }
+        ]
+      },
+      {
+        "url": "/kitap-notlari/sirat-i-mustakim-sebil-rresad-mecmuasi/kadinlar-arthur-schopenhauer/",
+        "title": "Kadınlar - Arthur Schopenhauer",
+        "score": 241.8,
+        "strength": "çok güçlü",
+        "evidence": [
+          {
+            "kind": "müellif adı",
+            "term": "arthur schopenhauer"
+          },
+          {
+            "kind": "başlık/özet",
+            "term": "schopenhauer"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "merhamet"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "hayatin"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "akil"
+          },
+          {
+            "kind": "bibliyografik iz",
+            "term": "siyaset"
           }
         ]
       },
