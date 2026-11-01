@@ -169,7 +169,9 @@ for path in sorted(ROOT.glob('*/**/index.html')):
     cover_html = f'<figure class="article-cover"><img src="{escape(cover, quote=True)}" alt="{escape(title, quote=True)} için oluşturulmuş kapak görseli" width="{width}" height="{height}" loading="eager" decoding="async"></figure>' if cover else ''
     cover_attribute = f' data-cover="{escape(cover, quote=True)}"' if cover else ''
     content=f'<div class="article-head">{back_link(parent_url, label)}<div class="eyebrow">{escape(label)} · {escape(date)}</div><h1>{escape(title)}</h1><p class="reading-time">Yaklaşık {minutes} dk okuma · {format(word_count, ",").replace(",", ".")} kelime</p></div>{cover_html}{chapter_note}<article class="{"prose yazi-icerik docx-content" if category == "kitap-notlari" else "prose yazi-icerik"}" data-article="true" data-category="{escape(category_path, quote=True)}"{cover_attribute}>{body}</article>{chapter_navigation}<div class="article-end"><a href="{parent_url}">← {escape(label)} yazıları</a></div>{comments}'
-    write(path.relative_to(ROOT),doc(title,content,category,description))
+    raw_source = path.read_text(encoding='utf-8')
+    if 'data-preserve-word="true"' not in raw_source:
+        write(path.relative_to(ROOT),doc(title,content,category,description))
 
 book_url = '/kitap-notlari/felsefe/bir-birey-nasil-yasayabilir/'
 book = dict(title='Bir birey nasıl yaşayabilir?', date='', description='Deleuze üzerine kitap notları · 5 bölüm', category='kitap-notlari', categoryPath='kitap-notlari/felsefe', url=book_url)
