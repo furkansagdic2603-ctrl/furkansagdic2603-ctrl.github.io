@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   rows=Object.entries(data).flatMap(([volume,entries])=>{
    const option=new Option(volume+'. cilt',volume);
    get('volume').add(option);
-   return entries.map(([issue,date,title,author,printed,pdf],position)=>({volume,issue,date,title,author,printed,pdf,subject:classifications[volume]?.[position],q:normalize(title),a:normalize(author),d:normalize(date)}));
+   return entries.map(([issue,date,title,author,printed,pdf],position)=>({id:volume+'-'+(position+1),volume,issue,date,title,author,printed,pdf,subject:classifications[volume]?.[position],q:normalize(title),a:normalize(author),d:normalize(date)}));
   });
   const coverage=Object.keys(data).length;
   const missing=Array.from({length:25},(_,i)=>i+1).filter(n=>!Object.hasOwn(data,n));
@@ -120,17 +120,46 @@ document.addEventListener('DOMContentLoaded',async()=>{
    &&(!topicField.value||ids.includes(Number(topicField.value)))
    &&(!modeField.value||(modeField.value==='review'?primary<0:String(mode)===modeField.value));
  }
+ const params=new URLSearchParams(location.search);
+ const issueKey=row=>row.volume+':'+row.issue;
+ const issues=[...new Map(rows.map(row=>[issueKey(row),row])).values()]
+  .sort((a,b)=>Number(a.volume)-Number(b.volume)||parseInt(a.issue)-parseInt(b.issue));
+ const selectedIssue=issues.find(row=>issueKey(row)===params.get('sayi'));
+ const selectedArticle=rows.find(row=>row.id===params.get('yazi'));
+ const signature=params.get('imza');
+ function viewLink(label,key,value){
+  const a=document.createElement('a');
+  a.textContent=label;
+  a.href=key?'?'+new URLSearchParams({[key]:value}):'./';
+  return a;
+ }
+ if(selectedArticle||selectedIssue||signature){
+  const view=document.createElement('section');
+  const title=document.createElement('h2');
+  title.textContent=selectedArticle?'Yazı fişi':selectedIssue?selectedIssue.issue+'. sayı · '+selectedIssue.date:'Dizindeki imza: '+signature;
+  view.append(title,viewLink('Arşive dön'));
+  if(selectedIssue){
+   const index=issues.indexOf(selectedIssue);
+   for(const [offset,label] of [[-1,'Önceki sayı'],[1,'Sonraki sayı']]){
+    const neighbor=issues[index+offset];
+    if(neighbor)view.append(' · ',viewLink(label,'sayi',issueKey(neighbor)));
+   }
+  }
+  status.before(view);
+ }
  function render(){
   const [q,a,v,i,d]=fields.map(x=>x.value.trim());
-  const found=rows.filter(r=>matches(r.q,normalize(q))&&matches(r.a,normalize(a))&&(!v||v===r.volume)&&issueMatches(r.issue,i)&&matches(r.d,normalize(d))&&topicMatches(r));
+  const found=selectedArticle?[selectedArticle]:rows.filter(r=>
+   (!selectedIssue||issueKey(r)===issueKey(selectedIssue))&&
+   (!signature||selectedIssue||r.author===signature)&&matches(r.q,normalize(q))&&matches(r.a,normalize(a))&&(!v||v===r.volume)&&issueMatches(r.issue,i)&&matches(r.d,normalize(d))&&topicMatches(r));
   const size=30,total=Math.ceil(found.length/size);
   page=Math.min(page,Math.max(0,total-1));
   status.textContent=found.length.toLocaleString('tr-TR')+' sonuç'+(found.length?'':' · Başka bir başlık, imza veya tarih deneyebilirsin.');
   results.replaceChildren();
   for(const row of found.slice(page*size,(page+1)*size)){
    const article=document.createElement('article');article.className='result';
-   const heading=document.createElement('h3');heading.textContent=row.title;
-   const author=document.createElement('p');author.textContent=row.author||'Yazar kaydı yok';
+   const heading=document.createElement('h3');heading.append(viewLink(row.title,'yazi',row.id));
+   const author=document.createElement('p');if(row.author)author.append(viewLink(row.author,'imza',row.author));else author.textContent='Yazar kaydı yok';
    const meta=document.createElement('p');meta.textContent=[row.volume+'. cilt',row.issue+'. sayı',row.date,'Basılı s. '+row.printed,row.pdf?'PDF s. '+row.pdf:''].filter(Boolean).join(' · ');
    const link=document.createElement('a');
    const volumeLink=document.querySelector('tbody a[href$="/turkce/cilt_'+row.volume+'.pdf"]');
@@ -154,7 +183,17 @@ document.addEventListener('DOMContentLoaded',async()=>{
     badges.append(evidence);
     article.append(badges);
    }
-   if(volumeLink)article.append(link);
+   if(volumeLink)article.append(link,' · ');
+   article.append(viewLink('Sayıyı aç','sayi',issueKey(row)),' ');
+   const copy=document.createElement('button');
+   copy.type='button';
+   copy.textContent='Künyeyi kopyala';
+   copy.onclick=async()=>{
+    const citation=[row.author,'“'+row.title+'”','Sırâtımüstakîm ve Sebîlürreşâd Arşivi',row.volume+'. cilt',row.issue+'. sayı',row.date,row.printed?'s. '+row.printed:'',volumeLink?link.href:''].filter(Boolean).join(', ');
+    try{await navigator.clipboard.writeText(citation);copy.textContent='Künye kopyalandı';}
+    catch{window.prompt('Künyeyi kopyala',citation);}
+   };
+   article.append(copy);
    results.append(article);
   }
   get('pagination').hidden=total<=1;
