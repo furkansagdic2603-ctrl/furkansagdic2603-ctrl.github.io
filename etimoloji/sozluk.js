@@ -14,6 +14,10 @@ const examples = new Map([
   ['kitap', 'Türkçe kitap, Osmanlı Türkçesindeki kitâb biçimi üzerinden Arapça kitāb kelimesinden gelir.'],
   ['etimoloji', 'Türkçeye Fransızca étymologie biçiminden geçmiştir. Fransızca kelimenin gerisinde Latince etymologia ve Eski Yunanca etumología bulunur.']
 ]);
+const translatedExamples = new Map([
+  ['ar:كتاب', 'Kitāb (كِتَاب), Arapçada yazmakla ilgili ك ت ب (k–t–b) kökünden türemiştir.'],
+  ['en:bridge', 'Köprü anlamındaki bridge, Orta İngilizce brigge ve Eski İngilizce bryċġ biçimlerinden gelir.']
+]);
 let active;
 
 function add(tag, text, parent = entry) {
@@ -47,6 +51,8 @@ async function lookup(word, code) {
   try {
     if (code === 'tr' && examples.has(word)) {
       notes = [examples.get(word)];
+    } else if (translatedExamples.has(code + ':' + word)) {
+      notes = [translatedExamples.get(code + ':' + word)];
     } else {
       const index = await parse(wiki, { page: word, prop: 'sections|revid' }, controller.signal);
       const sections = index?.sections ?? [];
@@ -83,10 +89,43 @@ async function lookup(word, code) {
   const title = add('h2', word);
   title.lang = code;
   if (code === 'ar') title.dir = 'rtl';
-  for (const note of notes) add('p', note);
+  const example = translatedExamples.has(code + ':' + word);
+  const sourceUrl = revision ? wiki + '/w/index.php?oldid=' + revision : wiki + '/wiki/' + encodeURIComponent(sourcePage);
+  if (code === 'tr' || example) {
+    for (const note of notes) add('p', note);
+  } else if (notes.length) {
+    const translation = add('div', '');
+    const fallback = add('a', 'Türkçe çeviriyi aç');
+    fallback.href = 'https://translate.google.com/translate?' + new URLSearchParams({ sl: 'en', tl: 'tr', u: sourceUrl });
+    const original = add('details', '');
+    add('summary', 'Özgün İngilizce açıklama', original);
+    for (const note of notes) add('p', note, original).lang = 'en';
+    if (globalThis.Translator) {
+      const button = add('button', 'Türkçeye çevir');
+      button.type = 'button';
+      button.onclick = async () => {
+        button.disabled = true;
+        translation.textContent = 'Türkçeye çevriliyor…';
+        let translator;
+        try {
+          translator = await Translator.create({ sourceLanguage: 'en', targetLanguage: 'tr', signal: controller.signal });
+          const results = [];
+          for (const note of notes) results.push(await translator.translate(note, { signal: controller.signal }));
+          translation.replaceChildren();
+          for (const text of results) add('p', text, translation);
+          button.remove();
+        } catch {
+          translation.textContent = 'Tarayıcıda çeviri kullanılamadı. Türkçe çeviri bağlantısını açabilirsin.';
+          button.disabled = false;
+        } finally {
+          translator?.destroy();
+        }
+      };
+    }
+  }
   const sources = add('p', 'Kaynak · ');
   const link = add('a', source, sources);
-  link.href = revision ? wiki + '/w/index.php?oldid=' + revision : wiki + '/wiki/' + encodeURIComponent(sourcePage);
+  link.href = sourceUrl;
 }
 
 function readQuery() {
