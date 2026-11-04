@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Türkçenin Etimoloji Sözlüğü | Furkan Sağdıç</title>
-<meta name="description" content="Türkçe kelimelerin kökenlerini ara ve kaynak maddelerini incele.">
+<title>Etimoloji Sözlüğü | Furkan Sağdıç</title>
+<meta name="description" content="Türkçe, Arapça ve İngilizce kelimelerin kökenlerini ara ve kaynak maddelerini incele.">
 <link rel="icon" href="/brand-mark.svg">
 <link rel="stylesheet" href="/style.css?v=20261024-repair1">
 <script src="/theme.js?v=20261004-reading-rate-v2"></script>
@@ -15,7 +15,7 @@
 .etimoloji h1{font:clamp(2rem,6vw,3.8rem)/1.12 Georgia,serif;margin:.45em 0}
 .etimoloji label{display:block;font-weight:600;margin-bottom:.45rem}
 .etimoloji .controls{display:flex;gap:.5rem;flex-wrap:wrap}
-.etimoloji input,.etimoloji button{font:inherit;padding:.7rem;border:1px solid currentColor;border-radius:.4rem;background:transparent;color:inherit}
+.etimoloji input,.etimoloji button,.etimoloji select{font:inherit;padding:.7rem;border:1px solid currentColor;border-radius:.4rem;background:transparent;color:inherit}
 .etimoloji input{flex:1;min-width:12rem}
 .etimoloji button{cursor:pointer}
 .etimoloji a{text-decoration:underline;text-underline-offset:.18em}
@@ -26,14 +26,14 @@
 <body>
 <main class="etimoloji" id="icerik">
 <nav aria-label="Site"><a href="/">Ana sayfa</a> · <a href="/arsiv/">Arşiv</a></nav>
-<header><span class="eyebrow">KELİMELERİN TARİHİ</span><h1>Türkçenin Etimoloji Sözlüğü</h1><p>Bir kelime yaz, Türkçeye hangi biçimden ve hangi dilden geldiğini kaynak maddesinde izle.</p></header>
+<header><span class="eyebrow">KELİMELERİN TARİHİ</span><h1>Etimoloji Sözlüğü</h1><p>Türkçe, Arapça veya İngilizce bir kelime ara ve kökenini kaynak maddesinde incele.</p></header>
 <form id="etimoloji-form" role="search">
-<label for="kelime">Türkçe kelime</label>
+<label for="dil">Kelimenin dili</label><select id="dil" name="dil"><option value="tr">Türkçe</option><option value="ar">Arapça</option><option value="en">İngilizce</option></select><label for="kelime">Kelime</label>
 <div class="controls"><input id="kelime" name="q" type="search" placeholder="Ör. mecmua" autocomplete="off" required maxlength="80"><button>Ara</button></div>
 </form>
-<p class="examples">Örnek maddeler <a href="?q=mecmua">mecmua</a><a href="?q=kitap">kitap</a><a href="?q=etimoloji">etimoloji</a></p>
+<p class="examples">Örnek maddeler <a href="?q=mecmua">mecmua</a><a href="?q=kitap">kitap</a><a href="?q=etimoloji">etimoloji</a><a href="?dil=ar&amp;q=%D9%83%D8%AA%D8%A7%D8%A8" lang="ar" dir="rtl">كتاب</a><a href="?dil=en&amp;q=bridge" lang="en">bridge</a></p>
 <p id="durum" role="status"></p>
 <article id="madde" class="entry" hidden></article>
-<p>Çevrimiçi maddeler Türkçe Vikisözlük’ten alınır. Kaynak bağlantısından maddenin tamamını, düzenleme geçmişini ve lisansını inceleyebilirsin.</p>
+<p>Çevrimiçi maddeler Vikisözlük’ten alınır. Arapça ve İngilizce maddelerde kaynak açıklaması İngilizce gösterilir. Kaynak bağlantısından maddenin tamamını, düzenleme geçmişini ve lisansını inceleyebilirsin.</p>
 </main>
 </body></html>
