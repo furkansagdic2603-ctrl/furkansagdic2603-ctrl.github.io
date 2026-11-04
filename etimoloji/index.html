@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="tr" data-hero="tezhip">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Türkçenin Etimoloji Sözlüğü | Furkan Sağdıç</title>
+<meta name="description" content="Türkçe kelimelerin kökenlerini ara ve kaynak maddelerini incele.">
+<link rel="icon" href="/brand-mark.svg">
+<link rel="stylesheet" href="/style.css?v=20261024-repair1">
+<script src="/theme.js?v=20261004-reading-rate-v2"></script>
+<script src="./sozluk.js" defer></script>
+<style>
+.etimoloji{width:min(760px,calc(100% - 32px));margin:2rem auto 5rem}
+.etimoloji header{border-block:4px double currentColor;padding:1.5rem 0;margin:1.5rem 0}
+.etimoloji h1{font:clamp(2rem,6vw,3.8rem)/1.12 Georgia,serif;margin:.45em 0}
+.etimoloji label{display:block;font-weight:600;margin-bottom:.45rem}
+.etimoloji .controls{display:flex;gap:.5rem;flex-wrap:wrap}
+.etimoloji input,.etimoloji button{font:inherit;padding:.7rem;border:1px solid currentColor;border-radius:.4rem;background:transparent;color:inherit}
+.etimoloji input{flex:1;min-width:12rem}
+.etimoloji button{cursor:pointer}
+.etimoloji a{text-decoration:underline;text-underline-offset:.18em}
+.etimoloji .entry{margin-top:1rem;padding:1rem;border:1px solid currentColor;border-radius:.45rem;overflow-wrap:anywhere}
+.etimoloji .examples{display:flex;gap:.8rem;flex-wrap:wrap}
+</style>
+</head>
+<body>
+<main class="etimoloji" id="icerik">
+<nav aria-label="Site"><a href="/">Ana sayfa</a> · <a href="/arsiv/">Arşiv</a></nav>
+<header><span class="eyebrow">KELİMELERİN TARİHİ</span><h1>Türkçenin Etimoloji Sözlüğü</h1><p>Bir kelime yaz, Türkçeye hangi biçimden ve hangi dilden geldiğini kaynak maddesinde izle.</p></header>
+<form id="etimoloji-form" role="search">
+<label for="kelime">Türkçe kelime</label>
+<div class="controls"><input id="kelime" name="q" type="search" placeholder="Ör. mecmua" autocomplete="off" required maxlength="80"><button>Ara</button></div>
+</form>
+<p class="examples">Örnek maddeler <a href="?q=mecmua">mecmua</a><a href="?q=kitap">kitap</a><a href="?q=etimoloji">etimoloji</a></p>
+<p id="durum" role="status"></p>
+<article id="madde" class="entry" hidden></article>
+<p>Çevrimiçi maddeler Türkçe Vikisözlük’ten alınır. Kaynak bağlantısından maddenin tamamını, düzenleme geçmişini ve lisansını inceleyebilirsin.</p>
+</main>
+</body></html>
