@@ -1,0 +1,34 @@
+name: Build Sebilurresad text search
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'sebilurresad-arsivi/dizin.js'
+      - 'sebilurresad-arsivi/build-search.py'
+      - '.github/workflows/sebilurresad-search.yml'
+permissions:
+  contents: write
+concurrency:
+  group: sebilurresad-search
+  cancel-in-progress: false
+jobs:
+  index:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python3 sebilurresad-arsivi/build-search.py --output "$RUNNER_TEMP/archive-search"
+      - name: Publish generated index
+        run: |
+          git config user.name github-actions[bot]
+          git config user.email 41898282+github-actions[bot]@users.noreply.github.com
+          git switch --orphan archive-search
+          cp "$RUNNER_TEMP/archive-search/"*.json.gz .
+          git add -- *.json.gz
+          git commit -m 'Build Sebilurresad PDF search index'
+          git fetch origin archive-search || true
+          git push --force-with-lease origin HEAD:refs/heads/archive-search

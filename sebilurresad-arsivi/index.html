@@ -5,6 +5,7 @@
 
 .search-box{padding:18px;border:1px solid var(--line);border-radius:10px;margin-bottom:22px}.search-box h2{font:normal 27px Georgia,serif;margin:0 0 8px}.filters{display:grid;grid-template-columns:2fr 2fr repeat(3,1fr);gap:8px}.filters label{font-size:12px;font-weight:600}.filters input,.filters select{display:block;width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font:inherit;color:inherit;background:var(--paper)}.result{padding:12px 0;border-top:1px solid var(--line)}.result h3{font-size:16px;margin:0}.result p{margin:3px 0;font-size:13px}.search-box button{padding:7px 12px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:inherit;cursor:pointer}.pagination[hidden]{display:none}.pagination{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}#archive-count{font-size:13px}@media(max-width:650px){.filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 .topic-filters[hidden]{display:none}.topic-help[hidden]{display:none}.topic-filters{margin-top:12px;grid-template-columns:repeat(3,minmax(0,1fr))}.topic-badges{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}.topic-badges button{font-size:11px;padding:4px 8px}.topic-badges span{font-size:11px;align-self:center}.topic-help{font-size:12px}@media(max-width:650px){.topic-filters{grid-template-columns:1fr 1fr}}
+.search-box details{padding:8px 0}.search-box summary{font-weight:600;cursor:pointer}.search-box details input,.search-box details select{max-width:100%;margin:4px;padding:6px;color:inherit;background:var(--paper);border:1px solid var(--line)}
 </style></head><body><main>
 <nav aria-label="Site"><a href="/">Ana sayfa</a> · <a href="/kitap-notlari/">Kitap notları</a></nav>
 <header><div class="eyebrow">MECMUA ARŞİVİ · PDF KATALOĞU</div><h1>Sırâtımüstakîm ve Sebîlürreşâd</h1><p>Bağcılar Belediyesi’nin yayımladığı külliyatın 25 cildi. Her cilt için Latin harfli çevriyazı ve Osmanlıca nüsha bağlantısı yer alır.</p></header>
@@ -56,7 +57,7 @@
 <tr><th scope="row">25. cilt</th><td>Sebîlürreşâd</td><td><a href="https://www.bagcilar.bel.tr/Files/eKitap/siratimustakim_sebilurresad/turkce/cilt_25.pdf" aria-label="25. cilt Latin harfli PDF">PDF’yi aç</a></td><td><a href="https://www.bagcilar.bel.tr/Files/eKitap/siratimustakim_sebilurresad/osmanlica/cilt_25.pdf" aria-label="25. cilt Osmanlıca PDF">PDF’yi aç</a></td></tr>
 </tbody></table></div>
 <footer>PDF’ler Bağcılar Belediyesi’nin sunucusundan açılır. <a href="https://www.bagcilar.bel.tr/BBImages/Slider/Image/siratimustakimvesebilurresad.pdf">Belediyenin kaynak dizini</a></footer>
-</main><script src="dizin.js" defer></script><script src="konular.js" defer></script><script>
+</main><script src="dizin.js" defer></script><script src="konular.js" defer></script><script src="archive-features.js" defer></script><script>
 document.addEventListener('DOMContentLoaded',async()=>{
  const get=id=>document.getElementById(id);
  const status=get('archive-count'),results=get('archive-results');
@@ -133,11 +134,34 @@ document.addEventListener('DOMContentLoaded',async()=>{
   a.href=key?'?'+new URLSearchParams({[key]:value}):'./';
   return a;
  }
- if(selectedArticle||selectedIssue||signature){
+ const features=typeof installArchiveFeatures==='function'
+  ? installArchiveFeatures({rows,topics,normalize,get,viewLink,render:()=>{refreshTopics();render();}}) : null;
+ const person=params.get('kisi');
+ let roleField;
+ function refreshTopics(){
+  const oldGroup=groupField.value,oldTopic=topicField.value;
+  groupField.replaceChildren(new Option('Tüm kategoriler',''));
+  for(const group of new Set(topics.map(topic=>topic[0])))groupField.add(new Option(group));
+  groupField.value=oldGroup;
+  fillTopics();
+  topicField.value=oldTopic;
+ }
+ if(features){refreshTopics();features.installTextSearch();}
+ if(selectedArticle||selectedIssue||signature||person){
   const view=document.createElement('section');
   const title=document.createElement('h2');
-  title.textContent=selectedArticle?'Yazı fişi':selectedIssue?selectedIssue.issue+'. sayı · '+selectedIssue.date:'Dizindeki imza: '+signature;
+  title.textContent=selectedArticle?'Yazı fişi':selectedIssue?selectedIssue.issue+'. sayı · '+selectedIssue.date:person?'Yazar dosyası · '+person:'Dizindeki imza: '+signature;
   view.append(title,viewLink('Arşive dön'));
+  if(person&&features?.people.has(person)){
+   const variants=document.createElement('p');
+   variants.textContent='Dizindeki imzalar ve atıflar: '+[...features.people.get(person)].join(' · ');
+   roleField=document.createElement('select');
+   roleField.setAttribute('aria-label','Katkı rolü');
+   roleField.add(new Option('Tüm roller',''));
+   for(const role of new Set(rows.flatMap(row=>row.contributors.filter(credit=>credit.person===person).map(credit=>credit.role))))roleField.add(new Option(role));
+   roleField.onchange=()=>{page=0;render();};
+   view.append(variants,roleField);
+  }
   if(selectedIssue){
    const index=issues.indexOf(selectedIssue);
    for(const [offset,label] of [[-1,'Önceki sayı'],[1,'Sonraki sayı']]){
@@ -151,6 +175,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
   const [q,a,v,i,d]=fields.map(x=>x.value.trim());
   const found=selectedArticle?[selectedArticle]:rows.filter(r=>
    (!selectedIssue||issueKey(r)===issueKey(selectedIssue))&&
+   (!person||r.contributors?.some(credit=>credit.person===person&&(!roleField?.value||roleField.value===credit.role)))&&
    (!signature||selectedIssue||r.author===signature)&&matches(r.q,normalize(q))&&matches(r.a,normalize(a))&&(!v||v===r.volume)&&issueMatches(r.issue,i)&&matches(r.d,normalize(d))&&topicMatches(r));
   const size=30,total=Math.ceil(found.length/size);
   page=Math.min(page,Math.max(0,total-1));
@@ -165,6 +190,7 @@ document.addEventListener('DOMContentLoaded',async()=>{
    const volumeLink=document.querySelector('tbody a[href$="/turkce/cilt_'+row.volume+'.pdf"]');
    if(volumeLink){link.href=volumeLink.href+(row.pdf?'#page='+row.pdf:'');link.textContent=row.pdf?'PDF’de ilgili sayfayı aç':'Cilt PDF’sini aç';}
    article.append(heading,author,meta);
+   features?.decorate(article,row);
    if(row.subject){
     const [primary,extra,mode]=row.subject;
     const badges=document.createElement('div');
