@@ -2,9 +2,25 @@
 <html lang="tr"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Sırâtımüstakîm ve Sebîlürreşâd PDF Arşivi | Furkan Sağdıç</title>
 <style>
 :root{color-scheme:light;--paper:#f6f2e9;--ink:#233d37;--line:#ddd6c5;--accent:#815b32}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 system-ui,sans-serif}main{width:min(900px,calc(100% - 32px));margin:32px auto 56px}a{color:#725026;text-underline-offset:3px}a:focus-visible{outline:2px solid var(--accent);outline-offset:4px}nav{font-size:13px}header{margin:22px 0;padding:25px 0;border-block:double 4px var(--line)}h1{font:normal clamp(29px,5vw,53px)/1.12 Georgia,serif;margin:6px 0 15px}.eyebrow{font-size:11px;font-weight:700;letter-spacing:1.5px;color:var(--accent)}.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:10px;background:#fffdf8}table{width:100%;border-collapse:collapse;text-align:left}th,td{padding:10px 14px;border-bottom:1px solid var(--line)}thead{background:#e9ebe2}tbody tr:nth-child(even){background:#f9f6ee}tbody tr:last-child>*{border-bottom:0}td a{white-space:nowrap}footer{font-size:13px;margin-top:20px}@media(max-width:500px){th,td{padding:8px 6px;font-size:12px}}@media(prefers-color-scheme:dark){:root{color-scheme:dark;--paper:#172520;--ink:#f4edde;--line:#47584c;--accent:#e3bd84}a{color:#e3bd84}.table-wrap{background:#22352d}thead{background:#2d4338}tbody tr:nth-child(even){background:#263a31}}
+
+.search-box{padding:18px;border:1px solid var(--line);border-radius:10px;margin-bottom:22px}.search-box h2{font:normal 27px Georgia,serif;margin:0 0 8px}.filters{display:grid;grid-template-columns:2fr 2fr repeat(3,1fr);gap:8px}.filters label{font-size:12px;font-weight:600}.filters input,.filters select{display:block;width:100%;padding:8px;border:1px solid var(--line);border-radius:5px;font:inherit;color:inherit;background:var(--paper)}.result{padding:12px 0;border-top:1px solid var(--line)}.result h3{font-size:16px;margin:0}.result p{margin:3px 0;font-size:13px}.search-box button{padding:7px 12px;border:1px solid var(--line);border-radius:5px;background:var(--paper);color:inherit;cursor:pointer}.pagination[hidden]{display:none}.pagination{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:12px}#archive-count{font-size:13px}@media(max-width:650px){.filters{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style></head><body><main>
 <nav aria-label="Site"><a href="/">Ana sayfa</a> · <a href="/kitap-notlari/">Kitap notları</a></nav>
 <header><div class="eyebrow">MECMUA ARŞİVİ · PDF KATALOĞU</div><h1>Sırâtımüstakîm ve Sebîlürreşâd</h1><p>Bağcılar Belediyesi’nin yayımladığı külliyatın 25 cildi. Her cilt için Latin harfli çevriyazı ve Osmanlıca nüsha bağlantısı yer alır.</p></header>
+<section class="search-box" aria-labelledby="search-title">
+<h2 id="search-title">Mecmua yazılarında ara</h2>
+<p>İçindekiler kayıtlarından yazı, yazar, cilt, sayı ve tarihle arama yap. Sonuçlarda basılı sayfa ve PDF sayfası ayrı gösterilir.</p>
+<div class="filters">
+<label>Yazı başlığı<input id="query" type="search" placeholder="Ör. Vahdet-i vücûd"></label>
+<label>Yazar / imza<input id="author" type="search" placeholder="Ör. Mehmed Âkif"></label>
+<label>Cilt<select id="volume"><option value="">Tüm ciltler</option></select></label>
+<label>Sayı<input id="issue" type="search" inputmode="numeric" placeholder="Ör. 157"></label>
+<label>Tarih<input id="date" type="search" placeholder="Ör. 1912"></label>
+</div>
+<p id="archive-count" role="status">Dizin yükleniyor…</p><div id="archive-results"></div>
+<div class="pagination" id="pagination" hidden><button id="prev" type="button">Önceki</button><span id="position"></span><button id="next" type="button">Sonraki</button></div>
+</section>
+<h2>Ciltlerin PDF’leri</h2>
 <div class="table-wrap"><table aria-label="Külliyatın 25 cildi"><thead><tr><th scope="col">Cilt</th><th scope="col">Mecmua</th><th scope="col">Latin harfli</th><th scope="col">Osmanlıca</th></tr></thead><tbody>
 <tr><th scope="row">1. cilt</th><td>Sırâtımüstakîm</td><td><a href="https://www.bagcilar.bel.tr/Files/eKitap/siratimustakim_sebilurresad/turkce/cilt_1.pdf" aria-label="1. cilt Latin harfli PDF">PDF’yi aç</a></td><td><a href="https://www.bagcilar.bel.tr/Files/eKitap/siratimustakim_sebilurresad/osmanlica/cilt_1.pdf" aria-label="1. cilt Osmanlıca PDF">PDF’yi aç</a></td></tr>
 <tr><th scope="row">2. cilt</th><td>Sırâtımüstakîm</td><td><a href="https://www.bagcilar.bel.tr/Files/eKitap/siratimustakim_sebilurresad/turkce/cilt_2.pdf" aria-label="2. cilt Latin harfli PDF">PDF’yi aç</a></td><td><a href="https://www.bagcilar.bel.tr/Files/eKitap/siratimustakim_sebilurresad/osmanlica/cilt_2.pdf" aria-label="2. cilt Osmanlıca PDF">PDF’yi aç</a></td></tr>
@@ -33,4 +49,64 @@
 <tr><th scope="row">25. cilt</th><td>Sebîlürreşâd</td><td><a href="https://www.bagcilar.bel.tr/Files/eKitap/siratimustakim_sebilurresad/turkce/cilt_25.pdf" aria-label="25. cilt Latin harfli PDF">PDF’yi aç</a></td><td><a href="https://www.bagcilar.bel.tr/Files/eKitap/siratimustakim_sebilurresad/osmanlica/cilt_25.pdf" aria-label="25. cilt Osmanlıca PDF">PDF’yi aç</a></td></tr>
 </tbody></table></div>
 <footer>PDF’ler Bağcılar Belediyesi’nin sunucusundan açılır. <a href="https://www.bagcilar.bel.tr/BBImages/Slider/Image/siratimustakimvesebilurresad.pdf">Belediyenin kaynak dizini</a></footer>
-</main></body></html>
+</main><script src="dizin.js" defer></script><script>
+document.addEventListener('DOMContentLoaded',async()=>{
+ const get=id=>document.getElementById(id);
+ const status=get('archive-count'),results=get('archive-results');
+ const normalize=value=>String(value??'').toLocaleLowerCase('tr').replace(/ı/g,'i').normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/[’‘']/g,'').replace(/[^\p{L}\p{N}]+/gu,' ').trim();
+ const fields=['query','author','volume','issue','date'].map(get);
+ let rows,page=0;
+ try{
+  const bytes=Uint8Array.from(atob(window.mecmuaDizini),c=>c.charCodeAt(0));
+  const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+  const data=await new Response(stream).json();
+  rows=Object.entries(data).flatMap(([volume,entries])=>{
+   const option=new Option(volume+'. cilt',volume);
+   get('volume').add(option);
+   return entries.map(([issue,date,title,author,printed,pdf])=>({volume,issue,date,title,author,printed,pdf,q:normalize(title),a:normalize(author),d:normalize(date)}));
+  });
+  const coverage=Object.keys(data).length;
+  const missing=Array.from({length:25},(_,i)=>i+1).filter(n=>!Object.hasOwn(data,n));
+  const note=document.createElement('p');
+  note.textContent=coverage+' / 25 cilt dizinde. '+(missing.length?'Dizini beklenen ciltler: '+missing.join(', ')+'. ':'')+'Yazar alanı, içindekilerdeki imzayı aktarır. PDF bağlantıları Latin harfli çevriyazıya gider.';
+  status.before(note);
+ }catch{
+  status.textContent='Arama dizini yüklenemedi. Cilt PDF’lerine aşağıdan ulaşabilirsin.';
+  return;
+ }
+ const matches=(haystack,query)=>!query||query.split(' ').every(word=>haystack.includes(word));
+ function issueMatches(issue,query){
+  if(!query)return true;
+  if(issue===query)return true;
+  const parts=issue.match(/\d+/g)?.map(Number)??[];
+  return /^\d+$/.test(query)&&parts.length===2&&Number(query)>=parts[0]&&Number(query)<=parts[1];
+ }
+ function render(){
+  const [q,a,v,i,d]=fields.map(x=>x.value.trim());
+  const found=rows.filter(r=>matches(r.q,normalize(q))&&matches(r.a,normalize(a))&&(!v||v===r.volume)&&issueMatches(r.issue,i)&&matches(r.d,normalize(d)));
+  const size=30,total=Math.ceil(found.length/size);
+  page=Math.min(page,Math.max(0,total-1));
+  status.textContent=found.length.toLocaleString('tr-TR')+' sonuç'+(found.length?'':' · Başka bir başlık, imza veya tarih deneyebilirsin.');
+  results.replaceChildren();
+  for(const row of found.slice(page*size,(page+1)*size)){
+   const article=document.createElement('article');article.className='result';
+   const heading=document.createElement('h3');heading.textContent=row.title;
+   const author=document.createElement('p');author.textContent=row.author||'Yazar kaydı yok';
+   const meta=document.createElement('p');meta.textContent=[row.volume+'. cilt',row.issue+'. sayı',row.date,'Basılı s. '+row.printed,row.pdf?'PDF s. '+row.pdf:''].filter(Boolean).join(' · ');
+   const link=document.createElement('a');
+   const volumeLink=document.querySelector('tbody a[href$="/turkce/cilt_'+row.volume+'.pdf"]');
+   if(volumeLink){link.href=volumeLink.href+(row.pdf?'#page='+row.pdf:'');link.textContent=row.pdf?'PDF’de ilgili sayfayı aç':'Cilt PDF’sini aç';}
+   article.append(heading,author,meta);
+   if(volumeLink)article.append(link);
+   results.append(article);
+  }
+  get('pagination').hidden=total<=1;
+  get('position').textContent=(page+1)+' / '+total;
+  get('prev').disabled=page===0;
+  get('next').disabled=page+1>=total;
+ }
+ for(const field of fields)field.addEventListener('input',()=>{page=0;render();});
+ for(const [id,delta] of [['prev',-1],['next',1]])get(id).onclick=()=>{page+=delta;render();status.scrollIntoView({block:'start'});};
+ render();
+});
+</script></body></html>
