@@ -129,6 +129,13 @@ function installArchiveFeatures({rows, topics, normalize, get, viewLink, render}
    list.append(item);
   }
   readings.append(list);
+  if (title==='Kadın ve aile tartışmaları') {
+   const related=node('p','Sitedeki ilgili okuma · ');
+   const link=node('a','Kadınlar – Arthur Schopenhauer (Mütercim: Şerefüddin)');
+   link.href='/kitap-notlari/sirat-i-mustakim-sebil-rresad-mecmuasi/kadinlar-arthur-schopenhauer/';
+   related.append(link);
+   readings.append(related);
+  }
  }
 
  const review=panel('Editör incelemesi');
